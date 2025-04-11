@@ -67,7 +67,7 @@ sprite_frames = SubResource("SpriteFrames_lquwl")
 [node name="Mon1" type="Node3D" parent="Player/Artlings" groups=["mon"]]
 visible = false
 script = ExtResource("3_kry3j")
-max_hp = 100
+max_hp = 50
 strength = 10
 defense = 5
 intelligence = 5
@@ -104,7 +104,7 @@ text = "Hello"
 [node name="ExampleNpcMon" type="Node3D" parent="Npc" groups=["mon"]]
 visible = false
 script = ExtResource("6_21xkr")
-max_hp = 100
+max_hp = 50
 strength = 5
 defense = 5
 intelligence = 5

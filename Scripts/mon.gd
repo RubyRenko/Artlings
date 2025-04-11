@@ -55,23 +55,30 @@ func attack(target, move):
 			return "Missed!"
 
 func calculate_phys_damage(amount):
-	amount = amount * strength/5.0
+	amount = (amount * strength)/30.0
+	amount += randf_range(-amount/20, amount/20)
+	print(amount)
 	return amount
 
 func calculate_mnd_damage(amount):
-	amount = amount * intelligence/5.0
+	amount = (amount * intelligence)/30.0
+	amount += randf_range(-amount/20, amount/20)
+	print(amount)
 	return amount
 
 func take_phys_damage(amount):
 	amount -= ceili(defense/5.0)
+	amount = ceili(amount)
 	if amount > 0:
 		health -= amount
+	
 	#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
 	var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
 	return output_line
 
 func take_mnd_damage(amount):
 	amount -= ceili(mind/5.0)
+	amount = ceili(amount)
 	if amount > 0:
 		health -= amount
 	#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")

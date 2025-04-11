@@ -26,7 +26,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Smoke" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 5
+damage = 10
 accuracy = 100
 type = "Ink"
 dmg_type = "int"
@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Firespit" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 10
+damage = 20
 accuracy = 100
 type = "Fire"
 dmg_type = "int"
