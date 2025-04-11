@@ -8,8 +8,6 @@ func _ready():
 	load_move(moves.get_move("Charge"))
 	load_move(moves.get_move("Smoke"))
 	load_move(moves.get_move("Firespit"))
-	if level == 1:
-		set_stats(base_hp, base_str, base_def, base_int, base_mnd, base_spd)
 	health = max_hp
 	print(moves_list)
 

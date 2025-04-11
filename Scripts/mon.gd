@@ -1,30 +1,22 @@
 extends Node
 class_name Mon
 
-#stats
-static var max_hp : int
-var health : int = max_hp
-static var strength : int
-static var defense : int
-static var intelligence : int
-static var mind : int
-static var speed : int
-
 #base stats
-@export var base_hp : int
-@export var base_str : int
-@export var base_def : int
-@export var base_int : int
-@export var base_mnd : int
-@export var base_spd : int
+@export var max_hp : int
+var health : int = max_hp
+@export var strength : int
+@export var defense : int
+@export var intelligence : int
+@export var mind : int
+@export var speed : int
 @export var element : String
 
 #master list
 @onready var master_move_list = load("res://move_list.tscn")
 
 #progression
-static var level = 1
-static var exp = 0
+var level = 1
+var exp = 0
 var moves_list : Dictionary
 var learnable_moves : Array 
 var status : String = "None"

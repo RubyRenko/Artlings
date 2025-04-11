@@ -7,6 +7,13 @@
 
 [node name="BaseMon" type="Node2D" groups=["mon"]]
 script = ExtResource("1_1yjil")
+max_hp = null
+strength = null
+defense = null
+intelligence = null
+mind = null
+speed = null
+element = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ixno6")

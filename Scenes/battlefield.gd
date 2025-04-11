@@ -15,12 +15,14 @@ var battle_won = false
 func load_mons(player_inp, enemy_inp):
 	if player_inp.is_in_group("mon"):
 		player_mon = player_inp
-		player_mon.position = player_spawn.position
+		player_mon.global_position = player_spawn.global_position
 		player_mon.visible = true
+		print(player_mon.level)
 	if enemy_inp.is_in_group("mon"):
 		enemy_mon = enemy_inp
-		enemy_mon.position = enemy_spawn.position
+		enemy_mon.global_position = enemy_spawn.global_position
 		enemy_mon.visible = true
+		print(enemy_mon.level)
 
 func load_moves(move_list):
 	move_options.load_moves(move_list)
@@ -37,20 +39,26 @@ func _process(delta):
 		if battle_won:
 			battle_desc.set_text("Battle won!")
 			player_mon.add_experience(100)
-			print("Player level: " + str(player_mon.level))
+			#print("Player level: " + str(player_mon.level))
 		else:
 			battle_desc.set_text("Battle lost...")
-			player_mon.add_experience(100)
-			print("Player level: " + str(player_mon.level))
+			#player_mon.add_experience(100)
+			#print("Player level: " + str(player_mon.level))
+		player_mon.visible = false
+		enemy_mon.visible = false
+		player_mon.health = player_mon.max_hp
+		enemy_mon.health = enemy_mon.max_hp
+		battle_prog = -3
+	elif Input.is_action_just_pressed("progress_battle") && battle_prog == -3:
 		queue_free()
-	elif Input.is_action_just_pressed("progress_battle") && battle_prog != -1:
+	elif Input.is_action_just_pressed("progress_battle") && battle_prog > -1:
 		var current_command = commands[battle_prog]
 		handle_turn(current_command)
 	
-	if player_mon.health <= 0:
+	if player_mon.health <= 0 && battle_prog != -3:
 		commands = []
 		battle_prog = -2
-	elif enemy_mon.health <= 0:
+	elif enemy_mon.health <= 0 && battle_prog != -3:
 		battle_won = true
 		commands = []
 		battle_prog = -2

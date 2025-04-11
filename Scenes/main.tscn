@@ -67,12 +67,12 @@ sprite_frames = SubResource("SpriteFrames_lquwl")
 [node name="Mon1" type="Node3D" parent="Player/Artlings" groups=["mon"]]
 visible = false
 script = ExtResource("3_kry3j")
-base_hp = 100
-base_str = 10
-base_def = 5
-base_int = 10
-base_mnd = 5
-base_spd = 10
+max_hp = 100
+strength = 10
+defense = 5
+intelligence = 5
+mind = 5
+speed = 10
 element = "Normal"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player/Artlings/Mon1"]
@@ -104,12 +104,13 @@ text = "Hello"
 [node name="ExampleNpcMon" type="Node3D" parent="Npc" groups=["mon"]]
 visible = false
 script = ExtResource("6_21xkr")
-base_hp = 100
-base_str = 5
-base_def = 5
-base_int = 5
-base_mnd = 5
-base_spd = 5
+max_hp = 100
+strength = 5
+defense = 5
+intelligence = 5
+mind = 5
+speed = 5
+element = "Normal"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Npc/ExampleNpcMon"]
 sprite_frames = SubResource("SpriteFrames_21xkr")
@@ -117,6 +118,9 @@ sprite_frames = SubResource("SpriteFrames_21xkr")
 [node name="HpBar" type="Label3D" parent="Npc/ExampleNpcMon"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.654247, 0)
 text = "HP: "
+
+[node name="BattleMarker" type="Marker3D" parent="Npc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101146, 2.33541)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kry3j")
