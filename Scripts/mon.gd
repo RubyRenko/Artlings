@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 class_name Mon
 
 #stats
@@ -113,6 +113,14 @@ func set_stats(hp, str, def, intel, mnd, spd):
 	mind = mnd
 	speed = spd
 
+func add_stats(hp, str, def, intel, mnd, spd):
+	max_hp += hp
+	strength += str
+	defense += def
+	intelligence += intel
+	mind += mnd
+	speed += spd
+
 func load_move(move):
 	if move.name in learnable_moves && len(moves_list) < 4:
 		moves_list[move.name] = move
@@ -122,11 +130,5 @@ func add_experience(amount):
 	#level up
 	if exp >= 100:
 		level += 1
-		max_hp += randi_range(0, 5)
-		health = max_hp
-		strength += randi_range(0, 5)
-		defense += randi_range(0, 5)
-		intelligence += randi_range(0, 5)
-		mind += randi_range(0, 5)
-		speed += randi_range(0, 5)
+		add_stats(randi_range(1,10), randi_range(0,5), randi_range(0,5), randi_range(0,5), randi_range(0,5), randi_range(0,5))
 		exp -= 100

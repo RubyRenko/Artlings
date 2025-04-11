@@ -1,9 +1,14 @@
 extends CharacterBody3D
 
 @onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var team_node = $Artlings
 var speed = 100.0
 var max_jump = 8.0
 var jump = false
+var team = []
+
+func _ready():
+	load_team()
 
 func _physics_process(delta):
 	var direction : Vector3
@@ -28,6 +33,10 @@ func _physics_process(delta):
 	velocity.z = direction.z * delta * speed
 	move_and_slide()
 
-
 func _on_npc_body_exited(body):
 	pass # Replace with function body.
+
+func load_team():
+	for child in team_node.get_children():
+		team.append(child)
+	print(team)

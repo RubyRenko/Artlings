@@ -1,30 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt5ap73wm1uxe"]
+[gd_scene load_steps=3 format=3 uid="uid://cjdb3swoa2pco"]
 
-[ext_resource type="Script" uid="uid://cypw05fu2t84k" path="res://Scenes/test.gd" id="1_qc4db"]
-[ext_resource type="PackedScene" uid="uid://bdvoxa7q4hfbw" path="res://base_mon.tscn" id="2_8od7v"]
-[ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="4_ys1qc"]
+[ext_resource type="Script" uid="uid://ixv0f8l0ianh" path="res://Scenes/battlefield.gd" id="1_7kn1h"]
+[ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="1_cm4q2"]
 
-[node name="Test" type="Node2D" groups=["battle"]]
-script = ExtResource("1_qc4db")
+[node name="Battlefield" type="Node3D" groups=["battle"]]
+script = ExtResource("1_7kn1h")
 
-[node name="BaseMon" parent="." instance=ExtResource("2_8od7v")]
-position = Vector2(208, 406)
-base_hp = 100
-base_str = 5
-base_def = 5
-base_int = 5
-base_mnd = 5
-base_spd = 5
+[node name="EnemyMonSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.1, 0)
 
-[node name="BaseMon2" parent="." instance=ExtResource("2_8od7v")]
-position = Vector2(864, 180)
-base_hp = 100
-base_str = 5
-base_def = 5
-base_int = 5
-base_mnd = 5
-base_spd = 5
-element = "Normal"
+[node name="PlayerMonSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -37,7 +23,7 @@ offset_top = -102.0
 offset_right = 412.0
 offset_bottom = -28.0
 grow_vertical = 0
-script = ExtResource("4_ys1qc")
+script = ExtResource("1_cm4q2")
 
 [node name="Move1" type="Button" parent="CanvasLayer/MoveOptions"]
 layout_mode = 2

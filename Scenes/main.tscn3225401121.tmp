@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=3 uid="uid://c8uwqccai6ipw"]
+
+[ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://dh6x4sp2a2aeq" path="res://Sprites/Wisteria.png" id="2_kry3j"]
+[ext_resource type="Script" uid="uid://be70qoerg2e18" path="res://npc.gd" id="3_21xkr"]
+[ext_resource type="Script" uid="uid://bvj6u655ja2xd" path="res://Scenes/mon_1.gd" id="3_kry3j"]
+[ext_resource type="Texture2D" uid="uid://brfcux56aqu0v" path="res://Sprites/Batch2Ax.png" id="4_6bp64"]
+[ext_resource type="Script" uid="uid://bv8ejghgsp7b8" path="res://Scenes/example_npc_mon.gd" id="6_21xkr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1bvp3"]
+radius = 0.567294
+height = 1.40815
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lquwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kry3j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kry3j"]
+albedo_color = Color(0.161704, 0.687606, 0.381523, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_6bp64"]
+material = SubResource("StandardMaterial3D_kry3j")
+size = Vector2(1, 0.1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6bp64")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1bvp3"]
+radius = 1.05442
+
+[sub_resource type="Environment" id="Environment_kry3j"]
+background_mode = 1
+background_color = Color(0.45338, 0.687618, 0.891915, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.497048, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14439, 0)
+script = ExtResource("1_jjvhh")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.952209, 0.305446, 0, -0.305446, 0.952209, 0, 0.834415, 2.38413)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000705719, 0)
+shape = SubResource("CapsuleShape3D_1bvp3")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
+pixel_size = 0.0015
+sprite_frames = SubResource("SpriteFrames_lquwl")
+
+[node name="Artlings" type="Node" parent="Player"]
+
+[node name="Mon1" type="Node3D" parent="Player/Artlings" groups=["mon"]]
+script = ExtResource("3_kry3j")
+base_hp = 100
+base_str = 10
+base_def = 5
+base_int = 10
+base_mnd = 5
+base_spd = 10
+element = "Normal"
+
+[node name="HpBar" type="MeshInstance3D" parent="Player/Artlings/Mon1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665954, 0)
+mesh = SubResource("QuadMesh_6bp64")
+skeleton = NodePath("")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player/Artlings/Mon1"]
+sprite_frames = SubResource("SpriteFrames_21xkr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.714379, 0.407022, -0.569206, -0.138299, 0.715264, 0.685034, 0.685956, 0.568095, -0.454679, 0, 6, 0)
+light_energy = 3.263
+light_indirect_energy = 2.131
+
+[node name="Npc" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46479, 0.524434, -4.40747)
+script = ExtResource("3_21xkr")
+
+[node name="Sprite3D" type="Sprite3D" parent="Npc"]
+texture = ExtResource("4_6bp64")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Npc"]
+shape = SubResource("SphereShape3D_1bvp3")
+
+[node name="Label3D" type="Label3D" parent="Npc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74948, 0)
+text = "Hello"
+
+[node name="ExampleNpcMon" type="Node3D" parent="Npc" groups=["mon"]]
+script = ExtResource("6_21xkr")
+base_hp = 100
+base_str = 5
+base_def = 5
+base_int = 5
+base_mnd = 5
+base_spd = 5
+
+[node name="HpBar" type="MeshInstance3D" parent="Npc/ExampleNpcMon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665954, 0)
+mesh = SubResource("QuadMesh_6bp64")
+skeleton = NodePath("")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Npc/ExampleNpcMon"]
+sprite_frames = SubResource("SpriteFrames_21xkr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kry3j")
+
+[connection signal="body_entered" from="Npc" to="Npc" method="_on_body_entered"]
+[connection signal="body_exited" from="Npc" to="Npc" method="_on_body_exited"]
+[connection signal="child_exiting_tree" from="Npc" to="Npc" method="_on_child_exiting_tree"]
