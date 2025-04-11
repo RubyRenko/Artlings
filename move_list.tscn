@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr48li1lo5dv0"]
+
+[ext_resource type="Script" uid="uid://dejokjcfi7xpi" path="res://move_list.gd" id="1_n4g2t"]
+[ext_resource type="Script" uid="uid://je6io23ym5wg" path="res://Scripts/move.gd" id="2_uqtxr"]
+
+[node name="MoveList" type="Node"]
+script = ExtResource("1_n4g2t")
+
+[node name="Thud" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = 20
+accuracy = 100
+type = "Normal"
+dmg_type = "str"
+desc = "Deals basic damage"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Charge" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = 40
+accuracy = 70
+type = "Normal"
+dmg_type = "str"
+desc = "Deals heavy damage with higher chance of missing"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Smoke" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = 5
+accuracy = 100
+type = "Ink"
+dmg_type = "int"
+effect = "Blind2"
+desc = "Deals a little damage and blinds"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Firespit" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = 10
+accuracy = 100
+type = "Fire"
+dmg_type = "int"
+effect = "Burn4"
+desc = "Deals a little damage and burns"
+metadata/_custom_type_script = "uid://je6io23ym5wg"

@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt5ap73wm1uxe"]
+
+[ext_resource type="Script" uid="uid://gh58yqx2vm3i" path="res://Scenes/label.gd" id="1_fvjmt"]
+[ext_resource type="Script" uid="uid://cypw05fu2t84k" path="res://Scenes/test.gd" id="1_qc4db"]
+[ext_resource type="PackedScene" uid="uid://bdvoxa7q4hfbw" path="res://base_mon.tscn" id="2_8od7v"]
+[ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="4_ys1qc"]
+
+[node name="Test" type="Node2D" groups=["battle"]]
+script = ExtResource("1_qc4db")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "test"
+script = ExtResource("1_fvjmt")
+
+[node name="BaseMon" parent="." instance=ExtResource("2_8od7v")]
+position = Vector2(208, 406)
+base_hp = 100
+base_str = 5
+base_def = 5
+base_int = 5
+base_mnd = 5
+base_spd = 5
+
+[node name="BaseMon2" parent="." instance=ExtResource("2_8od7v")]
+position = Vector2(864, 180)
+base_hp = 100
+base_str = 5
+base_def = 5
+base_int = 5
+base_mnd = 5
+base_spd = 5
+element = "Normal"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MoveOptions" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -102.0
+offset_right = 412.0
+offset_bottom = -28.0
+grow_vertical = 0
+script = ExtResource("4_ys1qc")
+
+[node name="Move1" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move2" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move3" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move4" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="BattleDesc" type="Label" parent="CanvasLayer"]
+offset_left = 470.0
+offset_top = 543.0
+offset_right = 1102.0
+offset_bottom = 625.0
+text = "Start of battle"
+
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
