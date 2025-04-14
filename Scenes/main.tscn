@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=14 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dh6x4sp2a2aeq" path="res://Sprites/Wisteria.png" id="2_kry3j"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://bvj6u655ja2xd" path="res://Scenes/mon_1.gd" id="3_kry3j"]
 [ext_resource type="Texture2D" uid="uid://brfcux56aqu0v" path="res://Sprites/Batch2Ax.png" id="4_6bp64"]
 [ext_resource type="Script" uid="uid://bv8ejghgsp7b8" path="res://Scenes/example_npc_mon.gd" id="6_21xkr"]
+[ext_resource type="Texture2D" uid="uid://dqu6gn70inii6" path="res://Sprites/Assets_Juice_WarriorBush.png" id="7_6bp64"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21xkr"]
+albedo_color = Color(0.145098, 0.396078, 0.121569, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1bvp3"]
 radius = 0.567294
@@ -44,6 +48,7 @@ background_color = Color(0.45338, 0.687618, 0.891915, 1)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.497048, 0)
+material_override = SubResource("StandardMaterial3D_21xkr")
 use_collision = true
 size = Vector3(20, 1, 20)
 
@@ -124,6 +129,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101146, 2.33541)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kry3j")
+
+[node name="BushTest" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.508701, 0.28244, -0.460537)
+
+[node name="Sprite3D" type="Sprite3D" parent="BushTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.460537, 0, 0.508701)
+billboard = 1
+texture = ExtResource("7_6bp64")
+
+[node name="Sprite3D2" type="Sprite3D" parent="BushTest"]
+billboard = 1
+texture = ExtResource("7_6bp64")
 
 [connection signal="body_entered" from="Npc" to="Npc" method="_on_body_entered"]
 [connection signal="body_exited" from="Npc" to="Npc" method="_on_body_exited"]

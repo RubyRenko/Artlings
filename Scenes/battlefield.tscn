@@ -18,10 +18,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 17.0
-offset_top = -102.0
-offset_right = 412.0
-offset_bottom = -28.0
+offset_left = 22.0
+offset_top = -114.0
+offset_right = 417.0
+offset_bottom = -40.0
 grow_vertical = 0
 script = ExtResource("1_cm4q2")
 
@@ -45,11 +45,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "None"
 
-[node name="BattleDesc" type="Label" parent="CanvasLayer"]
-offset_left = 470.0
-offset_top = 543.0
-offset_right = 1102.0
-offset_bottom = 625.0
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 440.0
+offset_top = 516.0
+offset_right = 1112.0
+offset_bottom = 627.0
+
+[node name="BattleDesc" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 659.0
+offset_bottom = 94.0
 text = "Start of battle"
 
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]

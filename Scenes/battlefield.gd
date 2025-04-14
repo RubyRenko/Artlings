@@ -3,7 +3,7 @@ extends Node3D
 @onready var player_spawn = $PlayerMonSpawn
 @onready var enemy_spawn = $EnemyMonSpawn
 @onready var move_options = $CanvasLayer/MoveOptions
-@onready var battle_desc = $CanvasLayer/BattleDesc
+@onready var battle_desc = $CanvasLayer/Panel/BattleDesc
 
 var player_mon : Node3D
 var enemy_mon : Node3D
@@ -11,6 +11,7 @@ var enemy_mon : Node3D
 var battle_prog = -1
 var commands = []
 var battle_won = false
+var test : Dictionary
 
 func load_mons(player_inp, enemy_inp):
 	if player_inp.is_in_group("mon"):
@@ -24,8 +25,9 @@ func load_mons(player_inp, enemy_inp):
 		enemy_mon.visible = true
 		print(enemy_mon.level)
 
-func load_moves(move_list):
-	move_options.load_moves(move_list)
+func load_moves():
+	print(player_mon.moves_list)
+	move_options.load_moves(player_mon.moves_list)
 
 func _process(delta):
 	if battle_prog >= len(commands):

@@ -31,6 +31,7 @@ func _physics_process(delta):
 	velocity.y += delta * gravity
 	velocity.x = direction.x * delta * speed
 	velocity.z = direction.z * delta * speed
+	
 	move_and_slide()
 
 func _on_npc_body_exited(body):

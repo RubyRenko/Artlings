@@ -1,7 +1,7 @@
 extends Area3D
 
 @onready var battle_test = load("res://Scenes/battlefield.tscn")
-@onready var team = [$ExampleNpcMon]
+@onready var mon = $ExampleNpcMon
 @onready var battle_pos = $BattleMarker.position
 var battling = false
 
@@ -17,8 +17,8 @@ func _on_body_entered(body):
 		var battle = battle_test.instantiate()
 		battle.position = battle_pos
 		add_child(battle)
-		battle.load_mons(body.team[0], team[0])
-		battle.load_moves(body.team[0].moves_list)
+		battle.load_mons(body.team[0], mon)
+		battle.load_moves()
 		battling = true
 
 func _on_body_exited(body):
