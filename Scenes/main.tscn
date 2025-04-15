@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=15 format=3 uid="uid://c8uwqccai6ipw"]
 
+[ext_resource type="PackedScene" uid="uid://bvt15nvckd8on" path="res://Sprites/old_tree.fbx" id="1_344ge"]
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dh6x4sp2a2aeq" path="res://Sprites/Wisteria.png" id="2_kry3j"]
+[ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
 [ext_resource type="Script" uid="uid://be70qoerg2e18" path="res://npc.gd" id="3_21xkr"]
-[ext_resource type="Script" uid="uid://bvj6u655ja2xd" path="res://Scenes/mon_1.gd" id="3_kry3j"]
 [ext_resource type="Texture2D" uid="uid://brfcux56aqu0v" path="res://Sprites/Batch2Ax.png" id="4_6bp64"]
 [ext_resource type="Script" uid="uid://bv8ejghgsp7b8" path="res://Scenes/example_npc_mon.gd" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://dqu6gn70inii6" path="res://Sprites/Assets_Juice_WarriorBush.png" id="7_6bp64"]
@@ -26,6 +27,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_1bvp3"]
+radius = 1.05442
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
 animations = [{
 "frames": [{
@@ -37,14 +41,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_1bvp3"]
-radius = 1.05442
-
 [sub_resource type="Environment" id="Environment_kry3j"]
 background_mode = 1
 background_color = Color(0.45338, 0.687618, 0.891915, 1)
 
 [node name="Main" type="Node3D"]
+
+[node name="old_tree" parent="." instance=ExtResource("1_344ge")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.90058, 0.809206, 1.37051)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.497048, 0)
@@ -68,24 +72,7 @@ pixel_size = 0.0015
 sprite_frames = SubResource("SpriteFrames_lquwl")
 
 [node name="Artlings" type="Node" parent="Player"]
-
-[node name="Mon1" type="Node3D" parent="Player/Artlings" groups=["mon"]]
-visible = false
-script = ExtResource("3_kry3j")
-max_hp = 50
-strength = 10
-defense = 5
-intelligence = 5
-mind = 5
-speed = 10
-element = "Normal"
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player/Artlings/Mon1"]
-sprite_frames = SubResource("SpriteFrames_21xkr")
-
-[node name="HpBar" type="Label3D" parent="Player/Artlings/Mon1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.654247, 0)
-text = "HP: "
+script = ExtResource("3_6bp64")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.714379, 0.407022, -0.569206, -0.138299, 0.715264, 0.685034, 0.685956, 0.568095, -0.454679, 0, 6, 0)
@@ -131,15 +118,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101146, 2.33541)
 environment = SubResource("Environment_kry3j")
 
 [node name="BushTest" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.508701, 0.28244, -0.460537)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.64227, 0.28244, -1.61858)
 
 [node name="Sprite3D" type="Sprite3D" parent="BushTest"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.460537, 0, 0.508701)
-billboard = 1
+alpha_cut = 1
 texture = ExtResource("7_6bp64")
 
 [node name="Sprite3D2" type="Sprite3D" parent="BushTest"]
-billboard = 1
+alpha_cut = 1
 texture = ExtResource("7_6bp64")
 
 [connection signal="body_entered" from="Npc" to="Npc" method="_on_body_entered"]

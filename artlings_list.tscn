@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2ud0hia48onn"]
+
+[ext_resource type="Script" uid="uid://b77ba6e32uxg6" path="res://artlings_list.gd" id="1_ew7o7"]
+
+[node name="ArtlingsList" type="Node" groups=["mon"]]
+script = ExtResource("1_ew7o7")

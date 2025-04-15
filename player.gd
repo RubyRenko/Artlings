@@ -8,7 +8,7 @@ var jump = false
 var team = []
 
 func _ready():
-	load_team()
+	team_node.add_teammate("worm")
 
 func _physics_process(delta):
 	var direction : Vector3
