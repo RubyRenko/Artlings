@@ -35,8 +35,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("cycle_team"):
 		team.append(team[0])
-		team[0] = team[1]
-		team.pop_at(1)
+		team[0] = team.pop_at(1)
 		print("current team")
 		print(team)
 	

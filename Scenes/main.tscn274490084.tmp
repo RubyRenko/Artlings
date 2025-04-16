@@ -116,7 +116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101146, 2.33541)
 environment = SubResource("Environment_kry3j")
 
 [node name="BushTest" type="Node3D" parent="."]
-transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, -3.23583, 0.28244, 3.59893)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.64227, 0.28244, -1.61858)
 
 [node name="Sprite3D" type="Sprite3D" parent="BushTest"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.460537, 0, 0.508701)
@@ -134,9 +134,9 @@ transform = Transform3D(0.49953, 0, -0.0216789, 0, 0.5, 0, 0.0216789, 0, 0.49953
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.65258, 1.66609, 2.20547)
 texture = ExtResource("9_ynf5e")
 
-[node name="TempTutorial" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01525, 0)
-text = "Press C to swap Artlings"
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13596, 0)
+text = "Use c to swap Artlings"
 
 [connection signal="body_entered" from="Npc" to="Npc" method="_on_body_entered"]
 [connection signal="child_exiting_tree" from="Npc" to="Npc" method="_on_child_exiting_tree"]
