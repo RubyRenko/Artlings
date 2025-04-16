@@ -7,9 +7,6 @@ var battling = false
 
 func _ready():
 	$Label3D.hide()
-	var test_move = Move.new()
-	test_move.set_stats(15, 100, "Fire", "Fireball")
-	$Label3D.set_text(str(test_move))
 
 func _on_body_entered(body):
 	if body.name == "Player" && !battling:

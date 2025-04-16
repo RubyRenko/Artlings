@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjf1qhi1130lb"]
 
-[ext_resource type="Script" uid="uid://b6vld7ff7kdhy" path="res://worm.gd" id="1_iwr24"]
+[ext_resource type="Script" uid="uid://b6vld7ff7kdhy" path="res://ArtlingScenes/worm.gd" id="1_iwr24"]
 [ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="2_lujuq"]
 
 [node name="worm" type="Node3D" groups=["mon"]]

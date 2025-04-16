@@ -19,6 +19,7 @@ var level = 1
 var exp = 0
 var moves_list : Dictionary
 var learnable_moves : Array 
+var current_moves : Array
 var status : String = "None"
 var status_counter : int = 0
 
@@ -42,7 +43,7 @@ func attack(target, move):
 			if atk.dmg_type == "str":
 				# calculates damage depending on the type stat
 				var final_dmg = calculate_phys_damage(atk.damage)
-				if atk.effect != "":
+				if atk.effect != "" && target.status == "None":
 					#print(atk.effect.substr(0,-2))
 					#print(atk.effect.substr(0, len(atk.effect)-1))
 					#print(atk.effect.substr(len(atk.effect)-1))
@@ -54,7 +55,7 @@ func attack(target, move):
 			elif atk.dmg_type == "int":
 				# calculates damage depending on the type stat
 				var final_dmg = calculate_mnd_damage(atk.damage)
-				if atk.effect != "":
+				if atk.effect != "" && target.status == "None":
 					#print("Applying effect " + atk.effect)
 					print(atk.effect.substr(0, len(atk.effect)-1))
 					print(atk.effect.substr(len(atk.effect)-1))
@@ -63,6 +64,17 @@ func attack(target, move):
 					target.status = atk.effect.substr(0, len(atk.effect)-1)
 					target.status_counter = int(atk.effect.substr(len(atk.effect)-1))
 				return target.take_mnd_damage(final_dmg)
+			elif atk.dmg_type == "self":
+				var final_dmg = atk.damage
+				if atk.effect != "" && status == "None":
+					#print("Applying effect " + atk.effect)
+					print(atk.effect.substr(0, len(atk.effect)-1))
+					print(atk.effect.substr(len(atk.effect)-1))
+					# if the affect isn't blank, splits the effect string into
+					# what the status is and the turns applied 
+					status = atk.effect.substr(0, len(atk.effect)-1)
+					status_counter = int(atk.effect.substr(len(atk.effect)-1))
+				return take_mnd_damage(final_dmg)
 		else:
 			# if it's higher than it misses
 			#print("Missed!")
@@ -86,27 +98,45 @@ func calculate_mnd_damage(amount):
 
 # takes damage and returns string of how much damage was taken
 func take_phys_damage(amount):
-	# calculates the physical damage taken based on mon defense
-	amount -= defense/5.0
-	amount = ceili(amount)
-	if amount > 0:
+	if amount < 0:
+		#if amount is negative (healing), then minuses so it adds health
+		amount = floori(amount)
 		health -= amount
-	
-	#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
-	var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
-	return output_line
+		var output_line = "Healed " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
+		return output_line
+	else:
+		# calculates the physical damage taken based on mon defense
+		amount -= defense/5.0
+		amount = ceili(amount)
+		if amount > 0:
+			health -= amount
+		else:
+			amount = 0
+		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
+		var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
+		return output_line
 
 # takes damage and returns string of how much damage was taken
 func take_mnd_damage(amount):
-	# calculates the physical damage taken based on mon mind
-	amount -= mind/5.0
-	amount = ceili(amount)
-	if amount > 0:
+	if amount < 0:
+		#if amount is negative (healing), then minuses so it adds health
+		amount = floori(amount)
 		health -= amount
-	
-	#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
-	var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
-	return output_line
+		if health > max_hp:
+			health = max_hp
+		var output_line = "Healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
+		return output_line
+	else:
+		# calculates the physical damage taken based on mon defense
+		amount -= mind/5.0
+		amount = ceili(amount)
+		if amount > 0:
+			health -= amount
+		else:
+			amount = 0
+		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
+		var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
+		return output_line
 
 # handles status damage or effects
 func take_status(status):
@@ -127,6 +157,12 @@ func take_status(status):
 		return name + " takes poison damage."
 	elif status == "Blind":
 		return name + " is blinded."
+	elif status == "Bubble":
+		var heal = ceili(health/20)
+		health += heal
+		if health > max_hp:
+			health = max_hp
+		return name + " heals a little."
 
 # sets all the main stats
 func set_stats(hp, str, def, intel, mnd, spd):
@@ -148,8 +184,9 @@ func add_stats(hp, str, def, intel, mnd, spd):
 
 # load moves from the master list and adds it to the move_list
 func load_move(move):
-	if move.name in learnable_moves && len(moves_list) < 4:
+	if len(moves_list) < 4:
 		moves_list[move.name] = move
+		current_moves.append(move.name)
 
 # adds experience and levels up 
 func add_experience(amount):

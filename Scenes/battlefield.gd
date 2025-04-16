@@ -26,8 +26,8 @@ func load_mons(player_inp, enemy_inp):
 		print(enemy_mon.level)
 
 func load_moves():
-	print(player_mon.moves_list)
-	move_options.load_moves(player_mon.moves_list)
+	#print(player_mon.moves_list)
+	move_options.load_moves(player_mon.current_moves)
 
 func _process(delta):
 	if battle_prog >= len(commands):

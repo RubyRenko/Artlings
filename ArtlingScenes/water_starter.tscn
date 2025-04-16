@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqf83r1ghl6o4"]
+
+[ext_resource type="Script" uid="uid://43xrmbch6xhd" path="res://ArtlingScenes/water_starter.gd" id="1_7nghe"]
+[ext_resource type="Texture2D" uid="uid://b021dux7bydkx" path="res://Sprites/Watercolor_Starter_for_Export.png" id="2_slv4g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqau8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_slv4g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterStarter" type="Node3D" groups=["mon"]]
+script = ExtResource("1_7nghe")
+max_hp = 60
+strength = 5
+defense = 15
+intelligence = 5
+mind = 15
+speed = 5
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.253747, 0)
+sprite_frames = SubResource("SpriteFrames_xqau8")
+
+[node name="HpBar" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07199, 0)
+text = "HP: "

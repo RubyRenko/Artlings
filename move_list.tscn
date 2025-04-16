@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Charge" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 40
+damage = 50
 accuracy = 70
 type = "Normal"
 dmg_type = "str"
@@ -42,4 +42,50 @@ type = "Fire"
 dmg_type = "int"
 effect = "Burn4"
 desc = "Deals a little damage and burns"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Dollop" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = 30
+accuracy = 100
+type = "Ink"
+dmg_type = "int"
+desc = "Deals ink damage"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="InkSlash" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = 40
+accuracy = 80
+type = "Ink"
+dmg_type = "str"
+effect = "Blind2"
+desc = "Deals heavy ink damage"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Triangle" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = 30
+accuracy = 100
+type = "Geometry"
+dmg_type = "str"
+desc = "Deals heavy damage with higher chance of missing"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Heal" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = -10
+accuracy = 100
+type = "Water"
+dmg_type = "self"
+desc = "Heals a small amount"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Bubble" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+accuracy = 100
+type = "Water"
+dmg_type = "self"
+effect = "Bubble3"
+desc = "Surrounds with a rejuvinating bubble"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
