@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=17 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dh6x4sp2a2aeq" path="res://Sprites/Wisteria.png" id="2_kry3j"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqu6gn70inii6" path="res://Sprites/Assets_Juice_WarriorBush.png" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://7s7no85rfxwl" path="res://Sprites/old_tree.gltf" id="8_344ge"]
 [ext_resource type="Texture2D" uid="uid://cubgsxeol55dl" path="res://Sprites/sketch_tree.png" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://jp6ne40f2qd7" path="res://Sprites/Bush 1 .glb" id="10_hptm8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21xkr"]
 albedo_color = Color(0.145098, 0.396078, 0.121569, 1)
@@ -78,7 +79,7 @@ light_energy = 3.263
 light_indirect_energy = 2.131
 
 [node name="Npc" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46479, 0.524434, -4.40747)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42003, 0.524434, -4.40747)
 script = ExtResource("3_21xkr")
 
 [node name="Sprite3D" type="Sprite3D" parent="Npc"]
@@ -116,7 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101146, 2.33541)
 environment = SubResource("Environment_kry3j")
 
 [node name="BushTest" type="Node3D" parent="."]
-transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, -3.23583, 0.28244, 3.59893)
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, -3.23583, 0.28244, -3.90706)
 
 [node name="Sprite3D" type="Sprite3D" parent="BushTest"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.460537, 0, 0.508701)
@@ -128,15 +129,18 @@ alpha_cut = 1
 texture = ExtResource("7_6bp64")
 
 [node name="old_tree2" parent="." instance=ExtResource("8_344ge")]
-transform = Transform3D(0.49953, 0, -0.0216789, 0, 0.5, 0, 0.0216789, 0, 0.49953, 5.19549, 0.164188, 3.3118)
+transform = Transform3D(0.49953, 0, -0.0216789, 0, 0.5, 0, 0.0216789, 0, 0.49953, -6.76993, 0.164188, -3.87688)
 
 [node name="sketch_tree" type="Sprite3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.65258, 1.66609, 2.20547)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.65258, 1.66609, -4.98321)
 texture = ExtResource("9_ynf5e")
 
 [node name="TempTutorial" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01525, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.015, -1)
 text = "Press C to swap Artlings"
+
+[node name="Bush 1 " parent="." instance=ExtResource("10_hptm8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.18735, 0.006056, -1.95202)
 
 [connection signal="body_entered" from="Npc" to="Npc" method="_on_body_entered"]
 [connection signal="child_exiting_tree" from="Npc" to="Npc" method="_on_child_exiting_tree"]
