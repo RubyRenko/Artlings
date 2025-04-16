@@ -142,5 +142,18 @@ text = "Press C to swap Artlings"
 [node name="Bush 1 " parent="." instance=ExtResource("10_hptm8")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.18735, 0.006056, -1.95202)
 
+[node name="sketch_tree2" type="Sprite3D" parent="."]
+transform = Transform3D(0.199999, -0.000474729, 0, 0.000474729, 0.199999, 0, 0, 0, 0.2, 2.844, 1.3, -6.851)
+texture = ExtResource("9_ynf5e")
+
+[node name="old_tree3" parent="." instance=ExtResource("8_344ge")]
+transform = Transform3D(-0.100142, 0, -0.282792, 0, 0.3, 0, 0.282792, 0, -0.100142, 7.00311, 0.246282, -5.96026)
+
+[node name="Bush 1 2" parent="." instance=ExtResource("10_hptm8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.75608, 0.006056, -5.64276)
+
+[node name="old_tree4" parent="." instance=ExtResource("8_344ge")]
+transform = Transform3D(-0.564173, 0, 0.204228, 0, 0.6, 0, -0.204228, 0, -0.564173, 0.753299, 0.0647102, -6.67712)
+
 [connection signal="body_entered" from="Npc" to="Npc" method="_on_body_entered"]
 [connection signal="child_exiting_tree" from="Npc" to="Npc" method="_on_child_exiting_tree"]
