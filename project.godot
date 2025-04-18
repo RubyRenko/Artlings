@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Artlings"
-run/main_scene="uid://c8uwqccai6ipw"
+run/main_scene="uid://diwp6ejfs6q8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
