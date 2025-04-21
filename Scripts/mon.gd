@@ -45,59 +45,67 @@ func attack(target, move):
 		if randi_range(0, 100) <= acc:
 			# if it's lower than accuracy, it hits
 			if atk.dmg_type == "str":
-				# calculates damage depending on the type stat
-				var final_dmg = calculate_phys_damage(atk.damage)
-				if atk.effect != "" && target.status == "None":
-					#print(atk.effect.substr(0,-2))
-					#print(atk.effect.substr(0, len(atk.effect)-1))
-					#print(atk.effect.substr(len(atk.effect)-1))
+				# calculates damage depending on the str stat
+				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var final_dmg = calculate_phys_damage(damage)
+				if atk.effect[0] != 0:
 					# if the affect isn't blank, splits the effect string into
 					# what the status is and the turns applied 
-					target.status = atk.effect.substr(0, len(atk.effect)-1)
-					target.status_counter = int(atk.effect.substr(len(atk.effect)-1))
+					target.status = atk.effect[1]
+					target.status_counter = atk.effect[0]
 				return target.take_phys_damage(final_dmg)
+			
 			elif atk.dmg_type == "int":
-				# calculates damage depending on the type stat
-				var final_dmg = calculate_mnd_damage(atk.damage)
-				if atk.effect != "" && target.status == "None":
-					#print("Applying effect " + atk.effect)
-					print(atk.effect.substr(0, len(atk.effect)-1))
-					print(atk.effect.substr(len(atk.effect)-1))
-					# if the affect isn't blank, splits the effect string into
-					# what the status is and the turns applied 
-					target.status = atk.effect.substr(0, len(atk.effect)-1)
-					target.status_counter = int(atk.effect.substr(len(atk.effect)-1))
+				# calculates damage depending on the int stat
+				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var final_dmg = calculate_mnd_damage(damage)
+				if atk.effect[0] != 0:
+					# if the affect isn't blank, applies status and counter
+					target.status = atk.effect[1]
+					target.status_counter = atk.effect[0]
 				return target.take_mnd_damage(final_dmg)
+			
+			elif atk.dmg_type == "str/mnd":
+				# calculates damage depending on the str stat
+				# with defense being mnd stat
+				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var final_dmg = calculate_phys_damage(damage)
+				if atk.effect[0] != 0:
+					# if the affect isn't blank, applies status and counter
+					target.status = atk.effect[1]
+					target.status_counter = atk.effect[0]
+				return target.take_mnd_damage(final_dmg)
+			
+			elif atk.dmg_type == "int/def":
+				# calculates damage depending on the int stat
+				# with defense being def stat
+				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var final_dmg = calculate_mnd_damage(damage)
+				if atk.effect[0] != 0:
+					# if the affect isn't blank, applies status and counter
+					target.status = atk.effect[1]
+					target.status_counter = atk.effect[0]
+				return target.take_phys_damage(final_dmg)
+			
 			elif atk.dmg_type == "self":
-				var final_dmg = atk.damage
-				if atk.effect != "" && status == "None":
-					#print("Applying effect " + atk.effect)
-					print(atk.effect.substr(0, len(atk.effect)-1))
-					print(atk.effect.substr(len(atk.effect)-1))
-					# if the affect isn't blank, splits the effect string into
-					# what the status is and the turns applied 
-					status = atk.effect.substr(0, len(atk.effect)-1)
-					status_counter = int(atk.effect.substr(len(atk.effect)-1))
+				var final_dmg = atk.damage[0]
+				if atk.effect[0] != 0:
+					status = atk.effect[1]
+					status_counter = atk.effect[0]
 				return take_mnd_damage(final_dmg)
 		else:
-			# if it's higher than it misses
+			# if it's higher then it misses
 			#print("Missed!")
 			return "Missed!"
 
 func calculate_phys_damage(amount):
 	# calculates physical damage based on mon strength
-	# also adds a slight bit of randomn variation
 	amount = (amount * strength)/30.0
-	amount += randf_range(-amount/20, amount/20)
-	#print(amount)
 	return amount
 
 func calculate_mnd_damage(amount):
 	# calculates physical damage based on mon intelligence
-	# also adds a slight bit of randomn variation
 	amount = (amount * intelligence)/30.0
-	amount += randf_range(-amount/20, amount/20)
-	#print(amount)
 	return amount
 
 # takes damage and returns string of how much damage was taken

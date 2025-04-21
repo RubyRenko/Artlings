@@ -122,22 +122,18 @@ script = ExtResource("3_uggsd")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-selected = 0
 
 [node name="Move2" type="OptionButton" parent="Panel/MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-selected = 0
 
 [node name="Move3" type="OptionButton" parent="Panel/MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-selected = 0
 
 [node name="Move4" type="OptionButton" parent="Panel/MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-selected = 0

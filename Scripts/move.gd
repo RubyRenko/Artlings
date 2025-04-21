@@ -2,11 +2,11 @@ extends Node
 class_name Move
 
 #stats
-@export var damage : int
+@export var damage = [0, 0]
 @export var accuracy : int
 @export var type : String
 @export var dmg_type : String
-@export var effect : String
+@export var effect = [0, "None"]
 @export var desc : String
 var format_string = "%s (%s)\nDamage: %s (%s)\n%s\nAccuracy: %s"
 

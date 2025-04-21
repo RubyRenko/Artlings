@@ -3,11 +3,12 @@ extends Mon
 @onready var stat_screen = $ArtlingStats
 
 func _ready():
-	learnable_moves = ["Thud", "Charge", "Triangle"]
+	learnable_moves = ["Thud", "Charge", "Teeth", "Blender"]
 	var moves = master_move_list.instantiate()
 	load_move(moves.get_move("Thud"))
 	load_move(moves.get_move("Charge"))
-	load_move(moves.get_move("Triangle"))
+	load_move(moves.get_move("Teeth"))
+	load_move(moves.get_move("Blender"))
 	health = max_hp
 	setup_stat_screen()
 

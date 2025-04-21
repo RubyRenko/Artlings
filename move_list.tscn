@@ -8,77 +8,107 @@ script = ExtResource("1_n4g2t")
 
 [node name="Thud" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 20
+damage = [15, 25]
 accuracy = 100
-type = "Normal"
+type = "Geometric"
 dmg_type = "str"
-desc = "Deals basic damage"
+desc = "Deals a small amount of physical geometric damage"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Charge" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 50
+damage = [45, 55]
 accuracy = 70
-type = "Normal"
+type = "Geometric"
 dmg_type = "str"
-desc = "Deals heavy damage with higher chance of missing"
+desc = "Deals high amount of physical geometric damage but is inaccurate"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Blender" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [20, 60]
+accuracy = 100
+type = "Geometric"
+dmg_type = "str"
+desc = "Deals a random amount of physical geometric damage"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Teeth" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [30, 35]
+accuracy = 100
+type = "Geometry"
+dmg_type = "str"
+desc = "Deals an average amount of physical geometric damage"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Lick" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [15, 25]
+accuracy = 100
+type = "Geometric"
+dmg_type = "str/mnd"
+desc = "Deals a small amount of physical geometric damage"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Brush" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [15, 25]
+accuracy = 100
+type = "Ink"
+dmg_type = "int"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Smoke" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 10
+damage = [0, 10]
 accuracy = 100
 type = "Ink"
 dmg_type = "int"
-effect = "Blind2"
-desc = "Deals a little damage and blinds"
-metadata/_custom_type_script = "uid://je6io23ym5wg"
-
-[node name="Firespit" type="Node" parent="." groups=["move"]]
-script = ExtResource("2_uqtxr")
-damage = 20
-accuracy = 100
-type = "Fire"
-dmg_type = "int"
-effect = "Burn4"
-desc = "Deals a little damage and burns"
+effect = [3, "Blind"]
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Dollop" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 30
+damage = [30, 35]
 accuracy = 100
 type = "Ink"
 dmg_type = "int"
-desc = "Deals ink damage"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="InkPool" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [30, 40]
+accuracy = 80
+type = "Ink"
+dmg_type = "int"
+effect = [2, "Blind"]
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="InkSlash" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 40
+damage = [30, 40]
 accuracy = 80
 type = "Ink"
 dmg_type = "str"
-effect = "Blind2"
-desc = "Deals heavy ink damage"
+effect = [3, "Blind"]
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
-[node name="Triangle" type="Node" parent="." groups=["move"]]
+[node name="Firespit" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = 30
+damage = [5, 15]
 accuracy = 100
-type = "Geometry"
-dmg_type = "str"
-desc = "Deals heavy damage with higher chance of missing"
+type = "Fire"
+dmg_type = "int"
+effect = [1, "Burn"]
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Heal" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = -10
+damage = [10, 15]
 accuracy = 100
 type = "Water"
 dmg_type = "self"
-desc = "Heals a small amount"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Bubble" type="Node" parent="." groups=["move"]]
@@ -86,6 +116,5 @@ script = ExtResource("2_uqtxr")
 accuracy = 100
 type = "Water"
 dmg_type = "self"
-effect = "Bubble3"
-desc = "Surrounds with a rejuvinating bubble"
+effect = [4, "Bubble"]
 metadata/_custom_type_script = "uid://je6io23ym5wg"
