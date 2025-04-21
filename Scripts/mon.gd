@@ -17,8 +17,12 @@ var health : int = max_hp
 #progression
 var level = 1
 var exp = 0
+
+#dictionary of moves learned by the mon
 var moves_list : Dictionary
+#list of moves the artling can learn in the future
 var learnable_moves : Array 
+#current moves the artling has (capped at 4)
 var current_moves : Array
 var status : String = "None"
 var status_counter : int = 0

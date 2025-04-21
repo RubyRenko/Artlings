@@ -1,5 +1,6 @@
 extends Node
 @onready var artlings_list = ArtlingsMasterlist.new()
+@onready var party_tab = $PlayerPartyTab
 
 func add_teammate(mon_name):
 	var new_teammate = artlings_list.get_artling(mon_name)
@@ -8,3 +9,7 @@ func add_teammate(mon_name):
 	n.visible = false
 	add_child(n)
 	get_parent().load_team()
+
+func show_team_status(index):
+	var to_show = get_child(index)
+	to_show.stat_screen.visible = true

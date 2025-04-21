@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=22 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dh6x4sp2a2aeq" path="res://Sprites/Wisteria.png" id="2_kry3j"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://be70qoerg2e18" path="res://npc.gd" id="3_21xkr"]
 [ext_resource type="Texture2D" uid="uid://brfcux56aqu0v" path="res://Sprites/Batch2Ax.png" id="4_6bp64"]
 [ext_resource type="AudioStream" uid="uid://d1y3hpbmd2ib2" path="res://Audio/overworld.mp3" id="4_fdnlq"]
+[ext_resource type="Script" uid="uid://b0wejycyhkibp" path="res://Scenes/player_party_tab.gd" id="4_wsu2k"]
 [ext_resource type="Script" uid="uid://bv8ejghgsp7b8" path="res://Scenes/example_npc_mon.gd" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://dqu6gn70inii6" path="res://Sprites/Assets_Juice_WarriorBush.png" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://7s7no85rfxwl" path="res://Sprites/old_tree.gltf" id="8_344ge"]
@@ -76,6 +77,46 @@ sprite_frames = SubResource("SpriteFrames_lquwl")
 
 [node name="Artlings" type="Node" parent="Player"]
 script = ExtResource("3_6bp64")
+
+[node name="PlayerPartyTab" type="VBoxContainer" parent="Player"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_bottom = 206.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+script = ExtResource("4_wsu2k")
+
+[node name="Artling1" type="Button" parent="Player/PlayerPartyTab"]
+layout_mode = 2
+text = "Artling
+"
+
+[node name="Artling2" type="Button" parent="Player/PlayerPartyTab"]
+layout_mode = 2
+text = "Artling
+"
+
+[node name="Artling3" type="Button" parent="Player/PlayerPartyTab"]
+layout_mode = 2
+text = "Artling
+"
+
+[node name="Artling4" type="Button" parent="Player/PlayerPartyTab"]
+layout_mode = 2
+text = "Artling
+"
+
+[node name="Artling5" type="Button" parent="Player/PlayerPartyTab"]
+layout_mode = 2
+text = "Artling
+"
+
+[node name="Artling6" type="Button" parent="Player/PlayerPartyTab"]
+layout_mode = 2
+text = "Artling
+"
 
 [node name="overworldSound" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("4_fdnlq")
@@ -174,6 +215,12 @@ texture_normal = ExtResource("12_jkdf5")
 texture_pressed = ExtResource("13_wsu2k")
 script = ExtResource("12_fdnlq")
 
+[connection signal="pressed" from="Player/PlayerPartyTab/Artling1" to="Player" method="_on_artling_1_pressed"]
+[connection signal="pressed" from="Player/PlayerPartyTab/Artling2" to="Player" method="_on_artling_2_pressed"]
+[connection signal="pressed" from="Player/PlayerPartyTab/Artling3" to="Player" method="_on_artling_3_pressed"]
+[connection signal="pressed" from="Player/PlayerPartyTab/Artling4" to="Player" method="_on_artling_4_pressed"]
+[connection signal="pressed" from="Player/PlayerPartyTab/Artling5" to="Player" method="_on_artling_5_pressed"]
+[connection signal="pressed" from="Player/PlayerPartyTab/Artling6" to="Player" method="_on_artling_6_pressed"]
 [connection signal="body_entered" from="Npc" to="Npc" method="_on_body_entered"]
 [connection signal="child_exiting_tree" from="Npc" to="Npc" method="_on_child_exiting_tree"]
 [connection signal="pressed" from="ToggleSound" to="ToggleSound" method="_on_pressed"]

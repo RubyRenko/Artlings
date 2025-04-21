@@ -2,11 +2,13 @@ extends CharacterBody3D
 
 @onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var team_node = $Artlings
+@onready var party_tab = $PlayerPartyTab
 @onready var artlings_list = ArtlingsMasterlist.new()
 var speed = 100.0
 var max_jump = 8.0
 var jump = false
 var team = []
+var can_move = true
 
 func _ready():
 	team_node.add_teammate("worm")
@@ -20,15 +22,15 @@ func _physics_process(delta):
 	direction.x = Input.get_axis("left", "right")
 	direction.z = Input.get_axis("up", "down")
 	
-	if Input.is_action_pressed("run"):
+	if Input.is_action_pressed("run") && can_move:
 		speed = 200.0
 	else:
 		speed = 100.0
 	
-	if Input.is_action_just_pressed("jump") && is_on_floor():
+	if Input.is_action_just_pressed("jump") && is_on_floor() && can_move:
 		jump = true
 	
-	if Input.is_action_pressed("jump") && velocity.y < max_jump && jump:
+	if Input.is_action_pressed("jump") && velocity.y < max_jump && jump && can_move:
 		velocity.y += 0.5
 	elif velocity.y > max_jump:
 		jump = false
@@ -39,14 +41,39 @@ func _physics_process(delta):
 		print("current team")
 		print(team)
 	
-	velocity.y += delta * gravity
-	velocity.x = direction.x * delta * speed
-	velocity.z = direction.z * delta * speed
-	
-	move_and_slide()
-
-func _on_npc_body_exited(body):
-	pass # Replace with function body.
+	if can_move:
+		velocity.y += delta * gravity
+		velocity.x = direction.x * delta * speed
+		velocity.z = direction.z * delta * speed
+		
+		move_and_slide()
 
 func load_team():
 	team = team_node.get_children()
+	party_tab.toggle_party_buttons(team)
+
+func _on_artling_1_pressed():
+	show_artling(0)
+
+func _on_artling_2_pressed():
+	show_artling(1)
+
+func _on_artling_3_pressed():
+	show_artling(2)
+
+func _on_artling_4_pressed():
+	show_artling(3)
+
+func _on_artling_5_pressed():
+	show_artling(4)
+
+func _on_artling_6_pressed():
+	show_artling(5)
+
+func show_artling(ind):
+	if team[ind].stat_screen.visible:
+		team[ind].stat_screen.visible = false
+		can_move = true
+	else:
+		team[ind].stat_screen.visible = true
+		can_move = false
