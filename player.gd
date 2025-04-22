@@ -78,8 +78,10 @@ func show_artling(ind):
 	if team[ind].stat_screen.visible:
 		team[ind].stat_screen.visible = false
 		can_move = true
+		team[ind].update_from_stat_screen()
 	else:
 		hide_status()
+		team[ind].setup_stat_screen()
 		team[ind].stat_screen.visible = true
 		can_move = false
 
@@ -87,6 +89,7 @@ func hide_status():
 	for teammate in team:
 		if teammate.stat_screen.visible == true:
 			teammate.stat_screen.visible = false
+			
 
 func change_camera(global_pos):
 	camera.global_position = global_pos

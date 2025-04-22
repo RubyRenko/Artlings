@@ -1,11 +1,19 @@
 extends GridContainer
 
-func load_possible_moves(move_list):
+func load_possible_moves(current_moves, all_moves):
 	for i in get_child_count():
 		var move_opt = get_child(i)
-		for move in move_list:
+		move_opt.clear()
+		for move in all_moves:
 			move_opt.add_item(move)
-		if i >= len(move_list):
+		if i >= len(current_moves):
 			move_opt.selected = -1
 		else:
-			move_opt.selected = i
+			move_opt.select(all_moves.find(current_moves[i]))
+
+func get_current_move_names():
+	var selected_moves = []
+	for move in get_children():
+		if move.selected != -1:
+			selected_moves.append(move.get_item_text(move.selected))
+	return selected_moves

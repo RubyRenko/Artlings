@@ -8,4 +8,3 @@ func toggle_party_buttons(team_list):
 		else:
 			button.visible = true
 			button.set_text(team_list[i].name)
-		

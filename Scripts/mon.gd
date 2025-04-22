@@ -12,7 +12,7 @@ var health : int = max_hp
 @export var element : String
 
 #master list
-@onready var master_move_list = load("res://move_list.tscn")
+@onready var master_move_list = load("res://move_list.tscn").instantiate()
 
 #progression
 var level = 1
@@ -24,6 +24,7 @@ var moves_list : Dictionary
 var learnable_moves : Array 
 #current moves the artling has (capped at 4)
 var current_moves : Array
+
 var status : String = "None"
 var status_counter : int = 0
 
@@ -196,11 +197,9 @@ func add_stats(hp, str, def, intel, mnd, spd):
 
 # load moves from the master list and adds it to the move_list
 func load_move(move):
-	if len(current_moves) < 4:
-		moves_list[move.name] = move
-		current_moves.append(move.name)
-	else:
-		moves_list[move.name] = move
+	moves_list[move.name] = move
+	learnable_moves.pop_at(learnable_moves.find(move.name))
+	current_moves.append(move.name)
 
 # adds experience and levels up 
 func add_experience(amount):
@@ -210,4 +209,10 @@ func add_experience(amount):
 		level += 1
 		#right now, stats are random, but in the future might be able to be customized by a growth variable
 		add_stats(randi_range(1,10), randi_range(0,5), randi_range(0,5), randi_range(0,5), randi_range(0,5), randi_range(0,5))
+		if len(learnable_moves) > 0:
+			var to_learn = learnable_moves[0]
+			print(to_learn)
+			load_move(master_move_list.get_move(to_learn))
+			print(current_moves)
+			print(moves_list)
 		exp -= 100

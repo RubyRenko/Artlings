@@ -44,27 +44,27 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uggsd")
 
 [node name="Picture" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 28.5
-offset_right = 276.0
-offset_bottom = 269.5
+offset_left = 27.0
+offset_top = 16.5
+offset_right = 272.0
+offset_bottom = 257.5
 texture = ExtResource("1_fm1yg")
 
 [node name="Name" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 301.0
-offset_top = 51.5
-offset_right = 696.0
-offset_bottom = 93.5
+offset_left = 297.0
+offset_top = 38.5
+offset_right = 492.0
+offset_bottom = 80.5
 text = "Name"
 label_settings = SubResource("LabelSettings_bkc8p")
 
 [node name="Level" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 775.0
-offset_top = 48.5
-offset_right = 915.0
-offset_bottom = 90.5
+offset_left = 757.0
+offset_top = 38.5
+offset_right = 897.0
+offset_bottom = 80.5
 text = "Level /"
 label_settings = SubResource("LabelSettings_bkc8p")
 horizontal_alignment = 2
@@ -81,9 +81,9 @@ label_settings = SubResource("LabelSettings_bkc8p")
 [node name="Stats" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 42.0
-offset_top = 320.5
+offset_top = 316.5
 offset_right = 244.0
-offset_bottom = 503.5
+offset_bottom = 499.5
 text = "Health:
 Strength:
 Defense:
@@ -92,29 +92,21 @@ Mind:
 Speed:"
 label_settings = SubResource("LabelSettings_hgcnw")
 
-[node name="TextEdit" type="TextEdit" parent="Panel"]
-layout_mode = 0
-offset_left = 310.0
-offset_top = 106.0
-offset_right = 907.0
-offset_bottom = 259.0
-placeholder_text = "Editable Artling Description"
-
 [node name="MoveTitle" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 257.0
-offset_top = 273.5
-offset_right = 351.0
-offset_bottom = 315.5
+offset_left = 272.0
+offset_top = 220.5
+offset_right = 366.0
+offset_bottom = 262.5
 text = "Moves"
 label_settings = SubResource("LabelSettings_bkc8p")
 
 [node name="MovesContainer" type="GridContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 281.0
-offset_top = 322.5
-offset_right = 910.0
-offset_bottom = 485.5
+offset_left = 272.0
+offset_top = 274.0
+offset_right = 897.0
+offset_bottom = 392.0
 columns = 2
 script = ExtResource("3_uggsd")
 
@@ -138,7 +130,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="EditableDesc" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 89.0
+offset_right = 870.0
+offset_bottom = 203.0
+placeholder_text = "Editable text box"
+
+[node name="MoveDesc" type="Label" parent="Panel"]
+offset_left = 244.0
+offset_top = 411.5
+offset_right = 921.0
+offset_bottom = 496.5
+text = "Move Description"
+label_settings = SubResource("LabelSettings_hgcnw")
+
+[connection signal="focus_entered" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_focus_entered"]
 [connection signal="item_selected" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_item_selected"]
+[connection signal="focus_entered" from="Panel/MovesContainer/Move2" to="." method="_on_move_2_focus_entered"]
 [connection signal="item_selected" from="Panel/MovesContainer/Move2" to="." method="_on_move_2_item_selected"]
+[connection signal="focus_entered" from="Panel/MovesContainer/Move3" to="." method="_on_move_3_focus_entered"]
 [connection signal="item_selected" from="Panel/MovesContainer/Move3" to="." method="_on_move_3_item_selected"]
+[connection signal="focus_entered" from="Panel/MovesContainer/Move4" to="." method="_on_move_4_focus_entered"]
 [connection signal="item_selected" from="Panel/MovesContainer/Move4" to="." method="_on_move_4_item_selected"]
