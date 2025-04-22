@@ -44,7 +44,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Lick" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [15, 25]
+damage = [25, 35]
 accuracy = 100
 type = "Geometric"
 dmg_type = "str/mnd"

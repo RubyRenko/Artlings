@@ -59,6 +59,9 @@ offset_right = 659.0
 offset_bottom = 94.0
 text = "Start of battle"
 
+[node name="CameraMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15079, 3.80173)
+
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]

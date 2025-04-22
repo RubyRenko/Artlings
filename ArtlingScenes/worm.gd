@@ -3,17 +3,19 @@ extends Mon
 @onready var stat_screen = $ArtlingStats
 
 func _ready():
-	learnable_moves = ["Thud", "Charge", "Teeth", "Blender"]
+	learnable_moves = ["Thud", "Charge", "Teeth", "Blender", "Lick"]
 	var moves = master_move_list.instantiate()
 	load_move(moves.get_move("Thud"))
 	load_move(moves.get_move("Charge"))
 	load_move(moves.get_move("Teeth"))
 	load_move(moves.get_move("Blender"))
+	load_move(moves.get_move("Lick"))
 	health = max_hp
 	setup_stat_screen()
 
-func _process(delta):
+func _process(_delta):
 	hp_bar.text = str(health) + " / " + str(max_hp)
+	current_moves = stat_screen.chosen_moves
 
 func setup_stat_screen():
 	stat_screen.load_moves(moves_list.keys())

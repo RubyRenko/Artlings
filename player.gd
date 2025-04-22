@@ -4,6 +4,9 @@ extends CharacterBody3D
 @onready var team_node = $Artlings
 @onready var party_tab = $PlayerPartyTab
 @onready var artlings_list = ArtlingsMasterlist.new()
+@onready var camera = $Camera3D
+@onready var camera_pos = camera.position
+
 var speed = 100.0
 var max_jump = 8.0
 var jump = false
@@ -14,8 +17,8 @@ func _ready():
 	team_node.add_teammate("worm")
 	team_node.add_teammate("ink starter")
 	team_node.add_teammate("water starter")
-	print("current team")
-	print(team)
+	#print("current team")
+	#print(team)
 
 func _physics_process(delta):
 	var direction : Vector3
@@ -38,8 +41,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("cycle_team"):
 		team.append(team[0])
 		team[0] = team.pop_at(1)
-		print("current team")
-		print(team)
+		party_tab.toggle_party_buttons(team)
+		#print("current team")
+		#print(team)
 	
 	if can_move:
 		velocity.y += delta * gravity
@@ -75,5 +79,17 @@ func show_artling(ind):
 		team[ind].stat_screen.visible = false
 		can_move = true
 	else:
+		hide_status()
 		team[ind].stat_screen.visible = true
 		can_move = false
+
+func hide_status():
+	for teammate in team:
+		if teammate.stat_screen.visible == true:
+			teammate.stat_screen.visible = false
+
+func change_camera(global_pos):
+	camera.global_position = global_pos
+
+func revert_camera():
+	camera.position = camera_pos

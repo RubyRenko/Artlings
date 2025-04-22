@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn4dxdhlk3u4l"]
+
+[ext_resource type="Script" uid="uid://c6rk453o14gi5" path="res://ArtlingScenes/ink_starter.gd" id="1_5cboi"]
+[ext_resource type="Texture2D" uid="uid://dn8yrnpumkbxr" path="res://Sprites/Inky_Starter_Draft_for_Export.png" id="2_abxsj"]
+[ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_abxsj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0alr3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_abxsj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="InkStarter" type="Node3D" groups=["mon"]]
+script = ExtResource("1_5cboi")
+max_hp = 50
+strength = 5
+defense = 5
+intelligence = 15
+mind = 10
+speed = 10
+element = null
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.132262, 0)
+sprite_frames = SubResource("SpriteFrames_0alr3")
+
+[node name="HpBar" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.937193, 0)
+text = "HP: "
+
+[node name="ArtlingStats" parent="." instance=ExtResource("3_abxsj")]
+visible = false

@@ -11,8 +11,9 @@ func _ready():
 	health = max_hp
 	setup_stat_screen()
 
-func _process(delta):
+func _process(_delta):
 	hp_bar.text = str(health) + " / " + str(max_hp)
+	current_moves = stat_screen.chosen_moves
 
 func setup_stat_screen():
 	stat_screen.load_moves(moves_list.keys())

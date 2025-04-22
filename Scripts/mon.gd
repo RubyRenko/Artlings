@@ -196,9 +196,11 @@ func add_stats(hp, str, def, intel, mnd, spd):
 
 # load moves from the master list and adds it to the move_list
 func load_move(move):
-	if len(moves_list) < 4:
+	if len(current_moves) < 4:
 		moves_list[move.name] = move
 		current_moves.append(move.name)
+	else:
+		moves_list[move.name] = move
 
 # adds experience and levels up 
 func add_experience(amount):

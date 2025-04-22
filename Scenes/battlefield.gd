@@ -4,6 +4,7 @@ extends Node3D
 @onready var enemy_spawn = $EnemyMonSpawn
 @onready var move_options = $CanvasLayer/MoveOptions
 @onready var battle_desc = $CanvasLayer/Panel/BattleDesc
+@onready var camera_node = $CameraMarker
 
 var player_mon : Node3D
 var enemy_mon : Node3D
@@ -26,13 +27,13 @@ func load_mons(player_inp, enemy_inp):
 		print(enemy_mon.level)
 
 func load_moves():
-	#print(player_mon.moves_list)
-	move_options.load_moves(player_mon.current_moves)
+	#print(player_mon.current_moves)
+	move_options.toggle_move_buttons(player_mon.current_moves)
 
 func _process(delta):
 	if battle_prog >= len(commands):
 		battle_prog = -1
-		move_options.load_moves(player_mon.moves_list)
+		move_options.toggle_move_buttons(player_mon.current_moves)
 		commands = []
 	elif battle_prog > -1 && battle_prog < len(commands):
 		move_options.disable_buttons()
@@ -87,19 +88,19 @@ func _on_move_4_pressed():
 
 func choose_move(move_ind):
 	if player_mon.speed >= enemy_mon.speed:
-		commands.append(["desc", "Using " + move_options.choosable_moves[move_ind] + "!"])
-		commands.append(["player", move_options.choosable_moves[move_ind] ])
-		var enemy_move = enemy_mon.moves_list.keys().pick_random()
+		commands.append(["desc", "Using " + player_mon.current_moves[move_ind] + "!"])
+		commands.append(["player", player_mon.current_moves[move_ind] ])
+		var enemy_move = enemy_mon.current_moves.pick_random()
 		commands.append(["desc", "Enemy used " + enemy_move + "!"])
 		commands.append(["enemy", enemy_move])
 		#handle_status()
 		battle_prog = 0
 	else:
-		var enemy_move = enemy_mon.moves_list.keys().pick_random()
+		var enemy_move = enemy_mon.current_moves.pick_random()
 		commands.append(["desc", "Enemy used " + enemy_move + "!"])
 		commands.append(["enemy", enemy_move])
-		commands.append(["desc", "Using " + move_options.choosable_moves[move_ind] + "!"])
-		commands.append(["player", move_options.choosable_moves[move_ind] ])
+		commands.append(["desc", "Using " + player_mon.current_moves[move_ind] + "!"])
+		commands.append(["player", player_mon.current_moves[move_ind] ])
 		#handle_status()
 		battle_prog = 0
 

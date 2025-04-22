@@ -17,9 +17,12 @@ func _on_body_entered(body):
 		battle.load_moves()
 		battling = true
 		player.can_move = false
-		
+		player.party_tab.visible = false
+		player.change_camera(battle.camera_node.global_position)
 
 func _on_child_exiting_tree(node):
 	if node.is_in_group("battle"):
 		battling = false
 		player.can_move = true
+		player.party_tab.visible = true
+		player.revert_camera()
