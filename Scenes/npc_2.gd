@@ -1,14 +1,14 @@
 extends Area3D
 
 @onready var battle_test = load("res://Scenes/battlefield.tscn")
-@onready var mon = $ExampleNpcMon
+@onready var mon = $worm2
 @onready var battle_pos = $BattleMarker.position
+@onready var start_pos = global_position
 var battling = false
 var player = null
 
 func _on_body_entered(body):
 	if body.name == "Player" && !battling:
-		$Label3D.show()
 		player = body
 		var battle = battle_test.instantiate()
 		battle.position = battle_pos
@@ -26,7 +26,4 @@ func _on_child_exiting_tree(node):
 		player.can_move = true
 		player.party_tab.visible = true
 		player.revert_camera()
-
-
-func _on_npc_2_body_entered(body):
-	pass # Replace with function body.
+		global_position = start_pos

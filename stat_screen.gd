@@ -29,31 +29,27 @@ func _on_move_1_item_selected(index):
 	#print(move1.get_item_text(index))
 	chosen_moves[0] = move1.get_item_text(index)
 	move_desc.text = str(get_parent().moves_list[chosen_moves[0]])
-	print(chosen_moves)
 
 func _on_move_2_item_selected(index):
 	chosen_moves[1] = move2.get_item_text(index)
 	move_desc.text = str(get_parent().moves_list[chosen_moves[1]])
-	print(chosen_moves)
 
 func _on_move_3_item_selected(index):
 	chosen_moves[2] = move3.get_item_text(index)
 	move_desc.text = str(get_parent().moves_list[chosen_moves[2]])
-	print(chosen_moves)
 
 func _on_move_4_item_selected(index):
 	chosen_moves[3] = move4.get_item_text(index)
 	move_desc.text = str(get_parent().moves_list[chosen_moves[3]])
-	print(chosen_moves)
 
-func _on_move_1_focus_entered():
+func _on_move_1_pressed():
 	move_desc.text = str(get_parent().moves_list[chosen_moves[0]])
 
-func _on_move_2_focus_entered():
+func _on_move_2_pressed():
 	move_desc.text = str(get_parent().moves_list[chosen_moves[1]])
 
-func _on_move_3_focus_entered():
+func _on_move_3_pressed():
 	move_desc.text = str(get_parent().moves_list[chosen_moves[2]])
 
-func _on_move_4_focus_entered():
+func _on_move_4_pressed():
 	move_desc.text = str(get_parent().moves_list[chosen_moves[3]])

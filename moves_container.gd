@@ -8,8 +8,10 @@ func load_possible_moves(current_moves, all_moves):
 			move_opt.add_item(move)
 		if i >= len(current_moves):
 			move_opt.selected = -1
+			move_opt.disabled = true
 		else:
 			move_opt.select(all_moves.find(current_moves[i]))
+			move_opt.disabled = false
 
 func get_current_move_names():
 	var selected_moves = []

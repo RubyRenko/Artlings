@@ -20,7 +20,7 @@ script = ExtResource("1_7nghe")
 max_hp = 60
 strength = 5
 defense = 15
-intelligence = 5
+intelligence = 10
 mind = 15
 speed = 5
 

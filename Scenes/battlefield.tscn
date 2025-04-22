@@ -45,24 +45,35 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "None"
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="BattleText" type="Panel" parent="CanvasLayer"]
 offset_left = 440.0
 offset_top = 516.0
 offset_right = 1112.0
 offset_bottom = 627.0
 
-[node name="BattleDesc" type="Label" parent="CanvasLayer/Panel"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 12.0
-offset_right = 659.0
-offset_bottom = 94.0
+[node name="BattleDesc" type="Label" parent="CanvasLayer/BattleText"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -41.0
+offset_right = 324.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Start of battle"
 
 [node name="CameraMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15079, 3.80173)
 
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]

@@ -139,6 +139,7 @@ offset_bottom = 203.0
 placeholder_text = "Editable text box"
 
 [node name="MoveDesc" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 244.0
 offset_top = 411.5
 offset_right = 921.0
@@ -146,11 +147,11 @@ offset_bottom = 496.5
 text = "Move Description"
 label_settings = SubResource("LabelSettings_hgcnw")
 
-[connection signal="focus_entered" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_focus_entered"]
 [connection signal="item_selected" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_item_selected"]
-[connection signal="focus_entered" from="Panel/MovesContainer/Move2" to="." method="_on_move_2_focus_entered"]
+[connection signal="pressed" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_pressed"]
 [connection signal="item_selected" from="Panel/MovesContainer/Move2" to="." method="_on_move_2_item_selected"]
-[connection signal="focus_entered" from="Panel/MovesContainer/Move3" to="." method="_on_move_3_focus_entered"]
+[connection signal="pressed" from="Panel/MovesContainer/Move2" to="." method="_on_move_2_pressed"]
 [connection signal="item_selected" from="Panel/MovesContainer/Move3" to="." method="_on_move_3_item_selected"]
-[connection signal="focus_entered" from="Panel/MovesContainer/Move4" to="." method="_on_move_4_focus_entered"]
+[connection signal="pressed" from="Panel/MovesContainer/Move3" to="." method="_on_move_3_pressed"]
 [connection signal="item_selected" from="Panel/MovesContainer/Move4" to="." method="_on_move_4_item_selected"]
+[connection signal="pressed" from="Panel/MovesContainer/Move4" to="." method="_on_move_4_pressed"]

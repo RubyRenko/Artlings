@@ -9,22 +9,9 @@ script = ExtResource("1_qc4db")
 
 [node name="BaseMon" parent="." instance=ExtResource("2_8od7v")]
 position = Vector2(208, 406)
-max_hp = 0
-strength = 0
-defense = 0
-intelligence = 0
-mind = 0
-speed = 0
-element = ""
 
 [node name="BaseMon2" parent="." instance=ExtResource("2_8od7v")]
 position = Vector2(864, 180)
-max_hp = 0
-strength = 0
-defense = 0
-intelligence = 0
-mind = 0
-speed = 0
 element = "Normal"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

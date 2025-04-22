@@ -110,7 +110,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Heal" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [10, 15]
+damage = [-30, -30]
 accuracy = 100
 type = "Water"
 dmg_type = "self"

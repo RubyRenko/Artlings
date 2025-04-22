@@ -3,8 +3,9 @@ extends Node3D
 @onready var player_spawn = $PlayerMonSpawn
 @onready var enemy_spawn = $EnemyMonSpawn
 @onready var move_options = $CanvasLayer/MoveOptions
-@onready var battle_desc = $CanvasLayer/Panel/BattleDesc
+@onready var battle_desc = $CanvasLayer/BattleText/BattleDesc
 @onready var camera_node = $CameraMarker
+@onready var master_move_list = preload("res://move_list.tscn").instantiate()
 
 var player_mon : Node3D
 var enemy_mon : Node3D
@@ -144,3 +145,20 @@ func handle_status():
 		commands.append(["enemystatus", enemy_mon.status])
 		enemy_mon.status_counter -= 1
 		print(enemy_mon.status + str(enemy_mon.status_counter))
+
+
+func _on_move_1_mouse_entered():
+	if battle_prog == -1:
+		battle_desc.set_text( str(player_mon.moves_list[player_mon.current_moves[0]]) )
+
+func _on_move_2_mouse_entered():
+	if battle_prog == -1 && len(player_mon.current_moves) >= 2:
+		battle_desc.set_text( str(player_mon.moves_list[player_mon.current_moves[1]]) )
+
+func _on_move_3_mouse_entered():
+	if battle_prog == -1 && len(player_mon.current_moves) >= 3:
+		battle_desc.set_text( str(player_mon.moves_list[player_mon.current_moves[2]]) )
+
+func _on_move_4_mouse_entered():
+	if battle_prog == -1 && len(player_mon.current_moves) == 4:
+		battle_desc.set_text( str(player_mon.moves_list[player_mon.current_moves[3]]) )

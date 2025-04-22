@@ -8,7 +8,7 @@ extends CharacterBody3D
 @onready var camera_pos = camera.position
 
 var speed = 100.0
-var max_jump = 8.0
+var max_jump = 5.0
 var jump = false
 var team = []
 var can_move = true
@@ -32,16 +32,18 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") && is_on_floor() && can_move:
 		jump = true
+		velocity.y += 3.0
 	
 	if Input.is_action_pressed("jump") && velocity.y < max_jump && jump && can_move:
-		velocity.y += 0.5
+		velocity.y += 0.3
 	elif velocity.y > max_jump:
 		jump = false
 	
 	if Input.is_action_just_pressed("cycle_team"):
-		team.append(team[0])
-		team[0] = team.pop_at(1)
-		party_tab.toggle_party_buttons(team)
+		if can_move:
+			team.append(team[0])
+			team[0] = team.pop_at(1)
+			party_tab.toggle_party_buttons(team)
 		#print("current team")
 		#print(team)
 	

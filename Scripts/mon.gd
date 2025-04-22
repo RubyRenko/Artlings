@@ -89,7 +89,8 @@ func attack(target, move):
 				return target.take_phys_damage(final_dmg)
 			
 			elif atk.dmg_type == "self":
-				var final_dmg = atk.damage[0]
+				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var final_dmg = calculate_mnd_damage(damage)
 				if atk.effect[0] != 0:
 					status = atk.effect[1]
 					status_counter = atk.effect[0]
@@ -115,16 +116,17 @@ func take_phys_damage(amount):
 		#if amount is negative (healing), then minuses so it adds health
 		amount = floori(amount)
 		health -= amount
-		var output_line = "Healed " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
+		if health > max_hp:
+			health = max_hp
+		var output_line = "Healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 	else:
 		# calculates the physical damage taken based on mon defense
 		amount -= defense/5.0
 		amount = ceili(amount)
-		if amount > 0:
-			health -= amount
-		else:
-			amount = 0
+		if amount <= 0:
+			amount = 1
+		health -= amount
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
 		var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
@@ -143,10 +145,9 @@ func take_mnd_damage(amount):
 		# calculates the physical damage taken based on mon defense
 		amount -= mind/5.0
 		amount = ceili(amount)
-		if amount > 0:
-			health -= amount
-		else:
-			amount = 0
+		if amount <= 0:
+			amount = 1
+		health -= amount
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
 		var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
