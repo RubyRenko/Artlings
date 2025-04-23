@@ -21,5 +21,9 @@ func disable_buttons():
 	for child in get_children():
 		child.disabled = true
 
+func enable_buttons(ind):
+	for i in ind:
+		get_child(i).disabled = false
+
 func get_move_text(ind):
 	return get_child(ind).text

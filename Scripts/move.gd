@@ -10,10 +10,12 @@ class_name Move
 @export var desc : String
 
 func _to_string():
+	# formats all stats into a 3 line string
 	return "%s (%s)\nDamage: %s (%s)         Accuracy: %s\n%s" %\
 	 [name.capitalize(), type.capitalize(), damage, dmg_type, accuracy, desc]
 
 func set_stats(dmg, acc, typ, nam):
+	# manually set the stats of a move
 	damage = dmg
 	accuracy = acc
 	type = typ

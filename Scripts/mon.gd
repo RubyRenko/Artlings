@@ -1,7 +1,7 @@
 extends Node3D
 class_name Mon
 
-#base stats
+# base stats
 @export var max_hp : int
 var health : int = max_hp
 @export var strength : int
@@ -11,25 +11,26 @@ var health : int = max_hp
 @export var speed : int
 @export var element : String
 
-#master list
+# move master list
 @onready var master_move_list = load("res://move_list.tscn").instantiate()
 
-#progression
+# progression
 var level = 1
 var exp = 0
 
-#dictionary of moves learned by the mon
+# dictionary of moves learned by the mon
 var moves_list : Dictionary
-#list of moves the artling can learn in the future
+# list of moves the artling can learn in the future
 var learnable_moves : Array 
-#current moves the artling has (capped at 4)
+# current moves the artling has (capped at 4)
 var current_moves : Array
 
+# status effect vars
 var status : String = "None"
 var status_counter : int = 0
 
 # handles the attack and returns a string describing the outcome
-#target should be a mon and move should be usable move in the list
+# target should be a mon and move should be usable move in the list
 func attack(target, move):
 	# checks that the target and move used is valid, otherwise does nothing
 	if target.is_in_group("mon") && move in moves_list:

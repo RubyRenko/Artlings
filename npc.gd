@@ -7,26 +7,28 @@ var battling = false
 var player = null
 
 func _on_body_entered(body):
+	# if the player gets within the area
 	if body.name == "Player" && !battling:
-		$Label3D.show()
+		# sets the player to the body so we can reference it later
 		player = body
+		# creates a new battlefield where the battle marker is
+		# loads the player and enemy mons
 		var battle = battle_test.instantiate()
 		battle.position = battle_pos
 		add_child(battle)
 		battle.load_mons(body.team[0], mon)
 		battle.load_moves()
 		battling = true
+		# disables player movement and party tab, also sets the camera
 		player.can_move = false
 		player.party_tab.visible = false
 		player.change_camera(battle.camera_node.global_position)
 
 func _on_child_exiting_tree(node):
+	# when the battle is over
 	if node.is_in_group("battle"):
+		# sets battle to false and returns movement/camera to the player
 		battling = false
 		player.can_move = true
 		player.party_tab.visible = true
 		player.revert_camera()
-
-
-func _on_npc_2_body_entered(body):
-	pass # Replace with function body.

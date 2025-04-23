@@ -230,7 +230,7 @@ texture_pressed = ExtResource("13_wsu2k")
 script = ExtResource("12_fdnlq")
 
 [node name="Npc2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.68405, 0.524434, -1.11077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57327, 0.524434, -1.11077)
 script = ExtResource("16_b3802")
 
 [node name="worm" parent="Npc2" instance=ExtResource("18_fevyy")]
