@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://lqkgn6fgnere"
 path.s3tc="res://.godot/imported/worm_worm_DefaultMaterial_BaseColor.png-faef6b8055e3d9acc7495e659d47d45a.s3tc.ctex"
+path.etc2="res://.godot/imported/worm_worm_DefaultMaterial_BaseColor.png-faef6b8055e3d9acc7495e659d47d45a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://3d artlings/worm_worm_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/worm_worm_DefaultMaterial_BaseColor.png-faef6b8055e3d9acc7495e659d47d45a.s3tc.ctex"]
+dest_files=["res://.godot/imported/worm_worm_DefaultMaterial_BaseColor.png-faef6b8055e3d9acc7495e659d47d45a.s3tc.ctex", "res://.godot/imported/worm_worm_DefaultMaterial_BaseColor.png-faef6b8055e3d9acc7495e659d47d45a.etc2.ctex"]
 
 [params]
 

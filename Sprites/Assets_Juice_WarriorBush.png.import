@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqu6gn70inii6"
 path.s3tc="res://.godot/imported/Assets_Juice_WarriorBush.png-e8a5276b23b8b2c5235b900cdf0ea1cb.s3tc.ctex"
+path.etc2="res://.godot/imported/Assets_Juice_WarriorBush.png-e8a5276b23b8b2c5235b900cdf0ea1cb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/Assets_Juice_WarriorBush.png"
-dest_files=["res://.godot/imported/Assets_Juice_WarriorBush.png-e8a5276b23b8b2c5235b900cdf0ea1cb.s3tc.ctex"]
+dest_files=["res://.godot/imported/Assets_Juice_WarriorBush.png-e8a5276b23b8b2c5235b900cdf0ea1cb.s3tc.ctex", "res://.godot/imported/Assets_Juice_WarriorBush.png-e8a5276b23b8b2c5235b900cdf0ea1cb.etc2.ctex"]
 
 [params]
 

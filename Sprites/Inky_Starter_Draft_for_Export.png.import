@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn8yrnpumkbxr"
 path.s3tc="res://.godot/imported/Inky_Starter_Draft_for_Export.png-b91f4bf1966b2a0f4eff88e9286112a8.s3tc.ctex"
+path.etc2="res://.godot/imported/Inky_Starter_Draft_for_Export.png-b91f4bf1966b2a0f4eff88e9286112a8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/Inky_Starter_Draft_for_Export.png"
-dest_files=["res://.godot/imported/Inky_Starter_Draft_for_Export.png-b91f4bf1966b2a0f4eff88e9286112a8.s3tc.ctex"]
+dest_files=["res://.godot/imported/Inky_Starter_Draft_for_Export.png-b91f4bf1966b2a0f4eff88e9286112a8.s3tc.ctex", "res://.godot/imported/Inky_Starter_Draft_for_Export.png-b91f4bf1966b2a0f4eff88e9286112a8.etc2.ctex"]
 
 [params]
 
