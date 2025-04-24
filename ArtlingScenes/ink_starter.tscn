@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cn4dxdhlk3u4l"]
 
 [ext_resource type="Script" uid="uid://c6rk453o14gi5" path="res://ArtlingScenes/ink_starter.gd" id="1_5cboi"]
-[ext_resource type="Texture2D" uid="uid://dn8yrnpumkbxr" path="res://Sprites/Inky_Starter_Draft_for_Export.png" id="2_abxsj"]
+[ext_resource type="Texture2D" uid="uid://j0mbb57x5i6w" path="res://Sprites/InkStarter.png" id="2_abxsj"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_abxsj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0alr3"]
@@ -25,7 +25,10 @@ mind = 10
 speed = 10
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.132262, 0)
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0.132262, 0)
+cast_shadow = 2
+billboard = 1
+no_depth_test = true
 sprite_frames = SubResource("SpriteFrames_0alr3")
 
 [node name="HpBar" type="Label3D" parent="."]
