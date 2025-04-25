@@ -1,6 +1,5 @@
 extends Node
 @onready var artlings_list = ArtlingsMasterlist.new()
-@onready var party_tab = $PlayerPartyTab
 
 func add_teammate(mon_name):
 	var new_teammate = artlings_list.get_artling(mon_name)

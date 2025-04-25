@@ -34,7 +34,7 @@ func load_moves():
 	#print(player_mon.current_moves)
 	move_options.toggle_move_buttons(player_mon.current_moves)
 
-func _process(delta):
+func _process(_delta):
 	# if we're at the end of the commands
 	# resets battle prog to 1 and lets players pick moves
 	if battle_prog >= len(commands):
@@ -144,13 +144,13 @@ func handle_turn(current_command):
 	# if the command is a status affecting the enemy
 	elif current_command[0] == "enemystatus":
 		# makes the enemy take the status effect and sets the battle desc to the result
-		var battle_lines = enemy_mon.take_status(current_command[1])
+		var battle_lines = enemy_mon.take_status()
 		battle_desc.set_text(battle_lines)
 		battle_prog += 1
 	# if the command is a status affecting the player
 	elif current_command[0] == "playerstatus":
 		# makes the player take the status effect and sets the battle desc to the result
-		var battle_lines = player_mon.take_status(current_command[1])
+		var battle_lines = player_mon.take_status()
 		battle_desc.set_text(battle_lines)
 		battle_prog += 1
 	# if the command is flavor text

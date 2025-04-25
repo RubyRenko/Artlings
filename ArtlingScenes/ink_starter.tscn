@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cn4dxdhlk3u4l"]
 
 [ext_resource type="Script" uid="uid://c6rk453o14gi5" path="res://ArtlingScenes/ink_starter.gd" id="1_5cboi"]
-[ext_resource type="Texture2D" uid="uid://j0mbb57x5i6w" path="res://Sprites/InkStarter.png" id="2_abxsj"]
+[ext_resource type="Texture2D" uid="uid://j0mbb57x5i6w" path="res://Assets/InkStarter.png" id="2_abxsj"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_abxsj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0alr3"]

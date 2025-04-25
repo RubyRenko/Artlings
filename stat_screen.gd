@@ -9,7 +9,11 @@ extends Control
 @onready var move3 = $Panel/MovesContainer/Move3
 @onready var move4 = $Panel/MovesContainer/Move4
 @onready var move_desc = $Panel/MoveDesc
+@onready var artling_img = $Panel/Picture
 var chosen_moves : Array
+
+func set_img(img):
+	artling_img.texture = img
 
 func set_stat_text(hp, str, def, intel, mind, spd):
 	stat_text.set_text("Health: %s\nStrength: %s\nDefense: %s\nIntelligence: %s\nMind: %s\nSpeed: %s" %

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdvoxa7q4hfbw"]
 
 [ext_resource type="Script" uid="uid://d0qkccemsmtxw" path="res://base_mon.gd" id="1_1yjil"]
-[ext_resource type="Texture2D" uid="uid://brfcux56aqu0v" path="res://Sprites/Batch2Ax.png" id="2_ixno6"]
+[ext_resource type="Texture2D" uid="uid://brfcux56aqu0v" path="res://Assets/Batch2Ax.png" id="2_ixno6"]
 
 [sub_resource type="Theme" id="Theme_ixno6"]
 

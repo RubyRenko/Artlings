@@ -154,7 +154,7 @@ func take_mnd_damage(amount):
 		return output_line
 
 # handles status damage or effects
-func take_status(status):
+func take_status():
 	print(status)
 	if status == "Burn":
 		var damage = ceili(health/20.0)

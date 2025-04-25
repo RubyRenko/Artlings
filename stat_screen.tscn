@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://by1pq4t3qhpc7"]
+[gd_scene load_steps=7 format=3 uid="uid://by1pq4t3qhpc7"]
 
 [ext_resource type="Script" uid="uid://b0c38cxhs71c0" path="res://stat_screen.gd" id="1_ayflt"]
-[ext_resource type="Texture2D" uid="uid://brfcux56aqu0v" path="res://Sprites/Batch2Ax.png" id="1_fm1yg"]
 [ext_resource type="Script" uid="uid://bcgulvb8di1hr" path="res://moves_container.gd" id="3_uggsd"]
 
 [sub_resource type="Theme" id="Theme_ayflt"]
@@ -44,11 +43,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uggsd")
 
 [node name="Picture" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 27.0
-offset_top = 16.5
-offset_right = 272.0
-offset_bottom = 257.5
-texture = ExtResource("1_fm1yg")
+offset_left = 21.0
+offset_top = 23.5
+offset_right = 266.0
+offset_bottom = 264.5
+expand_mode = 3
 
 [node name="Name" type="Label" parent="Panel"]
 layout_mode = 0

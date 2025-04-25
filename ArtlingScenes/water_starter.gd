@@ -1,6 +1,7 @@
 extends Mon
 @onready var hp_bar = $HpBar
 @onready var stat_screen = $ArtlingStats
+@onready var img = preload("res://Assets/Watercolor_Starter_for_ExportCropped.png")
 
 func _ready():
 	learnable_moves = ["Thud", "Bubble", "Heal"]
@@ -18,6 +19,7 @@ func setup_stat_screen():
 	stat_screen.set_name_text(name)
 	stat_screen.set_level_text(level)
 	stat_screen.set_stat_text(health, strength, defense, intelligence, mind, speed)
+	stat_screen.set_img(img)
 
 func update_from_stat_screen():
 	current_moves = stat_screen.chosen_moves

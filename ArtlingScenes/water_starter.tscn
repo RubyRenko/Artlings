@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqf83r1ghl6o4"]
 
 [ext_resource type="Script" uid="uid://43xrmbch6xhd" path="res://ArtlingScenes/water_starter.gd" id="1_7nghe"]
-[ext_resource type="Texture2D" uid="uid://b021dux7bydkx" path="res://Sprites/Watercolor_Starter_for_Export.png" id="2_slv4g"]
+[ext_resource type="Texture2D" uid="uid://b021dux7bydkx" path="res://Assets/Watercolor_Starter_for_Export.png" id="2_slv4g"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_3jtcs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xqau8"]
