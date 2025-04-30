@@ -223,14 +223,17 @@ func _on_change_artling_pressed():
 		change_player_mon(0)
 		move_options.visible = true
 		battle_desc_box.visible = true
+		change_button.set_text("Check Party")
 		player.toggle_party_screen()
 	elif player.party_tab.visible:
 		move_options.visible = true
 		battle_desc_box.visible = true
+		change_button.set_text("Check Party")
 		player.toggle_party_screen()
 	else:
 		move_options.visible = false
 		battle_desc_box.visible = false
+		change_button.set_text("Back to Battle")
 		player.toggle_party_screen()
 
 func change_player_mon(index):

@@ -71,7 +71,7 @@ offset_left = 16.0
 offset_top = 492.0
 offset_right = 138.0
 offset_bottom = 523.0
-text = "Change Artling"
+text = "Check Party"
 
 [node name="CameraMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15079, 3.80173)

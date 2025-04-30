@@ -11,7 +11,6 @@ func _ready():
 	load_move(moves.get_move("InkSlash"))
 	load_move(moves.get_move("InkPool"))"""
 	health = max_hp
-	stat_screen.leader_button.pressed.connect(_leader_button_pressed)
 	setup_stat_screen()
 
 func _process(_delta):

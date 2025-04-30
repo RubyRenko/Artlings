@@ -20,6 +20,7 @@ func _on_body_entered(body):
 		battle.load_moves()
 		battling = true
 		# disables player movement and party tab, also sets the camera
+		player.battling = true
 		player.can_move = false
 		player.party_tab.visible = false
 		player.change_camera(battle.camera_node.global_position)

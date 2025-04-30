@@ -12,6 +12,7 @@ var max_jump = 5.0
 var jump = false
 var team = []
 var can_move = true
+var battling = false
 
 func _ready():
 	# adds the 3 starters to the team
@@ -49,7 +50,7 @@ func _physics_process(delta):
 		# when velocity hits max jump, sets jump to false so player starts to fall
 		jump = false
 	
-	if Input.is_action_just_pressed("party_tab"):
+	if Input.is_action_just_pressed("party_tab") && !battling:
 		toggle_party_screen()
 	
 	# when player can move
@@ -124,9 +125,10 @@ func cycle_team():
 
 func toggle_party_screen():
 	party_tab.toggle_party_buttons(team)
-	if party_tab.visible:
-		party_tab.visible = false
-		can_move = true
+	if party_tab.visible == true:
+		hide_screens()
+		if !battling:
+			can_move = true
 	else:
 		hide_screens()
 		party_tab.visible = true

@@ -17,10 +17,11 @@ func _on_body_entered(body):
 		var battle = battle_test.instantiate()
 		battle.position = battle_pos
 		add_child(battle)
-		battle.load_mons(player.team[0], [mon])
+		battle.load_mons(player, [mon])
 		battle.load_moves()
 		battling = true
 		# disables player movement and party tab, also sets the camera
+		player.battling = true
 		player.can_move = false
 		player.party_tab.visible = false
 		player.change_camera(battle.camera_node.global_position)
