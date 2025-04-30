@@ -41,6 +41,7 @@ func _process(_delta):
 		battle_prog = -1
 		move_options.enable_buttons(len(player_mon.current_moves))
 		commands = []
+		player_mon.play_idle_anim()
 	# disables buttons whenevr not picking moves
 	elif battle_prog > -1 && battle_prog < len(commands):
 		move_options.disable_buttons()
@@ -133,12 +134,14 @@ func handle_turn(current_command):
 	if current_command[0] == "player":
 		# player mon attacks and sets the battle description to the result of attack
 		var battle_lines = player_mon.attack(enemy_mon, current_command[1])
+		player_mon.play_atk_anim()
 		battle_desc.set_text(battle_lines)
 		battle_prog += 1
 	# if the command is from the enemy
 	elif current_command[0] == "enemy":
 		# enemy mon attacks and sets the battle description to the result of attack
 		var battle_lines = enemy_mon.attack(player_mon, current_command[1])
+		player_mon.play_brace_anim()
 		battle_desc.set_text(battle_lines)
 		battle_prog += 1
 	# if the command is a status affecting the enemy

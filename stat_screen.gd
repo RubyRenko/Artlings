@@ -10,6 +10,7 @@ extends Control
 @onready var move4 = $Panel/MovesContainer/Move4
 @onready var move_desc = $Panel/MoveDesc
 @onready var artling_img = $Panel/Picture
+@onready var leader_button = $Panel/LeaderButton
 var chosen_moves : Array
 
 func set_img(img):
@@ -57,3 +58,6 @@ func _on_move_3_pressed():
 
 func _on_move_4_pressed():
 	move_desc.text = str(get_parent().moves_list[chosen_moves[3]])
+
+func _on_close_pressed():
+	visible = false

@@ -30,5 +30,4 @@ func _on_child_exiting_tree(node):
 		# sets battle to false and returns movement/camera to the player
 		battling = false
 		player.can_move = true
-		player.party_tab.visible = true
 		player.revert_camera()

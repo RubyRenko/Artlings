@@ -29,6 +29,11 @@ var current_moves : Array
 var status : String = "None"
 var status_counter : int = 0
 
+#nodes the Artling should have
+@onready var hp_bar = $HpBar
+@onready var stat_screen = $ArtlingStats
+@export var img : CompressedTexture2D
+
 # handles the attack and returns a string describing the outcome
 # target should be a mon and move should be usable move in the list
 func attack(target, move):
@@ -218,3 +223,21 @@ func add_experience(amount):
 			print(current_moves)
 			print(moves_list)
 		exp -= 100
+
+func setup_stat_screen():
+	stat_screen.load_moves(current_moves, moves_list.keys())
+	stat_screen.set_name_text(name)
+	stat_screen.set_level_text(level)
+	stat_screen.set_stat_text(health, strength, defense, intelligence, mind, speed)
+	stat_screen.set_img(img)
+	stat_screen.leader_button.pressed.connect(_leader_button_pressed)
+
+func update_from_stat_screen():
+	current_moves = stat_screen.chosen_moves
+
+func _leader_button_pressed():
+	print("leader button pressed!")
+	var player = get_parent().get_parent()
+	while player.team[0].name != name:
+		player.cycle_team()
+		print(player.team)

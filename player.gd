@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var team_node = $Artlings
-@onready var party_tab = $PlayerPartyTab
+@onready var party_tab = $PartyScreen
 @onready var artlings_list = ArtlingsMasterlist.new()
 @onready var camera = $Camera3D
 @onready var camera_pos = camera.position
@@ -18,6 +18,7 @@ func _ready():
 	team_node.add_teammate("worm")
 	team_node.add_teammate("ink starter")
 	team_node.add_teammate("water starter")
+	party_tab.visible = false
 	#print("current team")
 	#print(team)
 
@@ -48,16 +49,14 @@ func _physics_process(delta):
 		# when velocity hits max jump, sets jump to false so player starts to fall
 		jump = false
 	
-	# cycles the team when player can move
-	if Input.is_action_just_pressed("cycle_team"):
-		if can_move:
-			# appends the first memember to the end
-			# then pops and makes the first member the 2nd
-			team.append(team[0])
-			team[0] = team.pop_at(1)
-			party_tab.toggle_party_buttons(team)
-			#print("current team")
-			#print(team)
+	if Input.is_action_just_pressed("party_tab"):
+		if party_tab.visible:
+			party_tab.visible = false
+			can_move = true
+		else:
+			hide_screens()
+			party_tab.visible = true
+			can_move = false
 	
 	# when player can move
 	if can_move:
@@ -103,17 +102,18 @@ func show_artling(ind):
 	else:
 		# hides other stat screens and makes sure stat screen is up to date
 		# shows stat screen and disabls movement
-		hide_status()
+		hide_screens()
 		team[ind].setup_stat_screen()
 		team[ind].stat_screen.visible = true
 		can_move = false
 
-func hide_status():
+func hide_screens():
 	# for every teammate, hides the stat screen if it's visible
 	for teammate in team:
 		if teammate.stat_screen.visible == true:
 			teammate.stat_screen.visible = false
-			
+	if party_tab.visible:
+		party_tab.visible = false
 
 func change_camera(global_pos):
 	# sets the camera to a specific position
@@ -122,3 +122,8 @@ func change_camera(global_pos):
 func revert_camera():
 	# changes the camera back to starting position (paired to the player)
 	camera.position = camera_pos
+
+func cycle_team():
+	team.append(team[0])
+	team[0] = team.pop_at(1)
+	party_tab.toggle_party_buttons(team)

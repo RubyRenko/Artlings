@@ -1,5 +1,4 @@
 extends Mon
-@onready var hp_bar = $HpBar
 
 func _ready():
 	learnable_moves = ["Thud", "Firespit"]
