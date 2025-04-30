@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://diwp6ejfs6q8"]
+[gd_scene load_steps=3 format=3 uid="uid://diwp6ejfs6q8"]
 
 [ext_resource type="Script" uid="uid://ceripbwthd83h" path="res://Menus/title_screen.gd" id="1_b0rdp"]
+[ext_resource type="Texture2D" uid="uid://bmvsqegxf4irn" path="res://Menus/titlescreenPLACEHOLDER.png" id="2_d8fdh"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -36,6 +37,19 @@ text = "Options (under construction)"
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="VBoxContainer"]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CanvasLayer"]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d8fdh")
+expand_mode = 3
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
