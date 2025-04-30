@@ -6,14 +6,17 @@
 [node name="worm" instance=ExtResource("1_kynl0")]
 script = ExtResource("2_ta4uu")
 
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(0.993479, 0.113875, -0.00557598, 0.00552275, 0.000782941, 0.999984, 0.113877, -0.993495, 0.000148935, 0.281434, 0.64115, 2.07774)
+
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0951023, 0.0973442, -0.710837, 0.690066)
-bones/2/rotation = Quaternion(0.104481, 0.0838818, -0.718622, 0.682371)
-bones/3/rotation = Quaternion(-0.0991965, -0.0873449, 0.646933, 0.751005)
-bones/4/rotation = Quaternion(0.129282, -0.0626454, 0.653455, 0.743208)
-bones/6/rotation = Quaternion(0.00135832, 4.99182e-05, 0.0367246, 0.999325)
-bones/7/rotation = Quaternion(0.470692, 0.530619, 0.469866, 0.52547)
-bones/10/rotation = Quaternion(0.485528, -0.522545, -0.477793, 0.512761)
+bones/1/rotation = Quaternion(-0.081786, 0.0838661, -0.712542, 0.691781)
+bones/2/rotation = Quaternion(0.104785, 0.0835016, -0.716137, 0.684978)
+bones/3/rotation = Quaternion(-0.113395, -0.0994036, 0.645198, 0.748986)
+bones/4/rotation = Quaternion(0.129103, -0.0630147, 0.655577, 0.741337)
+bones/6/rotation = Quaternion(0.00172648, 6.34477e-05, 0.0367246, 0.999324)
+bones/7/rotation = Quaternion(0.470377, 0.530337, 0.470184, 0.525752)
+bones/10/rotation = Quaternion(0.485457, -0.522479, -0.477865, 0.512828)
 bones/12/rotation = Quaternion(-0.00753944, 0.999156, -0.0397991, -0.00680974)
 bones/13/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(0.480338, 0.539899, 0.538892, -0.432874)
@@ -21,3 +24,6 @@ bones/20/rotation = Quaternion(0.187816, 0.616177, 0.642554, -0.41494)
 bones/21/rotation = Quaternion(0.0827703, 0.698651, 0.662481, -0.257205)
 bones/22/rotation = Quaternion(-0.040024, 0.733195, 0.650783, -0.193145)
 bones/23/rotation = Quaternion(-0.247849, 0.775713, 0.575374, -0.0760548)
+
+[node name="CollisionShape3D" parent="Armature/Skeleton3D/worm/StaticBody3D" index="0"]
+transform = Transform3D(1.1, -9.82254e-11, 7.45058e-09, 0, -4.81959e-08, -1.1, 5.45697e-11, 1.1, -4.80941e-08, -0.489451, 2.12271, -0.485421)

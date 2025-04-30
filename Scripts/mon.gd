@@ -228,7 +228,7 @@ func setup_stat_screen():
 	stat_screen.load_moves(current_moves, moves_list.keys())
 	stat_screen.set_name_text(name)
 	stat_screen.set_level_text(level)
-	stat_screen.set_stat_text(health, strength, defense, intelligence, mind, speed)
+	stat_screen.set_stat_text(health, max_hp, strength, defense, intelligence, mind, speed)
 	stat_screen.set_img(img)
 	stat_screen.leader_button.pressed.connect(_leader_button_pressed)
 
@@ -241,3 +241,4 @@ func _leader_button_pressed():
 	while player.team[0].name != name:
 		player.cycle_team()
 		print(player.team)
+	player.toggle_party_screen()

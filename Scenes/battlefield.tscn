@@ -66,6 +66,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Start of battle"
 
+[node name="ChangeArtling" type="Button" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 492.0
+offset_right = 138.0
+offset_bottom = 523.0
+text = "Change Artling"
+
 [node name="CameraMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15079, 3.80173)
 
@@ -77,3 +84,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15079, 3.80173)
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChangeArtling" to="." method="_on_change_artling_pressed"]

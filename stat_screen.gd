@@ -16,9 +16,9 @@ var chosen_moves : Array
 func set_img(img):
 	artling_img.texture = img
 
-func set_stat_text(hp, str, def, intel, mind, spd):
-	stat_text.set_text("Health: %s\nStrength: %s\nDefense: %s\nIntelligence: %s\nMind: %s\nSpeed: %s" %
-	 [hp, str, def, intel, mind, spd])
+func set_stat_text(hp, max_hp, str, def, intel, mind, spd):
+	stat_text.set_text("Health: %s/%s\nStrength: %s\nDefense: %s\nIntelligence: %s\nMind: %s\nSpeed: %s" %
+	 [hp, max_hp, str, def, intel, mind, spd])
 
 func set_name_text(artling_name):
 	name_text.set_text(artling_name)

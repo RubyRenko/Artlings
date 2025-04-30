@@ -17,7 +17,7 @@ func _on_body_entered(body):
 		var battle = battle_test.instantiate()
 		battle.position = battle_pos
 		add_child(battle)
-		battle.load_mons(body.team[0], mon)
+		battle.load_mons(player.team[0], [mon])
 		battle.load_moves()
 		battling = true
 		# disables player movement and party tab, also sets the camera
@@ -31,5 +31,4 @@ func _on_child_exiting_tree(node):
 		# sets battle to false and returns movement/camera to the player
 		battling = false
 		player.can_move = true
-		player.party_tab.visible = true
 		player.revert_camera()

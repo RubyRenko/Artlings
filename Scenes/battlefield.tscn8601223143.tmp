@@ -1,0 +1,250 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjdb3swoa2pco"]
+
+[ext_resource type="Script" uid="uid://ixv0f8l0ianh" path="res://Scenes/battlefield.gd" id="1_7kn1h"]
+[ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="1_cm4q2"]
+[ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="3_vyfiw"]
+[ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="4_akdgq"]
+[ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/InkStarterCropped.png" id="5_fc4l0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xr3kp"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Battlefield" type="Node3D" groups=["battle"]]
+script = ExtResource("1_7kn1h")
+
+[node name="EnemyMonSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="PlayerMonSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MoveOptions" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -114.0
+offset_right = 417.0
+offset_bottom = -40.0
+grow_vertical = 0
+script = ExtResource("1_cm4q2")
+
+[node name="Move1" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move2" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move3" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move4" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="BattleText" type="Panel" parent="CanvasLayer"]
+offset_left = 440.0
+offset_top = 516.0
+offset_right = 1112.0
+offset_bottom = 627.0
+
+[node name="BattleDesc" type="Label" parent="CanvasLayer/BattleText"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -41.0
+offset_right = 324.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start of battle"
+
+[node name="PartyScreen" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -424.5
+offset_top = -246.0
+offset_right = 424.5
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("3_vyfiw")
+script = ExtResource("4_akdgq")
+
+[node name="Artling1" type="Button" parent="CanvasLayer/PartyScreen"]
+layout_mode = 0
+offset_left = 48.5
+offset_top = 34.0
+offset_right = 272.5
+offset_bottom = 242.0
+icon = ExtResource("5_fc4l0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="CanvasLayer/PartyScreen/Artling1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = SubResource("LabelSettings_xr3kp")
+horizontal_alignment = 1
+
+[node name="Artling2" type="Button" parent="CanvasLayer/PartyScreen"]
+layout_mode = 0
+offset_left = 304.5
+offset_top = 34.0
+offset_right = 528.5
+offset_bottom = 242.0
+icon = ExtResource("5_fc4l0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="CanvasLayer/PartyScreen/Artling2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = SubResource("LabelSettings_xr3kp")
+horizontal_alignment = 1
+
+[node name="Artling3" type="Button" parent="CanvasLayer/PartyScreen"]
+layout_mode = 0
+offset_left = 560.5
+offset_top = 34.0
+offset_right = 784.5
+offset_bottom = 242.0
+icon = ExtResource("5_fc4l0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="CanvasLayer/PartyScreen/Artling3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = SubResource("LabelSettings_xr3kp")
+horizontal_alignment = 1
+
+[node name="Artling4" type="Button" parent="CanvasLayer/PartyScreen"]
+layout_mode = 0
+offset_left = 48.5
+offset_top = 258.0
+offset_right = 272.5
+offset_bottom = 466.0
+icon = ExtResource("5_fc4l0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="CanvasLayer/PartyScreen/Artling4"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = SubResource("LabelSettings_xr3kp")
+horizontal_alignment = 1
+
+[node name="Artling5" type="Button" parent="CanvasLayer/PartyScreen"]
+layout_mode = 0
+offset_left = 304.5
+offset_top = 258.0
+offset_right = 528.5
+offset_bottom = 466.0
+icon = ExtResource("5_fc4l0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="CanvasLayer/PartyScreen/Artling5"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = SubResource("LabelSettings_xr3kp")
+horizontal_alignment = 1
+
+[node name="Artling6" type="Button" parent="CanvasLayer/PartyScreen"]
+layout_mode = 0
+offset_left = 560.5
+offset_top = 258.0
+offset_right = 784.5
+offset_bottom = 466.0
+icon = ExtResource("5_fc4l0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="CanvasLayer/PartyScreen/Artling6"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = SubResource("LabelSettings_xr3kp")
+horizontal_alignment = 1
+
+[node name="ChangeArtling" type="Button" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 492.0
+offset_right = 138.0
+offset_bottom = 523.0
+text = "Change Artling"
+
+[node name="CameraMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15079, 3.80173)
+
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChangeArtling" to="." method="_on_change_artling_pressed"]

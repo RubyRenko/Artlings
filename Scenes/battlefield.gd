@@ -4,9 +4,15 @@ extends Node3D
 @onready var enemy_spawn = $EnemyMonSpawn
 @onready var move_options = $CanvasLayer/MoveOptions
 @onready var battle_desc = $CanvasLayer/BattleText/BattleDesc
+@onready var battle_desc_box = $CanvasLayer/BattleText
 @onready var camera_node = $CameraMarker
+@onready var party_screen = $CanvasLayer/PartyScreen
+@onready var change_button = $CanvasLayer/ChangeArtling
 @onready var master_move_list = preload("res://move_list.tscn").instantiate()
 
+var player
+var player_team : Array
+var enemy_team : Array
 var player_mon : Node3D
 var enemy_mon : Node3D
 
@@ -15,20 +21,26 @@ var commands = []
 var battle_won = false
 var test : Dictionary
 
+var original_player_pos
+var original_enemy_pos
+
 func load_mons(player_inp, enemy_inp):
-	# makes sure player and enemy mon are actually artlings
-	if player_inp.is_in_group("mon"):
-		# sets the player mon to the input and puts it where it's supposed to be
-		player_mon = player_inp
-		player_mon.global_position = player_spawn.global_position
-		player_mon.visible = true
-		#print(player_mon.level)
-	if enemy_inp.is_in_group("mon"):
-		# sets the enemy mon to the input and puts it where it's supposed to be
-		enemy_mon = enemy_inp
-		enemy_mon.global_position = enemy_spawn.global_position
-		enemy_mon.visible = true
-		#print(enemy_mon.level)
+	# sets the player to the input and player team with the first mon going into battle
+	player = player_inp
+	player_team = player_inp.team
+	player_mon = player_team[0]
+	original_player_pos = player_mon.global_position
+	player_mon.global_position = player_spawn.global_position
+	player_mon.visible = true
+	#print(player_mon.level)
+	
+	# sets the enemy mon to the input and puts it where it's supposed to be
+	enemy_team = enemy_inp
+	enemy_mon = enemy_team[0]
+	original_enemy_pos = enemy_mon.global_position
+	enemy_mon.global_position = enemy_spawn.global_position
+	enemy_mon.visible = true
+	#print(enemy_mon.level)
 
 func load_moves():
 	#print(player_mon.current_moves)
@@ -40,11 +52,13 @@ func _process(_delta):
 	if battle_prog >= len(commands):
 		battle_prog = -1
 		move_options.enable_buttons(len(player_mon.current_moves))
+		change_button.disabled = false
 		commands = []
 		player_mon.play_idle_anim()
 	# disables buttons whenevr not picking moves
 	elif battle_prog > -1 && battle_prog < len(commands):
 		move_options.disable_buttons()
+		change_button.disabled = true
 	
 	# when trying to progress battle and one mon is lost
 	if Input.is_action_just_pressed("progress_battle") && battle_prog == -2:
@@ -65,6 +79,8 @@ func _process(_delta):
 		enemy_mon.visible = false
 		player_mon.health = player_mon.max_hp
 		enemy_mon.health = enemy_mon.max_hp
+		player_mon.global_position = original_player_pos
+		enemy_mon.global_position = original_enemy_pos
 		# sets battle prog to -3 so the battle queues free and ends
 		battle_prog = -3
 	# after clicking with battle prog being 3, clears the battle
@@ -201,3 +217,26 @@ func _on_move_3_mouse_entered():
 func _on_move_4_mouse_entered():
 	if battle_prog == -1 && len(player_mon.current_moves) == 4:
 		battle_desc.set_text( str(player_mon.moves_list[player_mon.current_moves[3]]) )
+
+func _on_change_artling_pressed():
+	if player.party_tab.visible == true && player_mon != player.team[0]:
+		change_player_mon(0)
+		move_options.visible = true
+		battle_desc_box.visible = true
+		player.toggle_party_screen()
+	elif player.party_tab.visible:
+		move_options.visible = true
+		battle_desc_box.visible = true
+		player.toggle_party_screen()
+	else:
+		move_options.visible = false
+		battle_desc_box.visible = false
+		player.toggle_party_screen()
+
+func change_player_mon(index):
+	player_mon.visible = false
+	player_mon.global_position = original_player_pos
+	player_mon = player_team[index]
+	player_mon.visible = true
+	player_mon.global_position = player_spawn.global_position
+	load_moves()

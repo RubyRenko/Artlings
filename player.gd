@@ -50,13 +50,7 @@ func _physics_process(delta):
 		jump = false
 	
 	if Input.is_action_just_pressed("party_tab"):
-		if party_tab.visible:
-			party_tab.visible = false
-			can_move = true
-		else:
-			hide_screens()
-			party_tab.visible = true
-			can_move = false
+		toggle_party_screen()
 	
 	# when player can move
 	if can_move:
@@ -127,3 +121,13 @@ func cycle_team():
 	team.append(team[0])
 	team[0] = team.pop_at(1)
 	party_tab.toggle_party_buttons(team)
+
+func toggle_party_screen():
+	party_tab.toggle_party_buttons(team)
+	if party_tab.visible:
+		party_tab.visible = false
+		can_move = true
+	else:
+		hide_screens()
+		party_tab.visible = true
+		can_move = false
