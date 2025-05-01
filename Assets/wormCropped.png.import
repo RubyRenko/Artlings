@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmhw5t7gxlrr8"
-path="res://.godot/imported/wormCropped.png-745a122e68864be0e7b21ca076f5ca70.ctex"
+uid="uid://m65yl67qpddy"
+path="res://.godot/imported/wormcropped.png-e1e16b6aa9e5cba3061dd56f7a22b51f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/wormCropped.png"
-dest_files=["res://.godot/imported/wormCropped.png-745a122e68864be0e7b21ca076f5ca70.ctex"]
+source_file="res://Assets/wormcropped.png"
+dest_files=["res://.godot/imported/wormcropped.png-e1e16b6aa9e5cba3061dd56f7a22b51f.ctex"]
 
 [params]
 
