@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://diwp6ejfs6q8"]
+[gd_scene load_steps=5 format=3 uid="uid://diwp6ejfs6q8"]
 
 [ext_resource type="Script" uid="uid://ceripbwthd83h" path="res://Menus/title_screen.gd" id="1_b0rdp"]
-[ext_resource type="Texture2D" uid="uid://bmvsqegxf4irn" path="res://Menus/titlescreenPLACEHOLDER.png" id="2_d8fdh"]
+[ext_resource type="Texture2D" uid="uid://cijclv6mgqp1e" path="res://Menus/menu_images/option3.png" id="2_53cj8"]
+[ext_resource type="Texture2D" uid="uid://bmvsqegxf4irn" path="res://Menus/menu_images/titlescreenPLACEHOLDER.png" id="2_d8fdh"]
+[ext_resource type="Texture2D" uid="uid://bikirppmftycq" path="res://Menus/menu_images/option1.png" id="3_gj0uk"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -19,29 +21,125 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -50.5
-offset_right = 116.0
-offset_bottom = 50.5
+offset_left = -37.5
+offset_top = -156.0
+offset_right = 37.5
+offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_disabled_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
 text = "Start"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="VBoxContainer/StartButton"]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/StartButton/CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 499.0
+offset_top = 267.0
+offset_right = -481.0
+offset_bottom = -215.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_53cj8")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_disabled_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
 text = "Options"
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="VBoxContainer/OptionsButton"]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/OptionsButton/CanvasLayer3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 499.0
+offset_top = 329.0
+offset_right = -481.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_gj0uk")
+expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_disabled_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
 text = "Quit"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="VBoxContainer"]
+[node name="CanvasLayer4" type="CanvasLayer" parent="VBoxContainer/QuitButton"]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/QuitButton/CanvasLayer4"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 499.0
+offset_top = 387.0
+offset_right = -481.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_53cj8")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
