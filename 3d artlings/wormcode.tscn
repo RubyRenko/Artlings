@@ -25,5 +25,9 @@ bones/21/rotation = Quaternion(0.0827703, 0.698651, 0.662481, -0.257205)
 bones/22/rotation = Quaternion(-0.040024, 0.733195, 0.650783, -0.193145)
 bones/23/rotation = Quaternion(-0.247849, 0.775713, 0.575374, -0.0760548)
 
+[node name="StaticBody3D" parent="Armature/Skeleton3D/worm" index="0"]
+collision_layer = 2
+collision_mask = 2
+
 [node name="CollisionShape3D" parent="Armature/Skeleton3D/worm/StaticBody3D" index="0"]
 transform = Transform3D(1.1, -9.82254e-11, 7.45058e-09, 0, -4.81959e-08, -1.1, 5.45697e-11, 1.1, -4.80941e-08, -0.489451, 2.12271, -0.485421)

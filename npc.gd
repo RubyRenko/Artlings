@@ -3,6 +3,7 @@ extends Area3D
 @onready var battle_test = load("res://Scenes/battlefield.tscn")
 @onready var mon = $ExampleNpcMon
 @onready var battle_pos = $BattleMarker.position
+@onready var sprite = $Sprite3D
 var battling = false
 var player = null
 
@@ -19,6 +20,7 @@ func _on_body_entered(body):
 		battle.load_mons(player, [mon])
 		battle.load_moves()
 		battling = true
+		sprite.visible = false
 		# disables player movement and party tab, also sets the camera
 		player.battling = true
 		player.can_move = false
@@ -30,6 +32,7 @@ func _on_child_exiting_tree(node):
 	if node.is_in_group("battle"):
 		# sets battle to false and returns movement/camera to the player
 		battling = false
+		sprite.visible = true
 		player.can_move = true
 		player.battling = false
 		player.revert_camera()

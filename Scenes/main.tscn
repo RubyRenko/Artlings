@@ -94,6 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000705719, 0)
 shape = SubResource("CapsuleShape3D_1bvp3")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
+visible = false
 pixel_size = 0.0015
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_lquwl")
@@ -107,10 +108,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -424.5
-offset_top = -246.0
-offset_right = 424.5
-offset_bottom = 246.0
+offset_left = -432.0
+offset_top = -244.0
+offset_right = 417.0
+offset_bottom = 252.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -119,12 +120,13 @@ script = ExtResource("5_gt3je")
 
 [node name="Artling1" type="Button" parent="Player/PartyScreen"]
 layout_mode = 0
-offset_left = 48.5
-offset_top = 34.0
-offset_right = 272.5
-offset_bottom = 242.0
+offset_left = 56.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 240.0
 icon = ExtResource("5_ee4r6")
 icon_alignment = 1
+vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="Name" type="Label" parent="Player/PartyScreen/Artling1"]
@@ -142,12 +144,13 @@ horizontal_alignment = 1
 
 [node name="Artling2" type="Button" parent="Player/PartyScreen"]
 layout_mode = 0
-offset_left = 304.5
-offset_top = 34.0
-offset_right = 528.5
-offset_bottom = 242.0
+offset_left = 312.0
+offset_top = 24.0
+offset_right = 520.0
+offset_bottom = 240.0
 icon = ExtResource("5_ee4r6")
 icon_alignment = 1
+vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="Name" type="Label" parent="Player/PartyScreen/Artling2"]
@@ -165,12 +168,13 @@ horizontal_alignment = 1
 
 [node name="Artling3" type="Button" parent="Player/PartyScreen"]
 layout_mode = 0
-offset_left = 560.5
-offset_top = 34.0
-offset_right = 784.5
-offset_bottom = 242.0
+offset_left = 568.0
+offset_top = 24.0
+offset_right = 776.0
+offset_bottom = 240.0
 icon = ExtResource("5_ee4r6")
 icon_alignment = 1
+vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="Name" type="Label" parent="Player/PartyScreen/Artling3"]
@@ -188,12 +192,13 @@ horizontal_alignment = 1
 
 [node name="Artling4" type="Button" parent="Player/PartyScreen"]
 layout_mode = 0
-offset_left = 48.5
-offset_top = 258.0
-offset_right = 272.5
-offset_bottom = 466.0
+offset_left = 56.0
+offset_top = 256.0
+offset_right = 264.0
+offset_bottom = 472.0
 icon = ExtResource("5_ee4r6")
 icon_alignment = 1
+vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="Name" type="Label" parent="Player/PartyScreen/Artling4"]
@@ -211,12 +216,13 @@ horizontal_alignment = 1
 
 [node name="Artling5" type="Button" parent="Player/PartyScreen"]
 layout_mode = 0
-offset_left = 304.5
-offset_top = 258.0
-offset_right = 528.5
-offset_bottom = 466.0
+offset_left = 312.0
+offset_top = 256.0
+offset_right = 520.0
+offset_bottom = 472.0
 icon = ExtResource("5_ee4r6")
 icon_alignment = 1
+vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="Name" type="Label" parent="Player/PartyScreen/Artling5"]
@@ -234,12 +240,13 @@ horizontal_alignment = 1
 
 [node name="Artling6" type="Button" parent="Player/PartyScreen"]
 layout_mode = 0
-offset_left = 560.5
-offset_top = 258.0
-offset_right = 784.5
-offset_bottom = 466.0
+offset_left = 568.0
+offset_top = 256.0
+offset_right = 776.0
+offset_bottom = 472.0
 icon = ExtResource("5_ee4r6")
 icon_alignment = 1
+vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="Name" type="Label" parent="Player/PartyScreen/Artling6"]
@@ -366,7 +373,7 @@ alpha_cut = 1
 texture = ExtResource("7_6bp64")
 
 [node name="old_tree2" parent="." instance=ExtResource("8_344ge")]
-transform = Transform3D(0.49953, 0, -0.0216789, 0, 0.5, 0, 0.0216789, 0, 0.49953, -6.76993, 0.164188, -3.87688)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -6.76993, 0.164188, -3.87688)
 
 [node name="sketch_tree" type="Sprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.65258, 1.66609, -4.98321)

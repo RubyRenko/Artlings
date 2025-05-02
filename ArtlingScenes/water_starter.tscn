@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqf83r1ghl6o4"]
 
 [ext_resource type="Script" uid="uid://43xrmbch6xhd" path="res://ArtlingScenes/water_starter.gd" id="1_7nghe"]
-[ext_resource type="Texture2D" uid="uid://bs3knwq673ftn" path="res://Assets/Watercolor_Starter_for_ExportCropped.png" id="2_nsqof"]
-[ext_resource type="Texture2D" uid="uid://b021dux7bydkx" path="res://Assets/Watercolor_Starter_for_Export.png" id="2_slv4g"]
+[ext_resource type="Texture2D" uid="uid://d173d7idrhjqq" path="res://Assets/water_starter_paper.jpg" id="2_nsqof"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_3jtcs"]
+[ext_resource type="Texture2D" uid="uid://c5estdetarxdl" path="res://Assets/Water_Starter.png" id="3_nsqof"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xqau8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_slv4g")
+"texture": ExtResource("3_nsqof")
 }],
 "loop": true,
 "name": &"attack",
@@ -17,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_slv4g")
+"texture": ExtResource("3_nsqof")
 }],
 "loop": true,
 "name": &"default",
@@ -25,14 +25,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_slv4g")
+"texture": ExtResource("3_nsqof")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[node name="WaterStarter" type="Node3D" groups=["mon"]]
+[node name="WaterStarter" type="Node3D" groups=["2d", "mon"]]
 script = ExtResource("1_7nghe")
 max_hp = 60
 strength = 5
@@ -44,11 +44,12 @@ img = ExtResource("2_nsqof")
 
 [node name="AnimSprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.253747, 0)
+billboard = 1
 sprite_frames = SubResource("SpriteFrames_xqau8")
-animation = &"attack"
 
 [node name="HpBar" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07199, 0)
+visible = false
 text = "HP: "
 
 [node name="ArtlingStats" parent="." instance=ExtResource("3_3jtcs")]

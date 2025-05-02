@@ -4,6 +4,7 @@ extends Area3D
 @onready var mon = $worm2
 @onready var battle_pos = $BattleMarker.position
 @onready var start_pos = global_position
+@onready var sprite = $worm
 var battling = false
 var player = null
 
@@ -20,6 +21,7 @@ func _on_body_entered(body):
 		battle.load_mons(player, [mon])
 		battle.load_moves()
 		battling = true
+		sprite.visible = false
 		# disables player movement and party tab, also sets the camera
 		player.battling = true
 		player.can_move = false
@@ -31,6 +33,7 @@ func _on_child_exiting_tree(node):
 	if node.is_in_group("battle"):
 		# sets battle to false and returns movement/camera to the player
 		battling = false
+		sprite.visible = true
 		player.can_move = true
 		player.battling = false
 		player.revert_camera()

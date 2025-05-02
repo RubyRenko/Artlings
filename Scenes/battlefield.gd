@@ -31,7 +31,13 @@ func load_mons(player_inp, enemy_inp):
 	player_mon = player_team[0]
 	original_player_pos = player_mon.global_position
 	player_mon.global_position = player_spawn.global_position
+	
 	player_mon.visible = true
+	player_mon.hp_bar.visible = true
+	if player_mon.is_in_group("2d"):
+		player_mon.anim.flip_h = false
+	elif player_mon.is_in_group("3d"):
+		player_mon.anim.rotation.y = 0
 	#print(player_mon.level)
 	
 	# sets the enemy mon to the input and puts it where it's supposed to be
@@ -40,6 +46,7 @@ func load_mons(player_inp, enemy_inp):
 	original_enemy_pos = enemy_mon.global_position
 	enemy_mon.global_position = enemy_spawn.global_position
 	enemy_mon.visible = true
+	enemy_mon.hp_bar.visible = true
 	#print(enemy_mon.level)
 
 func load_moves():
@@ -81,6 +88,7 @@ func _process(_delta):
 		enemy_mon.health = enemy_mon.max_hp
 		player_mon.global_position = original_player_pos
 		enemy_mon.global_position = original_enemy_pos
+		player_mon.hp_bar.visible = false
 		# sets battle prog to -3 so the battle queues free and ends
 		battle_prog = -3
 	# after clicking with battle prog being 3, clears the battle

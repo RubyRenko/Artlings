@@ -7,12 +7,13 @@ extends CharacterBody3D
 @onready var camera = $Camera3D
 @onready var camera_pos = camera.position
 
-var speed = 100.0
+var speed = 150.0
 var max_jump = 5.0
 var jump = false
 var team = []
 var can_move = true
 var battling = false
+var leader
 
 func _ready():
 	# adds the 3 starters to the team
@@ -20,6 +21,8 @@ func _ready():
 	team_node.add_teammate("ink starter")
 	team_node.add_teammate("water starter")
 	party_tab.visible = false
+	leader = team[0]
+	leader.visible = true
 	#print("current team")
 	#print(team)
 
@@ -32,9 +35,9 @@ func _physics_process(delta):
 	
 	# sets the speed depending on if the run key is pressed or not
 	if Input.is_action_pressed("run") && can_move:
-		speed = 200.0
+		speed = 250.0
 	else:
-		speed = 100.0
+		speed = 150.0
 	
 	# if the jump button is pressed once and is on the floor
 	if Input.is_action_just_pressed("jump") && is_on_floor() && can_move:
@@ -60,8 +63,20 @@ func _physics_process(delta):
 		velocity.y += delta * gravity
 		velocity.x = direction.x * delta * speed
 		velocity.z = direction.z * delta * speed
-		
+		#print(velocity)
 		move_and_slide()
+		
+		if !leader.visible:
+			leader.visible = true
+		leader.global_position = global_position
+		
+		if leader.is_in_group("2d") && velocity.x < 0:
+			leader.anim.flip_h = true
+		elif leader.is_in_group("2d") && velocity.x > 0:
+			leader.anim.flip_h = false
+		elif leader.is_in_group("3d"):
+			var dir_rotate = Vector2(direction.z, direction.x)
+			leader.anim.rotation.y = dir_rotate.angle()
 
 func load_team():
 	# updates team based off the children in teamnode and updates party_tab
@@ -120,8 +135,10 @@ func revert_camera():
 
 func cycle_team():
 	team.append(team[0])
+	team[0].visible = false
 	team[0] = team.pop_at(1)
 	party_tab.toggle_party_buttons(team)
+	leader = team[0]
 
 func toggle_party_screen():
 	party_tab.toggle_party_buttons(team)

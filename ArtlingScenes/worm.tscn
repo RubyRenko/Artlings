@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b6vld7ff7kdhy" path="res://ArtlingScenes/worm.gd" id="1_iwr24"]
 [ext_resource type="PackedScene" uid="uid://b22mw3dkbju56" path="res://3d artlings/wormcode.tscn" id="2_lujuq"]
-[ext_resource type="Texture2D" uid="uid://bmhw5t7gxlrr8" path="res://Assets/wormCropped.png" id="2_ymmcu"]
+[ext_resource type="Texture2D" uid="uid://m65yl67qpddy" path="res://Assets/wormCropped.png" id="2_ymmcu"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_lujuq"]
 
-[node name="worm" type="Node3D" groups=["mon"]]
+[node name="worm" type="Node3D" groups=["3d", "mon"]]
 script = ExtResource("1_iwr24")
 max_hp = 60
 strength = 10
@@ -21,6 +21,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="HpBar" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.980193, 0)
+visible = false
 text = "HP:"
 
 [node name="ArtlingStats" parent="." instance=ExtResource("3_lujuq")]
