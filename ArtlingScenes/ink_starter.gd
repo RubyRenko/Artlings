@@ -26,4 +26,4 @@ func play_atk_anim():
 	anim.play("attack")
 
 func play_brace_anim():
-	anim.play("idle")
+	anim.play("brace")

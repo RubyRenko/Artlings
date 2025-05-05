@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn4dxdhlk3u4l"]
+[gd_scene load_steps=6 format=3 uid="uid://cn4dxdhlk3u4l"]
 
 [ext_resource type="Script" uid="uid://c6rk453o14gi5" path="res://ArtlingScenes/ink_starter.gd" id="1_5cboi"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_abxsj"]
 [ext_resource type="Texture2D" uid="uid://btxpcfh65rfel" path="res://Assets/Ink_Fox.png" id="3_be0wh"]
+[ext_resource type="Texture2D" uid="uid://bjty4h38ebkjj" path="res://Assets/Ink_FoxBrace.png" id="3_eg308"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0alr3"]
 animations = [{
@@ -12,6 +13,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eg308")
+}],
+"loop": true,
+"name": &"brace",
 "speed": 5.0
 }, {
 "frames": [{
@@ -46,7 +55,7 @@ transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0.132262, 0)
 cast_shadow = 2
 no_depth_test = true
 sprite_frames = SubResource("SpriteFrames_0alr3")
-animation = &"attack"
+animation = &"idle"
 
 [node name="HpBar" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.937193, 0)
