@@ -44,16 +44,21 @@ func attack(target, move):
 		# for different statuses that affect attack, this is where it goes
 		var atk = moves_list[move]
 		var acc = atk.accuracy
+		var damage_range = atk.damage
 		if status == "Blind":
 			acc -= 20
 			#print("affected by blind, accuracy: " + str(acc))
+		elif status == "Soapy" && len(damage_range) == 2:
+			damage_range = [atk.damage[0], atk.damage[0]]
+		elif status == "Soapy" && len(damage_range) == 4:
+			damage_range = [atk.damage[0], atk.damage[0], atk.damage[2], atk.damage[2]]
 		
 		# generates a random int form 0-100
 		if randi_range(0, 100) <= acc:
 			# if it's lower than accuracy, it hits
 			if atk.dmg_type == "str":
 				# calculates damage depending on the str stat
-				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_phys_damage(damage)
 				if atk.effect[0] != 0:
 					# if the affect isn't blank, splits the effect string into
@@ -64,7 +69,7 @@ func attack(target, move):
 			
 			elif atk.dmg_type == "int":
 				# calculates damage depending on the int stat
-				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_mnd_damage(damage)
 				if atk.effect[0] != 0:
 					# if the affect isn't blank, applies status and counter
@@ -75,7 +80,7 @@ func attack(target, move):
 			elif atk.dmg_type == "str/mnd":
 				# calculates damage depending on the str stat
 				# with defense being mnd stat
-				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_phys_damage(damage)
 				if atk.effect[0] != 0:
 					# if the affect isn't blank, applies status and counter
@@ -86,13 +91,37 @@ func attack(target, move):
 			elif atk.dmg_type == "int/def":
 				# calculates damage depending on the int stat
 				# with defense being def stat
-				var damage = randi_range(atk.damage[0], atk.damage[1])
+				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_mnd_damage(damage)
 				if atk.effect[0] != 0:
 					# if the affect isn't blank, applies status and counter
 					target.status = atk.effect[1]
 					target.status_counter = atk.effect[0]
 				return target.take_phys_damage(final_dmg)
+			
+			elif atk.dmg_type == "int/self":
+				var damage = randi_range(damage_range[0], damage_range[1])
+				var final_dmg = calculate_mnd_damage(damage)
+				if atk.effect[0] != 0:
+					# if the affect isn't blank, applies status and counter
+					target.status = atk.effect[1]
+					target.status_counter = atk.effect[0]
+				var self_dmg = randi_range(damage_range[2], damage_range[3])
+				var final_self_dmg = calculate_mnd_damage(self_dmg)
+				
+				return target.take_mnd_damage(final_dmg) + "\n" +take_mnd_damage(final_self_dmg)
+			
+			elif atk.dmg_type == "str/self":
+				var damage = randi_range(damage_range[0], damage_range[1])
+				var final_dmg = calculate_phys_damage(damage)
+				if atk.effect[0] != 0:
+					# if the affect isn't blank, applies status and counter
+					target.status = atk.effect[1]
+					target.status_counter = atk.effect[0]
+				
+				var self_dmg = randi_range(damage_range[2], damage_range[3])
+				var final_self_dmg = calculate_phys_damage(self_dmg)
+				return target.take_phys_damage(final_dmg) + "\n" +take_phys_damage(final_self_dmg)
 			
 			elif atk.dmg_type == "self":
 				var damage = randi_range(atk.damage[0], atk.damage[1])
@@ -124,7 +153,7 @@ func take_phys_damage(amount):
 		health -= amount
 		if health > max_hp:
 			health = max_hp
-		var output_line = "Healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
+		var output_line = name + " healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 	else:
 		# calculates the physical damage taken based on mon defense
@@ -134,7 +163,7 @@ func take_phys_damage(amount):
 			amount = 1
 		health -= amount
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
-		var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
+		var output_line = name + " took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 
 # takes damage and returns string of how much damage was taken
@@ -145,7 +174,7 @@ func take_mnd_damage(amount):
 		health -= amount
 		if health > max_hp:
 			health = max_hp
-		var output_line = "Healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
+		var output_line = name + " healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 	else:
 		# calculates the physical damage taken based on mon defense
@@ -155,7 +184,7 @@ func take_mnd_damage(amount):
 			amount = 1
 		health -= amount
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
-		var output_line = "Took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
+		var output_line = name + " took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 
 # handles status damage or effects
@@ -177,6 +206,8 @@ func take_status():
 		return name + " takes poison damage."
 	elif status == "Blind":
 		return name + " is blinded."
+	elif status == "Soapy":
+		return name + " is soapy."
 	elif status == "Bubble":
 		var heal = ceili(health/20)
 		health += heal
@@ -242,8 +273,10 @@ func _leader_button_pressed():
 	while player.team[0].name != name:
 		player.cycle_team()
 		print(player.team)
+	print(current_moves, stat_screen.chosen_moves)
 	player.toggle_party_screen()
 
 func _stat_exit_pressed():
 	var player = get_parent().get_parent()
+	print(current_moves, stat_screen.chosen_moves)
 	player.toggle_party_screen()

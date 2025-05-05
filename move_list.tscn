@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 script = ExtResource("2_uqtxr")
 damage = [30, 35]
 accuracy = 100
-type = "Geometry"
+type = "Geometric"
 dmg_type = "str"
 desc = "Bites into the target"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
@@ -48,7 +48,7 @@ damage = [25, 35]
 accuracy = 100
 type = "Geometric"
 dmg_type = "str/mnd"
-desc = "Gross licking attack, uses the target's mind rather than def"
+desc = "Gross licking attack, uses the target's mind rather than defense"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Brush" type="Node" parent="." groups=["move"]]
@@ -124,4 +124,42 @@ type = "Water"
 dmg_type = "self"
 effect = [4, "Bubble"]
 desc = "Surrounds the user in a healing bubble"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Spout" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [15, 25]
+accuracy = 100
+type = "Water"
+dmg_type = "int"
+desc = "Spouts out a gush of water"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Sap" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [20, 30, -10, -15]
+accuracy = 100
+type = "Water"
+dmg_type = "int/self"
+desc = "Drains the color from an opponent and restores"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Wash" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [15, 35]
+accuracy = 90
+type = "Water"
+dmg_type = "int"
+effect = [2, "Soapy"]
+desc = "Deals an irregular amount of damage and reduces target's damage dealt"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="BubbleBurst" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [30, 40]
+accuracy = 90
+type = "Water"
+dmg_type = "int"
+effect = [2, "Soapy"]
+desc = "Deals an irregular amount of damage and reduces target's damage dealt"
 metadata/_custom_type_script = "uid://je6io23ym5wg"

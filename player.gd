@@ -111,7 +111,7 @@ func show_artling(ind):
 	# if the stat screen isn't visible
 	else:
 		# hides other stat screens and makes sure stat screen is up to date
-		# shows stat screen and disabls movement
+		# shows stat screen and disables movement
 		hide_screens()
 		team[ind].setup_stat_screen()
 		team[ind].stat_screen.visible = true
@@ -122,6 +122,7 @@ func hide_screens():
 	for teammate in team:
 		if teammate.stat_screen.visible == true:
 			teammate.stat_screen.visible = false
+			teammate.update_from_stat_screen()
 	if party_tab.visible:
 		party_tab.visible = false
 
