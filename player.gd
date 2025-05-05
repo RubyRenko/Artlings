@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var team_node = $Artlings
 @onready var party_tab = $PartyScreen
+@onready var party_button = $PartyButton
 @onready var artlings_list = ArtlingsMasterlist.new()
 @onready var camera = $Camera3D
 @onready var camera_pos = camera.position
@@ -53,8 +54,8 @@ func _physics_process(delta):
 		# when velocity hits max jump, sets jump to false so player starts to fall
 		jump = false
 	
-	if Input.is_action_just_pressed("party_tab") && !battling:
-		toggle_party_screen()
+	"""if Input.is_action_just_pressed("party_tab") && !battling:
+		toggle_party_screen()"""
 	
 	# when player can move
 	if can_move:
@@ -151,3 +152,6 @@ func toggle_party_screen():
 		hide_screens()
 		party_tab.visible = true
 		can_move = false
+
+func _on_party_button_pressed():
+	toggle_party_screen()

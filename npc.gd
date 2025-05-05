@@ -25,6 +25,8 @@ func _on_body_entered(body):
 		player.battling = true
 		player.can_move = false
 		player.party_tab.visible = false
+		player.party_button.visible = false
+		player.party_button.disabled = true
 		player.change_camera(battle.camera_node.global_position)
 
 func _on_child_exiting_tree(node):
@@ -35,4 +37,6 @@ func _on_child_exiting_tree(node):
 		sprite.visible = true
 		player.can_move = true
 		player.battling = false
+		player.party_button.visible = true
+		player.party_button.disabled = false
 		player.revert_camera()
