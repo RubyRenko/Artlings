@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=37 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dh6x4sp2a2aeq" path="res://Assets/Wisteria.png" id="2_kry3j"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="18_fevyy"]
 [ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="19_fevyy"]
 [ext_resource type="PackedScene" uid="uid://did7wul5awsfm" path="res://Assets/cherry_blossom_v1.glb" id="20_hibaj"]
+[ext_resource type="PackedScene" uid="uid://0ers27mfx18f" path="res://Scenes/starter_area_v_2.tscn" id="23_3pmx8"]
 [ext_resource type="Script" uid="uid://c4qmdp1oqrja" path="res://Scenes/wild_artling_spawn.gd" id="23_gt3je"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21xkr"]
@@ -70,15 +71,16 @@ radius = 1.05442
 radius = 2.369
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fevyy"]
-size = Vector3(26.4359, 7.98535, 1)
+size = Vector3(47, 14.614, 1.8833)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hibaj"]
-size = Vector3(1, 8.04877, 17.729)
+size = Vector3(1, 11.727, 47.0496)
 
 [node name="Main" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36993, -0.497048, -2.65051)
+visible = false
 material_override = SubResource("StandardMaterial3D_21xkr")
 use_collision = true
 size = Vector3(24.7399, 1, 14.699)
@@ -340,6 +342,7 @@ environment = SubResource("Environment_kry3j")
 
 [node name="BushTest" type="Node3D" parent="."]
 transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, -3.23583, 0.28244, -3.90706)
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="BushTest"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.460537, 0, 0.508701)
@@ -352,34 +355,43 @@ texture = ExtResource("7_6bp64")
 
 [node name="old_tree2" parent="." instance=ExtResource("8_344ge")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -6.76993, 0.164188, -3.87688)
+visible = false
 
 [node name="sketch_tree" type="Sprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.65258, 1.66609, -4.98321)
+visible = false
 texture = ExtResource("9_ynf5e")
 
 [node name="sketch_tree3" type="Sprite3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 12.4556, 2.31672, -5.98321)
+visible = false
 texture = ExtResource("9_ynf5e")
 
 [node name="TempTutorial" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.015, -1)
+visible = false
 text = "Press P to toggle your party screen"
 
 [node name="Bush 1 " parent="." instance=ExtResource("10_hptm8")]
 transform = Transform3D(1.67633, 0, 1.09083, 0, 2, 0, -1.09083, 0, 1.67633, -5.18735, 0.006056, -1.95202)
+visible = false
 
 [node name="sketch_tree2" type="Sprite3D" parent="."]
 transform = Transform3D(0.199966, -0.00364055, 0, 0.00364055, 0.199966, 0, 0, 0, 0.2, 2.844, 1.3, -6.851)
+visible = false
 texture = ExtResource("9_ynf5e")
 
 [node name="old_tree3" parent="." instance=ExtResource("8_344ge")]
 transform = Transform3D(-0.100142, 0, -0.282792, 0, 0.3, 0, 0.282792, 0, -0.100142, 7.00311, 0.246282, -5.96026)
+visible = false
 
 [node name="Bush 1 2" parent="." instance=ExtResource("10_hptm8")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.75608, 0.006056, -5.64276)
+visible = false
 
 [node name="old_tree4" parent="." instance=ExtResource("8_344ge")]
 transform = Transform3D(-0.417126, 0, 0.431284, 0, 0.6, 0, -0.431284, 0, -0.417126, 5.36677, 0.0647102, -8.43047)
+visible = false
 
 [node name="ToggleSound" type="TextureButton" parent="."]
 offset_right = 100.0
@@ -392,7 +404,7 @@ texture_pressed = ExtResource("13_wsu2k")
 script = ExtResource("12_fdnlq")
 
 [node name="Npc2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57327, 0.524434, -1.11077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0597, 2.9677, -1.11077)
 script = ExtResource("16_b3802")
 
 [node name="worm" parent="Npc2" instance=ExtResource("18_fevyy")]
@@ -414,6 +426,7 @@ shape = SubResource("SphereShape3D_pdsj5")
 
 [node name="BushTest2" type="Node3D" parent="."]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 11.2056, 0.444563, -5.48291)
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="BushTest2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.460537, 0, 0.508701)
@@ -424,35 +437,24 @@ texture = ExtResource("7_6bp64")
 alpha_cut = 1
 texture = ExtResource("7_6bp64")
 
-[node name="Walls" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37335, 3.49268, 5.09829)
-shape = SubResource("BoxShape3D_fevyy")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50168, 3.49268, -10.4024)
-shape = SubResource("BoxShape3D_fevyy")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.178, 3.52438, -2.93112)
-shape = SubResource("BoxShape3D_hibaj")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3566, 3.52438, -2.64866)
-shape = SubResource("BoxShape3D_hibaj")
-
 [node name="cherry_blossom_v1" parent="." instance=ExtResource("20_hibaj")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 10.3551, -0.0624025, -7.11215)
+visible = false
 
 [node name="cherry_blossom_v2" parent="." instance=ExtResource("20_hibaj")]
 transform = Transform3D(-6.14672, 0, 5.12034, 0, 8, 0, -5.12034, 0, -6.14672, -2.93477, -0.0624025, -7.52878)
+visible = false
 
 [node name="cherry_blossom_v3" parent="." instance=ExtResource("20_hibaj")]
 transform = Transform3D(1.50302, 0, 3.70688, 0, 4, 0, -3.70688, 0, 1.50302, 13.1249, -0.0624025, -0.354167)
+visible = false
 
 [node name="Bush 1 3" parent="." instance=ExtResource("10_hptm8")]
 transform = Transform3D(1.66963, 0, -2.49246, 0, 3, 0, 2.49246, 0, 1.66963, 12.6708, 0.006056, -3.48254)
+visible = false
+
+[node name="starter_area_v2" parent="." instance=ExtResource("23_3pmx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.588833, 1.87725, -3.25703)
 
 [node name="WildArtlingSpawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17667, 1.87725, -3.25703)
@@ -460,6 +462,25 @@ script = ExtResource("23_gt3je")
 
 [node name="Timer" type="Timer" parent="WildArtlingSpawn"]
 wait_time = 10.0
+
+[node name="Walls" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3446, 5.99042, 4.91744)
+shape = SubResource("BoxShape3D_fevyy")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 0.997452, -0.0713408, 0, 0.0713408, 0.997452, -0.280737, 5.42751, -41.3689)
+shape = SubResource("BoxShape3D_fevyy")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(0.992204, 0.124623, 0, -0.124623, 0.992204, 0, 0, 0, 1, 21.7405, 5.34917, -17.5914)
+shape = SubResource("BoxShape3D_hibaj")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5574, 3.52438, -18.8307)
+shape = SubResource("BoxShape3D_hibaj")
 
 [connection signal="pressed" from="Player/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artling1" to="Player" method="_on_artling_1_pressed"]
