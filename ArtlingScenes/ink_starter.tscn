@@ -53,7 +53,7 @@ img = ExtResource("3_be0wh")
 [node name="AnimSprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0.132262, 0)
 cast_shadow = 2
-no_depth_test = true
+billboard = 1
 sprite_frames = SubResource("SpriteFrames_0alr3")
 animation = &"idle"
 

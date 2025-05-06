@@ -237,7 +237,8 @@ func add_stats(hp, str, def, intel, mnd, spd):
 func load_move(move):
 	moves_list[move.name] = move
 	learnable_moves.pop_at(learnable_moves.find(move.name))
-	current_moves.append(move.name)
+	if len(current_moves) < 4:
+		current_moves.append(move.name)
 
 # adds experience and levels up 
 func add_experience(amount):
@@ -247,6 +248,7 @@ func add_experience(amount):
 		level += 1
 		#right now, stats are random, but in the future might be able to be customized by a growth variable
 		add_stats(randi_range(1,10), randi_range(0,5), randi_range(0,5), randi_range(0,5), randi_range(0,5), randi_range(0,5))
+		health = max_hp
 		if len(learnable_moves) > 0:
 			var to_learn = learnable_moves[0]
 			print(to_learn)

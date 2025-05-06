@@ -3,7 +3,8 @@ extends HBoxContainer
 var choosable_moves = []
 
 func toggle_move_buttons(moves):
-	if moves != null:
+	print(moves)
+	if len(moves) <= 4:
 		var i = 0
 		for move in moves:
 			var move_button = get_child(i)
