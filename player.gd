@@ -9,12 +9,13 @@ extends CharacterBody3D
 @onready var camera_pos = camera.position
 
 var speed = 150.0
-var max_jump = 5.0
 var jump = false
-var team = []
 var can_move = true
 var battling = false
 var leader
+
+static var team = []
+var inspo = 0
 
 func _ready():
 	# adds the 3 starters to the team
@@ -44,15 +45,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") && is_on_floor() && can_move:
 		# puts into jummping state and gives a first boost of height
 		jump = true
-		velocity.y += 3.0
-	
-	# if jump button is held down and currently in the middle of jumping
-	if Input.is_action_pressed("jump") && velocity.y < max_jump && jump && can_move:
-		# adds small bit of velocity until it hits max jump
-		velocity.y += 0.3
-	elif velocity.y > max_jump:
-		# when velocity hits max jump, sets jump to false so player starts to fall
-		jump = false
+		velocity.y += 6.0
 	
 	"""if Input.is_action_just_pressed("party_tab") && !battling:
 		toggle_party_screen()"""
@@ -155,3 +148,11 @@ func toggle_party_screen():
 
 func _on_party_button_pressed():
 	toggle_party_screen()
+
+func _on_create_artling_pressed():
+	if inspo == 1:
+		team_node.add_teammate(artlings_list.get_random_artling_name())
+		party_tab.toggle_party_buttons(team)
+		inspo -= 1
+	else:
+		party_tab.create_button.set_text("Not enough inspiration")

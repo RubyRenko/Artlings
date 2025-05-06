@@ -39,4 +39,5 @@ func _on_child_exiting_tree(node):
 		player.battling = false
 		player.party_button.visible = true
 		player.party_button.disabled = false
+		player.inspo += 1
 		player.revert_camera()

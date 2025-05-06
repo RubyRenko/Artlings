@@ -8,6 +8,7 @@ var mons_spawned = 0
 func _ready():
 	add_child(wa)
 	wa.global_position = position
+	mons_spawned += 1
 
 func _on_child_exiting_tree(node):
 	if node == wa:

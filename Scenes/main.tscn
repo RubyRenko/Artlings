@@ -1,11 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=36 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dh6x4sp2a2aeq" path="res://Assets/Wisteria.png" id="2_kry3j"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
 [ext_resource type="AudioStream" uid="uid://d1y3hpbmd2ib2" path="res://Audio/overworld.mp3" id="4_fdnlq"]
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="4_pdsj5"]
-[ext_resource type="Script" uid="uid://b0wejycyhkibp" path="res://Scenes/player_party_tab.gd" id="4_wsu2k"]
 [ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/InkStarterCropped.png" id="5_ee4r6"]
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="5_gt3je"]
 [ext_resource type="Texture2D" uid="uid://dqu6gn70inii6" path="res://Assets/Assets_Juice_WarriorBush.png" id="7_6bp64"]
@@ -74,7 +73,7 @@ radius = 2.369
 size = Vector3(47, 14.614, 1.8833)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hibaj"]
-size = Vector3(1, 11.727, 47.0496)
+size = Vector3(1.74707, 18.8263, 47.0496)
 
 [node name="Main" type="Node3D"]
 
@@ -86,11 +85,11 @@ use_collision = true
 size = Vector3(24.7399, 1, 14.699)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14439, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.663477, 2.14439, 9.79402)
 script = ExtResource("1_jjvhh")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.952209, 0.305446, 0, -0.305446, 0.952209, 0, 0.834415, 2.38413)
+transform = Transform3D(1, 0, 0, 0, 0.952209, 0.305446, 0, -0.305446, 0.952209, 0, 1.27247, 3.0171)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000705719, 0)
@@ -110,6 +109,7 @@ offset_left = 1031.0
 offset_top = 9.0
 offset_right = 1144.0
 offset_bottom = 97.0
+focus_mode = 0
 toggle_mode = true
 shortcut = SubResource("Shortcut_ueoa1")
 texture_normal = ExtResource("9_u50mg")
@@ -134,7 +134,12 @@ size_flags_horizontal = 4
 theme_override_styles/panel = ExtResource("4_pdsj5")
 script = ExtResource("5_gt3je")
 
-[node name="Artling1" type="Button" parent="Player/PartyScreen"]
+[node name="Artlings" type="Control" parent="Player/PartyScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Artling1" type="Button" parent="Player/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 24.0
@@ -145,7 +150,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Name" type="Label" parent="Player/PartyScreen/Artling1"]
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling1"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -158,7 +163,7 @@ text = "Name / Level"
 label_settings = SubResource("LabelSettings_gt3je")
 horizontal_alignment = 1
 
-[node name="Artling2" type="Button" parent="Player/PartyScreen"]
+[node name="Artling2" type="Button" parent="Player/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 312.0
 offset_top = 24.0
@@ -169,7 +174,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Name" type="Label" parent="Player/PartyScreen/Artling2"]
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling2"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -182,7 +187,7 @@ text = "Name / Level"
 label_settings = SubResource("LabelSettings_gt3je")
 horizontal_alignment = 1
 
-[node name="Artling3" type="Button" parent="Player/PartyScreen"]
+[node name="Artling3" type="Button" parent="Player/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 568.0
 offset_top = 24.0
@@ -193,7 +198,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Name" type="Label" parent="Player/PartyScreen/Artling3"]
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling3"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -206,7 +211,7 @@ text = "Name / Level"
 label_settings = SubResource("LabelSettings_gt3je")
 horizontal_alignment = 1
 
-[node name="Artling4" type="Button" parent="Player/PartyScreen"]
+[node name="Artling4" type="Button" parent="Player/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 256.0
@@ -217,7 +222,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Name" type="Label" parent="Player/PartyScreen/Artling4"]
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling4"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -230,7 +235,7 @@ text = "Name / Level"
 label_settings = SubResource("LabelSettings_gt3je")
 horizontal_alignment = 1
 
-[node name="Artling5" type="Button" parent="Player/PartyScreen"]
+[node name="Artling5" type="Button" parent="Player/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 312.0
 offset_top = 256.0
@@ -241,7 +246,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Name" type="Label" parent="Player/PartyScreen/Artling5"]
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling5"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -254,7 +259,7 @@ text = "Name / Level"
 label_settings = SubResource("LabelSettings_gt3je")
 horizontal_alignment = 1
 
-[node name="Artling6" type="Button" parent="Player/PartyScreen"]
+[node name="Artling6" type="Button" parent="Player/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 568.0
 offset_top = 256.0
@@ -265,7 +270,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Name" type="Label" parent="Player/PartyScreen/Artling6"]
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling6"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -278,52 +283,16 @@ text = "Name / Level"
 label_settings = SubResource("LabelSettings_gt3je")
 horizontal_alignment = 1
 
-[node name="PlayerPartyTab" type="VBoxContainer" parent="Player"]
-visible = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -141.0
-offset_bottom = 206.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-script = ExtResource("4_wsu2k")
-
-[node name="Artling1" type="Button" parent="Player/PlayerPartyTab"]
-layout_mode = 2
-focus_mode = 0
-text = "Artling
-"
-
-[node name="Artling2" type="Button" parent="Player/PlayerPartyTab"]
-layout_mode = 2
-focus_mode = 0
-text = "Artling
-"
-
-[node name="Artling3" type="Button" parent="Player/PlayerPartyTab"]
-layout_mode = 2
-focus_mode = 0
-text = "Artling
-"
-
-[node name="Artling4" type="Button" parent="Player/PlayerPartyTab"]
-layout_mode = 2
-focus_mode = 0
-text = "Artling
-"
-
-[node name="Artling5" type="Button" parent="Player/PlayerPartyTab"]
-layout_mode = 2
-focus_mode = 0
-text = "Artling
-"
-
-[node name="Artling6" type="Button" parent="Player/PlayerPartyTab"]
-layout_mode = 2
-focus_mode = 0
-text = "Artling
-"
+[node name="CreateArtling" type="Button" parent="Player/PartyScreen"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 240.0
+text = "Create Artling"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="overworldSound" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("4_fdnlq")
@@ -404,7 +373,7 @@ texture_pressed = ExtResource("13_wsu2k")
 script = ExtResource("12_fdnlq")
 
 [node name="Npc2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0597, 2.9677, -1.11077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7484, 2.53506, 4.18722)
 script = ExtResource("16_b3802")
 
 [node name="worm" parent="Npc2" instance=ExtResource("18_fevyy")]
@@ -454,43 +423,62 @@ transform = Transform3D(1.66963, 0, -2.49246, 0, 3, 0, 2.49246, 0, 1.66963, 12.6
 visible = false
 
 [node name="starter_area_v2" parent="." instance=ExtResource("23_3pmx8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.588833, 1.87725, -3.25703)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.588833, 1.87725, -3.25703)
 
 [node name="WildArtlingSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17667, 1.87725, -3.25703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17667, 3.09023, -3.25703)
 script = ExtResource("23_gt3je")
 
 [node name="Timer" type="Timer" parent="WildArtlingSpawn"]
+wait_time = 10.0
+
+[node name="WildArtlingSpawn2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72764, 3.92913, -13.1892)
+script = ExtResource("23_gt3je")
+
+[node name="Timer" type="Timer" parent="WildArtlingSpawn2"]
+wait_time = 10.0
+
+[node name="WildArtlingSpawn3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.93044, 3.09023, -2.12659)
+script = ExtResource("23_gt3je")
+
+[node name="Timer" type="Timer" parent="WildArtlingSpawn3"]
 wait_time = 10.0
 
 [node name="Walls" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3446, 5.99042, 4.91744)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3446, 5.99042, 5.3313)
 shape = SubResource("BoxShape3D_fevyy")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 0.997452, -0.0713408, 0, 0.0713408, 0.997452, -0.280737, 5.42751, -41.3689)
+transform = Transform3D(1, 0, 0, 0, 0.997452, -0.0713408, 0, 0.0713408, 0.997452, -0.280737, 5.42751, -42.1966)
 shape = SubResource("BoxShape3D_fevyy")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(0.992204, 0.124623, 0, -0.124623, 0.992204, 0, 0, 0, 1, 21.7405, 5.34917, -17.5914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9294, 8.87114, -17.5914)
 shape = SubResource("BoxShape3D_hibaj")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5574, 3.52438, -18.8307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1048, 3.52438, -18.8307)
 shape = SubResource("BoxShape3D_hibaj")
 
 [connection signal="pressed" from="Player/PartyButton" to="Player" method="_on_party_button_pressed"]
-[connection signal="pressed" from="Player/PartyScreen/Artling1" to="Player" method="_on_artling_1_pressed"]
-[connection signal="pressed" from="Player/PartyScreen/Artling2" to="Player" method="_on_artling_2_pressed"]
-[connection signal="pressed" from="Player/PartyScreen/Artling3" to="Player" method="_on_artling_3_pressed"]
-[connection signal="pressed" from="Player/PartyScreen/Artling4" to="Player" method="_on_artling_4_pressed"]
-[connection signal="pressed" from="Player/PartyScreen/Artling5" to="Player" method="_on_artling_5_pressed"]
-[connection signal="pressed" from="Player/PartyScreen/Artling6" to="Player" method="_on_artling_6_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling1" to="Player" method="_on_artling_1_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling2" to="Player" method="_on_artling_2_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling3" to="Player" method="_on_artling_3_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling4" to="Player" method="_on_artling_4_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling5" to="Player" method="_on_artling_5_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling6" to="Player" method="_on_artling_6_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/CreateArtling" to="Player" method="_on_create_artling_pressed"]
 [connection signal="pressed" from="ToggleSound" to="ToggleSound" method="_on_pressed"]
 [connection signal="body_entered" from="Npc2" to="Npc2" method="_on_body_entered"]
 [connection signal="child_exiting_tree" from="Npc2" to="Npc2" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="WildArtlingSpawn" to="WildArtlingSpawn" method="_on_child_exiting_tree"]
 [connection signal="timeout" from="WildArtlingSpawn/Timer" to="WildArtlingSpawn" method="_on_timer_timeout"]
+[connection signal="child_exiting_tree" from="WildArtlingSpawn2" to="WildArtlingSpawn2" method="_on_child_exiting_tree"]
+[connection signal="timeout" from="WildArtlingSpawn2/Timer" to="WildArtlingSpawn2" method="_on_timer_timeout"]
+[connection signal="child_exiting_tree" from="WildArtlingSpawn3" to="WildArtlingSpawn3" method="_on_child_exiting_tree"]
+[connection signal="timeout" from="WildArtlingSpawn3/Timer" to="WildArtlingSpawn3" method="_on_timer_timeout"]
