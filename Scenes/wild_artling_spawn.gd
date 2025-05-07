@@ -18,7 +18,7 @@ func _on_timer_timeout():
 	wa = wild_artling_scene.instantiate()
 	add_child(wa)
 	wa.global_position = position
-	wa.set_level(ceili(mons_spawned/2))
+	wa.set_level(mons_spawned)
 	mons_spawned += 1
 	print(wa.artling.level)
 	timer.stop()
