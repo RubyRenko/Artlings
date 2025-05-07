@@ -45,4 +45,5 @@ func _on_child_exiting_tree(node):
 		player.create_button.visible = true
 		player.create_button.disabled = false
 		player.inspo += 1
+		player.leader.play_idle_anim()
 		player.revert_camera()

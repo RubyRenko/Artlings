@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=37 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
@@ -6,17 +6,13 @@
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="4_pdsj5"]
 [ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/InkStarterCropped.png" id="5_ee4r6"]
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="5_gt3je"]
-[ext_resource type="Texture2D" uid="uid://dqu6gn70inii6" path="res://Assets/Assets_Juice_WarriorBush.png" id="7_6bp64"]
-[ext_resource type="PackedScene" uid="uid://7s7no85rfxwl" path="res://Assets/old_tree.gltf" id="8_344ge"]
 [ext_resource type="Script" uid="uid://c36xc3p788lxf" path="res://Scenes/create_screen.gd" id="8_u50mg"]
 [ext_resource type="Texture2D" uid="uid://6acay5yomnsm" path="res://Assets/palette/blue.png" id="9_1w6v2"]
 [ext_resource type="LabelSettings" uid="uid://c1ihr5s1asvus" path="res://Assets/stat_screen_text.tres" id="9_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://dt3tyempvf42f" path="res://Assets/SketchBook.png" id="9_u50mg"]
-[ext_resource type="Texture2D" uid="uid://cubgsxeol55dl" path="res://Assets/sketch_tree.png" id="9_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://c6grl4sanc0rn" path="res://Assets/SketchBook3.png" id="10_1w6v2"]
 [ext_resource type="Texture2D" uid="uid://wglb4k5xsglt" path="res://Assets/palette/green.png" id="10_7k868"]
 [ext_resource type="Texture2D" uid="uid://b01lav8a1ghi1" path="res://Assets/SketchBook2.png" id="10_cbgmd"]
-[ext_resource type="PackedScene" uid="uid://jp6ne40f2qd7" path="res://Assets/Bush 1 .glb" id="10_hptm8"]
 [ext_resource type="Texture2D" uid="uid://cf6lrjsgtg7ww" path="res://Assets/palette/purple.png" id="11_hpc6h"]
 [ext_resource type="Script" uid="uid://mj2ph2x4phqn" path="res://Audio/toggle_sound.gd" id="12_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://davhqha01opg" path="res://Audio/soundUp.png" id="12_jkdf5"]
@@ -27,7 +23,6 @@
 [ext_resource type="Script" uid="uid://bjw76e1h5nwt5" path="res://Scenes/npc_2.gd" id="16_b3802"]
 [ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="18_fevyy"]
 [ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="19_fevyy"]
-[ext_resource type="PackedScene" uid="uid://did7wul5awsfm" path="res://Assets/cherry_blossom_v1.glb" id="20_hibaj"]
 [ext_resource type="PackedScene" uid="uid://0ers27mfx18f" path="res://Scenes/starter_area_v_2.tscn" id="23_3pmx8"]
 [ext_resource type="Script" uid="uid://c4qmdp1oqrja" path="res://Scenes/wild_artling_spawn.gd" id="23_gt3je"]
 
@@ -38,13 +33,21 @@ albedo_color = Color(0.145098, 0.396078, 0.121569, 1)
 radius = 0.567294
 height = 1.40815
 
-[sub_resource type="InputEventKey" id="InputEventKey_3pmx8"]
+[sub_resource type="InputEventKey" id="InputEventKey_7k868"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_ueoa1"]
+events = [SubResource("InputEventKey_7k868")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_hpc6h"]
 device = -1
 keycode = 67
 unicode = 99
 
-[sub_resource type="Shortcut" id="Shortcut_ueoa1"]
-events = [SubResource("InputEventKey_3pmx8")]
+[sub_resource type="Shortcut" id="Shortcut_kltya"]
+events = [SubResource("InputEventKey_hpc6h")]
 
 [sub_resource type="Environment" id="Environment_kry3j"]
 background_mode = 1
@@ -106,7 +109,7 @@ offset_right = 1144.0
 offset_bottom = 188.0
 focus_mode = 0
 toggle_mode = true
-shortcut = SubResource("Shortcut_ueoa1")
+shortcut = SubResource("Shortcut_kltya")
 texture_normal = ExtResource("9_u50mg")
 texture_pressed = ExtResource("10_1w6v2")
 texture_hover = ExtResource("10_cbgmd")
@@ -140,6 +143,7 @@ Inspiration needed: "
 label_settings = ExtResource("9_cbgmd")
 
 [node name="ColorLabel" type="Label" parent="Player/CreateScreen"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 355.0
 offset_right = 274.0
@@ -160,6 +164,7 @@ vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="ColorClear" type="Button" parent="Player/CreateScreen"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 418.0
 offset_right = 266.0
@@ -188,6 +193,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintGreenButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
 offset_left = 250.0
 offset_top = 222.0
 offset_right = 378.0
@@ -197,6 +203,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintPurpleButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
 offset_left = 261.0
 offset_top = 38.0
 offset_right = 389.0
@@ -206,6 +213,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintOrangeButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 117.0
 offset_right = 732.0
@@ -215,6 +223,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintRedButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
 offset_left = 462.0
 offset_top = 28.0
 offset_right = 590.0
@@ -224,6 +233,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintYellowButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
 offset_left = 468.0
 offset_top = 236.0
 offset_right = 596.0
@@ -413,58 +423,9 @@ shadow_blur = 2.414
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kry3j")
 
-[node name="BushTest" type="Node3D" parent="."]
-transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, -3.23583, 0.28244, -3.90706)
-visible = false
-
-[node name="Sprite3D" type="Sprite3D" parent="BushTest"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.460537, 0, 0.508701)
-alpha_cut = 1
-texture = ExtResource("7_6bp64")
-
-[node name="Sprite3D2" type="Sprite3D" parent="BushTest"]
-alpha_cut = 1
-texture = ExtResource("7_6bp64")
-
-[node name="old_tree2" parent="." instance=ExtResource("8_344ge")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -6.76993, 0.164188, -3.87688)
-visible = false
-
-[node name="sketch_tree" type="Sprite3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.65258, 1.66609, -4.98321)
-visible = false
-texture = ExtResource("9_ynf5e")
-
-[node name="sketch_tree3" type="Sprite3D" parent="."]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 12.4556, 2.31672, -5.98321)
-visible = false
-texture = ExtResource("9_ynf5e")
-
 [node name="TempTutorial" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.015, -1)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.10922, 10.8726)
 text = "Press P to toggle your party screen"
-
-[node name="Bush 1 " parent="." instance=ExtResource("10_hptm8")]
-transform = Transform3D(1.67633, 0, 1.09083, 0, 2, 0, -1.09083, 0, 1.67633, -5.18735, 0.006056, -1.95202)
-visible = false
-
-[node name="sketch_tree2" type="Sprite3D" parent="."]
-transform = Transform3D(0.199966, -0.00364055, 0, 0.00364055, 0.199966, 0, 0, 0, 0.2, 2.844, 1.3, -6.851)
-visible = false
-texture = ExtResource("9_ynf5e")
-
-[node name="old_tree3" parent="." instance=ExtResource("8_344ge")]
-transform = Transform3D(-0.100142, 0, -0.282792, 0, 0.3, 0, 0.282792, 0, -0.100142, 7.00311, 0.246282, -5.96026)
-visible = false
-
-[node name="Bush 1 2" parent="." instance=ExtResource("10_hptm8")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.75608, 0.006056, -5.64276)
-visible = false
-
-[node name="old_tree4" parent="." instance=ExtResource("8_344ge")]
-transform = Transform3D(-0.417126, 0, 0.431284, 0, 0.6, 0, -0.431284, 0, -0.417126, 5.36677, 0.0647102, -8.43047)
-visible = false
 
 [node name="ToggleSound" type="TextureButton" parent="."]
 offset_right = 100.0
@@ -496,35 +457,6 @@ visible = false
 
 [node name="DetectArea" type="CollisionShape3D" parent="Npc2/DetectArea"]
 shape = SubResource("SphereShape3D_pdsj5")
-
-[node name="BushTest2" type="Node3D" parent="."]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 11.2056, 0.444563, -5.48291)
-visible = false
-
-[node name="Sprite3D" type="Sprite3D" parent="BushTest2"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.460537, 0, 0.508701)
-alpha_cut = 1
-texture = ExtResource("7_6bp64")
-
-[node name="Sprite3D2" type="Sprite3D" parent="BushTest2"]
-alpha_cut = 1
-texture = ExtResource("7_6bp64")
-
-[node name="cherry_blossom_v1" parent="." instance=ExtResource("20_hibaj")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 10.3551, -0.0624025, -7.11215)
-visible = false
-
-[node name="cherry_blossom_v2" parent="." instance=ExtResource("20_hibaj")]
-transform = Transform3D(-6.14672, 0, 5.12034, 0, 8, 0, -5.12034, 0, -6.14672, -2.93477, -0.0624025, -7.52878)
-visible = false
-
-[node name="cherry_blossom_v3" parent="." instance=ExtResource("20_hibaj")]
-transform = Transform3D(1.50302, 0, 3.70688, 0, 4, 0, -3.70688, 0, 1.50302, 13.1249, -0.0624025, -0.354167)
-visible = false
-
-[node name="Bush 1 3" parent="." instance=ExtResource("10_hptm8")]
-transform = Transform3D(1.66963, 0, -2.49246, 0, 3, 0, 2.49246, 0, 1.66963, 12.6708, 0.006056, -3.48254)
-visible = false
 
 [node name="starter_area_v2" parent="." instance=ExtResource("23_3pmx8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.588833, 1.87725, -3.25703)

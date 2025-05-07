@@ -28,6 +28,7 @@ func _ready():
 	create_screen.visible = false
 	leader = team[0]
 	leader.visible = true
+	leader.play_idle_anim()
 	inspo += 6
 	#print("current team")
 	#print(team)
