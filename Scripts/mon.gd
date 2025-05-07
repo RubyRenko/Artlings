@@ -10,6 +10,7 @@ var health : int = max_hp
 @export var mind : int
 @export var speed : int
 @export var element : String
+var nickname : String
 
 # move master list
 @onready var master_move_list = load("res://move_list.tscn").instantiate()
@@ -259,7 +260,7 @@ func add_experience(amount):
 
 func setup_stat_screen():
 	stat_screen.load_moves(current_moves, moves_list.keys())
-	stat_screen.set_name_text(name)
+	stat_screen.set_name_text(nickname)
 	stat_screen.set_level_text(level)
 	stat_screen.set_stat_text(health, max_hp, strength, defense, intelligence, mind, speed)
 	stat_screen.set_img(img)

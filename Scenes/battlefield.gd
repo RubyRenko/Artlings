@@ -229,13 +229,13 @@ func _on_move_4_mouse_entered():
 		battle_desc.set_text( str(player_mon.moves_list[player_mon.current_moves[3]]) )
 
 func _on_change_artling_pressed():
-	if player.party_tab.visible == true && player_mon != player.team[0]:
+	if player.party_screen.visible == true && player_mon != player.team[0]:
 		change_player_mon(0)
 		move_options.visible = true
 		battle_desc_box.visible = true
 		change_button.set_text("Check Party")
 		player.toggle_party_screen()
-	elif player.party_tab.visible:
+	elif player.party_screen.visible:
 		move_options.visible = true
 		battle_desc_box.visible = true
 		change_button.set_text("Check Party")

@@ -1,6 +1,5 @@
 extends Panel
 @onready var party_list = $Artlings
-@onready var create_button = $CreateArtling
 
 func toggle_party_buttons(team_list):
 	# for each button in the possible team list
@@ -10,8 +9,6 @@ func toggle_party_buttons(team_list):
 		# if going off the end of the team list, sets the button to not visible
 		if i == len(team_list):
 			button.visible = false
-			create_button.position = button.position
-			create_button.set_text("Create Artling")
 		elif i > len(team_list):
 			button.visible = false
 		# otherise, sets the button to visible and make the text
@@ -19,4 +16,4 @@ func toggle_party_buttons(team_list):
 		else:
 			button.visible = true
 			button.set_button_icon(team_list[i].img)
-			button_label.set_text(team_list[i].name + " | Level " + str(team_list[i].level) )
+			button_label.set_text(team_list[i].nickname + " | Level " + str(team_list[i].level) )

@@ -2,8 +2,10 @@ extends CharacterBody3D
 
 @onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var team_node = $Artlings
-@onready var party_tab = $PartyScreen
+@onready var party_screen = $PartyScreen
+@onready var create_screen = $CreateScreen
 @onready var party_button = $PartyButton
+@onready var create_button = $CreateButton
 @onready var artlings_list = ArtlingsMasterlist.new()
 @onready var camera = $Camera3D
 @onready var camera_pos = camera.position
@@ -19,10 +21,11 @@ var inspo = 0
 
 func _ready():
 	# adds the 3 starters to the team
-	team_node.add_teammate("worm")
+	team_node.add_teammate("worm starter")
 	team_node.add_teammate("ink starter")
 	team_node.add_teammate("water starter")
-	party_tab.visible = false
+	party_screen.visible = false
+	create_screen.visible = false
 	leader = team[0]
 	leader.visible = true
 	#print("current team")
@@ -75,7 +78,7 @@ func _physics_process(delta):
 func load_team():
 	# updates team based off the children in teamnode and updates party_tab
 	team = team_node.get_children()
-	party_tab.toggle_party_buttons(team)
+	party_screen.toggle_party_buttons(team)
 
 func _on_artling_1_pressed():
 	show_artling(0)
@@ -117,8 +120,10 @@ func hide_screens():
 		if teammate.stat_screen.visible == true:
 			teammate.stat_screen.visible = false
 			teammate.update_from_stat_screen()
-	if party_tab.visible:
-		party_tab.visible = false
+	if party_screen.visible:
+		party_screen.visible = false
+	if create_screen.visible:
+		create_screen.visible = false
 
 func change_camera(global_pos):
 	# sets the camera to a specific position
@@ -132,27 +137,43 @@ func cycle_team():
 	team.append(team[0])
 	team[0].visible = false
 	team[0] = team.pop_at(1)
-	party_tab.toggle_party_buttons(team)
+	party_screen.toggle_party_buttons(team)
 	leader = team[0]
 
 func toggle_party_screen():
-	party_tab.toggle_party_buttons(team)
-	if party_tab.visible == true:
+	party_screen.toggle_party_buttons(team)
+	if party_screen.visible == true:
 		hide_screens()
 		if !battling:
 			can_move = true
 	else:
 		hide_screens()
-		party_tab.visible = true
+		party_screen.visible = true
 		can_move = false
 
 func _on_party_button_pressed():
 	toggle_party_screen()
 
 func _on_create_artling_pressed():
-	if inspo == 1:
-		team_node.add_teammate(artlings_list.get_random_artling_name())
-		party_tab.toggle_party_buttons(team)
-		inspo -= 1
+	if inspo < 2:
+		create_screen.create_button.set_text("Not enough inspiration")
+	elif len(team) >= 6:
+		create_screen.create_button.set_text("Team is full!")
+	elif inspo >= 2:
+		if create_screen.new_artling_name == "":
+			team_node.add_teammate(artlings_list.get_random_artling_name())
+		elif create_screen.new_artling_name != "":
+			var nickname = create_screen.new_artling_name
+			team_node.add_teammate(artlings_list.get_random_artling_name(), nickname)
+		inspo -= 2
+
+func _on_create_button_pressed():
+	create_screen.setup_screen()
+	if create_screen.visible == true:
+		hide_screens()
+		if !battling:
+			can_move = true
 	else:
-		party_tab.create_button.set_text("Not enough inspiration")
+		hide_screens()
+		create_screen.visible = true
+		can_move = false

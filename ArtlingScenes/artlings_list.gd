@@ -4,7 +4,7 @@ class_name ArtlingsMasterlist
 var artlings_masterlist = {
 	"ink starter": preload("res://ArtlingScenes/ink_starter.tscn"),
 	"water starter": preload("res://ArtlingScenes/water_starter.tscn"),
-	"worm": preload("res://ArtlingScenes/worm.tscn")
+	"worm starter": preload("res://ArtlingScenes/worm.tscn")
 	}
 
 func get_artling(artling):

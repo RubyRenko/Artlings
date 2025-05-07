@@ -1,7 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=34 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
-[ext_resource type="Texture2D" uid="uid://dh6x4sp2a2aeq" path="res://Assets/Wisteria.png" id="2_kry3j"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
 [ext_resource type="AudioStream" uid="uid://d1y3hpbmd2ib2" path="res://Audio/overworld.mp3" id="4_fdnlq"]
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="4_pdsj5"]
@@ -9,6 +8,8 @@
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="5_gt3je"]
 [ext_resource type="Texture2D" uid="uid://dqu6gn70inii6" path="res://Assets/Assets_Juice_WarriorBush.png" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://7s7no85rfxwl" path="res://Assets/old_tree.gltf" id="8_344ge"]
+[ext_resource type="Script" uid="uid://c36xc3p788lxf" path="res://Scenes/create_screen.gd" id="8_u50mg"]
+[ext_resource type="LabelSettings" uid="uid://c1ihr5s1asvus" path="res://Assets/stat_screen_text.tres" id="9_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://dt3tyempvf42f" path="res://Assets/SketchBook.png" id="9_u50mg"]
 [ext_resource type="Texture2D" uid="uid://cubgsxeol55dl" path="res://Assets/sketch_tree.png" id="9_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://c6grl4sanc0rn" path="res://Assets/SketchBook3.png" id="10_1w6v2"]
@@ -31,33 +32,13 @@ albedo_color = Color(0.145098, 0.396078, 0.121569, 1)
 radius = 0.567294
 height = 1.40815
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lquwl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_kry3j")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="InputEventKey" id="InputEventKey_cbgmd"]
+[sub_resource type="InputEventKey" id="InputEventKey_3pmx8"]
 device = -1
-keycode = 80
-unicode = 112
-
-[sub_resource type="InputEventKey" id="InputEventKey_1w6v2"]
-device = -1
-keycode = 4194306
+keycode = 67
+unicode = 99
 
 [sub_resource type="Shortcut" id="Shortcut_ueoa1"]
-events = [SubResource("InputEventKey_cbgmd"), SubResource("InputEventKey_1w6v2")]
-
-[sub_resource type="LabelSettings" id="LabelSettings_gt3je"]
-font_size = 20
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+events = [SubResource("InputEventKey_3pmx8")]
 
 [sub_resource type="Environment" id="Environment_kry3j"]
 background_mode = 1
@@ -95,12 +76,6 @@ transform = Transform3D(1, 0, 0, 0, 0.952209, 0.305446, 0, -0.305446, 0.952209, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000705719, 0)
 shape = SubResource("CapsuleShape3D_1bvp3")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
-visible = false
-pixel_size = 0.0015
-billboard = 1
-sprite_frames = SubResource("SpriteFrames_lquwl")
-
 [node name="Artlings" type="Node" parent="Player"]
 script = ExtResource("3_6bp64")
 
@@ -118,7 +93,67 @@ texture_hover = ExtResource("10_cbgmd")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="CreateButton" type="TextureButton" parent="Player"]
+offset_left = 1031.0
+offset_top = 100.0
+offset_right = 1144.0
+offset_bottom = 188.0
+focus_mode = 0
+toggle_mode = true
+shortcut = SubResource("Shortcut_ueoa1")
+texture_normal = ExtResource("9_u50mg")
+texture_pressed = ExtResource("10_1w6v2")
+texture_hover = ExtResource("10_cbgmd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CreateScreen" type="Panel" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -244.0
+offset_right = 417.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("4_pdsj5")
+script = ExtResource("8_u50mg")
+
+[node name="Inspiration" type="Label" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 415.0
+offset_right = 459.0
+offset_bottom = 474.0
+text = "Current Inspiration: 
+Inspiration needed: "
+label_settings = ExtResource("9_cbgmd")
+
+[node name="CreateArtling" type="Button" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 416.0
+offset_right = 796.0
+offset_bottom = 470.0
+text = "Create Artling"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="NameEdit" type="LineEdit" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 39.0
+offset_right = 190.0
+offset_bottom = 85.0
+placeholder_text = "Artling Name"
+
 [node name="PartyScreen" type="Panel" parent="Player"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -160,7 +195,7 @@ offset_top = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Name / Level"
-label_settings = SubResource("LabelSettings_gt3je")
+label_settings = ExtResource("9_cbgmd")
 horizontal_alignment = 1
 
 [node name="Artling2" type="Button" parent="Player/PartyScreen/Artlings"]
@@ -184,7 +219,7 @@ offset_top = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Name / Level"
-label_settings = SubResource("LabelSettings_gt3je")
+label_settings = ExtResource("9_cbgmd")
 horizontal_alignment = 1
 
 [node name="Artling3" type="Button" parent="Player/PartyScreen/Artlings"]
@@ -208,7 +243,7 @@ offset_top = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Name / Level"
-label_settings = SubResource("LabelSettings_gt3je")
+label_settings = ExtResource("9_cbgmd")
 horizontal_alignment = 1
 
 [node name="Artling4" type="Button" parent="Player/PartyScreen/Artlings"]
@@ -232,7 +267,7 @@ offset_top = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Name / Level"
-label_settings = SubResource("LabelSettings_gt3je")
+label_settings = ExtResource("9_cbgmd")
 horizontal_alignment = 1
 
 [node name="Artling5" type="Button" parent="Player/PartyScreen/Artlings"]
@@ -256,7 +291,7 @@ offset_top = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Name / Level"
-label_settings = SubResource("LabelSettings_gt3je")
+label_settings = ExtResource("9_cbgmd")
 horizontal_alignment = 1
 
 [node name="Artling6" type="Button" parent="Player/PartyScreen/Artlings"]
@@ -280,19 +315,8 @@ offset_top = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Name / Level"
-label_settings = SubResource("LabelSettings_gt3je")
+label_settings = ExtResource("9_cbgmd")
 horizontal_alignment = 1
-
-[node name="CreateArtling" type="Button" parent="Player/PartyScreen"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 24.0
-offset_right = 264.0
-offset_bottom = 240.0
-text = "Create Artling"
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
 
 [node name="overworldSound" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("4_fdnlq")
@@ -466,13 +490,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1048, 3.52438, -18.8307)
 shape = SubResource("BoxShape3D_hibaj")
 
 [connection signal="pressed" from="Player/PartyButton" to="Player" method="_on_party_button_pressed"]
+[connection signal="pressed" from="Player/CreateButton" to="Player" method="_on_create_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/CreateArtling" to="Player" method="_on_create_artling_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling1" to="Player" method="_on_artling_1_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling2" to="Player" method="_on_artling_2_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling3" to="Player" method="_on_artling_3_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling4" to="Player" method="_on_artling_4_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling5" to="Player" method="_on_artling_5_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling6" to="Player" method="_on_artling_6_pressed"]
-[connection signal="pressed" from="Player/PartyScreen/CreateArtling" to="Player" method="_on_create_artling_pressed"]
 [connection signal="pressed" from="ToggleSound" to="ToggleSound" method="_on_pressed"]
 [connection signal="body_entered" from="Npc2" to="Npc2" method="_on_body_entered"]
 [connection signal="child_exiting_tree" from="Npc2" to="Npc2" method="_on_child_exiting_tree"]
