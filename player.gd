@@ -28,6 +28,7 @@ func _ready():
 	create_screen.visible = false
 	leader = team[0]
 	leader.visible = true
+	inspo += 6
 	#print("current team")
 	#print(team)
 
@@ -161,10 +162,10 @@ func _on_create_artling_pressed():
 		create_screen.create_button.set_text("Team is full!")
 	elif inspo >= 2:
 		if create_screen.new_artling_name == "":
-			team_node.add_teammate(artlings_list.get_random_artling_name())
+			team_node.add_teammate(create_screen.calculate_artling())
 		elif create_screen.new_artling_name != "":
 			var nickname = create_screen.new_artling_name
-			team_node.add_teammate(artlings_list.get_random_artling_name(), nickname)
+			team_node.add_teammate(create_screen.calculate_artling(), nickname)
 		inspo -= 2
 
 func _on_create_button_pressed():

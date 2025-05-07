@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=40 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
@@ -9,15 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://dqu6gn70inii6" path="res://Assets/Assets_Juice_WarriorBush.png" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://7s7no85rfxwl" path="res://Assets/old_tree.gltf" id="8_344ge"]
 [ext_resource type="Script" uid="uid://c36xc3p788lxf" path="res://Scenes/create_screen.gd" id="8_u50mg"]
+[ext_resource type="Texture2D" uid="uid://6acay5yomnsm" path="res://Assets/palette/blue.png" id="9_1w6v2"]
 [ext_resource type="LabelSettings" uid="uid://c1ihr5s1asvus" path="res://Assets/stat_screen_text.tres" id="9_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://dt3tyempvf42f" path="res://Assets/SketchBook.png" id="9_u50mg"]
 [ext_resource type="Texture2D" uid="uid://cubgsxeol55dl" path="res://Assets/sketch_tree.png" id="9_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://c6grl4sanc0rn" path="res://Assets/SketchBook3.png" id="10_1w6v2"]
+[ext_resource type="Texture2D" uid="uid://wglb4k5xsglt" path="res://Assets/palette/green.png" id="10_7k868"]
 [ext_resource type="Texture2D" uid="uid://b01lav8a1ghi1" path="res://Assets/SketchBook2.png" id="10_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://jp6ne40f2qd7" path="res://Assets/Bush 1 .glb" id="10_hptm8"]
+[ext_resource type="Texture2D" uid="uid://cf6lrjsgtg7ww" path="res://Assets/palette/purple.png" id="11_hpc6h"]
 [ext_resource type="Script" uid="uid://mj2ph2x4phqn" path="res://Audio/toggle_sound.gd" id="12_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://davhqha01opg" path="res://Audio/soundUp.png" id="12_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://b042gfcrraepi" path="res://Assets/palette/orange.png" id="12_kltya"]
+[ext_resource type="Texture2D" uid="uid://cqm6y8qcofxy8" path="res://Assets/palette/red.png" id="13_e08e2"]
 [ext_resource type="Texture2D" uid="uid://dgepdmjyoseii" path="res://Audio/soundDown.png" id="13_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://c11wxo0rkp4a6" path="res://Assets/palette/yellow.png" id="14_neg2b"]
 [ext_resource type="Script" uid="uid://bjw76e1h5nwt5" path="res://Scenes/npc_2.gd" id="16_b3802"]
 [ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="18_fevyy"]
 [ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="19_fevyy"]
@@ -123,34 +129,108 @@ size_flags_horizontal = 4
 theme_override_styles/panel = ExtResource("4_pdsj5")
 script = ExtResource("8_u50mg")
 
-[node name="Inspiration" type="Label" parent="Player/CreateScreen"]
+[node name="InspoLabel" type="Label" parent="Player/CreateScreen"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 415.0
-offset_right = 459.0
-offset_bottom = 474.0
+offset_left = 581.0
+offset_top = 351.0
+offset_right = 823.0
+offset_bottom = 410.0
 text = "Current Inspiration: 
 Inspiration needed: "
 label_settings = ExtResource("9_cbgmd")
 
+[node name="ColorLabel" type="Label" parent="Player/CreateScreen"]
+offset_left = 24.0
+offset_top = 355.0
+offset_right = 274.0
+offset_bottom = 414.0
+text = "Current colors
+R:  0 O: 0 Y: 0 G: 0 B: 0 V: 0 "
+label_settings = ExtResource("9_cbgmd")
+
 [node name="CreateArtling" type="Button" parent="Player/CreateScreen"]
 layout_mode = 0
-offset_left = 556.0
-offset_top = 416.0
-offset_right = 796.0
-offset_bottom = 470.0
+offset_left = 583.0
+offset_top = 418.0
+offset_right = 823.0
+offset_bottom = 472.0
 text = "Create Artling"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="ColorClear" type="Button" parent="Player/CreateScreen"]
+offset_left = 26.0
+offset_top = 418.0
+offset_right = 266.0
+offset_bottom = 472.0
+text = "Clear Colors"
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="NameEdit" type="LineEdit" parent="Player/CreateScreen"]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 39.0
-offset_right = 190.0
-offset_bottom = 85.0
+offset_left = 342.0
+offset_top = 423.0
+offset_right = 510.0
+offset_bottom = 469.0
 placeholder_text = "Artling Name"
+
+[node name="PaintBlueButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 135.0
+offset_right = 216.0
+offset_bottom = 259.0
+texture_normal = ExtResource("9_1w6v2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintGreenButton" type="TextureButton" parent="Player/CreateScreen"]
+offset_left = 250.0
+offset_top = 222.0
+offset_right = 378.0
+offset_bottom = 346.0
+texture_normal = ExtResource("10_7k868")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintPurpleButton" type="TextureButton" parent="Player/CreateScreen"]
+offset_left = 261.0
+offset_top = 38.0
+offset_right = 389.0
+offset_bottom = 162.0
+texture_normal = ExtResource("11_hpc6h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintOrangeButton" type="TextureButton" parent="Player/CreateScreen"]
+offset_left = 604.0
+offset_top = 117.0
+offset_right = 732.0
+offset_bottom = 241.0
+texture_normal = ExtResource("12_kltya")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintRedButton" type="TextureButton" parent="Player/CreateScreen"]
+offset_left = 462.0
+offset_top = 28.0
+offset_right = 590.0
+offset_bottom = 152.0
+texture_normal = ExtResource("13_e08e2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintYellowButton" type="TextureButton" parent="Player/CreateScreen"]
+offset_left = 468.0
+offset_top = 236.0
+offset_right = 596.0
+offset_bottom = 360.0
+texture_normal = ExtResource("14_neg2b")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="PartyScreen" type="Panel" parent="Player"]
 visible = false
@@ -492,6 +572,13 @@ shape = SubResource("BoxShape3D_hibaj")
 [connection signal="pressed" from="Player/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/CreateButton" to="Player" method="_on_create_button_pressed"]
 [connection signal="pressed" from="Player/CreateScreen/CreateArtling" to="Player" method="_on_create_artling_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/ColorClear" to="Player/CreateScreen" method="_on_color_clear_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintBlueButton" to="Player/CreateScreen" method="_on_paint_blue_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintGreenButton" to="Player/CreateScreen" method="_on_paint_green_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintPurpleButton" to="Player/CreateScreen" method="_on_paint_purple_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintOrangeButton" to="Player/CreateScreen" method="_on_paint_orange_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintRedButton" to="Player/CreateScreen" method="_on_paint_red_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintYellowButton" to="Player/CreateScreen" method="_on_paint_yellow_button_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling1" to="Player" method="_on_artling_1_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling2" to="Player" method="_on_artling_2_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling3" to="Player" method="_on_artling_3_pressed"]
