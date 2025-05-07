@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://s3bbv8ojgucn"]
+
+[ext_resource type="PackedScene" uid="uid://w3djiv0h0f3d" path="res://3d artlings/Food_.glb" id="1_qg35n"]
+
+[node name="Food_" instance=ExtResource("1_qg35n")]
+
+[node name="Lights" parent="." index="5"]
+visible = false
+
+[node name="Light" parent="Lights" index="0"]
+visible = false
+
+[node name="Light 1" parent="Lights" index="1"]
+visible = false

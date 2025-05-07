@@ -160,6 +160,8 @@ func take_phys_damage(amount):
 		# calculates the physical damage taken based on mon defense
 		amount -= defense/5.0
 		amount = ceili(amount)
+		if amount < 0:
+			amount = 0
 		health -= amount
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
 		var output_line = name + " took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
@@ -179,6 +181,8 @@ func take_mnd_damage(amount):
 		# calculates the physical damage taken based on mon defense
 		amount -= mind/5.0
 		amount = ceili(amount)
+		if amount < 0:
+			amount = 0
 		health -= amount
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
 		var output_line = name + " took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."

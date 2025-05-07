@@ -462,7 +462,7 @@ shape = SubResource("SphereShape3D_pdsj5")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.588833, 1.87725, -3.25703)
 
 [node name="WildArtlingSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17667, 3.09023, -3.25703)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17667, 3.09023, -5.62716)
 script = ExtResource("23_gt3je")
 
 [node name="Timer" type="Timer" parent="WildArtlingSpawn"]

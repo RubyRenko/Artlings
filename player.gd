@@ -24,6 +24,7 @@ func _ready():
 	team_node.add_teammate("worm starter")
 	team_node.add_teammate("ink starter")
 	team_node.add_teammate("water starter")
+	team_node.add_teammate("bacon pig")
 	party_screen.visible = false
 	create_screen.visible = false
 	leader = team[0]
@@ -75,7 +76,8 @@ func _physics_process(delta):
 			leader.anim.flip_h = false
 		elif leader.is_in_group("3d"):
 			var dir_rotate = Vector2(direction.z, direction.x)
-			leader.anim.rotation.y = dir_rotate.angle()
+			if dir_rotate != Vector2(0,0):
+				leader.anim.rotation.y = dir_rotate.angle()
 
 func load_team():
 	# updates team based off the children in teamnode and updates party_tab

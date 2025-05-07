@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c17joox5l3m86"]
+
+[ext_resource type="PackedScene" uid="uid://bsiutgq6mulfa" path="res://3d artlings/Pig artling.glb" id="1_3d8ih"]
+
+[node name="Pig artling" instance=ExtResource("1_3d8ih")]
+
+[node name="Lights" parent="." index="2"]
+visible = false
