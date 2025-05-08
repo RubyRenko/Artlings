@@ -25,3 +25,4 @@ text = "HP:"
 visible = false
 
 [node name="atk_sfx" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=39 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="19_fevyy"]
 [ext_resource type="PackedScene" uid="uid://0ers27mfx18f" path="res://Scenes/starter_area_v_2.tscn" id="23_3pmx8"]
 [ext_resource type="Script" uid="uid://c4qmdp1oqrja" path="res://Scenes/wild_artling_spawn.gd" id="23_gt3je"]
+[ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="26_1w6v2"]
+[ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="27_ueoa1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21xkr"]
 albedo_color = Color(0.145098, 0.396078, 0.121569, 1)
@@ -414,6 +416,133 @@ autoplay = true
 bus = &"music"
 parameters/looping = true
 
+[node name="inGame_settings_menu" type="Panel" parent="Player"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.244792
+anchor_top = 0.169753
+anchor_right = 0.755208
+anchor_bottom = 0.804012
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("26_1w6v2")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/inGame_settings_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -174.0
+offset_right = 69.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="return_button" type="Button" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="MarginContainer8" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="title_button" type="Button" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer8"]
+layout_mode = 2
+text = "< Return to Title"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Master" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider2" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("27_ueoa1")
+bus_name = "Master"
+
+[node name="MarginContainer4" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Music" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+text = "Music"
+
+[node name="MarginContainer5" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("27_ueoa1")
+bus_name = "music"
+
+[node name="MarginContainer7" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SFX" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer7"]
+layout_mode = 2
+text = "SFX"
+
+[node name="MarginContainer6" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("27_ueoa1")
+bus_name = "sfx"
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.742362, 0.248099, -0.622371, 0.080381, 0.889224, 0.450355, 0.66516, -0.384353, 0.640184, -1.32594, 6.02385, -3.64541)
 light_energy = 3.101
@@ -517,6 +646,8 @@ shape = SubResource("BoxShape3D_hibaj")
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling4" to="Player" method="_on_artling_4_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling5" to="Player" method="_on_artling_5_pressed"]
 [connection signal="pressed" from="Player/PartyScreen/Artlings/Artling6" to="Player" method="_on_artling_6_pressed"]
+[connection signal="pressed" from="Player/inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="Player/inGame_settings_menu" method="_on_return_button_pressed"]
+[connection signal="pressed" from="Player/inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="Player/inGame_settings_menu" method="_on_title_button_pressed"]
 [connection signal="pressed" from="ToggleSound" to="ToggleSound" method="_on_pressed"]
 [connection signal="body_entered" from="Npc2" to="Npc2" method="_on_body_entered"]
 [connection signal="child_exiting_tree" from="Npc2" to="Npc2" method="_on_child_exiting_tree"]

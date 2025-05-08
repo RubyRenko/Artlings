@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://diwp6ejfs6q8"]
+[gd_scene load_steps=14 format=3 uid="uid://diwp6ejfs6q8"]
 
 [ext_resource type="Script" uid="uid://ceripbwthd83h" path="res://Menus/title_screen.gd" id="1_b0rdp"]
 [ext_resource type="Texture2D" uid="uid://cijclv6mgqp1e" path="res://Menus/menu_images/option3.png" id="2_53cj8"]
 [ext_resource type="Texture2D" uid="uid://bmvsqegxf4irn" path="res://Menus/menu_images/titlescreenPLACEHOLDER.png" id="2_d8fdh"]
 [ext_resource type="Texture2D" uid="uid://bikirppmftycq" path="res://Menus/menu_images/option1.png" id="3_gj0uk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53cj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gj0uk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_at5ib"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86lmc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eat0d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tdtkg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7rexm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45dg7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1ngo"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -43,7 +61,11 @@ theme_override_colors/font_hover_pressed_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.52027, 5.71553e-07, 2.88785e-07, 1)
 theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_53cj8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gj0uk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_at5ib")
 text = "Start"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="VBoxContainer/StartButton"]
@@ -77,9 +99,13 @@ theme_type_variation = &"FlatButton"
 theme_override_colors/font_disabled_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.52027, 5.71553e-07, 2.88785e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_86lmc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_eat0d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tdtkg")
 text = "Options"
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="VBoxContainer/OptionsButton"]
@@ -113,9 +139,13 @@ theme_type_variation = &"FlatButton"
 theme_override_colors/font_disabled_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.52027, 5.71553e-07, 2.88785e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7rexm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_45dg7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v1ngo")
 text = "Quit"
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="VBoxContainer/QuitButton"]
