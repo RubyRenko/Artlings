@@ -25,6 +25,7 @@ func play_idle_anim():
 
 func play_atk_anim():
 	anim.play_anim("bite")
+	$atk_sfx.play()
 
 func play_brace_anim():
 	anim.play_anim("idle")

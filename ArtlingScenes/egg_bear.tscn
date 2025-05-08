@@ -23,3 +23,5 @@ text = "HP:"
 
 [node name="ArtlingStats" parent="." instance=ExtResource("2_hg8v8")]
 visible = false
+
+[node name="atk_sfx" type="AudioStreamPlayer" parent="."]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4jnep6mq1yae"]
+[gd_scene load_steps=5 format=3 uid="uid://b4jnep6mq1yae"]
 
 [ext_resource type="PackedScene" uid="uid://c17joox5l3m86" path="res://3d artlings/pig_artling.tscn" id="1_masuq"]
 [ext_resource type="Script" uid="uid://dgwfjq4jx1klb" path="res://ArtlingScenes/bacon_pig.gd" id="1_pklxf"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="2_pklxf"]
+[ext_resource type="AudioStream" uid="uid://c6beqlegxliet" path="res://Audio/sfx/snort.mp3" id="4_5dmgj"]
 
 [node name="BaconPig" type="Node3D" groups=["3d", "mon"]]
 script = ExtResource("1_pklxf")
@@ -17,3 +18,7 @@ text = "HP:"
 
 [node name="ArtlingStats" parent="." instance=ExtResource("2_pklxf")]
 visible = false
+
+[node name="atk_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5dmgj")
+pitch_scale = 2.5

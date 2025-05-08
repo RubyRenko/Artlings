@@ -23,7 +23,7 @@ func play_idle_anim():
 	pass
 
 func play_atk_anim():
-	pass
+	$atk_sfx.play()
 
 func play_brace_anim():
 	pass
