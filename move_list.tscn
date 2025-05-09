@@ -163,3 +163,12 @@ dmg_type = "int"
 effect = [2, "Soapy"]
 desc = "Deals an irregular amount of damage and reduces target's damage dealt"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="BaconSlap" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [50, 60, 10, 10]
+accuracy = 100
+type = "Geometric"
+dmg_type = "str/self"
+desc = "Deals a high amount of damage and recoil"
+metadata/_custom_type_script = "uid://je6io23ym5wg"

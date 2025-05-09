@@ -26,8 +26,12 @@ func setup_screen():
 func calculate_artling():
 	if r == 1 && b == 1 && y == 1:
 		return "ink starter"
+	elif r == 6:
+		return "bacon pig"
 	elif r >= 3:
 		return "worm starter"
+	elif y >= 3:
+		return "egg bear"
 	elif b >= 2 && g >= 1:
 		return "water starter"
 	else:

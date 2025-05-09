@@ -24,7 +24,6 @@ func _ready():
 	team_node.add_teammate("worm starter")
 	team_node.add_teammate("ink starter")
 	team_node.add_teammate("water starter")
-	team_node.add_teammate("bacon pig")
 	party_screen.visible = false
 	create_screen.visible = false
 	leader = team[0]
