@@ -546,8 +546,7 @@ bus_name = "sfx"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.631512, 0.488617, -0.602036, -0.0823823, 0.814341, 0.57451, 0.770977, -0.313212, 0.554519, -1.32594, 10.5612, -3.64541)
-light_energy = 1.5
-light_indirect_energy = 2.131
+light_energy = 2.0
 shadow_blur = 2.414
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
