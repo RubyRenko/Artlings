@@ -2,9 +2,9 @@ extends Node
 class_name ArtlingsMasterlist
 
 var artlings_masterlist = {
-	"ink starter": preload("res://ArtlingScenes/ink_starter.tscn"),
-	"water starter": preload("res://ArtlingScenes/water_starter.tscn"),
-	"worm starter": preload("res://ArtlingScenes/worm.tscn"),
+	"Inkit": preload("res://ArtlingScenes/ink_starter.tscn"),
+	"Dewphin": preload("res://ArtlingScenes/water_starter.tscn"),
+	"Wurm": preload("res://ArtlingScenes/worm.tscn"),
 	"egg bear": preload("res://ArtlingScenes/egg_bear.tscn"),
 	"bacon pig": preload("res://ArtlingScenes/bacon_pig.tscn")
 	}

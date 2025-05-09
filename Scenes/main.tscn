@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=40 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://c4qmdp1oqrja" path="res://Scenes/wild_artling_spawn.gd" id="23_gt3je"]
 [ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="26_1w6v2"]
 [ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="27_ueoa1"]
+[ext_resource type="PackedScene" uid="uid://b7pfmvsopbjhj" path="res://Assets/environment/water_area/water_environment.tscn" id="28_ueoa1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21xkr"]
 albedo_color = Color(0.145098, 0.396078, 0.121569, 1)
@@ -544,8 +545,8 @@ script = ExtResource("27_ueoa1")
 bus_name = "sfx"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.742362, 0.248099, -0.622371, 0.080381, 0.889224, 0.450355, 0.66516, -0.384353, 0.640184, -1.32594, 6.02385, -3.64541)
-light_energy = 3.101
+transform = Transform3D(0.631512, 0.488617, -0.602036, -0.0823823, 0.814341, 0.57451, 0.770977, -0.313212, 0.554519, -1.32594, 10.5612, -3.64541)
+light_energy = 1.5
 light_indirect_energy = 2.131
 shadow_blur = 2.414
 
@@ -629,6 +630,9 @@ shape = SubResource("BoxShape3D_hibaj")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1048, 3.52438, -18.8307)
 shape = SubResource("BoxShape3D_hibaj")
+
+[node name="WaterEnvironment" parent="." instance=ExtResource("28_ueoa1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.6776, 0.192853, -37.5318)
 
 [connection signal="pressed" from="Player/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/CreateButton" to="Player" method="_on_create_button_pressed"]

@@ -21,15 +21,15 @@ var inspo = 0
 
 func _ready():
 	# adds the 3 starters to the team
-	team_node.add_teammate("worm starter")
-	team_node.add_teammate("ink starter")
-	team_node.add_teammate("water starter")
+	team_node.add_teammate("Inkit")
+	team_node.add_teammate("Dewphin")
+	team_node.add_teammate("Wurm")
 	party_screen.visible = false
 	create_screen.visible = false
 	leader = team[0]
 	leader.visible = true
 	leader.play_idle_anim()
-	inspo += 6
+	#inspo += 6
 	#print("current team")
 	#print(team)
 
