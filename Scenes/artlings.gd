@@ -9,7 +9,6 @@ func add_teammate(mon_name, nickname = mon_name):
 	n.visible = false
 	n.nickname = nickname
 	add_child(n)
-	get_parent().load_team()
 
 func show_team_status(index):
 	var to_show = get_child(index)

@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7kmqfstuuhfl"]
+
+[ext_resource type="Script" uid="uid://cc1dov4n6rtdk" path="res://Scripts/battle_new.gd" id="1_odwnt"]
+[ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="2_muy5e"]
+
+[node name="BattleNew" type="Node3D"]
+script = ExtResource("1_odwnt")
+
+[node name="EnemyMonSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="PlayerMonSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MoveOptions" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -114.0
+offset_right = 417.0
+offset_bottom = -40.0
+grow_vertical = 0
+script = ExtResource("2_muy5e")
+
+[node name="Move1" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move2" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move3" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="Move4" type="Button" parent="CanvasLayer/MoveOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+
+[node name="BattleText" type="Panel" parent="CanvasLayer"]
+offset_left = 440.0
+offset_top = 516.0
+offset_right = 1112.0
+offset_bottom = 627.0
+
+[node name="BattleDesc" type="Label" parent="CanvasLayer/BattleText"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -41.0
+offset_right = 324.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start of battle"
+
+[node name="ChangeArtling" type="Button" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 492.0
+offset_right = 138.0
+offset_bottom = 523.0
+text = "Check Party"
+
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]

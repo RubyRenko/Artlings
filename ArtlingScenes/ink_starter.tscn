@@ -35,7 +35,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="InkStarter" type="Node3D" groups=["2d", "mon"]]
+[node name="Inkit" type="Node3D" groups=["2d", "mon"]]
 script = ExtResource("1_5cboi")
 max_hp = 50
 strength = 5

@@ -1,0 +1,581 @@
+[gd_scene load_steps=33 format=3 uid="uid://dccvmqkyrtfkm"]
+
+[ext_resource type="PackedScene" uid="uid://bti8uonwlyrg4" path="res://Assets/environment/starter_area_v3/starter_area.tscn" id="1_1q1kw"]
+[ext_resource type="Texture2D" uid="uid://mjnkni73s0v5" path="res://Assets/environment/skybox/Sky_Day_BlueSky_Equirect.png" id="3_ni6xu"]
+[ext_resource type="PackedScene" uid="uid://bqf83r1ghl6o4" path="res://ArtlingScenes/water_starter.tscn" id="3_wskkc"]
+[ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="4_6y1qc"]
+[ext_resource type="Script" uid="uid://ufwxxc44kf6u" path="res://Battlefields/player_new.gd" id="5_ne1xb"]
+[ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="6_2f6mi"]
+[ext_resource type="Texture2D" uid="uid://dt3tyempvf42f" path="res://Assets/SketchBook.png" id="7_062t7"]
+[ext_resource type="Texture2D" uid="uid://c6grl4sanc0rn" path="res://Assets/SketchBook3.png" id="8_he10e"]
+[ext_resource type="Texture2D" uid="uid://b01lav8a1ghi1" path="res://Assets/SketchBook2.png" id="9_ietqo"]
+[ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="10_qlrli"]
+[ext_resource type="Script" uid="uid://c36xc3p788lxf" path="res://Scenes/create_screen.gd" id="11_bjjx4"]
+[ext_resource type="LabelSettings" uid="uid://c1ihr5s1asvus" path="res://Assets/stat_screen_text.tres" id="12_u4rkc"]
+[ext_resource type="Texture2D" uid="uid://6acay5yomnsm" path="res://Assets/palette/blue.png" id="13_w1ba3"]
+[ext_resource type="Texture2D" uid="uid://wglb4k5xsglt" path="res://Assets/palette/green.png" id="14_rai4y"]
+[ext_resource type="Texture2D" uid="uid://cf6lrjsgtg7ww" path="res://Assets/palette/purple.png" id="15_6ukdu"]
+[ext_resource type="Texture2D" uid="uid://b042gfcrraepi" path="res://Assets/palette/orange.png" id="16_67wgy"]
+[ext_resource type="Texture2D" uid="uid://cqm6y8qcofxy8" path="res://Assets/palette/red.png" id="17_kmg17"]
+[ext_resource type="Texture2D" uid="uid://c11wxo0rkp4a6" path="res://Assets/palette/yellow.png" id="18_1q057"]
+[ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="19_m61vx"]
+[ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/InkStarterCropped.png" id="20_7qixu"]
+[ext_resource type="AudioStream" uid="uid://d1y3hpbmd2ib2" path="res://Audio/overworld.mp3" id="21_vej1i"]
+[ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="22_rde0x"]
+[ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="23_0m3ad"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0faq4"]
+albedo_color = Color(0.192157, 0.517647, 0.290196, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wskkc"]
+panorama = ExtResource("3_ni6xu")
+
+[sub_resource type="Sky" id="Sky_6y1qc"]
+sky_material = SubResource("PanoramaSkyMaterial_wskkc")
+
+[sub_resource type="Environment" id="Environment_0faq4"]
+background_mode = 2
+background_color = Color(0.788765, 0.999632, 1, 1)
+sky = SubResource("Sky_6y1qc")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 2.0
+volumetric_fog_length = 85.56
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_00feh"]
+radius = 0.567294
+height = 1.40815
+
+[sub_resource type="InputEventKey" id="InputEventKey_7k868"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_3amlh"]
+events = [SubResource("InputEventKey_7k868")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_hpc6h"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="Shortcut" id="Shortcut_7oi2r"]
+events = [SubResource("InputEventKey_hpc6h")]
+
+[node name="Battlefield1" type="Node3D"]
+
+[node name="StarterArea" parent="." instance=ExtResource("1_1q1kw")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.93453, 0)
+size = Vector3(1000, 1, 1000)
+material = SubResource("StandardMaterial3D_0faq4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.776142, -0.135044, 0.615928, -0.567854, 0.274957, 0.775848, -0.274127, -0.951925, 0.136721, 0, 12.6258, 0)
+light_color = Color(0.943272, 0.976696, 0.93783, 1)
+light_energy = 1.5
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0faq4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.994766, -0.0164244, 0.100847, 0.00825641, 0.970847, 0.239558, -0.101842, 0.239137, -0.96563, 15.3554, 2.97158, -6.17702)
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(0.0200432, -0.243107, 0.969792, 0.00502336, 0.969999, 0.243055, -0.999786, 0, 0.0206631, 9.04975, 3.19341, 1.4351)
+visible = false
+
+[node name="Dewphin" parent="." instance=ExtResource("3_wskkc")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.3835, 1.37592, -0.138851)
+
+[node name="Wurm" parent="." instance=ExtResource("4_6y1qc")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 10.3965, 1.3583, 0.0627251)
+
+[node name="StarterArea2" parent="." instance=ExtResource("1_1q1kw")]
+transform = Transform3D(-0.98685, 0, 0.161638, 0, 1, 0, -0.161638, 0, -0.98685, 44.9163, -0.410446, 3.64026)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.663477, 2.14439, 12.9192)
+script = ExtResource("5_ne1xb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000705719, 0)
+shape = SubResource("CapsuleShape3D_00feh")
+
+[node name="Artlings" type="Node" parent="Player"]
+script = ExtResource("6_2f6mi")
+
+[node name="PartyButton" type="TextureButton" parent="Player"]
+offset_left = 1031.0
+offset_top = 9.0
+offset_right = 1144.0
+offset_bottom = 97.0
+focus_mode = 0
+toggle_mode = true
+shortcut = SubResource("Shortcut_3amlh")
+texture_normal = ExtResource("7_062t7")
+texture_pressed = ExtResource("8_he10e")
+texture_hover = ExtResource("9_ietqo")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CreateButton" type="TextureButton" parent="Player"]
+offset_left = 1031.0
+offset_top = 100.0
+offset_right = 1144.0
+offset_bottom = 188.0
+focus_mode = 0
+toggle_mode = true
+shortcut = SubResource("Shortcut_7oi2r")
+texture_normal = ExtResource("7_062t7")
+texture_pressed = ExtResource("8_he10e")
+texture_hover = ExtResource("9_ietqo")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CreateScreen" type="Panel" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -244.0
+offset_right = 417.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("10_qlrli")
+script = ExtResource("11_bjjx4")
+
+[node name="InspoLabel" type="Label" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 581.0
+offset_top = 351.0
+offset_right = 823.0
+offset_bottom = 410.0
+text = "Current Inspiration: 
+Inspiration needed: "
+label_settings = ExtResource("12_u4rkc")
+
+[node name="ColorLabel" type="Label" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 355.0
+offset_right = 274.0
+offset_bottom = 414.0
+text = "Current colors
+R:  0 O: 0 Y: 0 G: 0 B: 0 V: 0 "
+label_settings = ExtResource("12_u4rkc")
+
+[node name="CreateArtling" type="Button" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 418.0
+offset_right = 823.0
+offset_bottom = 472.0
+text = "Create Artling"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="ColorClear" type="Button" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 418.0
+offset_right = 266.0
+offset_bottom = 472.0
+text = "Clear Colors"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="NameEdit" type="LineEdit" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 423.0
+offset_right = 510.0
+offset_bottom = 469.0
+placeholder_text = "Artling Name"
+
+[node name="PaintBlueButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 135.0
+offset_right = 216.0
+offset_bottom = 259.0
+texture_normal = ExtResource("13_w1ba3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintGreenButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 222.0
+offset_right = 378.0
+offset_bottom = 346.0
+texture_normal = ExtResource("14_rai4y")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintPurpleButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 38.0
+offset_right = 389.0
+offset_bottom = 162.0
+texture_normal = ExtResource("15_6ukdu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintOrangeButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 604.0
+offset_top = 117.0
+offset_right = 732.0
+offset_bottom = 241.0
+texture_normal = ExtResource("16_67wgy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintRedButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 28.0
+offset_right = 590.0
+offset_bottom = 152.0
+texture_normal = ExtResource("17_kmg17")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintYellowButton" type="TextureButton" parent="Player/CreateScreen"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 236.0
+offset_right = 596.0
+offset_bottom = 360.0
+texture_normal = ExtResource("18_1q057")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PartyScreen" type="Panel" parent="Player"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -244.0
+offset_right = 417.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("10_qlrli")
+script = ExtResource("19_m61vx")
+
+[node name="Artlings" type="Control" parent="Player/PartyScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Artling1" type="Button" parent="Player/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 240.0
+icon = ExtResource("20_7qixu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("12_u4rkc")
+horizontal_alignment = 1
+
+[node name="Artling2" type="Button" parent="Player/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 24.0
+offset_right = 520.0
+offset_bottom = 240.0
+icon = ExtResource("20_7qixu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("12_u4rkc")
+horizontal_alignment = 1
+
+[node name="Artling3" type="Button" parent="Player/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 24.0
+offset_right = 776.0
+offset_bottom = 240.0
+icon = ExtResource("20_7qixu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("12_u4rkc")
+horizontal_alignment = 1
+
+[node name="Artling4" type="Button" parent="Player/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 256.0
+offset_right = 264.0
+offset_bottom = 472.0
+icon = ExtResource("20_7qixu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling4"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("12_u4rkc")
+horizontal_alignment = 1
+
+[node name="Artling5" type="Button" parent="Player/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 256.0
+offset_right = 520.0
+offset_bottom = 472.0
+icon = ExtResource("20_7qixu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling5"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("12_u4rkc")
+horizontal_alignment = 1
+
+[node name="Artling6" type="Button" parent="Player/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 256.0
+offset_right = 776.0
+offset_bottom = 472.0
+icon = ExtResource("20_7qixu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/PartyScreen/Artlings/Artling6"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("12_u4rkc")
+horizontal_alignment = 1
+
+[node name="overworldSound" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource("21_vej1i")
+autoplay = true
+bus = &"music"
+parameters/looping = true
+
+[node name="inGame_settings_menu" type="Panel" parent="Player"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.244792
+anchor_top = 0.169753
+anchor_right = 0.755208
+anchor_bottom = 0.804012
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_rde0x")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/inGame_settings_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -174.0
+offset_right = 69.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="return_button" type="Button" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="MarginContainer8" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="title_button" type="Button" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer8"]
+layout_mode = 2
+text = "< Return to Title"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Master" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider2" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("23_0m3ad")
+bus_name = "Master"
+
+[node name="MarginContainer4" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Music" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+text = "Music"
+
+[node name="MarginContainer5" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("23_0m3ad")
+bus_name = "music"
+
+[node name="MarginContainer7" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SFX" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer7"]
+layout_mode = 2
+text = "SFX"
+
+[node name="MarginContainer6" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("23_0m3ad")
+bus_name = "sfx"
+
+[connection signal="pressed" from="Player/PartyButton" to="Player" method="_on_party_button_pressed"]
+[connection signal="pressed" from="Player/CreateButton" to="Player" method="_on_create_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/CreateArtling" to="Player" method="_on_create_artling_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/ColorClear" to="Player/CreateScreen" method="_on_color_clear_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintBlueButton" to="Player/CreateScreen" method="_on_paint_blue_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintGreenButton" to="Player/CreateScreen" method="_on_paint_green_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintPurpleButton" to="Player/CreateScreen" method="_on_paint_purple_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintOrangeButton" to="Player/CreateScreen" method="_on_paint_orange_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintRedButton" to="Player/CreateScreen" method="_on_paint_red_button_pressed"]
+[connection signal="pressed" from="Player/CreateScreen/PaintYellowButton" to="Player/CreateScreen" method="_on_paint_yellow_button_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling1" to="Player" method="_on_artling_1_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling2" to="Player" method="_on_artling_2_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling3" to="Player" method="_on_artling_3_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling4" to="Player" method="_on_artling_4_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling5" to="Player" method="_on_artling_5_pressed"]
+[connection signal="pressed" from="Player/PartyScreen/Artlings/Artling6" to="Player" method="_on_artling_6_pressed"]
+[connection signal="pressed" from="Player/inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="Player/inGame_settings_menu" method="_on_return_button_pressed"]
+[connection signal="pressed" from="Player/inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="Player/inGame_settings_menu" method="_on_title_button_pressed"]

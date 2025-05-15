@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://c8uwqccai6ipw"]
+[gd_scene load_steps=38 format=3 uid="uid://c8uwqccai6ipw"]
 
 [ext_resource type="Script" uid="uid://da3ij6fbtjpr7" path="res://player.gd" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bti8uonwlyrg4" path="res://Assets/environment/starter_area_v3/starter_area.tscn" id="1_ueoa1"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
 [ext_resource type="AudioStream" uid="uid://d1y3hpbmd2ib2" path="res://Audio/overworld.mp3" id="4_fdnlq"]
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="4_pdsj5"]
@@ -23,7 +24,6 @@
 [ext_resource type="Script" uid="uid://bjw76e1h5nwt5" path="res://Scenes/npc_2.gd" id="16_b3802"]
 [ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="18_fevyy"]
 [ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="19_fevyy"]
-[ext_resource type="PackedScene" uid="uid://0ers27mfx18f" path="res://Scenes/starter_area_v_2.tscn" id="23_3pmx8"]
 [ext_resource type="Script" uid="uid://c4qmdp1oqrja" path="res://Scenes/wild_artling_spawn.gd" id="23_gt3je"]
 [ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="26_1w6v2"]
 [ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="27_ueoa1"]
@@ -62,13 +62,13 @@ radius = 1.05442
 [sub_resource type="SphereShape3D" id="SphereShape3D_pdsj5"]
 radius = 2.369
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fevyy"]
-size = Vector3(47, 14.614, 1.8833)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hibaj"]
-size = Vector3(1.74707, 18.8263, 47.0496)
-
 [node name="Main" type="Node3D"]
+
+[node name="StarterArea" parent="." instance=ExtResource("1_ueoa1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.3571, -6.65683)
+
+[node name="WaterEnvironment" parent="." instance=ExtResource("28_ueoa1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.6776, 0.192853, -37.5318)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36993, -0.497048, -2.65051)
@@ -78,7 +78,7 @@ use_collision = true
 size = Vector3(24.7399, 1, 14.699)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.663477, 2.14439, 9.79402)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.663477, 2.14439, 12.9192)
 script = ExtResource("1_jjvhh")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -545,15 +545,14 @@ script = ExtResource("27_ueoa1")
 bus_name = "sfx"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.631512, 0.488617, -0.602036, -0.0823823, 0.814341, 0.57451, 0.770977, -0.313212, 0.554519, -1.32594, 10.5612, -3.64541)
-light_energy = 2.0
+transform = Transform3D(0.631512, 0.488617, -0.602035, -0.0823823, 0.814341, 0.57451, 0.770977, -0.313213, 0.55452, 0, 16.9331, 0)
 shadow_blur = 2.414
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kry3j")
 
 [node name="TempTutorial" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.10922, 10.8726)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374666, 5.10922, 8.57615)
 text = "Press P to toggle your party screen"
 
 [node name="ToggleSound" type="TextureButton" parent="."]
@@ -587,51 +586,26 @@ visible = false
 [node name="DetectArea" type="CollisionShape3D" parent="Npc2/DetectArea"]
 shape = SubResource("SphereShape3D_pdsj5")
 
-[node name="starter_area_v2" parent="." instance=ExtResource("23_3pmx8")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.588833, 1.87725, -3.25703)
-
 [node name="WildArtlingSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17667, 3.09023, -5.62716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17667, 3.09023, -9.26289)
 script = ExtResource("23_gt3je")
 
 [node name="Timer" type="Timer" parent="WildArtlingSpawn"]
 wait_time = 10.0
 
 [node name="WildArtlingSpawn2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72764, 3.92913, -13.1892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.2824, 3.84811, -15.4289)
 script = ExtResource("23_gt3je")
 
 [node name="Timer" type="Timer" parent="WildArtlingSpawn2"]
 wait_time = 10.0
 
 [node name="WildArtlingSpawn3" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.93044, 3.09023, -2.12659)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94559, 3.06894, -5.58033)
 script = ExtResource("23_gt3je")
 
 [node name="Timer" type="Timer" parent="WildArtlingSpawn3"]
 wait_time = 10.0
-
-[node name="Walls" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3446, 5.99042, 5.3313)
-shape = SubResource("BoxShape3D_fevyy")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 0.997452, -0.0713408, 0, 0.0713408, 0.997452, -0.280737, 5.42751, -42.1966)
-shape = SubResource("BoxShape3D_fevyy")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9294, 8.87114, -17.5914)
-shape = SubResource("BoxShape3D_hibaj")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1048, 3.52438, -18.8307)
-shape = SubResource("BoxShape3D_hibaj")
-
-[node name="WaterEnvironment" parent="." instance=ExtResource("28_ueoa1")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.6776, 0.192853, -37.5318)
 
 [connection signal="pressed" from="Player/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/CreateButton" to="Player" method="_on_create_button_pressed"]

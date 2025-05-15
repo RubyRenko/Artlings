@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dccvmqkyrtfkm"]
+
+[ext_resource type="PackedScene" uid="uid://bti8uonwlyrg4" path="res://Assets/environment/starter_area_v3/starter_area.tscn" id="1_1q1kw"]
+[ext_resource type="Script" uid="uid://coe5aw4u0j8vr" path="res://Battlefields/battlefield_1.gd" id="1_wskkc"]
+[ext_resource type="Texture2D" uid="uid://mjnkni73s0v5" path="res://Assets/environment/skybox/Sky_Day_BlueSky_Equirect.png" id="3_ni6xu"]
+[ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="3_wskkc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0faq4"]
+albedo_color = Color(0.192157, 0.517647, 0.290196, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wskkc"]
+panorama = ExtResource("3_ni6xu")
+
+[sub_resource type="Sky" id="Sky_6y1qc"]
+sky_material = SubResource("PanoramaSkyMaterial_wskkc")
+
+[sub_resource type="Environment" id="Environment_0faq4"]
+background_mode = 2
+background_color = Color(0.788765, 0.999632, 1, 1)
+sky = SubResource("Sky_6y1qc")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 2.0
+volumetric_fog_length = 85.56
+
+[node name="Battlefield1" type="Node3D"]
+script = ExtResource("1_wskkc")
+
+[node name="StarterArea" parent="." instance=ExtResource("1_1q1kw")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.93453, 0)
+size = Vector3(1000, 1, 1000)
+material = SubResource("StandardMaterial3D_0faq4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.776142, -0.135044, 0.615928, -0.567854, 0.274957, 0.775848, -0.274127, -0.951925, 0.136721, 0, 12.6258, 0)
+light_color = Color(0.943272, 0.976696, 0.93783, 1)
+light_energy = 1.5
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0faq4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.998433, -0.0223972, 0.0512831, -0.00285232, 0.935591, 0.353075, -0.0558878, 0.352375, -0.934189, 15.3355, 3.37462, -6.22438)
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(0.0200432, -0.243107, 0.969792, 0.00502336, 0.969999, 0.243055, -0.999786, 0, 0.0206631, 9.04975, 3.19341, 1.4351)
+visible = false
+
+[node name="StarterArea2" parent="." instance=ExtResource("1_1q1kw")]
+transform = Transform3D(-0.98685, 0, 0.161638, 0, 1, 0, -0.161638, 0, -0.98685, 44.9163, -0.410446, 3.64026)
+
+[node name="BattleNew" parent="." instance=ExtResource("3_wskkc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5598, 0.793383, 0)

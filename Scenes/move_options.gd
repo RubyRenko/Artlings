@@ -9,7 +9,7 @@ func toggle_move_buttons(moves):
 		for move in moves:
 			var move_button = get_child(i)
 			#get_child(i).name = move
-			move_button.set_text(move)
+			move_button.text = move
 			move_button.disabled = false
 			choosable_moves.append(move)
 			i += 1

@@ -28,4 +28,4 @@ func play_atk_anim():
 	$atk_sfx.play()
 
 func play_brace_anim():
-	anim.play_anim("idle")
+	anim.play_anim("hide")

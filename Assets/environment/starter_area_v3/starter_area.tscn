@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bti8uonwlyrg4"]
+
+[ext_resource type="PackedScene" uid="uid://bxe0v3323ejp7" path="res://Assets/environment/starter_area_v3/starter_area_v3_ground.glb" id="1_o1g3c"]
+[ext_resource type="PackedScene" uid="uid://mv4yy3xme35i" path="res://Assets/environment/starter_area_v3/starter_area_v3_trees.glb" id="2_gwyer"]
+[ext_resource type="PackedScene" uid="uid://c5mxxviehjhaw" path="res://Assets/environment/starter_area_v3/starter_area_v3_realistic_trees.glb" id="3_y33q4"]
+[ext_resource type="PackedScene" uid="uid://ckdnmvh35wmeu" path="res://Assets/environment/starter_area_v3/starter_area_v3_sakuras.glb" id="4_fpp20"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1g3c"]
+size = Vector3(45.9914, 2.46704, 45.8993)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwyer"]
+size = Vector3(49.6665, 11.8652, 2.38965)
+
+[node name="StarterArea" type="Node3D"]
+
+[node name="starter_area_v3_ground" parent="." instance=ExtResource("1_o1g3c")]
+
+[node name="starter_area_v3_trees" parent="." instance=ExtResource("2_gwyer")]
+
+[node name="starter_area_v3_realistic_trees" parent="." instance=ExtResource("3_y33q4")]
+
+[node name="starter_area_v3_sakuras" parent="." instance=ExtResource("4_fpp20")]
+
+[node name="Walls" type="StaticBody3D" parent="."]
+
+[node name="Floor" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00906372, -0.853882, 0.00245667)
+shape = SubResource("BoxShape3D_o1g3c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269485, 5.43259, -23.9589)
+shape = SubResource("BoxShape3D_gwyer")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269485, 5.43259, 23.8802)
+shape = SubResource("BoxShape3D_gwyer")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23.8128, 5.43259, -0.0930996)
+shape = SubResource("BoxShape3D_gwyer")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.9189, 5.43259, 0.121908)
+shape = SubResource("BoxShape3D_gwyer")

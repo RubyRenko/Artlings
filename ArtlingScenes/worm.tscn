@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_lujuq"]
 [ext_resource type="AudioStream" uid="uid://cs2jyrnep2wdy" path="res://Audio/sfx/sfx1.mp3" id="5_r2i21"]
 
-[node name="worm" type="Node3D" groups=["3d", "mon"]]
+[node name="Wurm" type="Node3D" groups=["3d", "mon"]]
 script = ExtResource("1_iwr24")
 max_hp = 60
 strength = 10

@@ -12,6 +12,7 @@ extends Node3D
 
 var player
 var player_team : Array
+var mons_for_exp : Array
 var enemy_team : Array
 var player_mon : Node3D
 var enemy_mon : Node3D
@@ -31,6 +32,7 @@ func load_mons(player_inp, enemy_inp):
 	player_mon = player_team[0]
 	original_player_pos = player_mon.global_position
 	player_mon.global_position = player_spawn.global_position
+	mons_for_exp.append(player_mon)
 	
 	for mon in player_team:
 		mon.hp_bar.visible = true
@@ -79,7 +81,9 @@ func _process(_delta):
 		# adds exprience to player
 		if battle_won:
 			battle_desc.set_text("Battle won!")
-			player_mon.add_experience(100)
+			for mon in mons_for_exp:
+				var exp = 100/len(mons_for_exp)
+				mon.add_experience(exp)
 			#print("Player level: " + str(player_mon.level))
 		else:
 			battle_desc.set_text("Battle lost...")
@@ -260,4 +264,6 @@ func change_player_mon(index):
 	player_mon = player_team[index]
 	player_mon.visible = true
 	player_mon.global_position = player_spawn.global_position
+	if !(player_mon in mons_for_exp):
+		mons_for_exp.append(player_mon)
 	load_moves()

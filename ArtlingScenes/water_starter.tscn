@@ -33,7 +33,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="WaterStarter" type="Node3D" groups=["2d", "mon"]]
+[node name="Dewphin" type="Node3D" groups=["2d", "mon"]]
 script = ExtResource("1_7nghe")
 max_hp = 60
 strength = 5

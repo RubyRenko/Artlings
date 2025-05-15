@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8xalf3l186ie"]
+
+[ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
+[ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
+[ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_hy7hh"]
+[ext_resource type="Script" uid="uid://bjw76e1h5nwt5" path="res://Scenes/npc_2.gd" id="4_t3dhp"]
+[ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="5_pekhv"]
+[ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="6_hpbh2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bavrs"]
+radius = 1.05442
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c5o2r"]
+radius = 2.369
+
+[node name="LevelHandler" type="Node3D"]
+script = ExtResource("1_xxr4i")
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("2_mq6nj")
+
+[node name="Artlings" type="Node" parent="Player"]
+script = ExtResource("3_hy7hh")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Npc2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7484, 2.53506, 4.18722)
+script = ExtResource("4_t3dhp")
+
+[node name="worm" parent="Npc2" instance=ExtResource("5_pekhv")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="BattleArea" type="CollisionShape3D" parent="Npc2"]
+shape = SubResource("SphereShape3D_bavrs")
+
+[node name="BattleMarker" type="Marker3D" parent="Npc2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101146, 2.33541)
+
+[node name="worm2" parent="Npc2" instance=ExtResource("6_hpbh2")]
+visible = false
+
+[node name="DetectArea" type="Area3D" parent="Npc2"]
+
+[node name="DetectArea" type="CollisionShape3D" parent="Npc2/DetectArea"]
+shape = SubResource("SphereShape3D_c5o2r")
+
+[connection signal="body_entered" from="Npc2" to="Npc2" method="_on_body_entered"]
+[connection signal="child_exiting_tree" from="Npc2" to="Npc2" method="_on_child_exiting_tree"]
