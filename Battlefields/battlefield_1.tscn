@@ -55,3 +55,5 @@ transform = Transform3D(-0.98685, 0, 0.161638, 0, 1, 0, -0.161638, 0, -0.98685, 
 
 [node name="BattleNew" parent="." instance=ExtResource("3_wskkc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5598, 0.793383, 0)
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

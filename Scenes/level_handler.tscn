@@ -1,11 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=28 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_hy7hh"]
+[ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="4_7fipc"]
+[ext_resource type="Texture2D" uid="uid://dt3tyempvf42f" path="res://Assets/SketchBook.png" id="4_pln8l"]
 [ext_resource type="Script" uid="uid://bjw76e1h5nwt5" path="res://Scenes/npc_2.gd" id="4_t3dhp"]
+[ext_resource type="Texture2D" uid="uid://c6grl4sanc0rn" path="res://Assets/SketchBook3.png" id="5_420ye"]
 [ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="5_pekhv"]
+[ext_resource type="Script" uid="uid://c36xc3p788lxf" path="res://Scenes/create_screen.gd" id="5_xi342"]
+[ext_resource type="LabelSettings" uid="uid://c1ihr5s1asvus" path="res://Assets/stat_screen_text.tres" id="6_gi4eu"]
 [ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="6_hpbh2"]
+[ext_resource type="Texture2D" uid="uid://b01lav8a1ghi1" path="res://Assets/SketchBook2.png" id="6_pfsb0"]
+[ext_resource type="Texture2D" uid="uid://6acay5yomnsm" path="res://Assets/palette/blue.png" id="7_5dhrb"]
+[ext_resource type="Texture2D" uid="uid://wglb4k5xsglt" path="res://Assets/palette/green.png" id="8_get3n"]
+[ext_resource type="Texture2D" uid="uid://cf6lrjsgtg7ww" path="res://Assets/palette/purple.png" id="9_pln8l"]
+[ext_resource type="Texture2D" uid="uid://b042gfcrraepi" path="res://Assets/palette/orange.png" id="10_420ye"]
+[ext_resource type="Texture2D" uid="uid://cqm6y8qcofxy8" path="res://Assets/palette/red.png" id="11_pfsb0"]
+[ext_resource type="Texture2D" uid="uid://c11wxo0rkp4a6" path="res://Assets/palette/yellow.png" id="12_50soc"]
+[ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="16_50soc"]
+[ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/InkStarterCropped.png" id="17_wrq8o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fipc"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_7k868"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_0p6fr"]
+events = [SubResource("InputEventKey_7k868")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_hpc6h"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="Shortcut" id="Shortcut_m76uk"]
+events = [SubResource("InputEventKey_hpc6h")]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bavrs"]
 radius = 1.05442
@@ -18,6 +51,402 @@ script = ExtResource("1_xxr4i")
 
 [node name="Player" type="Node3D" parent="."]
 script = ExtResource("2_mq6nj")
+
+[node name="Bg" type="Panel" parent="Player"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7fipc")
+
+[node name="PartyButton" type="TextureButton" parent="Player/Bg"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 211.0
+offset_right = 311.0
+offset_bottom = 363.0
+focus_mode = 0
+shortcut = SubResource("Shortcut_0p6fr")
+texture_normal = ExtResource("4_pln8l")
+texture_pressed = ExtResource("5_420ye")
+texture_hover = ExtResource("6_pfsb0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Player/Bg/PartyButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 152.0
+offset_right = 197.0
+offset_bottom = 180.0
+text = "Artling Party"
+label_settings = ExtResource("6_gi4eu")
+
+[node name="CreateButton" type="TextureButton" parent="Player/Bg"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 211.0
+offset_right = 667.0
+offset_bottom = 363.0
+focus_mode = 0
+shortcut = SubResource("Shortcut_m76uk")
+texture_normal = ExtResource("4_pln8l")
+texture_pressed = ExtResource("5_420ye")
+texture_hover = ExtResource("6_pfsb0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Player/Bg/CreateButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 152.0
+offset_right = 197.0
+offset_bottom = 180.0
+text = "Paint"
+label_settings = ExtResource("6_gi4eu")
+
+[node name="IndexButton" type="TextureButton" parent="Player/Bg"]
+layout_mode = 0
+offset_left = 827.0
+offset_top = 208.0
+offset_right = 1019.0
+offset_bottom = 360.0
+focus_mode = 0
+shortcut = SubResource("Shortcut_m76uk")
+texture_normal = ExtResource("4_pln8l")
+texture_pressed = ExtResource("5_420ye")
+texture_hover = ExtResource("6_pfsb0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Player/Bg/IndexButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 152.0
+offset_right = 197.0
+offset_bottom = 180.0
+text = "Encyclopedia"
+label_settings = ExtResource("6_gi4eu")
+
+[node name="NextBattleButton" type="Button" parent="Player/Bg"]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 488.0
+offset_right = 1032.0
+offset_bottom = 568.0
+text = "Next battle >>"
+
+[node name="PartyScreen" type="Panel" parent="Player/Bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -274.0
+offset_right = 500.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("4_7fipc")
+script = ExtResource("16_50soc")
+
+[node name="Artlings" type="Control" parent="Player/Bg/PartyScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Artling1" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 50.0
+offset_right = 332.0
+offset_bottom = 266.0
+icon = ExtResource("17_wrq8o")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
+
+[node name="Artling2" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 50.0
+offset_right = 588.0
+offset_bottom = 266.0
+icon = ExtResource("17_wrq8o")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
+
+[node name="Artling3" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 50.0
+offset_right = 844.0
+offset_bottom = 266.0
+icon = ExtResource("17_wrq8o")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
+
+[node name="Artling4" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 282.0
+offset_right = 332.0
+offset_bottom = 498.0
+icon = ExtResource("17_wrq8o")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling4"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
+
+[node name="Artling5" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 282.0
+offset_right = 588.0
+offset_bottom = 498.0
+icon = ExtResource("17_wrq8o")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling5"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
+
+[node name="Artling6" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 282.0
+offset_right = 844.0
+offset_bottom = 498.0
+icon = ExtResource("17_wrq8o")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling6"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name / Level"
+label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="Player/Bg/PartyScreen"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 22.0
+offset_right = 100.0
+offset_bottom = 70.0
+text = "Back
+"
+
+[node name="CreateScreen" type="Panel" parent="Player/Bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -272.0
+offset_right = 500.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("4_7fipc")
+script = ExtResource("5_xi342")
+
+[node name="InspoLabel" type="Label" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 383.0
+offset_right = 883.0
+offset_bottom = 442.0
+text = "Current Inspiration: 
+Inspiration needed: "
+label_settings = ExtResource("6_gi4eu")
+
+[node name="ColorLabel" type="Label" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 387.0
+offset_right = 334.0
+offset_bottom = 446.0
+text = "Current colors
+R:  0 O: 0 Y: 0 G: 0 B: 0 V: 0 "
+label_settings = ExtResource("6_gi4eu")
+
+[node name="CreateArtling" type="Button" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 450.0
+offset_right = 883.0
+offset_bottom = 504.0
+text = "Create Artling"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="ColorClear" type="Button" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 450.0
+offset_right = 326.0
+offset_bottom = 504.0
+text = "Clear Colors"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="NameEdit" type="LineEdit" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 455.0
+offset_right = 570.0
+offset_bottom = 501.0
+placeholder_text = "Artling Name"
+
+[node name="PaintBlueButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 167.0
+offset_right = 276.0
+offset_bottom = 291.0
+texture_normal = ExtResource("7_5dhrb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintGreenButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 254.0
+offset_right = 438.0
+offset_bottom = 378.0
+texture_normal = ExtResource("8_get3n")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintPurpleButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 70.0
+offset_right = 449.0
+offset_bottom = 194.0
+texture_normal = ExtResource("9_pln8l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintOrangeButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 149.0
+offset_right = 792.0
+offset_bottom = 273.0
+texture_normal = ExtResource("10_420ye")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintRedButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 60.0
+offset_right = 650.0
+offset_bottom = 184.0
+texture_normal = ExtResource("11_pfsb0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PaintYellowButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 268.0
+offset_right = 656.0
+offset_bottom = 392.0
+texture_normal = ExtResource("12_50soc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BackButton" type="Button" parent="Player/Bg/CreateScreen"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 22.0
+offset_right = 100.0
+offset_bottom = 70.0
+text = "Back
+"
 
 [node name="Artlings" type="Node" parent="Player"]
 script = ExtResource("3_hy7hh")
@@ -45,5 +474,25 @@ visible = false
 [node name="DetectArea" type="CollisionShape3D" parent="Npc2/DetectArea"]
 shape = SubResource("SphereShape3D_c5o2r")
 
+[connection signal="pressed" from="Player/Bg/PartyButton" to="Player" method="_on_party_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateButton" to="Player" method="_on_create_button_pressed"]
+[connection signal="pressed" from="Player/Bg/NextBattleButton" to="." method="_on_next_battle_button_pressed"]
+[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling1" to="Player" method="_on_artling_1_pressed"]
+[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling2" to="Player" method="_on_artling_2_pressed"]
+[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling3" to="Player" method="_on_artling_3_pressed"]
+[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling4" to="Player" method="_on_artling_4_pressed"]
+[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling5" to="Player" method="_on_artling_5_pressed"]
+[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling6" to="Player" method="_on_artling_6_pressed"]
+[connection signal="pressed" from="Player/Bg/PartyScreen/BackButton" to="Player" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreateArtling" to="Player" method="_on_create_artling_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/ColorClear" to="Player/Bg/CreateScreen" method="_on_color_clear_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/PaintBlueButton" to="Player/Bg/CreateScreen" method="_on_paint_blue_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/PaintGreenButton" to="Player/Bg/CreateScreen" method="_on_paint_green_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/PaintPurpleButton" to="Player/Bg/CreateScreen" method="_on_paint_purple_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/PaintOrangeButton" to="Player/Bg/CreateScreen" method="_on_paint_orange_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/PaintRedButton" to="Player/Bg/CreateScreen" method="_on_paint_red_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/PaintYellowButton" to="Player/Bg/CreateScreen" method="_on_paint_yellow_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/BackButton" to="Player" method="_on_back_button_pressed"]
+[connection signal="child_exiting_tree" from="Environment" to="." method="_on_environment_child_exiting_tree"]
 [connection signal="body_entered" from="Npc2" to="Npc2" method="_on_body_entered"]
 [connection signal="child_exiting_tree" from="Npc2" to="Npc2" method="_on_child_exiting_tree"]

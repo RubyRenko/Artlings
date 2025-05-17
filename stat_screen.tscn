@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://by1pq4t3qhpc7"]
+[gd_scene load_steps=6 format=3 uid="uid://by1pq4t3qhpc7"]
 
 [ext_resource type="Script" uid="uid://b0c38cxhs71c0" path="res://stat_screen.gd" id="1_ayflt"]
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="2_uggsd"]
 [ext_resource type="Script" uid="uid://bcgulvb8di1hr" path="res://moves_container.gd" id="3_uggsd"]
-
-[sub_resource type="Theme" id="Theme_ayflt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bkc8p"]
 font_size = 30
@@ -30,66 +28,66 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -478.0
-offset_top = -264.5
-offset_right = 478.0
-offset_bottom = 264.5
+offset_left = -500.0
+offset_top = -272.0
+offset_right = 500.0
+offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ayflt")
+size_flags_horizontal = 4
 theme_override_styles/panel = ExtResource("2_uggsd")
 
 [node name="LeaderButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 297.0
-offset_top = 113.5
-offset_right = 460.0
-offset_bottom = 158.5
+offset_left = 319.0
+offset_top = 121.0
+offset_right = 482.0
+offset_bottom = 166.0
 text = "Set as leader
 "
 
 [node name="Picture" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 23.5
-offset_right = 266.0
-offset_bottom = 264.5
+offset_left = 43.0
+offset_top = 31.0
+offset_right = 288.0
+offset_bottom = 272.0
 expand_mode = 3
 
 [node name="Name" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 296.0
-offset_top = 50.5
-offset_right = 491.0
-offset_bottom = 92.5
+offset_left = 318.0
+offset_top = 58.0
+offset_right = 513.0
+offset_bottom = 100.0
 text = "Name"
 label_settings = SubResource("LabelSettings_bkc8p")
 
 [node name="Level" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 756.0
-offset_top = 50.5
-offset_right = 896.0
-offset_bottom = 92.5
+offset_left = 778.0
+offset_top = 58.0
+offset_right = 918.0
+offset_bottom = 100.0
 text = "Level /"
 label_settings = SubResource("LabelSettings_bkc8p")
 horizontal_alignment = 2
 
 [node name="StatTitle" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 274.5
-offset_right = 119.0
-offset_bottom = 316.5
+offset_left = 64.0
+offset_top = 282.0
+offset_right = 141.0
+offset_bottom = 324.0
 text = "Stats"
 label_settings = SubResource("LabelSettings_bkc8p")
 
 [node name="Stats" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 316.5
-offset_right = 244.0
-offset_bottom = 499.5
+offset_left = 64.0
+offset_top = 324.0
+offset_right = 266.0
+offset_bottom = 507.0
 text = "Health:
 Strength:
 Defense:
@@ -100,19 +98,19 @@ label_settings = SubResource("LabelSettings_hgcnw")
 
 [node name="MoveTitle" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 220.5
-offset_right = 366.0
-offset_bottom = 262.5
+offset_left = 294.0
+offset_top = 228.0
+offset_right = 388.0
+offset_bottom = 270.0
 text = "Moves"
 label_settings = SubResource("LabelSettings_bkc8p")
 
 [node name="MovesContainer" type="GridContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 274.0
-offset_right = 897.0
-offset_bottom = 392.0
+offset_left = 294.0
+offset_top = 281.5
+offset_right = 919.0
+offset_bottom = 399.5
 columns = 2
 script = ExtResource("3_uggsd")
 
@@ -138,19 +136,19 @@ size_flags_vertical = 3
 
 [node name="MoveDesc" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 244.0
-offset_top = 411.5
-offset_right = 921.0
-offset_bottom = 496.5
+offset_left = 266.0
+offset_top = 419.0
+offset_right = 943.0
+offset_bottom = 504.0
 text = "Move Description"
 label_settings = SubResource("LabelSettings_hgcnw")
 
 [node name="Close" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 907.0
-offset_top = 14.5
-offset_right = 940.0
-offset_bottom = 45.5
+offset_left = 929.0
+offset_top = 22.0
+offset_right = 962.0
+offset_bottom = 53.0
 text = "x"
 
 [connection signal="item_selected" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_item_selected"]

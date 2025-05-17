@@ -4,6 +4,7 @@ extends Panel
 @onready var color_text = $ColorLabel
 @onready var create_button = $CreateArtling
 @onready var name_edit = $NameEdit
+@onready var player = get_parent().get_parent()
 var new_artling_name : String
 var r = 0
 var o = 0
@@ -14,7 +15,7 @@ var v = 0
 var total_color = 0
 
 func _process(_delta):
-	inspiration_text.set_text("Current Inspiration: %s\nInspiration needed: 2" % str(get_parent().inspo))
+	inspiration_text.set_text("Current Inspiration: %s\nInspiration needed: 2" % str(player.inspo))
 	color_text.set_text("Current colors\nR:%s O:%s Y:%s G:%s B:%s V:%s" % [r, o, y, g, b, v])
 	new_artling_name = name_edit.text
 

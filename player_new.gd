@@ -1,16 +1,94 @@
 extends Node3D
 
 @onready var team_node = $Artlings
-static var team = []
+var team = []
+var inspo = 0
+
+@onready var interlude_bg = $Bg
+@onready var party_screen = $Bg/PartyScreen
+@onready var create_screen = $Bg/CreateScreen
+
+@onready var party_button = $Bg/PartyButton
+@onready var create_button = $Bg/CreateButton
+@onready var index_button = $Bg/IndexButton
+@onready var next_button = $Bg/NextBattleButton
 
 func _ready():
 	team_node.add_teammate("Inkit")
-	load_team()
 	team_node.add_teammate("Dewphin")
-	load_team()
 	team_node.add_teammate("Wurm")
 	load_team()
+	for artling in team:
+		artling.setup_stat_screen()
+	hide_screens()
 
 func load_team():
 	# updates team based off the children in teamnode and updates party_tab
 	team = team_node.get_children()
+
+func swap_team(ind1, ind2):
+	var artling1 = team[ind1]
+	var artling2 = team[ind2]
+	team[ind1] = artling2
+	team[ind2] = artling1
+
+func hide_screens(true_hide = false):
+	if true_hide:
+		interlude_bg.visible = false
+	else:
+		party_screen.visible = false
+		create_screen.visible = false
+		for artling in team:
+			artling.stat_screen.visible = false
+
+func show_party_screen():
+	party_screen.visible = true
+	party_screen.toggle_party_buttons(team)
+
+func show_create_screen():
+	create_screen.visible = true
+	create_screen.clear_colors()
+
+func _on_create_artling_pressed():
+	if inspo >= 2:
+		var new_artling = create_screen.calculate_artling()
+		if create_screen.new_artling_name != "":
+			team_node.add_teammate(new_artling, create_screen.new_artling_name)
+		elif create_screen.new_artling_name == "":
+			team_node.add_teammate(new_artling)
+		load_team()
+		inspo -= 2
+		hide_screens()
+
+func show_artling(ind):
+	team[ind].update_stat_screen()
+	team[ind].stat_screen.visible = true
+	
+func _on_party_button_pressed():
+	hide_screens()
+	show_party_screen()
+
+func _on_create_button_pressed():
+	hide_screens()
+	show_create_screen()
+
+func _on_back_button_pressed():
+	hide_screens()
+
+func _on_artling_1_pressed():
+	show_artling(0)
+
+func _on_artling_2_pressed():
+	show_artling(1)
+
+func _on_artling_3_pressed():
+	show_artling(2)
+
+func _on_artling_4_pressed():
+	show_artling(3)
+
+func _on_artling_5_pressed():
+	show_artling(4)
+
+func _on_artling_6_pressed():
+	show_artling(5)

@@ -80,10 +80,13 @@ func _process(_delta):
 			#player_mon.add_experience(100)
 			#print("Player level: " + str(player_mon.level))
 		# resets the enemy and player mon health and makes them invisible
-		enemy_mon.visible = false
+		for mon in enemy_team:
+			mon.visible = false
+			mon.health = mon.max_hp
 		for mon in player_team:
 			mon.visible = false
 			mon.health = mon.max_hp
+		player.inspo += 2
 		# sets battle prog to -3 so the battle queues free and ends
 		battle_prog = -3
 	# after clicking with battle prog being 3, clears the battle
