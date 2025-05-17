@@ -468,6 +468,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101146, 2.33541)
 
 [node name="worm2" parent="Npc2" instance=ExtResource("6_hpbh2")]
 visible = false
+nickname = "Wurm"
 
 [node name="DetectArea" type="Area3D" parent="Npc2"]
 

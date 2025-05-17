@@ -10,7 +10,7 @@ var health : int = max_hp
 @export var mind : int
 @export var speed : int
 @export var element : String
-var nickname : String
+@export var nickname : String
 
 # move master list
 @onready var master_move_list = load("res://move_list.tscn").instantiate()

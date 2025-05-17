@@ -1,12 +1,18 @@
 extends Node3D
 
 @onready var player_spawn = $PlayerMonSpawn
+@onready var player_hp_bar = $CanvasLayer/PlayerHpBar
+@onready var player_name_label = $CanvasLayer/PlayerHpBar/Label
 @onready var enemy_spawn = $EnemyMonSpawn
+@onready var enemy_hp_bar = $CanvasLayer/EnemyHpBar
+@onready var enemy_name_label = $CanvasLayer/EnemyHpBar/Label
+
 @onready var move_opt = $CanvasLayer/MoveOptions
 @onready var battle_desc = $CanvasLayer/BattleText/BattleDesc
 @onready var battle_desc_box = $CanvasLayer/BattleText
 @onready var change_button = $CanvasLayer/ChangeArtling
 @onready var master_move_list = preload("res://move_list.tscn").instantiate()
+@onready var anim_tween = get_tree().create_tween()
 
 var player
 var player_team : Array
@@ -28,9 +34,10 @@ func load_mons(player_inp, enemy_inp):
 	player_mon.global_position = player_spawn.global_position
 	mons_for_exp.append(player_mon)
 	
-	for mon in player_team:
-		mon.hp_bar.visible = true
 	player_mon.visible = true
+	player_name_label.set_text(player_mon.nickname)
+	player_hp_bar.max_value = player_mon.max_hp
+	player_hp_bar.value = player_mon.health
 	#print(player_mon.level)
 	
 	# sets the enemy mon to the input and puts it where it's supposed to be
@@ -38,9 +45,12 @@ func load_mons(player_inp, enemy_inp):
 	enemy_mon = enemy_team[0]
 	enemy_mon.global_position = enemy_spawn.global_position
 	enemy_mon.visible = true
-	enemy_mon.hp_bar.visible = true
 	if enemy_mon.is_in_group("2d"):
 		enemy_mon.anim.flip_h = true
+	
+	enemy_name_label.set_text(enemy_mon.nickname)
+	enemy_hp_bar.max_value = enemy_mon.max_hp
+	enemy_hp_bar.value = enemy_mon.health
 	#print(enemy_mon.level)
 	load_moves()
 
@@ -152,6 +162,8 @@ func choose_move(move_ind):
 		battle_prog = 0
 
 func handle_turn(current_command):
+	var enem_prev_health = enemy_mon.health
+	var play_prev_health = player_mon.health
 	# if the command is from the player
 	if current_command[0] == "player":
 		# player mon attacks and sets the battle description to the result of attack
@@ -187,6 +199,9 @@ func handle_turn(current_command):
 			player_mon.play_brace_anim()
 			enemy_mon.play_atk_anim()
 		battle_prog += 1
+	var test = enem_prev_health
+	enemy_hp_bar.value = enemy_mon.health
+	player_hp_bar.value = player_mon.health
 	#print(battle_prog)
 
 func handle_status():

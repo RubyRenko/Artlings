@@ -73,6 +73,43 @@ offset_right = 138.0
 offset_bottom = 523.0
 text = "Check Party"
 
+[node name="PlayerHpBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 26.0
+offset_top = 40.0
+offset_right = 342.0
+offset_bottom = 79.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PlayerHpBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -24.0
+offset_right = 314.0
+offset_bottom = -1.0
+text = "Player Artling"
+
+[node name="EnemyHpBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -336.0
+offset_top = 39.0
+offset_right = -20.0
+offset_bottom = 78.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/EnemyHpBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -308.0
+offset_top = -24.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+text = "Enemy Artling"
+horizontal_alignment = 2
+
 [connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
