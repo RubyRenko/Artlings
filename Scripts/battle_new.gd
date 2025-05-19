@@ -30,6 +30,7 @@ var changing_mons = false
 func update_player_sprite():
 	player_mon = player_team[0]
 	player_mon.global_position = player_spawn.global_position
+	player_mon.rotation = player_spawn.rotation
 	player_mon.visible = true
 	player_name_label.set_text(player_mon.nickname)
 	player_hp_bar.max_value = player_mon.max_hp
@@ -39,6 +40,7 @@ func update_player_sprite():
 func update_enemy_sprite():
 	enemy_mon = enemy_team[0]
 	enemy_mon.global_position = enemy_spawn.global_position
+	enemy_mon.rotation = enemy_spawn.rotation
 	enemy_mon.visible = true
 	if enemy_mon.is_in_group("2d"):
 		enemy_mon.anim.flip_h = true

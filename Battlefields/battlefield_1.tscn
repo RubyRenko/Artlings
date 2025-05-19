@@ -54,6 +54,12 @@ visible = false
 transform = Transform3D(-0.98685, 0, 0.161638, 0, 1, 0, -0.161638, 0, -0.98685, 44.9163, -0.410446, 3.64026)
 
 [node name="BattleNew" parent="." groups=["battle"] instance=ExtResource("3_wskkc")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5598, 0.793383, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5598, 0.938155, -1.15281)
+
+[node name="PlayerMarker" type="Marker3D" parent="BattleNew"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0.1, 0)
+
+[node name="EnemyMarker" type="Marker3D" parent="BattleNew"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0.1, 0)
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

@@ -1,6 +1,9 @@
 extends Node3D
 
-@onready var battlefields = [preload("res://Battlefields/battlefield_1.tscn"), preload("res://Battlefields/battlefield_2.tscn")]
+@onready var tutorial = preload("res://Battlefields/tutorial.tscn")
+@onready var battlefields = [
+	preload("res://Battlefields/battlefield_1.tscn"), 
+	preload("res://Battlefields/battlefield_2.tscn")]
 @onready var current_battlefield
 @onready var player = $Player
 @onready var enemies = $Trainers
@@ -9,12 +12,12 @@ extends Node3D
 
 func _ready():
 	player.hide_screens(true)
-	current_battlefield = battlefields.pick_random().instantiate()
+	current_battlefield = tutorial.instantiate()
 	environment_node.add_child(current_battlefield)
 	current_battlefield.start_battle(player, enemies.get_trainer("Test4"))
 
 func _on_environment_child_exiting_tree(node):
-	print(node)
+	#print(node)
 	if node.is_in_group("battle"):
 		player.interlude_bg.visible = true
 

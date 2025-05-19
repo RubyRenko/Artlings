@@ -1,0 +1,215 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvl3kywk6lxte"]
+
+[ext_resource type="Texture2D" uid="uid://dy1h7ycrfjcgq" path="res://Assets/environment/Epic_BlueSunset_EquiRect_flat.png" id="1_4tefe"]
+[ext_resource type="Script" uid="uid://b4xampnfeflny" path="res://Battlefields/tutorial.gd" id="1_isuhv"]
+[ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="2_isuhv"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxvau"]
+panorama = ExtResource("1_4tefe")
+
+[sub_resource type="Sky" id="Sky_npm1x"]
+sky_material = SubResource("PanoramaSkyMaterial_mxvau")
+
+[sub_resource type="Environment" id="Environment_ftct7"]
+background_mode = 2
+background_color = Color(0.788765, 0.999632, 1, 1)
+sky = SubResource("Sky_npm1x")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 2.0
+volumetric_fog_length = 85.56
+
+[sub_resource type="LabelSettings" id="LabelSettings_isuhv"]
+font_size = 20
+
+[node name="Tutorial" type="Node3D" groups=["battle"]]
+script = ExtResource("1_isuhv")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.233535, 0)
+size = Vector3(20, 0.5, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.136, 1.44226, -0.0856876)
+size = Vector3(0.5, 15, 25)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1552, 1.44226, -0.0856876)
+size = Vector3(0.5, 15, 25)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.112119, 1.44226, -10.2791)
+size = Vector3(0.5, 15, 25)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ftct7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.960177, 0.279393, 0, -0.279393, 0.960177, 0, 2.03744, 2.90872)
+
+[node name="BattleNew" parent="." instance=ExtResource("2_isuhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28108, -0.241742)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.22952, 0)
+light_energy = 5.0
+spot_range = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866075, -0.107449, 0.488231, -0.144097, 0.881522, 0.449618, -0.478697, -0.459755, 0.74798, 0, 11.3656, 0)
+
+[node name="Tutorial" type="CanvasLayer" parent="."]
+
+[node name="ToggleText" type="Label" parent="Tutorial"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 29.0
+grow_horizontal = 2
+text = "Press T to toggle tutorial text"
+horizontal_alignment = 1
+
+[node name="BattleInfo" type="Control" parent="Tutorial"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 104.0
+offset_right = 303.0
+offset_bottom = 153.0
+text = "This is your Artling's health!
+Let it fall to 0 and you lose."
+
+[node name="Label2" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 104.0
+offset_right = 1109.0
+offset_bottom = 153.0
+text = "This is the enemy Artling's health!
+Reduce it to 0 and you win."
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 408.0
+offset_right = 1106.0
+offset_bottom = 483.0
+text = "This is the description box.
+It gives information about the current
+turn and what's going on in battle."
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 64.0
+offset_bottom = 108.0
+text = "^"
+label_settings = SubResource("LabelSettings_isuhv")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 78.0
+offset_right = 1104.0
+offset_bottom = 106.0
+text = "^"
+label_settings = SubResource("LabelSettings_isuhv")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 1072.0
+offset_top = 488.0
+offset_right = 1088.0
+offset_bottom = 511.0
+text = "V"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 441.0
+offset_right = 534.0
+offset_bottom = 490.0
+text = "Click one of these 4 buttons
+to use a move and attack"
+
+[node name="Label8" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 495.0
+offset_right = 323.0
+offset_bottom = 518.0
+text = "V"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 376.0
+offset_right = 429.0
+offset_bottom = 425.0
+text = "Check and swap to different Artlings with this button.
+Be careful as swapping will take up 1 turn!"
+
+[node name="Label10" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 432.0
+offset_right = 38.0
+offset_bottom = 455.0
+text = "V"
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 455.0
+offset_right = 38.0
+offset_bottom = 478.0
+text = "V"
+horizontal_alignment = 1
+
+[node name="PartyInfo" type="Control" parent="Tutorial"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Tutorial/PartyInfo"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 84.0
+offset_right = 167.0
+offset_bottom = 159.0
+text = "Click on an Artling's 
+portrait to swap 
+them in!"
+
+[node name="Label2" type="Label" parent="Tutorial/PartyInfo"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 230.0
+offset_right = 131.0
+offset_bottom = 305.0
+text = "These bars are:
+current hp
+experience"
+horizontal_alignment = 2
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

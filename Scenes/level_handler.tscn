@@ -469,6 +469,7 @@ visible = false
 [node name="Test4" type="Node3D" parent="Trainers"]
 
 [node name="Inkit" parent="Trainers/Test4" instance=ExtResource("21_pfsb0")]
+visible = false
 
 [node name="Wurm" parent="Trainers/Test4" instance=ExtResource("6_hpbh2")]
 visible = false
