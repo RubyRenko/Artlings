@@ -11,7 +11,7 @@ func _ready():
 	player.hide_screens(true)
 	current_battlefield = battlefields.pick_random().instantiate()
 	environment_node.add_child(current_battlefield)
-	current_battlefield.start_battle(player, enemies.get_random())
+	current_battlefield.start_battle(player, enemies.get_trainer("Test4"))
 
 func _on_environment_child_exiting_tree(node):
 	print(node)

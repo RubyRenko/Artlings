@@ -466,6 +466,13 @@ visible = false
 [node name="Wurm" parent="Trainers/Test3" instance=ExtResource("6_hpbh2")]
 visible = false
 
+[node name="Test4" type="Node3D" parent="Trainers"]
+
+[node name="Inkit" parent="Trainers/Test4" instance=ExtResource("21_pfsb0")]
+
+[node name="Wurm" parent="Trainers/Test4" instance=ExtResource("6_hpbh2")]
+visible = false
+
 [connection signal="pressed" from="Player/Bg/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateButton" to="Player" method="_on_create_button_pressed"]
 [connection signal="pressed" from="Player/Bg/NextBattleButton" to="." method="_on_next_battle_button_pressed"]

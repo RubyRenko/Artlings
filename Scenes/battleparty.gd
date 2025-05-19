@@ -1,7 +1,7 @@
 extends Panel
 
 @onready var artlings = $Artlings
-
+@onready var test = $Artlings/Artling1
 func update_battle_party(team):
 	for i in artlings.get_child_count():
 		var node = artlings.get_child(i)
@@ -15,5 +15,9 @@ func update_battle_party(team):
 			hp_bar.max_value = team[i].max_hp
 			hp_bar.value = team[i].health
 			exp_bar.value = team[i].exp
+			if team[i].fainted:
+				node.disabled = true
+			else:
+				node.disabled = false
 		elif i >= len(team):
 			node.visible = false

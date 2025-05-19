@@ -24,7 +24,8 @@ var enemy_mon : Node3D
 var battle_prog = -1
 var commands = []
 var battle_won = false
-var test : Dictionary
+var faint_switch = false
+var changing_mons = false
 
 func update_player_sprite():
 	player_mon = player_team[0]
@@ -41,7 +42,7 @@ func update_enemy_sprite():
 	enemy_mon.visible = true
 	if enemy_mon.is_in_group("2d"):
 		enemy_mon.anim.flip_h = true
-	enemy_name_label.set_text(enemy_mon.nickname + "Level")
+	enemy_name_label.set_text(enemy_mon.nickname)
 	enemy_hp_bar.max_value = enemy_mon.max_hp
 	enemy_hp_bar.value = enemy_mon.health
 	
@@ -91,7 +92,7 @@ func _process(_delta):
 			#print(mons_for_exp)
 			for mon in mons_for_exp:
 				#print(mon)
-				var exp = 100/len(mons_for_exp)
+				var exp = 100/len(mons_for_exp) * len(enemy_team)
 				mon.add_experience(exp)
 			#print("Player level: " + str(player_mon.level))
 		else:
@@ -102,9 +103,11 @@ func _process(_delta):
 		for mon in enemy_team:
 			mon.visible = false
 			mon.health = mon.max_hp
+			mon.fainted = false
 		for mon in player_team:
 			mon.visible = false
 			mon.health = mon.max_hp
+			mon.fainted = false
 		player.inspo += 2
 		# sets battle prog to -3 so the battle queues free and ends
 		battle_prog = -3
@@ -114,17 +117,51 @@ func _process(_delta):
 	# goes down the list of commands and executes them when battle prog is positive
 	elif Input.is_action_just_pressed("progress_battle") && battle_prog > -1:
 		var current_command = commands[battle_prog]
+		#print(current_command)
 		handle_turn(current_command)
 	
 	# if the player or enemy has no more health
 	# clears commands and sets battle prog to -2 so it can display win or lose text
-	if player_mon.health <= 0 && battle_prog != -3:
-		commands = []
-		battle_prog = -2
-	elif enemy_mon.health <= 0 && battle_prog != -3:
-		battle_won = true
-		commands = []
-		battle_prog = -2
+	if player_mon.health <= 0 && battle_prog != -3 && !changing_mons:
+		var team_wiped = true
+		changing_mons = true
+		player_mon.fainted = true
+		for mon in player_team:
+			if mon.fainted == false:
+				team_wiped = false
+				break
+		if team_wiped:
+			commands = []
+			battle_prog = -2
+		else:
+			commands = []
+			faint_switch = true
+			party_screen.update_battle_party(player_team)
+			party_screen.visible = true
+	elif enemy_mon.health <= 0 && battle_prog != -3 && !changing_mons:
+		var team_wiped = true
+		changing_mons = true
+		var next_mon
+		enemy_mon.fainted = true
+		enemy_mon.visible = false
+		for mon in enemy_team:
+			if mon.fainted == false:
+				team_wiped = false
+				next_mon = mon
+				break
+		if team_wiped:
+			battle_won = true
+			commands = []
+			battle_prog = -2
+		else:
+			commands = []
+			commands.append(["desc", enemy_mon.nickname + " defeated! Opponent sends out " + next_mon.name + ".", "idle"])
+			enemy_team[enemy_team.find(next_mon)] = enemy_team[0]
+			enemy_team[0] = next_mon
+			enemy_mon = enemy_team[0]
+			update_enemy_sprite()
+			changing_mons = false
+			handle_turn(commands[0])
 
 func _on_move_1_pressed():
 	choose_move(0)
@@ -205,6 +242,9 @@ func handle_turn(current_command):
 		elif current_command[2] == "brace":
 			player_mon.play_brace_anim()
 			enemy_mon.play_atk_anim()
+		elif current_command[2] == "idle":
+			player_mon.play_idle_anim()
+			enemy_mon.play_idle_anim()
 		battle_prog += 1
 	enemy_hp_bar.value = enemy_mon.health
 	player_hp_bar.value = player_mon.health
@@ -249,15 +289,6 @@ func _on_move_4_mouse_entered():
 	if battle_prog == -1 && len(player_mon.current_moves) == 4:
 		battle_desc.set_text( str(player_mon.moves_list[player_mon.current_moves[3]]) )
 
-func change_player_mon(index):
-	player_mon.visible = false
-	player_mon = player_team[index]
-	player_mon.global_position = player_spawn.global_position
-	player_mon.visible = true
-	if !(player_mon in mons_for_exp):
-		mons_for_exp.append(player_mon)
-	load_moves()
-
 func _on_back_button_pressed():
 	party_screen.visible = false
 
@@ -274,17 +305,20 @@ func choose_artling(artling_ind):
 		mons_for_exp.append(player_team[0])
 	commands.append(["desc", "Swapped to " + player_mon.nickname + ".", "brace"])
 	# picks a random move for the enemy and puts it in the commands list
-	var enemy_move = enemy_mon.current_moves.pick_random()
-	commands.append(["desc", "Enemy used " + enemy_move + "!", "brace"])
-	commands.append(["enemy", enemy_move])
-	battle_prog = 0
+	if !faint_switch:
+		var enemy_move = enemy_mon.current_moves.pick_random()
+		commands.append(["desc", "Enemy used " + enemy_move + "!", "brace"])
+		commands.append(["enemy", enemy_move])
+		battle_prog = 0
+		faint_switch = false
+	changing_mons = false
+	handle_turn(commands[0])
 
 func _on_artling_1_pressed():
 	choose_artling(0)
 
 func _on_artling_2_pressed():
 	choose_artling(1)
-
 
 func _on_artling_3_pressed():
 	choose_artling(2)

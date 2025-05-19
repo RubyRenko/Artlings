@@ -43,6 +43,7 @@ defense = 5
 intelligence = 15
 mind = 10
 speed = 10
+nickname = "Inkit"
 img = ExtResource("3_be0wh")
 
 [node name="AnimSprite" type="AnimatedSprite3D" parent="."]

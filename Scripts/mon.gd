@@ -29,6 +29,7 @@ var current_moves : Array
 # status effect vars
 var status : String = "None"
 var status_counter : int = 0
+var fainted = false
 
 #nodes the Artling should have
 @onready var hp_bar = $HpBar
@@ -190,18 +191,18 @@ func take_mnd_damage(amount):
 
 # handles status damage or effects
 func take_status():
-	print(status)
+	#print(status)
 	if status == "Burn":
 		var damage = ceili(health/20.0)
 		health -= damage
 		if randi_range(0,10) <= defense:
-			print("burn cures faster")
+			#print("burn cures faster")
 			status_counter -= 1
 		return name + " takes burn damage."
 	elif status == "Poison":
 		var damage = ceili(health/20.0)
 		if randi_range(0,10) <= mind:
-			print("poison cures faster")
+			#print("poison cures faster")
 			status_counter -= 1
 		health -= damage
 		return name + " takes poison damage."

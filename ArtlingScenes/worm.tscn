@@ -15,6 +15,7 @@ intelligence = 5
 mind = 5
 speed = 5
 element = "Normal"
+nickname = "Wurm"
 img = ExtResource("2_ymmcu")
 
 [node name="AnimModel" parent="." instance=ExtResource("2_lujuq")]

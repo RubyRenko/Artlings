@@ -41,6 +41,7 @@ defense = 15
 intelligence = 10
 mind = 15
 speed = 5
+nickname = "Dewphin"
 img = ExtResource("2_nsqof")
 
 [node name="AnimSprite" type="AnimatedSprite3D" parent="."]
