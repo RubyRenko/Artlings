@@ -11,20 +11,20 @@ albedo_color = Color(0.192157, 0.517647, 0.290196, 1)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wskkc"]
 panorama = ExtResource("3_ni6xu")
 
-[sub_resource type="Sky" id="Sky_6y1qc"]
+[sub_resource type="Sky" id="Sky_wskkc"]
 sky_material = SubResource("PanoramaSkyMaterial_wskkc")
 
 [sub_resource type="Environment" id="Environment_0faq4"]
 background_mode = 2
 background_color = Color(0.788765, 0.999632, 1, 1)
-sky = SubResource("Sky_6y1qc")
+sky = SubResource("Sky_wskkc")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 2.0
 volumetric_fog_length = 85.56
 
-[node name="Battlefield1" type="Node3D"]
+[node name="Battlefield1" type="Node3D" groups=["battle"]]
 script = ExtResource("1_wskkc")
 
 [node name="StarterArea" parent="." instance=ExtResource("1_1q1kw")]
@@ -53,7 +53,7 @@ visible = false
 [node name="StarterArea2" parent="." instance=ExtResource("1_1q1kw")]
 transform = Transform3D(-0.98685, 0, 0.161638, 0, 1, 0, -0.161638, 0, -0.98685, 44.9163, -0.410446, 3.64026)
 
-[node name="BattleNew" parent="." instance=ExtResource("3_wskkc")]
+[node name="BattleNew" parent="." groups=["battle"] instance=ExtResource("3_wskkc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5598, 0.793383, 0)
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

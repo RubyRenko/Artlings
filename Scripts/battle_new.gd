@@ -11,8 +11,8 @@ extends Node3D
 @onready var battle_desc = $CanvasLayer/BattleText/BattleDesc
 @onready var battle_desc_box = $CanvasLayer/BattleText
 @onready var change_button = $CanvasLayer/ChangeArtling
+@onready var party_screen = $CanvasLayer/Party
 @onready var master_move_list = preload("res://move_list.tscn").instantiate()
-@onready var anim_tween = get_tree().create_tween()
 
 var player
 var player_team : Array
@@ -26,33 +26,40 @@ var commands = []
 var battle_won = false
 var test : Dictionary
 
-func load_mons(player_inp, enemy_inp):
-	# sets the player to the input and player team with the first mon going into battle
-	player = player_inp
-	player_team = player_inp.team
+func update_player_sprite():
 	player_mon = player_team[0]
 	player_mon.global_position = player_spawn.global_position
-	mons_for_exp.append(player_mon)
-	
 	player_mon.visible = true
 	player_name_label.set_text(player_mon.nickname)
 	player_hp_bar.max_value = player_mon.max_hp
 	player_hp_bar.value = player_mon.health
-	#print(player_mon.level)
-	
-	# sets the enemy mon to the input and puts it where it's supposed to be
-	enemy_team = enemy_inp
+	load_moves()
+
+func update_enemy_sprite():
 	enemy_mon = enemy_team[0]
 	enemy_mon.global_position = enemy_spawn.global_position
 	enemy_mon.visible = true
 	if enemy_mon.is_in_group("2d"):
 		enemy_mon.anim.flip_h = true
-	
-	enemy_name_label.set_text(enemy_mon.nickname)
+	enemy_name_label.set_text(enemy_mon.nickname + "Level")
 	enemy_hp_bar.max_value = enemy_mon.max_hp
 	enemy_hp_bar.value = enemy_mon.health
+	
+func load_mons(player_inp, enemy_inp):
+	# sets the player to the input and player team with the first mon going into battle
+	player = player_inp
+	player_team = player_inp.team
+	mons_for_exp.append(player_team[0])
+	update_player_sprite()
+	#print(player_mon.level)
+	
+	# sets the enemy mon to the input and puts it where it's supposed to be
+	enemy_team = enemy_inp
+	update_enemy_sprite()
+	
+	party_screen.update_battle_party(player_team)
+	party_screen.visible = false
 	#print(enemy_mon.level)
-	load_moves()
 
 func load_moves():
 	#print(player_mon.current_moves)
@@ -81,7 +88,9 @@ func _process(_delta):
 		# adds exprience to player
 		if battle_won:
 			battle_desc.set_text("Battle won!")
+			#print(mons_for_exp)
 			for mon in mons_for_exp:
+				#print(mon)
 				var exp = 100/len(mons_for_exp)
 				mon.add_experience(exp)
 			#print("Player level: " + str(player_mon.level))
@@ -162,8 +171,6 @@ func choose_move(move_ind):
 		battle_prog = 0
 
 func handle_turn(current_command):
-	var enem_prev_health = enemy_mon.health
-	var play_prev_health = player_mon.health
 	# if the command is from the player
 	if current_command[0] == "player":
 		# player mon attacks and sets the battle description to the result of attack
@@ -199,7 +206,6 @@ func handle_turn(current_command):
 			player_mon.play_brace_anim()
 			enemy_mon.play_atk_anim()
 		battle_prog += 1
-	var test = enem_prev_health
 	enemy_hp_bar.value = enemy_mon.health
 	player_hp_bar.value = player_mon.health
 	#print(battle_prog)
@@ -251,3 +257,46 @@ func change_player_mon(index):
 	if !(player_mon in mons_for_exp):
 		mons_for_exp.append(player_mon)
 	load_moves()
+
+func _on_back_button_pressed():
+	party_screen.visible = false
+
+func _on_change_artling_pressed():
+	party_screen.update_battle_party(player_team)
+	party_screen.visible = true
+
+func choose_artling(artling_ind):
+	party_screen.visible = false
+	player_mon.visible = false
+	player.swap_team(0, artling_ind)
+	update_player_sprite()
+	if !(player_mon in mons_for_exp):
+		mons_for_exp.append(player_team[0])
+	commands.append(["desc", "Swapped to " + player_mon.nickname + ".", "brace"])
+	# picks a random move for the enemy and puts it in the commands list
+	var enemy_move = enemy_mon.current_moves.pick_random()
+	commands.append(["desc", "Enemy used " + enemy_move + "!", "brace"])
+	commands.append(["enemy", enemy_move])
+	battle_prog = 0
+
+func _on_artling_1_pressed():
+	choose_artling(0)
+
+func _on_artling_2_pressed():
+	choose_artling(1)
+
+
+func _on_artling_3_pressed():
+	choose_artling(2)
+
+
+func _on_artling_4_pressed():
+	choose_artling(3)
+
+
+func _on_artling_5_pressed():
+	choose_artling(4)
+
+
+func _on_artling_6_pressed():
+	choose_artling(5)

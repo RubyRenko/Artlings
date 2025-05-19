@@ -1,13 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=27 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_hy7hh"]
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="4_7fipc"]
 [ext_resource type="Texture2D" uid="uid://dt3tyempvf42f" path="res://Assets/SketchBook.png" id="4_pln8l"]
-[ext_resource type="Script" uid="uid://bjw76e1h5nwt5" path="res://Scenes/npc_2.gd" id="4_t3dhp"]
 [ext_resource type="Texture2D" uid="uid://c6grl4sanc0rn" path="res://Assets/SketchBook3.png" id="5_420ye"]
-[ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="5_pekhv"]
 [ext_resource type="Script" uid="uid://c36xc3p788lxf" path="res://Scenes/create_screen.gd" id="5_xi342"]
 [ext_resource type="LabelSettings" uid="uid://c1ihr5s1asvus" path="res://Assets/stat_screen_text.tres" id="6_gi4eu"]
 [ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="6_hpbh2"]
@@ -20,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://c11wxo0rkp4a6" path="res://Assets/palette/yellow.png" id="12_50soc"]
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="16_50soc"]
 [ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/InkStarterCropped.png" id="17_wrq8o"]
+[ext_resource type="Script" uid="uid://crmom254wawxw" path="res://Scenes/trainers.gd" id="21_50soc"]
+[ext_resource type="PackedScene" uid="uid://cn4dxdhlk3u4l" path="res://ArtlingScenes/ink_starter.tscn" id="21_pfsb0"]
+[ext_resource type="PackedScene" uid="uid://bqf83r1ghl6o4" path="res://ArtlingScenes/water_starter.tscn" id="22_50soc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fipc"]
 bg_color = Color(1, 1, 1, 1)
@@ -39,12 +40,6 @@ unicode = 99
 
 [sub_resource type="Shortcut" id="Shortcut_m76uk"]
 events = [SubResource("InputEventKey_hpc6h")]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_bavrs"]
-radius = 1.05442
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_c5o2r"]
-radius = 2.369
 
 [node name="LevelHandler" type="Node3D"]
 script = ExtResource("1_xxr4i")
@@ -453,27 +448,23 @@ script = ExtResource("3_hy7hh")
 
 [node name="Environment" type="Node3D" parent="."]
 
-[node name="Npc2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7484, 2.53506, 4.18722)
-script = ExtResource("4_t3dhp")
+[node name="Trainers" type="Node3D" parent="."]
+script = ExtResource("21_50soc")
 
-[node name="worm" parent="Npc2" instance=ExtResource("5_pekhv")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+[node name="Test1" type="Node3D" parent="Trainers"]
 
-[node name="BattleArea" type="CollisionShape3D" parent="Npc2"]
-shape = SubResource("SphereShape3D_bavrs")
-
-[node name="BattleMarker" type="Marker3D" parent="Npc2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0101146, 2.33541)
-
-[node name="worm2" parent="Npc2" instance=ExtResource("6_hpbh2")]
+[node name="Inkit" parent="Trainers/Test1" instance=ExtResource("21_pfsb0")]
 visible = false
-nickname = "Wurm"
 
-[node name="DetectArea" type="Area3D" parent="Npc2"]
+[node name="Test2" type="Node3D" parent="Trainers"]
 
-[node name="DetectArea" type="CollisionShape3D" parent="Npc2/DetectArea"]
-shape = SubResource("SphereShape3D_c5o2r")
+[node name="Dewphin" parent="Trainers/Test2" instance=ExtResource("22_50soc")]
+visible = false
+
+[node name="Test3" type="Node3D" parent="Trainers"]
+
+[node name="Wurm" parent="Trainers/Test3" instance=ExtResource("6_hpbh2")]
+visible = false
 
 [connection signal="pressed" from="Player/Bg/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateButton" to="Player" method="_on_create_button_pressed"]
@@ -495,5 +486,3 @@ shape = SubResource("SphereShape3D_c5o2r")
 [connection signal="pressed" from="Player/Bg/CreateScreen/PaintYellowButton" to="Player/Bg/CreateScreen" method="_on_paint_yellow_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/BackButton" to="Player" method="_on_back_button_pressed"]
 [connection signal="child_exiting_tree" from="Environment" to="." method="_on_environment_child_exiting_tree"]
-[connection signal="body_entered" from="Npc2" to="Npc2" method="_on_body_entered"]
-[connection signal="child_exiting_tree" from="Npc2" to="Npc2" method="_on_child_exiting_tree"]

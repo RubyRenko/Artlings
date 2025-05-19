@@ -1,7 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7kmqfstuuhfl"]
+[gd_scene load_steps=9 format=3 uid="uid://b7kmqfstuuhfl"]
 
 [ext_resource type="Script" uid="uid://cc1dov4n6rtdk" path="res://Scripts/battle_new.gd" id="1_odwnt"]
 [ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="2_muy5e"]
+[ext_resource type="Script" uid="uid://dvg22nhv03uaj" path="res://Scenes/battleparty.gd" id="3_yfa5f"]
+[ext_resource type="Texture2D" uid="uid://btxpcfh65rfel" path="res://Assets/Ink_Fox.png" id="4_efi8x"]
+[ext_resource type="LabelSettings" uid="uid://dvs314swtpp3o" path="res://Assets/battle_new_title.tres" id="5_efi8x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muy5e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efi8x"]
+bg_color = Color(0.854624, 0.253347, 0.291867, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbnnx"]
+bg_color = Color(0.278658, 0.498325, 0.784576, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="BattleNew" type="Node3D"]
 script = ExtResource("1_odwnt")
@@ -110,6 +129,261 @@ grow_horizontal = 0
 text = "Enemy Artling"
 horizontal_alignment = 2
 
+[node name="Party" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_muy5e")
+script = ExtResource("3_yfa5f")
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Party"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 88.0
+offset_bottom = 64.0
+text = "Back"
+
+[node name="Artlings" type="Control" parent="CanvasLayer/Party"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Artling1" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
+offset_left = 112.0
+offset_top = 38.0
+offset_right = 368.0
+offset_bottom = 294.0
+scale = Vector2(0.88, 0.88)
+texture_normal = ExtResource("4_efi8x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Name" type="Label" parent="CanvasLayer/Party/Artlings/Artling1"]
+layout_mode = 0
+offset_top = -14.0
+offset_right = 256.0
+offset_bottom = 10.0
+text = "NAME - LEVEL"
+label_settings = ExtResource("5_efi8x")
+horizontal_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling1"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 256.0
+offset_right = 232.0
+offset_bottom = 280.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+value = 50.0
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling1"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 280.0
+offset_right = 232.0
+offset_bottom = 296.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+value = 50.0
+show_percentage = false
+
+[node name="Artling2" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
+offset_left = 464.0
+offset_top = 38.0
+offset_right = 720.0
+offset_bottom = 294.0
+scale = Vector2(0.88, 0.88)
+texture_normal = ExtResource("4_efi8x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Name" type="Label" parent="CanvasLayer/Party/Artlings/Artling2"]
+layout_mode = 0
+offset_top = -14.0
+offset_right = 256.0
+offset_bottom = 10.0
+text = "NAME - LEVEL"
+label_settings = ExtResource("5_efi8x")
+horizontal_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling2"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 256.0
+offset_right = 232.0
+offset_bottom = 280.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+value = 50.0
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling2"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 280.0
+offset_right = 232.0
+offset_bottom = 296.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+value = 50.0
+show_percentage = false
+
+[node name="Artling3" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
+offset_left = 816.0
+offset_top = 38.0
+offset_right = 1072.0
+offset_bottom = 294.0
+scale = Vector2(0.88, 0.88)
+texture_normal = ExtResource("4_efi8x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Name" type="Label" parent="CanvasLayer/Party/Artlings/Artling3"]
+layout_mode = 0
+offset_top = -14.0
+offset_right = 256.0
+offset_bottom = 10.0
+text = "NAME - LEVEL"
+label_settings = ExtResource("5_efi8x")
+horizontal_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling3"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 256.0
+offset_right = 232.0
+offset_bottom = 280.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+value = 50.0
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling3"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 280.0
+offset_right = 232.0
+offset_bottom = 296.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+value = 50.0
+show_percentage = false
+
+[node name="Artling4" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
+offset_left = 112.0
+offset_top = 352.0
+offset_right = 368.0
+offset_bottom = 608.0
+scale = Vector2(0.88, 0.88)
+texture_normal = ExtResource("4_efi8x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Name" type="Label" parent="CanvasLayer/Party/Artlings/Artling4"]
+layout_mode = 0
+offset_top = -14.0
+offset_right = 256.0
+offset_bottom = 10.0
+text = "NAME - LEVEL"
+label_settings = ExtResource("5_efi8x")
+horizontal_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling4"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 256.0
+offset_right = 232.0
+offset_bottom = 280.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+value = 50.0
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling4"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 280.0
+offset_right = 232.0
+offset_bottom = 296.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+value = 50.0
+show_percentage = false
+
+[node name="Artling5" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
+offset_left = 464.0
+offset_top = 352.0
+offset_right = 720.0
+offset_bottom = 608.0
+scale = Vector2(0.88, 0.88)
+texture_normal = ExtResource("4_efi8x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Name" type="Label" parent="CanvasLayer/Party/Artlings/Artling5"]
+layout_mode = 0
+offset_top = -14.0
+offset_right = 256.0
+offset_bottom = 10.0
+text = "NAME - LEVEL"
+label_settings = ExtResource("5_efi8x")
+horizontal_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling5"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 256.0
+offset_right = 232.0
+offset_bottom = 280.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+value = 50.0
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling5"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 280.0
+offset_right = 232.0
+offset_bottom = 296.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+value = 50.0
+show_percentage = false
+
+[node name="Artling6" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
+offset_left = 816.0
+offset_top = 352.0
+offset_right = 1072.0
+offset_bottom = 608.0
+scale = Vector2(0.88, 0.88)
+texture_normal = ExtResource("4_efi8x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Name" type="Label" parent="CanvasLayer/Party/Artlings/Artling6"]
+layout_mode = 0
+offset_top = -14.0
+offset_right = 256.0
+offset_bottom = 10.0
+text = "NAME - LEVEL"
+label_settings = ExtResource("5_efi8x")
+horizontal_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling6"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 256.0
+offset_right = 232.0
+offset_bottom = 280.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+value = 50.0
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling6"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 280.0
+offset_right = 232.0
+offset_bottom = 296.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+value = 50.0
+show_percentage = false
+
 [connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
@@ -118,3 +392,11 @@ horizontal_alignment = 2
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChangeArtling" to="." method="_on_change_artling_pressed"]
+[connection signal="pressed" from="CanvasLayer/Party/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling1" to="." method="_on_artling_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling2" to="." method="_on_artling_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling3" to="." method="_on_artling_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling4" to="." method="_on_artling_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling5" to="." method="_on_artling_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling6" to="." method="_on_artling_6_pressed"]
