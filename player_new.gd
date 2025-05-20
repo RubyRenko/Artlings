@@ -14,10 +14,9 @@ var inspo = 0
 @onready var next_button = $Bg/NextBattleButton
 
 func _ready():
-	team_node.add_teammate("Inkit")
-	team_node.add_teammate("Dewphin")
-	team_node.add_teammate("Wurm")
-	load_team()
+	add_artling("Inkit")
+	add_artling("Dewphin")
+	add_artling("Wurm")
 	for artling in team:
 		artling.setup_stat_screen()
 	hide_screens()
@@ -63,7 +62,19 @@ func _on_create_artling_pressed():
 func show_artling(ind):
 	team[ind].update_stat_screen()
 	team[ind].stat_screen.visible = true
+
+func remove_artling(artling):
+	if artling == "all":
+		for node in team_node.get_children():
+			node.queue_free()
+	elif typeof(artling) == typeof(1):
+		team_node.remove_artling(artling)
 	
+
+func add_artling(artling_name, nickname = artling_name):
+	team_node.add_teammate(artling_name, nickname)
+	load_team()
+
 func _on_party_button_pressed():
 	hide_screens()
 	show_party_screen()

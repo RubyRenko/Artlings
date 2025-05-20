@@ -325,14 +325,11 @@ func _on_artling_2_pressed():
 func _on_artling_3_pressed():
 	choose_artling(2)
 
-
 func _on_artling_4_pressed():
 	choose_artling(3)
 
-
 func _on_artling_5_pressed():
 	choose_artling(4)
-
 
 func _on_artling_6_pressed():
 	choose_artling(5)

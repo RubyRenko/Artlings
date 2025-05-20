@@ -23,7 +23,7 @@ volumetric_fog_length = 85.56
 [sub_resource type="LabelSettings" id="LabelSettings_isuhv"]
 font_size = 20
 
-[node name="Tutorial" type="Node3D" groups=["battle"]]
+[node name="Tutorial" type="Node3D" groups=["tutorial"]]
 script = ExtResource("1_isuhv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]

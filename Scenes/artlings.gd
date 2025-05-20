@@ -13,3 +13,6 @@ func add_teammate(mon_name, nickname = mon_name):
 func show_team_status(index):
 	var to_show = get_child(index)
 	to_show.stat_screen.visible = true
+
+func remove_artling(ind):
+	get_child(ind).queue_free()
