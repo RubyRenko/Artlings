@@ -27,7 +27,7 @@ var starter_imgs = {
 func _ready():
 	choosing_starter.visible = false
 	player.hide_screens(true)
-	current_battlefield = tutorial.instantiate()
+	current_battlefield = battlefields[0].instantiate()
 	environment_node.add_child(current_battlefield)
 	current_battlefield.start_battle(player, enemies.get_trainer("Test4"))
 
