@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dccvmqkyrtfkm"]
+[gd_scene load_steps=14 format=3 uid="uid://dccvmqkyrtfkm"]
 
 [ext_resource type="PackedScene" uid="uid://bti8uonwlyrg4" path="res://Assets/environment/starter_area_v3/starter_area.tscn" id="1_1q1kw"]
 [ext_resource type="Script" uid="uid://coe5aw4u0j8vr" path="res://Battlefields/battlefield_1.gd" id="1_wskkc"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://d1y3hpbmd2ib2" path="res://Audio/overworld.mp3" id="5_6y1qc"]
 [ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="6_m33m3"]
 [ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="7_cmmxf"]
+[ext_resource type="PackedScene" uid="uid://bwpq1sq08w340" path="res://Assets/environment/starter_area_v4/starter_area_v4_most_background.glb" id="8_8a4at"]
+[ext_resource type="PackedScene" uid="uid://ba7yarv074pkr" path="res://Assets/environment/starter_area_v4/starter_area_v_4_lowpoly_bushes_trees.tscn" id="9_hs5p0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0faq4"]
 albedo_color = Color(0.192157, 0.517647, 0.290196, 1)
@@ -31,6 +33,11 @@ volumetric_fog_length = 85.56
 script = ExtResource("1_wskkc")
 
 [node name="StarterArea" parent="." instance=ExtResource("1_1q1kw")]
+visible = false
+
+[node name="StarterArea2" parent="." instance=ExtResource("1_1q1kw")]
+transform = Transform3D(-0.98685, 0, 0.161638, 0, 1, 0, -0.161638, 0, -0.98685, 44.9163, -0.410446, 3.64026)
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.93453, 0)
@@ -47,17 +54,11 @@ sky_mode = 1
 environment = SubResource("Environment_0faq4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.998433, -0.0223972, 0.0512831, -0.00285232, 0.935591, 0.353075, -0.0558878, 0.352375, -0.934189, 15.3355, 3.37462, -6.22438)
-
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(0.0200432, -0.243107, 0.969792, 0.00502336, 0.969999, 0.243055, -0.999786, 0, 0.0206631, 9.04975, 3.19341, 1.4351)
-visible = false
-
-[node name="StarterArea2" parent="." instance=ExtResource("1_1q1kw")]
-transform = Transform3D(-0.98685, 0, 0.161638, 0, 1, 0, -0.161638, 0, -0.98685, 44.9163, -0.410446, 3.64026)
+transform = Transform3D(-1, 1.75788e-08, -8.56372e-08, 0, 0.979575, 0.201078, 8.74228e-08, 0.201078, -0.979575, 13.0709, 1.96898, -0.799025)
+fov = 68.2095
 
 [node name="BattleNew" parent="." groups=["battle"] instance=ExtResource("3_wskkc")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5598, 0.938155, -1.15281)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.1071, 0.938155, 2.77809)
 
 [node name="PlayerMarker" type="Marker3D" parent="BattleNew"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0.1, 0)
@@ -196,6 +197,10 @@ max_value = 1.0
 step = 0.001
 script = ExtResource("7_cmmxf")
 bus_name = "sfx"
+
+[node name="starter_area_v4_most_background" parent="." instance=ExtResource("8_8a4at")]
+
+[node name="starter_area_v4_lowpoly_bushes_trees" parent="." instance=ExtResource("9_hs5p0")]
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="inGame_settings_menu" method="_on_return_button_pressed"]
