@@ -14,6 +14,11 @@ extends Node3D
 @onready var party_screen = $CanvasLayer/Party
 @onready var master_move_list = preload("res://move_list.tscn").instantiate()
 
+@onready var turn_timer = $TurnTimer
+@onready var click_icon = $CanvasLayer/ProgLabel
+var can_click = true
+var auto = false
+
 var player
 var player_team : Array
 var mons_for_exp : Array
@@ -84,47 +89,12 @@ func _process(_delta):
 		change_button.disabled = true
 	
 	# when trying to progress battle and one mon is lost
-	if Input.is_action_just_pressed("progress_battle") && battle_prog == -2:
-		# disables buttons
-		move_opt.disable_buttons()
-		# shows text based on if battle was won or lost
-		# adds exprience to player
-		if battle_won:
-			battle_desc.set_text("Battle won!")
-			#print(mons_for_exp)
-			for mon in mons_for_exp:
-				#print(mon)
-				var exp = 100/len(mons_for_exp) * len(enemy_team)
-				mon.add_experience(exp)
-			#print("Player level: " + str(player_mon.level))
-		else:
-			battle_desc.set_text("Battle lost...")
-			#player_mon.add_experience(100)
-			#print("Player level: " + str(player_mon.level))
-		# resets the enemy and player mon health and makes them invisible
-		for mon in enemy_team:
-			mon.visible = false
-			mon.health = mon.max_hp
-			mon.fainted = false
-		for mon in player_team:
-			mon.visible = false
-			mon.health = mon.max_hp
-			mon.fainted = false
-		player.inspo += 2
-		# sets battle prog to -3 so the battle queues free and ends
-		battle_prog = -3
-	# after clicking with battle prog being 3, clears the battle
-	elif Input.is_action_just_pressed("progress_battle") && battle_prog == -3:
-		queue_free()
-	# goes down the list of commands and executes them when battle prog is positive
-	elif Input.is_action_just_pressed("progress_battle") && battle_prog > -1:
-		var current_command = commands[battle_prog]
-		#print(current_command)
-		handle_turn(current_command)
+	if Input.is_action_just_pressed("progress_battle") && can_click && !auto:
+		continue_battle(battle_prog)
 	
 	# if the player or enemy has no more health
 	# clears commands and sets battle prog to -2 so it can display win or lose text
-	if player_mon.health <= 0 && battle_prog != -3 && !changing_mons:
+	if player_mon.health <= 0 && battle_prog >= -1 && !changing_mons:
 		var team_wiped = true
 		changing_mons = true
 		player_mon.fainted = true
@@ -197,6 +167,7 @@ func choose_move(move_ind):
 		commands.append(["enemy", enemy_move])
 		# sets battle_prog to 0 so it starts the turn
 		battle_prog = 0
+		click_icon.visible = true
 	# otherwise appends enemy commands first
 	else:
 		# picks a random move for the enemy and puts it in the commands list
@@ -208,6 +179,7 @@ func choose_move(move_ind):
 		commands.append(["player", player_mon.current_moves[move_ind] ])
 		# sets battle_prog to 0 so it starts the turn
 		battle_prog = 0
+		click_icon.visible = true
 
 func handle_turn(current_command):
 	# if the command is from the player
@@ -250,6 +222,9 @@ func handle_turn(current_command):
 		battle_prog += 1
 	enemy_hp_bar.value = enemy_mon.health
 	player_hp_bar.value = player_mon.health
+	can_click = false
+	turn_timer.start()
+	click_icon.visible = false
 	#print(battle_prog)
 
 func handle_status():
@@ -333,3 +308,58 @@ func _on_artling_5_pressed():
 
 func _on_artling_6_pressed():
 	choose_artling(5)
+
+func _on_turn_timer_timeout():
+	can_click = true
+	click_icon.visible = true
+	if auto:
+		continue_battle(battle_prog)
+
+func continue_battle(prog):
+# when trying to progress battle and one mon is lost
+	if prog == -3: 
+		queue_free()
+	elif prog == -2:
+		# disables buttons
+		move_opt.disable_buttons()
+		# shows text based on if battle was won or lost
+		# adds exprience to player
+		if battle_won:
+			battle_desc.set_text("Battle won!")
+			#print(mons_for_exp)
+			for mon in mons_for_exp:
+				#print(mon)
+				var exp = 100/len(mons_for_exp) * len(enemy_team)
+				mon.add_experience(exp)
+			#print("Player level: " + str(player_mon.level))
+		else:
+			battle_desc.set_text("Battle lost...")
+			#player_mon.add_experience(100)
+			#print("Player level: " + str(player_mon.level))
+		# resets the enemy and player mon health and makes them invisible
+		for mon in enemy_team:
+			mon.visible = false
+			mon.health = mon.max_hp
+			mon.fainted = false
+		for mon in player_team:
+			mon.visible = false
+			mon.health = mon.max_hp
+			mon.fainted = false
+		player.inspo += 2
+		# sets battle prog to -3 so the battle queues free and ends
+		can_click = false
+		turn_timer.start()
+		click_icon.visible = false
+		battle_prog = -3
+	# goes down the list of commands and executes them when battle prog is positive
+	elif prog > -1:
+		var current_command = commands[battle_prog]
+		#print(current_command)
+		handle_turn(current_command)
+
+func _on_autoplay_button_pressed():
+	auto = !auto
+	if auto:
+		turn_timer.wait_time = 1.5
+	else:
+		turn_timer.wait_time = 1

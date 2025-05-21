@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7kmqfstuuhfl"]
+[gd_scene load_steps=11 format=3 uid="uid://b7kmqfstuuhfl"]
 
 [ext_resource type="Script" uid="uid://cc1dov4n6rtdk" path="res://Scripts/battle_new.gd" id="1_odwnt"]
 [ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="2_muy5e"]
 [ext_resource type="Script" uid="uid://dvg22nhv03uaj" path="res://Scenes/battleparty.gd" id="3_yfa5f"]
 [ext_resource type="Texture2D" uid="uid://btxpcfh65rfel" path="res://Assets/Ink_Fox.png" id="4_efi8x"]
 [ext_resource type="LabelSettings" uid="uid://dvs314swtpp3o" path="res://Assets/battle_new_title.tres" id="5_efi8x"]
+[ext_resource type="Script" uid="uid://c0d7ljjcgv4fo" path="res://Scenes/prog_label.gd" id="6_kbnnx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muy5e"]
 
@@ -22,6 +23,10 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_efi8x"]
+font_size = 20
+outline_size = 4
+
 [node name="BattleNew" type="Node3D"]
 script = ExtResource("1_odwnt")
 
@@ -32,6 +37,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AutoplayButton" type="Button" parent="CanvasLayer"]
+offset_left = 1030.0
+offset_top = 474.0
+offset_right = 1108.0
+offset_bottom = 505.0
+text = "Autoplay"
 
 [node name="MoveOptions" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 2
@@ -130,6 +142,7 @@ text = "Enemy Artling"
 horizontal_alignment = 2
 
 [node name="Party" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -391,6 +404,19 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
 value = 50.0
 show_percentage = false
 
+[node name="ProgLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 1076.0
+offset_top = 585.0
+offset_right = 1100.0
+offset_bottom = 613.0
+text = "v"
+label_settings = SubResource("LabelSettings_efi8x")
+script = ExtResource("6_kbnnx")
+
+[node name="TurnTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/AutoplayButton" to="." method="_on_autoplay_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
@@ -407,3 +433,4 @@ show_percentage = false
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling4" to="." method="_on_artling_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling5" to="." method="_on_artling_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling6" to="." method="_on_artling_6_pressed"]
+[connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]

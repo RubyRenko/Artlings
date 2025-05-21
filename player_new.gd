@@ -69,7 +69,6 @@ func remove_artling(artling):
 			node.queue_free()
 	elif typeof(artling) == typeof(1):
 		team_node.remove_artling(artling)
-	
 
 func add_artling(artling_name, nickname = artling_name):
 	team_node.add_teammate(artling_name, nickname)

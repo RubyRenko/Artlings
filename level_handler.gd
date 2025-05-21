@@ -36,6 +36,7 @@ func _on_environment_child_exiting_tree(node):
 	if node.is_in_group("tutorial"):
 		choosing_starter.visible = true
 		player.remove_artling("all")
+		player.inspo = 0
 	elif node.is_in_group("battle"):
 		player.interlude_bg.visible = true
 
@@ -44,7 +45,6 @@ func _on_next_battle_button_pressed():
 	current_battlefield = battlefields.pick_random().instantiate()
 	environment_node.add_child(current_battlefield)
 	current_battlefield.start_battle(player, enemies.get_random())
-
 
 func _on_inkit_button_pressed():
 	starter = "Inkit"

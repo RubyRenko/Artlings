@@ -66,15 +66,14 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -112.0
-offset_top = 6.0
+offset_top = 7.0
 offset_right = 112.0
-offset_bottom = 29.0
+offset_bottom = 30.0
 grow_horizontal = 2
 text = "Press T to toggle tutorial text"
 horizontal_alignment = 1
 
 [node name="BattleInfo" type="Control" parent="Tutorial"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -101,14 +100,13 @@ horizontal_alignment = 2
 
 [node name="Label3" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 792.0
-offset_top = 408.0
-offset_right = 1106.0
-offset_bottom = 483.0
+offset_left = 503.0
+offset_top = 396.0
+offset_right = 817.0
+offset_bottom = 471.0
 text = "This is the description box.
 It gives information about the current
 turn and what's going on in battle."
-horizontal_alignment = 2
 
 [node name="Label4" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
@@ -132,55 +130,72 @@ horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 1072.0
-offset_top = 488.0
-offset_right = 1088.0
-offset_bottom = 511.0
+offset_left = 515.0
+offset_top = 477.0
+offset_right = 531.0
+offset_bottom = 500.0
 text = "V"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 304.0
-offset_top = 441.0
-offset_right = 534.0
-offset_bottom = 490.0
+offset_left = 181.0
+offset_top = 434.0
+offset_right = 411.0
+offset_bottom = 483.0
 text = "Click one of these 4 buttons
 to use a move and attack"
 
 [node name="Label8" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 307.0
-offset_top = 495.0
-offset_right = 323.0
-offset_bottom = 518.0
+offset_left = 269.0
+offset_top = 492.0
+offset_right = 285.0
+offset_bottom = 515.0
 text = "V"
 horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 376.0
+offset_top = 352.0
 offset_right = 429.0
-offset_bottom = 425.0
+offset_bottom = 401.0
 text = "Check and swap to different Artlings with this button.
 Be careful as swapping will take up 1 turn!"
 
 [node name="Label10" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 432.0
+offset_top = 420.0
 offset_right = 38.0
-offset_bottom = 455.0
+offset_bottom = 443.0
 text = "V"
 horizontal_alignment = 1
+
+[node name="Label12" type="Label" parent="Tutorial/BattleInfo"]
+offset_left = 845.0
+offset_top = 396.0
+offset_right = 1114.0
+offset_bottom = 445.0
+text = "This button will make the battle
+description automatically progress"
+horizontal_alignment = 2
 
 [node name="Label11" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 455.0
+offset_top = 443.0
 offset_right = 38.0
-offset_bottom = 478.0
+offset_bottom = 466.0
+text = "V"
+horizontal_alignment = 1
+
+[node name="Label13" type="Label" parent="Tutorial/BattleInfo"]
+offset_left = 1079.0
+offset_top = 447.0
+offset_right = 1095.0
+offset_bottom = 470.0
 text = "V"
 horizontal_alignment = 1
 
