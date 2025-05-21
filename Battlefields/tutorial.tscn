@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvl3kywk6lxte"]
+[gd_scene load_steps=11 format=3 uid="uid://dvl3kywk6lxte"]
 
 [ext_resource type="Texture2D" uid="uid://dy1h7ycrfjcgq" path="res://Assets/environment/Epic_BlueSunset_EquiRect_flat.png" id="1_4tefe"]
 [ext_resource type="Script" uid="uid://b4xampnfeflny" path="res://Battlefields/tutorial.gd" id="1_isuhv"]
 [ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="2_isuhv"]
+[ext_resource type="AudioStream" uid="uid://cyhau27c5qqjv" path="res://Audio/sample1.wav" id="4_mxvau"]
+[ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="5_ftct7"]
+[ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="6_sjmby"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxvau"]
 panorama = ExtResource("1_4tefe")
@@ -174,6 +177,7 @@ text = "V"
 horizontal_alignment = 1
 
 [node name="Label12" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
 offset_left = 845.0
 offset_top = 396.0
 offset_right = 1114.0
@@ -192,6 +196,7 @@ text = "V"
 horizontal_alignment = 1
 
 [node name="Label13" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 0
 offset_left = 1079.0
 offset_top = 447.0
 offset_right = 1095.0
@@ -227,4 +232,139 @@ current hp
 experience"
 horizontal_alignment = 2
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_mxvau")
+autoplay = true
+bus = &"music"
+playback_type = 1
+
+[node name="inGame_settings_menu" type="Panel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.244792
+anchor_top = 0.169753
+anchor_right = 0.755208
+anchor_bottom = 0.804012
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_ftct7")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="inGame_settings_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -174.0
+offset_right = 69.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="return_button" type="Button" parent="inGame_settings_menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="MarginContainer8" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="title_button" type="Button" parent="inGame_settings_menu/VBoxContainer/MarginContainer8"]
+layout_mode = 2
+text = "< Return to Title"
+
+[node name="MarginContainer2" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Master" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MarginContainer3" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider2" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("6_sjmby")
+bus_name = "Master"
+
+[node name="MarginContainer4" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Music" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+text = "Music"
+
+[node name="MarginContainer5" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("6_sjmby")
+bus_name = "music"
+
+[node name="MarginContainer7" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SFX" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer7"]
+layout_mode = 2
+text = "SFX"
+
+[node name="MarginContainer6" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("6_sjmby")
+bus_name = "sfx"
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="inGame_settings_menu" method="_on_return_button_pressed"]
+[connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="inGame_settings_menu" method="_on_title_button_pressed"]

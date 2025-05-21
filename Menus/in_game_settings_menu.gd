@@ -6,7 +6,6 @@ func _input(event):
 	if event.is_action_pressed("options"):
 		parent_node.visible = !parent_node.visible
 
-
 # func toggle_options_button(button_pressed):
 #	button_pressed.is_action_pressed("options")
 #	if button_pressed:

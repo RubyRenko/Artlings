@@ -67,6 +67,11 @@ radius = 2.369
 [node name="StarterArea" parent="." instance=ExtResource("1_ueoa1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.3571, -6.65683)
 
+[node name="Overworld Theme" type="AudioStreamPlayer" parent="StarterArea"]
+stream = ExtResource("4_fdnlq")
+autoplay = true
+bus = &"music"
+
 [node name="WaterEnvironment" parent="." instance=ExtResource("28_ueoa1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.6776, 0.192853, -37.5318)
 
@@ -410,12 +415,6 @@ grow_vertical = 0
 text = "Name / Level"
 label_settings = ExtResource("9_cbgmd")
 horizontal_alignment = 1
-
-[node name="overworldSound" type="AudioStreamPlayer3D" parent="Player"]
-stream = ExtResource("4_fdnlq")
-autoplay = true
-bus = &"music"
-parameters/looping = true
 
 [node name="inGame_settings_menu" type="Panel" parent="Player"]
 visible = false
