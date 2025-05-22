@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqf83r1ghl6o4"]
+[gd_scene load_steps=8 format=3 uid="uid://bqf83r1ghl6o4"]
 
 [ext_resource type="Script" uid="uid://43xrmbch6xhd" path="res://ArtlingScenes/water_starter.gd" id="1_7nghe"]
-[ext_resource type="Texture2D" uid="uid://d173d7idrhjqq" path="res://Assets/water_starter_paper.jpg" id="2_nsqof"]
+[ext_resource type="Texture2D" uid="uid://d173d7idrhjqq" path="res://Assets/artlings/water_starter_paper.jpg" id="2_nsqof"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_3jtcs"]
-[ext_resource type="Texture2D" uid="uid://c5estdetarxdl" path="res://Assets/Water_Starter.png" id="3_nsqof"]
+[ext_resource type="Texture2D" uid="uid://c5estdetarxdl" path="res://Assets/artlings/Water_Starter.png" id="3_nsqof"]
+[ext_resource type="Texture2D" uid="uid://dsnqe0uyyp0r5" path="res://Assets/artlings/Dewphy_Ready_Pose_For_Export.png" id="4_me0b0"]
 [ext_resource type="AudioStream" uid="uid://84ls87y4h6p8" path="res://Audio/sfx/sfx3.mp3" id="5_w6tl6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xqau8"]
@@ -18,10 +19,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_nsqof")
+"texture": ExtResource("4_me0b0")
 }],
 "loop": true,
-"name": &"default",
+"name": &"brace",
 "speed": 5.0
 }, {
 "frames": [{
@@ -48,6 +49,7 @@ img = ExtResource("2_nsqof")
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.253747, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_xqau8")
+animation = &"idle"
 
 [node name="HpBar" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07199, 0)

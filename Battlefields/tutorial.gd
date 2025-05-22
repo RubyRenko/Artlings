@@ -19,3 +19,5 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("tutorial"):
 		$Tutorial.visible = !$Tutorial.visible
+	elif Input.is_action_just_pressed("skip tutorial"):
+		$BattleNew.queue_free()

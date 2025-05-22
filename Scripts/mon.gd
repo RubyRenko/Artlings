@@ -50,6 +50,8 @@ func attack(target, move):
 		if status == "Blind":
 			acc -= 20
 			#print("affected by blind, accuracy: " + str(acc))
+		elif status == "Focus":
+			acc += 20
 		elif status == "Soapy" && len(damage_range) == 2:
 			damage_range = [atk.damage[0], atk.damage[0]]
 		elif status == "Soapy" && len(damage_range) == 4:
@@ -111,7 +113,7 @@ func attack(target, move):
 				var self_dmg = randi_range(damage_range[2], damage_range[3])
 				var final_self_dmg = calculate_mnd_damage(self_dmg)
 				
-				return target.take_mnd_damage(final_dmg) + "\n" +take_mnd_damage(final_self_dmg)
+				return target.take_mnd_damage(final_dmg) + "\n" + take_mnd_damage(final_self_dmg)
 			
 			elif atk.dmg_type == "str/self":
 				var damage = randi_range(damage_range[0], damage_range[1])
@@ -155,7 +157,7 @@ func take_phys_damage(amount):
 		health -= amount
 		if health > max_hp:
 			health = max_hp
-		var output_line = name + " healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
+		var output_line = "Healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 	else:
 		# calculates the physical damage taken based on mon defense
@@ -165,7 +167,7 @@ func take_phys_damage(amount):
 			amount = 0
 		health -= amount
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
-		var output_line = name + " took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
+		var output_line = "Dealt " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 
 # takes damage and returns string of how much damage was taken
@@ -176,7 +178,7 @@ func take_mnd_damage(amount):
 		health -= amount
 		if health > max_hp:
 			health = max_hp
-		var output_line = name + " healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
+		var output_line = "Healed " + str(-amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 	else:
 		# calculates the physical damage taken based on mon defense
@@ -186,7 +188,7 @@ func take_mnd_damage(amount):
 			amount = 0
 		health -= amount
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
-		var output_line = name + " took " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
+		var output_line = "Dealt " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
 
 # handles status damage or effects
@@ -198,24 +200,26 @@ func take_status():
 		if randi_range(0,10) <= defense:
 			#print("burn cures faster")
 			status_counter -= 1
-		return name + " takes burn damage."
+		return nickname + " takes burn damage."
 	elif status == "Poison":
 		var damage = ceili(health/20.0)
 		if randi_range(0,10) <= mind:
 			#print("poison cures faster")
 			status_counter -= 1
 		health -= damage
-		return name + " takes poison damage."
+		return nickname + " takes poison damage."
 	elif status == "Blind":
-		return name + " is blinded."
+		return nickname + " is blinded."
 	elif status == "Soapy":
-		return name + " is soapy."
+		return nickname + " is soapy."
 	elif status == "Bubble":
-		var heal = ceili(health/20)
+		var heal = ceili(health/15)
 		health += heal
 		if health > max_hp:
 			health = max_hp
-		return name + " heals a little."
+		return nickname + " heals a little."
+	elif status == "Focus":
+		return nickname + " is focusing."
 
 # sets all the main stats
 func set_stats(hp, str, def, intel, mnd, spd):

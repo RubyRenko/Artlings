@@ -20,16 +20,18 @@ extends Node3D
 var starter : String
 var starter_imgs = {
 	"Inkit": preload("res://Assets/artlings/Inkit_IdlePose_Static.png"),
-	"Dewphin": preload("res://Assets/water_starter_paper.jpg"),
-	"Wurm": preload("res://Assets/wormCropped.png")
+	"Dewphin": preload("res://Assets/artlings/water_starter_paper.jpg"),
+	"Wurm": preload("res://Assets/artlings/wormCropped.png")
 }
+@onready var master_move_list = load("res://move_list.tscn").instantiate()
 
 func _ready():
 	choosing_starter.visible = false
 	player.hide_screens(true)
-	current_battlefield = battlefields[0].instantiate()
+	current_battlefield = tutorial.instantiate()
 	environment_node.add_child(current_battlefield)
 	current_battlefield.start_battle(player, enemies.get_trainer("Test4"))
+	master_move_list.print_all_moves()
 
 func _on_environment_child_exiting_tree(node):
 	#print(node)

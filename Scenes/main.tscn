@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_6bp64"]
 [ext_resource type="AudioStream" uid="uid://d1y3hpbmd2ib2" path="res://Audio/overworld.mp3" id="4_fdnlq"]
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="4_pdsj5"]
-[ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/InkStarterCropped.png" id="5_ee4r6"]
+[ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/artlings/InkStarterCropped.png" id="5_ee4r6"]
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="5_gt3je"]
 [ext_resource type="Script" uid="uid://c36xc3p788lxf" path="res://Scenes/create_screen.gd" id="8_u50mg"]
 [ext_resource type="Texture2D" uid="uid://6acay5yomnsm" path="res://Assets/palette/blue.png" id="9_1w6v2"]

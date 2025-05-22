@@ -12,7 +12,7 @@ damage = [15, 25]
 accuracy = 100
 type = "Geometric"
 dmg_type = "str"
-desc = "Tackles into the target"
+desc = "A heavy thud"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Charge" type="Node" parent="." groups=["move"]]
@@ -30,7 +30,16 @@ damage = [20, 60]
 accuracy = 100
 type = "Geometric"
 dmg_type = "str"
-desc = "Blends up target with teeth"
+desc = "Blends up target and deals varied damage"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Focus" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+accuracy = 100
+type = "Geometric"
+dmg_type = "self"
+effect = [3, "Focus"]
+desc = "Makes the user focus and more accurate"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Teeth" type="Node" parent="." groups=["move"]]
@@ -48,7 +57,16 @@ damage = [25, 35]
 accuracy = 100
 type = "Geometric"
 dmg_type = "str/mnd"
-desc = "Gross licking attack, uses the target's mind rather than defense"
+desc = "Gross licking attack, attacks the target's mind instead"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="TeethShot" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [60, 80, 10, 15]
+accuracy = 80
+type = "Geometric"
+dmg_type = "str/self"
+desc = "Shoots teeth that deals high damage and recoild"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Brush" type="Node" parent="." groups=["move"]]
@@ -57,7 +75,7 @@ damage = [15, 25]
 accuracy = 100
 type = "Ink"
 dmg_type = "int"
-desc = "A stroke of the brush"
+desc = "An inky brush stroke"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Smoke" type="Node" parent="." groups=["move"]]
@@ -67,7 +85,7 @@ accuracy = 100
 type = "Ink"
 dmg_type = "int"
 effect = [4, "Blind"]
-desc = "Puffs a blotch of smoke and blinds target"
+desc = "Puffs a blotch of smoke to blind the target"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Dollop" type="Node" parent="." groups=["move"]]
@@ -86,7 +104,7 @@ accuracy = 80
 type = "Ink"
 dmg_type = "int"
 effect = [2, "Blind"]
-desc = "Pools up ink and blinds target for a short while"
+desc = "Pools up ink and blinds target for a little bit"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="InkSlash" type="Node" parent="." groups=["move"]]
@@ -108,7 +126,7 @@ effect = [2, "Burn"]
 desc = "Spits fire and burns target"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
-[node name="Heal" type="Node" parent="." groups=["move"]]
+[node name="Rejuvinate" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
 damage = [-30, -30]
 accuracy = 100
@@ -132,7 +150,7 @@ damage = [15, 25]
 accuracy = 100
 type = "Water"
 dmg_type = "int"
-desc = "Spouts out a gush of water"
+desc = "A gush of water"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Sap" type="Node" parent="." groups=["move"]]
@@ -141,27 +159,27 @@ damage = [20, 30, -10, -15]
 accuracy = 100
 type = "Water"
 dmg_type = "int/self"
-desc = "Drains the color from an opponent and restores"
+desc = "Drains the color from an opponent and heals self"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Wash" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [15, 35]
+damage = [10, 20]
 accuracy = 90
 type = "Water"
 dmg_type = "int"
-effect = [2, "Soapy"]
-desc = "Deals an irregular amount of damage and reduces target's damage dealt"
+effect = [4, "Soapy"]
+desc = "A soapy wash that reduces target's damage"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="BubbleBurst" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [30, 40]
+damage = [20, 40]
 accuracy = 90
 type = "Water"
 dmg_type = "int"
 effect = [2, "Soapy"]
-desc = "Deals an irregular amount of damage and reduces target's damage dealt"
+desc = "Soapy bubbles that reduces the target's damage for a little bit"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="BaconSlap" type="Node" parent="." groups=["move"]]
@@ -170,5 +188,5 @@ damage = [50, 60, 10, 10]
 accuracy = 100
 type = "Geometric"
 dmg_type = "str/self"
-desc = "Deals a high amount of damage and recoil"
+desc = "A reckless slap that deals high damage and recoil"
 metadata/_custom_type_script = "uid://je6io23ym5wg"

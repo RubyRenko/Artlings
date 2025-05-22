@@ -69,23 +69,26 @@ transform = Transform3D(0.866075, -0.107449, 0.488231, -0.144097, 0.881522, 0.44
 
 [node name="Tutorial" type="CanvasLayer" parent="."]
 
-[node name="ToggleText" type="Label" parent="Tutorial"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -112.0
-offset_top = 7.0
-offset_right = 112.0
-offset_bottom = 30.0
-grow_horizontal = 2
-text = "Press T to toggle tutorial text"
-horizontal_alignment = 1
-
 [node name="BattleInfo" type="Control" parent="Tutorial"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ToggleText" type="Label" parent="Tutorial/BattleInfo"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 444.0
+offset_top = 7.0
+offset_right = 668.0
+offset_bottom = 82.0
+grow_horizontal = 2
+text = "Press T to toggle tutorial text
+Esc to toggle settings
+K to skip tutorial battle"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0

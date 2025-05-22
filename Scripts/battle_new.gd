@@ -17,7 +17,7 @@ extends Node3D
 @onready var turn_timer = $TurnTimer
 @onready var click_icon = $CanvasLayer/ProgLabel
 var can_click = true
-var auto = false
+static var auto = false
 
 var player
 var player_team : Array
@@ -127,7 +127,7 @@ func _process(_delta):
 			battle_prog = -2
 		else:
 			commands = []
-			commands.append(["desc", enemy_mon.nickname + " defeated! Opponent sends out " + next_mon.name + ".", "idle"])
+			commands.append(["desc", enemy_mon.nickname + " defeated! Opponent sends out " + next_mon.nickname + ".", "idle"])
 			enemy_team[enemy_team.find(next_mon)] = enemy_team[0]
 			enemy_team[0] = next_mon
 			enemy_mon = enemy_team[0]
@@ -137,34 +137,31 @@ func _process(_delta):
 
 func _on_move_1_pressed():
 	choose_move(0)
-	handle_status()
 	handle_turn(commands[0])
 
 func _on_move_2_pressed():
 	choose_move(1)
-	handle_status()
 	handle_turn(commands[0])
 
 func _on_move_3_pressed():
 	choose_move(2)
-	handle_status()
 	handle_turn(commands[0])
 
 func _on_move_4_pressed():
 	choose_move(3)
-	handle_status()
 	handle_turn(commands[0])
 
 func choose_move(move_ind):
 	# if the player is faster, appends player commands first
 	if player_mon.speed >= enemy_mon.speed:
 		# puts the move used by the player in the commands list
-		commands.append(["desc", player_mon.nickname + " used " + player_mon.current_moves[move_ind] + "!", "attack"])
+		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind] + "!", "attack"])
 		commands.append(["player", player_mon.current_moves[move_ind] ])
 		# picks a random move for the enemy and puts it in the commands list
 		var enemy_move = enemy_mon.current_moves.pick_random()
-		commands.append(["desc", "Enemy used " + enemy_move + "!", "brace"])
+		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move + "!", "brace"])
 		commands.append(["enemy", enemy_move])
+		commands.append(["status"])
 		# sets battle_prog to 0 so it starts the turn
 		battle_prog = 0
 		click_icon.visible = true
@@ -172,11 +169,12 @@ func choose_move(move_ind):
 	else:
 		# picks a random move for the enemy and puts it in the commands list
 		var enemy_move = enemy_mon.current_moves.pick_random()
-		commands.append(["desc", "Enemy used " + enemy_move + "!", "brace"])
+		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move + "!", "brace"])
 		commands.append(["enemy", enemy_move])
 		# puts the move used by the player in the commands list
-		commands.append(["desc", player_mon.nickname + " used " + player_mon.current_moves[move_ind] + "!", "attack"])
+		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind] + "!", "attack"])
 		commands.append(["player", player_mon.current_moves[move_ind] ])
+		commands.append(["status"])
 		# sets battle_prog to 0 so it starts the turn
 		battle_prog = 0
 		click_icon.visible = true
@@ -195,6 +193,11 @@ func handle_turn(current_command):
 		battle_desc.set_text(battle_lines)
 		battle_prog += 1
 	# if the command is a status affecting the enemy
+	elif current_command[0] == "status":
+		handle_status()
+		battle_prog += 1
+		if battle_prog < len(commands):
+			continue_battle(battle_prog)
 	elif current_command[0] == "enemystatus":
 		# makes the enemy take the status effect and sets the battle desc to the result
 		var battle_lines = enemy_mon.take_status()
@@ -225,6 +228,7 @@ func handle_turn(current_command):
 	can_click = false
 	turn_timer.start()
 	click_icon.visible = false
+	#print(commands)
 	#print(battle_prog)
 
 func handle_status():
