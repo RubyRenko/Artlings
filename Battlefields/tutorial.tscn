@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvl3kywk6lxte"]
+[gd_scene load_steps=13 format=3 uid="uid://dvl3kywk6lxte"]
 
 [ext_resource type="Texture2D" uid="uid://dy1h7ycrfjcgq" path="res://Assets/environment/Epic_BlueSunset_EquiRect_flat.png" id="1_4tefe"]
 [ext_resource type="Script" uid="uid://b4xampnfeflny" path="res://Battlefields/tutorial.gd" id="1_isuhv"]
 [ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="2_isuhv"]
 [ext_resource type="AudioStream" uid="uid://cyhau27c5qqjv" path="res://Audio/sample1.wav" id="4_mxvau"]
 [ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="5_ftct7"]
+[ext_resource type="Texture2D" uid="uid://bx2mnewpud5xq" path="res://Menus/menu_images/settings_texture.png" id="5_sjmby"]
 [ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="6_sjmby"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxvau"]
@@ -25,6 +26,10 @@ volumetric_fog_length = 85.56
 
 [sub_resource type="LabelSettings" id="LabelSettings_isuhv"]
 font_size = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w61c4"]
+texture = ExtResource("5_sjmby")
+region_rect = Rect2(164, 166, 578, 1117)
 
 [node name="Tutorial" type="Node3D" groups=["tutorial"]]
 script = ExtResource("1_isuhv")
@@ -240,15 +245,18 @@ playback_type = 1
 
 [node name="inGame_settings_menu" type="Panel" parent="."]
 visible = false
-anchors_preset = -1
-anchor_left = 0.244792
-anchor_top = 0.169753
-anchor_right = 0.755208
-anchor_bottom = 0.804012
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 474.0
+offset_top = 55.0
+offset_right = -471.0
+offset_bottom = -156.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_w61c4")
 script = ExtResource("5_ftct7")
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="inGame_settings_menu"]
 layout_mode = 1

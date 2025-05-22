@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=38 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://btxpcfh65rfel" path="res://Assets/Ink_Fox.png" id="22_wrq8o"]
 [ext_resource type="Texture2D" uid="uid://d173d7idrhjqq" path="res://Assets/water_starter_paper.jpg" id="23_0p6fr"]
 [ext_resource type="Texture2D" uid="uid://m65yl67qpddy" path="res://Assets/wormCropped.png" id="24_m76uk"]
+[ext_resource type="Texture2D" uid="uid://bx2mnewpud5xq" path="res://Menus/menu_images/settings_texture.png" id="25_x04ip"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fipc"]
 bg_color = Color(1, 1, 1, 1)
@@ -61,6 +62,10 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_pfsb0"]
 font_size = 30
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kj370"]
+texture = ExtResource("25_x04ip")
+region_rect = Rect2(164, 166, 578, 1117)
 
 [node name="LevelHandler" type="Node3D"]
 script = ExtResource("1_xxr4i")
@@ -469,133 +474,6 @@ text = "Back
 [node name="Artlings" type="Node" parent="Player"]
 script = ExtResource("3_hy7hh")
 
-[node name="inGame_settings_menu" type="Panel" parent="Player"]
-visible = false
-anchors_preset = -1
-anchor_left = 0.244792
-anchor_top = 0.169753
-anchor_right = 0.755208
-anchor_bottom = 0.804012
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("18_m76uk")
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/inGame_settings_menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -174.0
-offset_right = 69.0
-offset_bottom = 174.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="MarginContainer" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="return_button" type="Button" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer"]
-layout_mode = 2
-text = "< Back"
-
-[node name="MarginContainer8" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="title_button" type="Button" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer8"]
-layout_mode = 2
-text = "< Return to Title"
-
-[node name="MarginContainer2" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Master" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-text = "Master Volume"
-
-[node name="MarginContainer3" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider2" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer3"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("19_x04ip")
-bus_name = "Master"
-
-[node name="MarginContainer4" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Music" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer4"]
-layout_mode = 2
-text = "Music"
-
-[node name="MarginContainer5" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer5"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("19_x04ip")
-bus_name = "music"
-
-[node name="MarginContainer7" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="SFX" type="Label" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer7"]
-layout_mode = 2
-text = "SFX"
-
-[node name="MarginContainer6" type="MarginContainer" parent="Player/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider" type="HSlider" parent="Player/inGame_settings_menu/VBoxContainer/MarginContainer6"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("19_x04ip")
-bus_name = "sfx"
-
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Trainers" type="Node3D" parent="."]
@@ -797,6 +675,136 @@ offset_bottom = 585.0
 text = "No
 "
 
+[node name="inGame_settings_menu" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 474.0
+offset_top = 55.0
+offset_right = -471.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_kj370")
+script = ExtResource("18_m76uk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="inGame_settings_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -174.0
+offset_right = 69.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="return_button" type="Button" parent="inGame_settings_menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "< Back"
+
+[node name="MarginContainer8" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="title_button" type="Button" parent="inGame_settings_menu/VBoxContainer/MarginContainer8"]
+layout_mode = 2
+text = "< Return to Title"
+
+[node name="MarginContainer2" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Master" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MarginContainer3" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider2" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("19_x04ip")
+bus_name = "Master"
+
+[node name="MarginContainer4" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Music" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+text = "Music"
+
+[node name="MarginContainer5" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("19_x04ip")
+bus_name = "music"
+
+[node name="MarginContainer7" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SFX" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer7"]
+layout_mode = 2
+text = "SFX"
+
+[node name="MarginContainer6" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("19_x04ip")
+bus_name = "sfx"
+
 [connection signal="pressed" from="Player/Bg/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateButton" to="Player" method="_on_create_button_pressed"]
 [connection signal="pressed" from="Player/Bg/NextBattleButton" to="." method="_on_next_battle_button_pressed"]
@@ -816,11 +824,11 @@ text = "No
 [connection signal="pressed" from="Player/Bg/CreateScreen/PaintRedButton" to="Player/Bg/CreateScreen" method="_on_paint_red_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/PaintYellowButton" to="Player/Bg/CreateScreen" method="_on_paint_yellow_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/BackButton" to="Player" method="_on_back_button_pressed"]
-[connection signal="pressed" from="Player/inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="Player/inGame_settings_menu" method="_on_return_button_pressed"]
-[connection signal="pressed" from="Player/inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="Player/inGame_settings_menu" method="_on_title_button_pressed"]
 [connection signal="child_exiting_tree" from="Environment" to="." method="_on_environment_child_exiting_tree"]
 [connection signal="pressed" from="ChooseStarter/ChoosingScreen/InkitButton" to="." method="_on_inkit_button_pressed"]
 [connection signal="pressed" from="ChooseStarter/ChoosingScreen/WurmButton" to="." method="_on_wurm_button_pressed"]
 [connection signal="pressed" from="ChooseStarter/ChoosingScreen/DewphinButton" to="." method="_on_dewphin_button_pressed"]
 [connection signal="pressed" from="ChooseStarter/ConfirmScreen/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="ChooseStarter/ConfirmScreen/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="inGame_settings_menu" method="_on_return_button_pressed"]
+[connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="inGame_settings_menu" method="_on_title_button_pressed"]
