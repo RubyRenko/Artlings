@@ -329,12 +329,14 @@ func continue_battle(prog):
 		# shows text based on if battle was won or lost
 		# adds exprience to player
 		if battle_won:
-			battle_desc.set_text("Battle won!")
+			var win_text = "Battle won!\n"
+			
 			#print(mons_for_exp)
 			for mon in mons_for_exp:
 				#print(mon)
 				var exp = 100/len(mons_for_exp) * len(enemy_team)
-				mon.add_experience(exp)
+				win_text += mon.add_experience(exp)
+			battle_desc.set_text(win_text)
 			#print("Player level: " + str(player_mon.level))
 		else:
 			battle_desc.set_text("Battle lost...")

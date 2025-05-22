@@ -65,8 +65,7 @@ func show_artling(ind):
 
 func remove_artling(artling):
 	if artling == "all":
-		for node in team_node.get_children():
-			node.queue_free()
+		team_node.remove_all()
 	elif typeof(artling) == typeof(1):
 		team_node.remove_artling(artling)
 

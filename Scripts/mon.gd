@@ -11,7 +11,7 @@ var health : int = max_hp
 @export var speed : int
 @export var element : String
 @export var nickname : String
-
+@export var stat_growth = [5, 5, 5, 5, 5, 5]
 # move master list
 @onready var master_move_list = load("res://move_list.tscn").instantiate()
 
@@ -60,80 +60,131 @@ func attack(target, move):
 		# generates a random int form 0-100
 		if randi_range(0, 100) <= acc:
 			# if it's lower than accuracy, it hits
+			
 			if atk.dmg_type == "str":
 				# calculates damage depending on the str stat
+				var battle_text = atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_phys_damage(damage)
-				if atk.effect[0] != 0:
-					# if the affect isn't blank, splits the effect string into
-					# what the status is and the turns applied 
-					target.status = atk.effect[1]
-					target.status_counter = atk.effect[0]
-				return target.take_phys_damage(final_dmg)
+				if atk.effect[1] == "Cure":
+					target.status = "None"
+					target.status_counter = 0
+				elif atk.effect[0] != 0:
+					if apply_effect(target, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1] + "."
+					else:
+						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+				target.take_phys_damage(final_dmg)
+				return battle_text
 			
 			elif atk.dmg_type == "int":
 				# calculates damage depending on the int stat
+				var battle_text = atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_mnd_damage(damage)
-				if atk.effect[0] != 0:
-					# if the affect isn't blank, applies status and counter
-					target.status = atk.effect[1]
-					target.status_counter = atk.effect[0]
-				return target.take_mnd_damage(final_dmg)
+				if atk.effect[1] == "Cure":
+					target.status = "None"
+					target.status_counter = 0
+				elif atk.effect[0] != 0:
+					if apply_effect(target, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1] + "."
+					else:
+						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+				target.take_mnd_damage(final_dmg)
+				return battle_text
 			
 			elif atk.dmg_type == "str/mnd":
 				# calculates damage depending on the str stat
 				# with defense being mnd stat
+				var battle_text = atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_phys_damage(damage)
-				if atk.effect[0] != 0:
-					# if the affect isn't blank, applies status and counter
-					target.status = atk.effect[1]
-					target.status_counter = atk.effect[0]
-				return target.take_mnd_damage(final_dmg)
+				if atk.effect[1] == "Cure":
+					target.status = "None"
+					target.status_counter = 0
+				elif atk.effect[0] != 0:
+					if apply_effect(target, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1] + "to" + target.nickname + "."
+					else:
+						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+				target.take_mnd_damage(final_dmg)
+				return battle_text
 			
 			elif atk.dmg_type == "int/def":
 				# calculates damage depending on the int stat
 				# with defense being def stat
+				var battle_text = atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_mnd_damage(damage)
-				if atk.effect[0] != 0:
-					# if the affect isn't blank, applies status and counter
-					target.status = atk.effect[1]
-					target.status_counter = atk.effect[0]
-				return target.take_phys_damage(final_dmg)
+				if atk.effect[1] == "Cure":
+					target.status = "None"
+					target.status_counter = 0
+				elif atk.effect[0] != 0:
+					if apply_effect(target, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1] + " to " + target.nickname + "."
+					else:
+						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+				target.take_phys_damage(final_dmg)
+				return battle_text
 			
 			elif atk.dmg_type == "int/self":
+				var battle_text = atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_mnd_damage(damage)
-				if atk.effect[0] != 0:
-					# if the affect isn't blank, applies status and counter
-					target.status = atk.effect[1]
-					target.status_counter = atk.effect[0]
+				if atk.effect[1] == "Cure":
+					target.status = "None"
+					target.status_counter = 0
+				elif atk.effect[0] != 0:
+					if apply_effect(target, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1]  + " to " + target.nickname + "."
+					else:
+						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+					if apply_effect(self, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1]  + " to " + nickname + "."
+					else:
+						battle_text = battle_text + "\n" + nickname + " is already " + status + "."
 				var self_dmg = randi_range(damage_range[2], damage_range[3])
 				var final_self_dmg = calculate_mnd_damage(self_dmg)
-				
-				return target.take_mnd_damage(final_dmg) + "\n" + take_mnd_damage(final_self_dmg)
+				target.take_mnd_damage(final_dmg)
+				take_mnd_damage(final_self_dmg)
+				return battle_text
 			
 			elif atk.dmg_type == "str/self":
+				var battle_text = atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_phys_damage(damage)
-				if atk.effect[0] != 0:
-					# if the affect isn't blank, applies status and counter
-					target.status = atk.effect[1]
-					target.status_counter = atk.effect[0]
-				
+				if atk.effect[1] == "Cure":
+					target.status = "None"
+					target.status_counter = 0
+				elif atk.effect[0] != 0:
+					if apply_effect(target, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1] + " to " + target.nickname + "."
+					else:
+						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+					if apply_effect(self, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1] + " to " + nickname + "."
+					else:
+						battle_text = battle_text + "\n" + nickname + " is already " + status + "."
 				var self_dmg = randi_range(damage_range[2], damage_range[3])
 				var final_self_dmg = calculate_phys_damage(self_dmg)
-				return target.take_phys_damage(final_dmg) + "\n" +take_phys_damage(final_self_dmg)
+				target.take_phys_damage(final_dmg)
+				take_phys_damage(final_self_dmg)
+				return battle_text
 			
 			elif atk.dmg_type == "self":
+				var battle_text = atk.battle_text % nickname
 				var damage = randi_range(atk.damage[0], atk.damage[1])
 				var final_dmg = calculate_mnd_damage(damage)
-				if atk.effect[0] != 0:
-					status = atk.effect[1]
-					status_counter = atk.effect[0]
-				return take_mnd_damage(final_dmg)
+				if atk.effect[1] == "Cure":
+					target.status = "None"
+					target.status_counter = 0
+				elif atk.effect[0] != 0:
+					if apply_effect(self, atk.effect):
+						battle_text = battle_text + "\nApplied " + atk.effect[1] + " to " + nickname + "."
+					else:
+						battle_text = battle_text + "\n" + nickname + " is already " + status + "."
+				take_mnd_damage(final_dmg)
+				return battle_text
 		else:
 			# if it's higher then it misses
 			#print("Missed!")
@@ -190,6 +241,14 @@ func take_mnd_damage(amount):
 		#print("Took " + str(amount) + " damage!\nHealth remaining " + str(health) + ".")
 		var output_line = "Dealt " + str(amount) + " damage!\nHealth remaining " + str(health) + "."
 		return output_line
+
+func apply_effect(target, effect):
+	if target.status == "None":
+		target.status = effect[1]
+		target.status_counter = effect[0]
+		return true
+	else:
+		return false
 
 # handles status damage or effects
 func take_status():
@@ -251,17 +310,21 @@ func add_experience(amount):
 	exp += amount
 	#level up
 	if exp >= 100:
+		var level_text = nickname + " leveled up! "
 		level += 1
 		#right now, stats are random, but in the future might be able to be customized by a growth variable
-		add_stats(randi_range(1,10), randi_range(0,5), randi_range(0,5), randi_range(0,5), randi_range(0,5), randi_range(0,5))
+		add_stats(randi_range(1,stat_growth[0]), randi_range(0, stat_growth[1]), randi_range(0, stat_growth[2]),\
+		randi_range(0,stat_growth[3]), randi_range(0,stat_growth[4]), randi_range(0,stat_growth[5]))
 		health = max_hp
 		if len(learnable_moves) > 0:
 			var to_learn = learnable_moves[0]
-			print(to_learn)
+			#print(to_learn)
 			load_move(master_move_list.get_move(to_learn))
-			print(current_moves)
-			print(moves_list)
+			#print(current_moves)
+			#print(moves_list)
+			level_text += "Learned " + to_learn + "."
 		exp -= 100
+		return level_text
 
 func setup_stat_screen():
 	stat_screen.load_moves(current_moves, moves_list.keys())

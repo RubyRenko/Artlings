@@ -8,6 +8,7 @@ class_name Move
 @export var dmg_type : String
 @export var effect = [0, "None"]
 @export var desc : String
+@export var battle_text : String
 
 func _to_string():
 	# formats all stats into a 3 line string
@@ -46,6 +47,8 @@ func format_dmg(damage_array):
 			return_str = "Damage: " + str( int( (damage[0] + damage[1]) / 2 ) )
 		if damage_array[2] < 0:
 			return return_str + "   Healing: " + str( int( abs((damage[2] + damage[3]) / 2)) )
+		elif damage_array[2] == 0:
+			return return_str
 		else:
 			return return_str + "   Recoil: " + str( int( (damage[2] + damage[3]) / 2) )
 	else:

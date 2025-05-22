@@ -7,7 +7,6 @@ extends Node3D
 @onready var current_battlefield
 @onready var player = $Player
 @onready var enemies = $Trainers
-@onready var test_enemy = $Npc2
 @onready var environment_node = $Environment
 
 #Choosing starter variables

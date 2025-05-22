@@ -16,3 +16,7 @@ func show_team_status(index):
 
 func remove_artling(ind):
 	get_child(ind).queue_free()
+
+func remove_all():
+	for artling in get_children():
+		artling.queue_free()

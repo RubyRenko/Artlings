@@ -3,7 +3,7 @@ extends Mon
 @onready var leader_button = stat_screen.leader_button
 
 func _ready():
-	learnable_moves = ["Spout", "Bubble", "Heal", "Sap", "Wash", "BubbleBurst"]
+	learnable_moves = ["Spout", "Bubble", "Rejuvinate", "Sap", "Wash", "Cure", "BubbleBurst"]
 	load_move(master_move_list.get_move("Spout"))
 	load_move(master_move_list.get_move("Bubble"))
 	health = max_hp
