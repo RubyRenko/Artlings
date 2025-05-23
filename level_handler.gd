@@ -30,7 +30,7 @@ func _ready():
 	current_battlefield = tutorial.instantiate()
 	environment_node.add_child(current_battlefield)
 	current_battlefield.start_battle(player, enemies.get_trainer("Test4"))
-	master_move_list.print_all_moves()
+	#master_move_list.print_all_moves()
 
 func _on_environment_child_exiting_tree(node):
 	#print(node)

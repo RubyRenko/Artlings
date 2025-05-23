@@ -72,6 +72,7 @@ func load_mons(player_inp, enemy_inp):
 func load_moves():
 	#print(player_mon.current_moves)
 	move_opt.toggle_move_buttons(player_mon.current_moves)
+	print(player_mon.current_moves)
 
 func _process(_delta):
 	# if we're at the end of the commands
@@ -155,11 +156,11 @@ func choose_move(move_ind):
 	# if the player is faster, appends player commands first
 	if player_mon.speed >= enemy_mon.speed:
 		# puts the move used by the player in the commands list
-		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind] + "!", "attack"])
+		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind].capitalize() + "!", "attack"])
 		commands.append(["player", player_mon.current_moves[move_ind] ])
 		# picks a random move for the enemy and puts it in the commands list
 		var enemy_move = enemy_mon.current_moves.pick_random()
-		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move + "!", "brace"])
+		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
 		commands.append(["enemy", enemy_move])
 		commands.append(["status"])
 		# sets battle_prog to 0 so it starts the turn
@@ -169,10 +170,10 @@ func choose_move(move_ind):
 	else:
 		# picks a random move for the enemy and puts it in the commands list
 		var enemy_move = enemy_mon.current_moves.pick_random()
-		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move + "!", "brace"])
+		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
 		commands.append(["enemy", enemy_move])
 		# puts the move used by the player in the commands list
-		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind] + "!", "attack"])
+		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind].capitalize() + "!", "attack"])
 		commands.append(["player", player_mon.current_moves[move_ind] ])
 		commands.append(["status"])
 		# sets battle_prog to 0 so it starts the turn

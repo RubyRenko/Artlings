@@ -17,8 +17,6 @@ func _ready():
 	add_artling("Inkit")
 	add_artling("Dewphin")
 	add_artling("Wurm")
-	for artling in team:
-		artling.setup_stat_screen()
 	hide_screens()
 
 func load_team():
