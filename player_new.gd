@@ -47,14 +47,14 @@ func show_create_screen():
 	create_screen.clear_colors()
 
 func _on_create_artling_pressed():
-	if inspo >= 2:
+	if inspo >= create_screen.inspo_cost:
 		var new_artling = create_screen.calculate_artling()
 		if create_screen.new_artling_name != "":
 			team_node.add_teammate(new_artling, create_screen.new_artling_name)
 		elif create_screen.new_artling_name == "":
 			team_node.add_teammate(new_artling)
 		load_team()
-		inspo -= 2
+		inspo -= create_screen.inspo_cost
 		hide_screens()
 
 func show_artling(ind):

@@ -253,14 +253,14 @@ func apply_effect(target, effect):
 # handles status damage or effects
 func take_status():
 	#print(status)
-	if status == "Burn":
+	if status == "Burned":
 		var damage = ceili(health/20.0)
 		health -= damage
 		if randi_range(0,10) <= defense:
 			#print("burn cures faster")
 			status_counter -= 1
 		return nickname + " takes burn damage."
-	elif status == "Poison":
+	elif status == "Poisoned":
 		var damage = ceili(health/20.0)
 		if randi_range(0,10) <= mind:
 			#print("poison cures faster")
@@ -271,13 +271,13 @@ func take_status():
 		return nickname + " is blinded."
 	elif status == "Soapy":
 		return nickname + " is soapy."
-	elif status == "Bubble":
+	elif status == "Bubbled":
 		var heal = ceili(health/15)
 		health += heal
 		if health > max_hp:
 			health = max_hp
 		return nickname + " heals a little."
-	elif status == "Focus":
+	elif status == "Focusing":
 		return nickname + " is focusing."
 
 # sets all the main stats
@@ -322,7 +322,7 @@ func add_experience(amount):
 			load_move(master_move_list.get_move(to_learn))
 			#print(current_moves)
 			#print(moves_list)
-			level_text += "Learned " + to_learn + "."
+			level_text += "Learned " + to_learn.capitalize() + "."
 		exp -= 100
 		return level_text
 

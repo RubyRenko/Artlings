@@ -7,6 +7,7 @@ extends Node3D
 @onready var current_battlefield
 @onready var player = $Player
 @onready var enemies = $Trainers
+@onready var wild_battles = $WildBattles
 @onready var environment_node = $Environment
 
 #Choosing starter variables
@@ -29,7 +30,7 @@ func _ready():
 	player.hide_screens(true)
 	current_battlefield = tutorial.instantiate()
 	environment_node.add_child(current_battlefield)
-	current_battlefield.start_battle(player, enemies.get_trainer("Test4"))
+	current_battlefield.start_battle(player, wild_battles.get_trainer("Test4"))
 	#master_move_list.print_all_moves()
 
 func _on_environment_child_exiting_tree(node):
@@ -81,3 +82,9 @@ func _on_back_button_pressed():
 	starter_name.text = ""
 	starter_screen.visible = true
 	confirm_screen.visible = false
+
+func _on_train_button_pressed():
+	player.hide_screens(true)
+	current_battlefield = battlefields.pick_random().instantiate()
+	environment_node.add_child(current_battlefield)
+	current_battlefield.start_battle(player, wild_battles.get_random())

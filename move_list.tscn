@@ -13,7 +13,7 @@ accuracy = 100
 type = "Geometric"
 dmg_type = "str"
 desc = "A heavy thud"
-battle_text = "%s thuds into $s."
+battle_text = "%s thuds into %s."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Charge" type="Node" parent="." groups=["move"]]
@@ -41,7 +41,7 @@ script = ExtResource("2_uqtxr")
 accuracy = 100
 type = "Geometric"
 dmg_type = "self"
-effect = [3, "Focus"]
+effect = [3, "Focusing"]
 desc = "Makes the user focus and more accurate"
 battle_text = "%s focuses."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
@@ -154,7 +154,7 @@ script = ExtResource("2_uqtxr")
 accuracy = 100
 type = "Water"
 dmg_type = "self"
-effect = [4, "Bubble"]
+effect = [4, "Bubbled"]
 desc = "Surrounds the user in a healing bubble"
 battle_text = "%s is surrounded by a bubble."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
@@ -176,7 +176,7 @@ accuracy = 100
 type = "Water"
 dmg_type = "int/self"
 desc = "Drains the color from an opponent and heals self"
-battle_text = "%s drains %s' color."
+battle_text = "%s drains the color from %s!"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Wash" type="Node" parent="." groups=["move"]]

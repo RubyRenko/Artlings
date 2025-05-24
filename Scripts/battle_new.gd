@@ -22,6 +22,7 @@ static var auto = false
 var player
 var player_team : Array
 var mons_for_exp : Array
+var exp_gain = 100
 var enemy_team : Array
 var player_mon : Node3D
 var enemy_mon : Node3D
@@ -331,11 +332,10 @@ func continue_battle(prog):
 		# adds exprience to player
 		if battle_won:
 			var win_text = "Battle won!\n"
-			
 			#print(mons_for_exp)
 			for mon in mons_for_exp:
 				#print(mon)
-				var exp = 100/len(mons_for_exp) * len(enemy_team)
+				var exp = exp_gain/len(mons_for_exp) * len(enemy_team)
 				win_text += mon.add_experience(exp)
 			battle_desc.set_text(win_text)
 			#print("Player level: " + str(player_mon.level))

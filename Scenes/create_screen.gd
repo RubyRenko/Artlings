@@ -13,15 +13,17 @@ var g = 0
 var b = 0
 var v = 0
 var total_color = 0
+var inspo_cost = 2
 
 func _process(_delta):
-	inspiration_text.set_text("Current Inspiration: %s\nInspiration needed: 2" % str(player.inspo))
+	inspiration_text.set_text("Current Inspiration: %s\nInspiration needed: %s" % [player.inspo, inspo_cost])
 	color_text.set_text("Current colors\nR:%s O:%s Y:%s G:%s B:%s V:%s" % [r, o, y, g, b, v])
 	new_artling_name = name_edit.text
 
 func setup_screen():
 	name_edit.text = ""
 	create_button.text = "Create Artling"
+	inspo_cost = len(player.team) * 2
 	clear_colors()
 
 func calculate_artling():
