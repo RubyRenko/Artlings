@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6grl4sanc0rn"
-path="res://.godot/imported/SketchBook3.png-f145da29786482d02ab6c47488f52810.ctex"
+uid="uid://b01lav8a1ghi1"
+path="res://.godot/imported/SketchBook2.png-5375d4b498f6ebc55b27d68b102fe0c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SketchBook3.png"
-dest_files=["res://.godot/imported/SketchBook3.png-f145da29786482d02ab6c47488f52810.ctex"]
+source_file="res://Assets/UI/SketchBook2.png"
+dest_files=["res://.godot/imported/SketchBook2.png-5375d4b498f6ebc55b27d68b102fe0c5.ctex"]
 
 [params]
 

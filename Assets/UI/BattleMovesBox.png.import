@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt3tyempvf42f"
-path="res://.godot/imported/SketchBook.png-fb6c0e05e5ff2d96d8932efc12a42663.ctex"
+uid="uid://bwrajbjr4jsth"
+path="res://.godot/imported/BattleMovesBox.png-6c8d7e70c718fe51830cac41d7820f97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SketchBook.png"
-dest_files=["res://.godot/imported/SketchBook.png-fb6c0e05e5ff2d96d8932efc12a42663.ctex"]
+source_file="res://Assets/UI/BattleMovesBox.png"
+dest_files=["res://.godot/imported/BattleMovesBox.png-6c8d7e70c718fe51830cac41d7820f97.ctex"]
 
 [params]
 

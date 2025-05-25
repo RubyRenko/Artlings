@@ -111,10 +111,10 @@ horizontal_alignment = 2
 
 [node name="Label3" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 503.0
-offset_top = 396.0
-offset_right = 817.0
-offset_bottom = 471.0
+offset_left = 486.0
+offset_top = 352.0
+offset_right = 800.0
+offset_bottom = 427.0
 text = "This is the description box.
 It gives information about the current
 turn and what's going on in battle."
@@ -141,28 +141,28 @@ horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 515.0
-offset_top = 477.0
-offset_right = 531.0
-offset_bottom = 500.0
+offset_left = 498.0
+offset_top = 433.0
+offset_right = 514.0
+offset_bottom = 456.0
 text = "V"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 181.0
-offset_top = 434.0
-offset_right = 411.0
-offset_bottom = 483.0
+offset_left = 216.0
+offset_top = 413.0
+offset_right = 446.0
+offset_bottom = 462.0
 text = "Click one of these 4 buttons
 to use a move and attack"
 
 [node name="Label8" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 269.0
-offset_top = 492.0
-offset_right = 285.0
-offset_bottom = 515.0
+offset_left = 304.0
+offset_top = 471.0
+offset_right = 320.0
+offset_bottom = 494.0
 text = "V"
 horizontal_alignment = 1
 
@@ -177,38 +177,38 @@ Be careful as swapping will take up 1 turn!"
 
 [node name="Label10" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 420.0
-offset_right = 38.0
-offset_bottom = 443.0
+offset_left = 27.0
+offset_top = 411.0
+offset_right = 43.0
+offset_bottom = 434.0
 text = "V"
 horizontal_alignment = 1
 
 [node name="Label12" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 845.0
-offset_top = 396.0
-offset_right = 1114.0
-offset_bottom = 445.0
+offset_left = 870.0
+offset_top = 355.0
+offset_right = 1139.0
+offset_bottom = 404.0
 text = "This button will make the battle
 description automatically progress"
 horizontal_alignment = 2
 
 [node name="Label11" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 443.0
-offset_right = 38.0
-offset_bottom = 466.0
+offset_left = 27.0
+offset_top = 434.0
+offset_right = 43.0
+offset_bottom = 457.0
 text = "V"
 horizontal_alignment = 1
 
 [node name="Label13" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 1079.0
-offset_top = 447.0
-offset_right = 1095.0
-offset_bottom = 470.0
+offset_left = 1104.0
+offset_top = 406.0
+offset_right = 1120.0
+offset_bottom = 429.0
 text = "V"
 horizontal_alignment = 1
 

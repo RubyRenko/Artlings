@@ -7,12 +7,12 @@ func toggle_move_buttons(moves):
 	for i in range(get_child_count()):
 		var move_button = get_child(i)
 		if i < len(moves):
-			move_button.text = moves[i].capitalize()
+			move_button.get_child(0).text = moves[i].capitalize()
 			move_button.disabled = false
 			choosable_moves.append(moves[i])
 			i += 1
 		elif i >= len(moves):
-			move_button.text = "None"
+			move_button.get_child(0).text = "None"
 			move_button.disabled = true
 			i += 1
 

@@ -8,9 +8,10 @@ extends Node3D
 @onready var enemy_name_label = $CanvasLayer/EnemyHpBar/Label
 
 @onready var move_opt = $CanvasLayer/MoveOptions
-@onready var battle_desc = $CanvasLayer/BattleText/BattleDesc
+@onready var battle_desc = $CanvasLayer/BattleDesc
 @onready var battle_desc_box = $CanvasLayer/BattleText
 @onready var change_button = $CanvasLayer/ChangeArtling
+@onready var autoplay_button = $CanvasLayer/AutoplayButton
 @onready var party_screen = $CanvasLayer/Party
 @onready var master_move_list = preload("res://move_list.tscn").instantiate()
 
@@ -32,6 +33,12 @@ var commands = []
 var battle_won = false
 var faint_switch = false
 var changing_mons = false
+
+func _ready():
+	if auto:
+		autoplay_button.button_pressed = true
+	else:
+		autoplay_button.button_pressed = false
 
 func update_player_sprite():
 	player_mon = player_team[0]
