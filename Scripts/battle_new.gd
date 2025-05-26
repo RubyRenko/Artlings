@@ -2,14 +2,16 @@ extends Node3D
 
 @onready var player_spawn = $PlayerMonSpawn
 @onready var player_hp_bar = $CanvasLayer/PlayerHpBar
-@onready var player_name_label = $CanvasLayer/PlayerHpBar/Label
+@onready var player_hp_nums = $CanvasLayer/PlayerHpBar/HpNums
+@onready var player_name_label = $CanvasLayer/PlayerHpBar/Name
 @onready var enemy_spawn = $EnemyMonSpawn
 @onready var enemy_hp_bar = $CanvasLayer/EnemyHpBar
-@onready var enemy_name_label = $CanvasLayer/EnemyHpBar/Label
+@onready var enemy_hp_nums = $CanvasLayer/EnemyHpBar/HpNums
+@onready var enemy_name_label = $CanvasLayer/EnemyHpBar/Name
 
 @onready var move_opt = $CanvasLayer/MoveOptions
 @onready var battle_desc = $CanvasLayer/BattleDesc
-@onready var battle_desc_box = $CanvasLayer/BattleText
+@onready var battle_desc_box = $CanvasLayer/BattleDescBox
 @onready var change_button = $CanvasLayer/ChangeArtling
 @onready var autoplay_button = $CanvasLayer/AutoplayButton
 @onready var party_screen = $CanvasLayer/Party
@@ -48,6 +50,7 @@ func update_player_sprite():
 	player_name_label.set_text(player_mon.nickname)
 	player_hp_bar.max_value = player_mon.max_hp
 	player_hp_bar.value = player_mon.health
+	player_hp_nums.text = "%s / %s " % [player_mon.health, player_mon.max_hp]
 	load_moves()
 
 func update_enemy_sprite():
@@ -60,6 +63,7 @@ func update_enemy_sprite():
 	enemy_name_label.set_text(enemy_mon.nickname)
 	enemy_hp_bar.max_value = enemy_mon.max_hp
 	enemy_hp_bar.value = enemy_mon.health
+	enemy_hp_nums.text = "%s / %s " % [enemy_mon.health, enemy_mon.max_hp]
 	
 func load_mons(player_inp, enemy_inp):
 	# sets the player to the input and player team with the first mon going into battle
@@ -232,8 +236,12 @@ func handle_turn(current_command):
 			player_mon.play_idle_anim()
 			enemy_mon.play_idle_anim()
 		battle_prog += 1
+	
 	enemy_hp_bar.value = enemy_mon.health
 	player_hp_bar.value = player_mon.health
+	player_hp_nums.text = "%s / %s " % [player_mon.health, player_mon.max_hp]
+	enemy_hp_nums.text = "%s / %s " % [enemy_mon.health, enemy_mon.max_hp]
+	
 	can_click = false
 	turn_timer.start()
 	click_icon.visible = false
@@ -338,12 +346,12 @@ func continue_battle(prog):
 		# shows text based on if battle was won or lost
 		# adds exprience to player
 		if battle_won:
-			var win_text = "Battle won!\n"
+			var win_text = "Battle won!"
 			#print(mons_for_exp)
 			for mon in mons_for_exp:
 				#print(mon)
 				var exp = exp_gain/len(mons_for_exp) * len(enemy_team)
-				win_text += mon.add_experience(exp)
+				win_text += "\n" + mon.add_experience(exp)
 			battle_desc.set_text(win_text)
 			#print("Player level: " + str(player_mon.level))
 		else:

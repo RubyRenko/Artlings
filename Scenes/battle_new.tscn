@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://b7kmqfstuuhfl"]
+[gd_scene load_steps=32 format=3 uid="uid://b7kmqfstuuhfl"]
 
 [ext_resource type="Script" uid="uid://cc1dov4n6rtdk" path="res://Scripts/battle_new.gd" id="1_odwnt"]
 [ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="2_muy5e"]
-[ext_resource type="Texture2D" uid="uid://bdvq5b6vmm0af" path="res://Assets/UI/BattleMovesBox1.png" id="2_q8q32"]
+[ext_resource type="Texture2D" uid="uid://c5135l3vvxxn7" path="res://Assets/UI/BattleMovesBox2.png" id="2_q3wcu"]
 [ext_resource type="Script" uid="uid://dvg22nhv03uaj" path="res://Scenes/battleparty.gd" id="3_yfa5f"]
 [ext_resource type="Texture2D" uid="uid://btxpcfh65rfel" path="res://Assets/artlings/Ink_Fox.png" id="4_efi8x"]
 [ext_resource type="Texture2D" uid="uid://joc03yotk75w" path="res://Assets/UI/MoveButton1.png" id="4_vop86"]
@@ -11,12 +11,46 @@
 [ext_resource type="Script" uid="uid://c0d7ljjcgv4fo" path="res://Scenes/prog_label.gd" id="6_kbnnx"]
 [ext_resource type="Texture2D" uid="uid://bsudeagcmgbhq" path="res://Assets/UI/MoveButton3.png" id="6_n2lc0"]
 [ext_resource type="Texture2D" uid="uid://dxglhopotfbre" path="res://Assets/UI/MoveButton4.png" id="7_11hy7"]
-[ext_resource type="Texture2D" uid="uid://dp0wj3subbjr6" path="res://Assets/UI/BattleDescBox.png" id="7_r5ah5"]
 [ext_resource type="Texture2D" uid="uid://b6l7fbb5po7c5" path="res://Assets/UI/BattleDescPlay.png" id="8_4uhy2"]
+[ext_resource type="Texture2D" uid="uid://b0xcpxx4vljx1" path="res://Assets/UI/HPBox.png" id="8_n2lc0"]
 [ext_resource type="Texture2D" uid="uid://q8e7t11xdng6" path="res://Assets/UI/BattleDescPause.png" id="9_4uhy2"]
+[ext_resource type="Texture2D" uid="uid://bw2u7y321ko0q" path="res://Assets/UI/HPBoxEnemy.png" id="9_11hy7"]
+[ext_resource type="Texture2D" uid="uid://bidppj4f1s8g3" path="res://Assets/UI/BattleDescBox2.png" id="10_b3lj8"]
+[ext_resource type="Texture2D" uid="uid://dm0o2bngvugii" path="res://Assets/UI/HpBarEnemy2.png" id="10_vxvj7"]
+[ext_resource type="Texture2D" uid="uid://c143phv0hrc1a" path="res://Assets/UI/HpBarEnemyOver.png" id="11_vxvj7"]
+[ext_resource type="Texture2D" uid="uid://q7a77baljeo8" path="res://Assets/UI/HpBarEnemyFill.png" id="12_bnmnk"]
+[ext_resource type="Texture2D" uid="uid://dvfbm4ygb8gi1" path="res://Assets/UI/HpBarPlayerOver.png" id="13_1x78f"]
+[ext_resource type="Texture2D" uid="uid://cjjk1q2xnngqk" path="res://Assets/UI/HpBarPlayer2.png" id="13_vxvj7"]
+[ext_resource type="Texture2D" uid="uid://dw0uoegiev5w4" path="res://Assets/UI/HpBarPlayerFill.png" id="14_vucsn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b3lj8"]
 font_size = 20
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.678431)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i45mi"]
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ot4af"]
+font_size = 20
+outline_size = 10
+outline_color = Color(0.54902, 0.192157, 0.207843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2hyyw"]
+font_size = 20
+outline_size = 10
+outline_color = Color(0.156863, 0.32549, 0.14902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksy4f"]
+line_spacing = 4.0
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_efi8x"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muy5e"]
 
@@ -34,16 +68,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="LabelSettings" id="LabelSettings_ksy4f"]
-line_spacing = 4.0
-font_size = 20
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_efi8x"]
-font_size = 20
-font_color = Color(0, 0, 0, 1)
-outline_size = 4
-
 [node name="BattleNew" type="Node3D"]
 script = ExtResource("1_odwnt")
 
@@ -56,9 +80,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0,
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BattleMovesBox1" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(242, 576)
-scale = Vector2(0.84, 0.84)
-texture = ExtResource("2_q8q32")
+position = Vector2(233, 576)
+scale = Vector2(1.00214, 1.04286)
+texture = ExtResource("2_q3wcu")
 
 [node name="MoveOptions" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 2
@@ -79,15 +103,12 @@ texture_normal = ExtResource("4_vop86")
 
 [node name="Label" type="Label" parent="CanvasLayer/MoveOptions/Move1"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -11.5
-offset_right = 21.0
-offset_bottom = 11.5
+offset_top = -14.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "None"
@@ -100,15 +121,12 @@ texture_normal = ExtResource("5_q3wcu")
 
 [node name="Label" type="Label" parent="CanvasLayer/MoveOptions/Move2"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -11.5
-offset_right = 21.0
-offset_bottom = 11.5
+offset_top = -14.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "None"
@@ -121,15 +139,12 @@ texture_normal = ExtResource("6_n2lc0")
 
 [node name="Label" type="Label" parent="CanvasLayer/MoveOptions/Move3"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -11.5
-offset_right = 21.0
-offset_bottom = 11.5
+offset_top = -14.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "None"
@@ -142,15 +157,12 @@ texture_normal = ExtResource("7_11hy7")
 
 [node name="Label" type="Label" parent="CanvasLayer/MoveOptions/Move4"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -11.5
-offset_right = 21.0
-offset_bottom = 11.5
+offset_top = -14.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "None"
@@ -164,42 +176,130 @@ offset_right = 127.0
 offset_bottom = 498.0
 text = "Check Party"
 
-[node name="PlayerHpBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 26.0
+[node name="HpBox" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("8_n2lc0")
+centered = false
+
+[node name="HpBoxEnemy" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(722, 0)
+texture = ExtResource("9_11hy7")
+centered = false
+
+[node name="EnemyHpBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 809.0
 offset_top = 40.0
-offset_right = 342.0
-offset_bottom = 79.0
+offset_right = 1139.0
+offset_bottom = 80.0
+value = 80.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_under = ExtResource("10_vxvj7")
+texture_over = ExtResource("11_vxvj7")
+texture_progress = ExtResource("12_bnmnk")
+texture_progress_offset = Vector2(2, 0)
 
-[node name="Label" type="Label" parent="CanvasLayer/PlayerHpBar"]
+[node name="Name" type="Label" parent="CanvasLayer/EnemyHpBar"]
 layout_mode = 0
-offset_left = 2.0
+offset_left = 7.0
 offset_top = -24.0
-offset_right = 314.0
-offset_bottom = -1.0
+offset_right = 319.0
+offset_bottom = 2.0
 text = "Player Artling"
-
-[node name="EnemyHpBar" type="ProgressBar" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -336.0
-offset_top = 39.0
-offset_right = -20.0
-offset_bottom = 78.0
-grow_horizontal = 0
-
-[node name="Label" type="Label" parent="CanvasLayer/EnemyHpBar"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -308.0
-offset_top = -24.0
-offset_right = 1.0
-offset_bottom = -1.0
-grow_horizontal = 0
-text = "Enemy Artling"
+label_settings = SubResource("LabelSettings_i45mi")
 horizontal_alignment = 2
+
+[node name="HpNums" type="Label" parent="CanvasLayer/EnemyHpBar"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0 / 0"
+label_settings = SubResource("LabelSettings_ot4af")
+horizontal_alignment = 1
+
+[node name="PlayerHpBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 40.0
+offset_right = 351.0
+offset_bottom = 80.0
+value = 80.0
+rounded = true
+nine_patch_stretch = true
+texture_under = ExtResource("13_vxvj7")
+texture_over = ExtResource("13_1x78f")
+texture_progress = ExtResource("14_vucsn")
+texture_progress_offset = Vector2(2, 0)
+
+[node name="Name" type="Label" parent="CanvasLayer/PlayerHpBar"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -24.0
+offset_right = 319.0
+offset_bottom = 2.0
+text = "Player Artling"
+label_settings = SubResource("LabelSettings_i45mi")
+
+[node name="HpNums" type="Label" parent="CanvasLayer/PlayerHpBar"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0 / 0"
+label_settings = SubResource("LabelSettings_2hyyw")
+horizontal_alignment = 1
+
+[node name="BattleDescBox" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(804, 562)
+scale = Vector2(0.917876, 0.854064)
+texture = ExtResource("10_b3lj8")
+
+[node name="BattleDesc" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 180.0
+offset_right = 485.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Line 1
+Line 2
+Line 3
+Line 4"
+label_settings = SubResource("LabelSettings_ksy4f")
+
+[node name="ProgLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 1076.0
+offset_top = 585.0
+offset_right = 1100.0
+offset_bottom = 613.0
+text = "v"
+label_settings = SubResource("LabelSettings_efi8x")
+script = ExtResource("6_kbnnx")
+
+[node name="AutoplayButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 1070.0
+offset_top = 459.0
+offset_right = 1140.0
+offset_bottom = 542.0
+toggle_mode = true
+texture_normal = ExtResource("8_4uhy2")
+texture_pressed = ExtResource("9_4uhy2")
+stretch_mode = 0
 
 [node name="Party" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -464,49 +564,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
 value = 50.0
 show_percentage = false
 
-[node name="BattleDescBox" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(809.875, 561.688)
-scale = Vector2(0.917876, 0.854064)
-texture = ExtResource("7_r5ah5")
-
-[node name="BattleDesc" type="Label" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -73.0
-offset_top = 179.0
-offset_right = 485.0
-offset_bottom = 308.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Line 1
-Line 2
-Line 3
-Line 4"
-label_settings = SubResource("LabelSettings_ksy4f")
-
-[node name="ProgLabel" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 1076.0
-offset_top = 585.0
-offset_right = 1100.0
-offset_bottom = 613.0
-text = "v"
-label_settings = SubResource("LabelSettings_efi8x")
-script = ExtResource("6_kbnnx")
-
-[node name="AutoplayButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 1070.0
-offset_top = 459.0
-offset_right = 1140.0
-offset_bottom = 542.0
-toggle_mode = true
-texture_normal = ExtResource("8_4uhy2")
-texture_pressed = ExtResource("9_4uhy2")
-stretch_mode = 0
-
 [node name="TurnTimer" type="Timer" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
@@ -514,6 +571,7 @@ stretch_mode = 0
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/ChangeArtling" to="." method="_on_change_artling_pressed"]
+[connection signal="pressed" from="CanvasLayer/AutoplayButton" to="." method="_on_autoplay_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling1" to="." method="_on_artling_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling2" to="." method="_on_artling_2_pressed"]
@@ -521,5 +579,4 @@ stretch_mode = 0
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling4" to="." method="_on_artling_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling5" to="." method="_on_artling_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling6" to="." method="_on_artling_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/AutoplayButton" to="." method="_on_autoplay_button_pressed"]
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
