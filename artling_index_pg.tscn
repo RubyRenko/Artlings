@@ -42,6 +42,7 @@ theme_override_styles/panel = ExtResource("1_ve5q0")
 script = ExtResource("3_ooeoe")
 
 [node name="Picture" type="TextureRect" parent="IndexPg1"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 58.0
 offset_right = 326.0
@@ -63,6 +64,7 @@ text = "Artling Name"
 label_settings = SubResource("LabelSettings_ooeoe")
 
 [node name="MovesetTitle" type="Label" parent="IndexPg1"]
+layout_mode = 0
 offset_left = 329.0
 offset_top = 84.0
 offset_right = 457.0
@@ -71,6 +73,7 @@ text = "Moveset"
 label_settings = SubResource("LabelSettings_ykx6n")
 
 [node name="Moveset" type="Label" parent="IndexPg1"]
+layout_mode = 0
 offset_left = 329.0
 offset_top = 115.0
 offset_right = 457.0
@@ -86,6 +89,7 @@ Move8"
 label_settings = SubResource("LabelSettings_1cia4")
 
 [node name="Desc" type="Label" parent="IndexPg1"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 397.0
 offset_right = 457.0
@@ -95,6 +99,7 @@ label_settings = SubResource("LabelSettings_1cia4")
 autowrap_mode = 3
 
 [node name="ArtistCredit" type="Label" parent="IndexPg1"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 360.0
 offset_right = 467.0
@@ -103,6 +108,7 @@ text = "Drawn by:"
 label_settings = SubResource("LabelSettings_1cia4")
 
 [node name="CraftRecipe" type="Label" parent="IndexPg1"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 461.0
 offset_right = 467.0
@@ -128,6 +134,7 @@ theme_override_styles/panel = ExtResource("1_ve5q0")
 script = ExtResource("3_ooeoe")
 
 [node name="Picture" type="TextureRect" parent="IndexPg2"]
+layout_mode = 0
 offset_left = 175.0
 offset_top = 62.0
 offset_right = 475.0
@@ -149,6 +156,7 @@ text = "Artling Name"
 label_settings = SubResource("LabelSettings_ooeoe")
 
 [node name="MovesetTitle" type="Label" parent="IndexPg2"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 84.0
 offset_right = 171.0
@@ -157,6 +165,7 @@ text = "Moveset"
 label_settings = SubResource("LabelSettings_ykx6n")
 
 [node name="Moveset" type="Label" parent="IndexPg2"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 115.0
 offset_right = 171.0
@@ -172,6 +181,7 @@ Move8"
 label_settings = SubResource("LabelSettings_1cia4")
 
 [node name="Desc" type="Label" parent="IndexPg2"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 397.0
 offset_right = 467.0
@@ -181,6 +191,7 @@ label_settings = SubResource("LabelSettings_1cia4")
 autowrap_mode = 2
 
 [node name="ArtistCredit" type="Label" parent="IndexPg2"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 360.0
 offset_right = 467.0
@@ -189,6 +200,7 @@ text = "Drawn by:"
 label_settings = SubResource("LabelSettings_1cia4")
 
 [node name="CraftRecipe" type="Label" parent="IndexPg2"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 461.0
 offset_right = 467.0

@@ -1,11 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://b7kmqfstuuhfl"]
+[gd_scene load_steps=35 format=3 uid="uid://b7kmqfstuuhfl"]
 
 [ext_resource type="Script" uid="uid://cc1dov4n6rtdk" path="res://Scripts/battle_new.gd" id="1_odwnt"]
+[ext_resource type="Texture2D" uid="uid://dw5kqor3uaiun" path="res://Assets/UI/PartyButton.png" id="2_1x78f"]
 [ext_resource type="Script" uid="uid://7j4x13kquajl" path="res://Scenes/move_options.gd" id="2_muy5e"]
 [ext_resource type="Texture2D" uid="uid://c5135l3vvxxn7" path="res://Assets/UI/BattleMovesBox2.png" id="2_q3wcu"]
+[ext_resource type="Texture2D" uid="uid://bankg8uswe8pk" path="res://Assets/UI/PartyButton2.png" id="3_vucsn"]
 [ext_resource type="Script" uid="uid://dvg22nhv03uaj" path="res://Scenes/battleparty.gd" id="3_yfa5f"]
 [ext_resource type="Texture2D" uid="uid://btxpcfh65rfel" path="res://Assets/artlings/Ink_Fox.png" id="4_efi8x"]
 [ext_resource type="Texture2D" uid="uid://joc03yotk75w" path="res://Assets/UI/MoveButton1.png" id="4_vop86"]
+[ext_resource type="Texture2D" uid="uid://bej0y5otbvif1" path="res://Assets/UI/PartyButton3.png" id="4_vucsn"]
 [ext_resource type="LabelSettings" uid="uid://dvs314swtpp3o" path="res://Assets/battle_new_title.tres" id="5_efi8x"]
 [ext_resource type="Texture2D" uid="uid://b2kx86wlltube" path="res://Assets/UI/MoveButton2.png" id="5_q3wcu"]
 [ext_resource type="Script" uid="uid://c0d7ljjcgv4fo" path="res://Scenes/prog_label.gd" id="6_kbnnx"]
@@ -78,6 +81,17 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ChangeArtling" type="TextureButton" parent="CanvasLayer"]
+offset_left = -3.0
+offset_top = 395.0
+offset_right = 152.0
+offset_bottom = 526.0
+texture_normal = ExtResource("2_1x78f")
+texture_hover = ExtResource("3_vucsn")
+texture_disabled = ExtResource("4_vucsn")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="BattleMovesBox1" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(233, 576)
@@ -168,13 +182,6 @@ grow_vertical = 2
 text = "None"
 label_settings = SubResource("LabelSettings_b3lj8")
 horizontal_alignment = 1
-
-[node name="ChangeArtling" type="Button" parent="CanvasLayer"]
-offset_left = 5.0
-offset_top = 467.0
-offset_right = 127.0
-offset_bottom = 498.0
-text = "Check Party"
 
 [node name="HpBox" type="Sprite2D" parent="CanvasLayer"]
 texture = ExtResource("8_n2lc0")
@@ -566,11 +573,11 @@ show_percentage = false
 
 [node name="TurnTimer" type="Timer" parent="."]
 
+[connection signal="pressed" from="CanvasLayer/ChangeArtling" to="." method="_on_change_artling_pressed"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
-[connection signal="pressed" from="CanvasLayer/ChangeArtling" to="." method="_on_change_artling_pressed"]
 [connection signal="pressed" from="CanvasLayer/AutoplayButton" to="." method="_on_autoplay_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling1" to="." method="_on_artling_1_pressed"]

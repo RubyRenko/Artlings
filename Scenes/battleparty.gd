@@ -17,6 +17,8 @@ func update_battle_party(team):
 			exp_bar.value = team[i].exp
 			if team[i].fainted:
 				node.disabled = true
+			if i == 0:
+				node.disabled = true
 			else:
 				node.disabled = false
 		elif i >= len(team):
