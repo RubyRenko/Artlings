@@ -7,6 +7,7 @@ var inspo = 0
 @onready var interlude_bg = $Bg
 @onready var party_screen = $Bg/PartyScreen
 @onready var create_screen = $Bg/CreateScreen
+@onready var index_screen = $Bg/IndexScreen
 
 @onready var party_button = $Bg/PartyButton
 @onready var create_button = $Bg/CreateButton
@@ -35,6 +36,7 @@ func hide_screens(true_hide = false):
 	else:
 		party_screen.visible = false
 		create_screen.visible = false
+		index_screen.visible = false
 		for artling in team:
 			artling.stat_screen.visible = false
 
@@ -45,6 +47,10 @@ func show_party_screen():
 func show_create_screen():
 	create_screen.visible = true
 	create_screen.clear_colors()
+
+func show_index_screen():
+	index_screen.visible = true
+	index_screen.update_table_text()
 
 func _on_create_artling_pressed():
 	if inspo >= create_screen.inspo_cost:
@@ -78,6 +84,10 @@ func _on_party_button_pressed():
 func _on_create_button_pressed():
 	hide_screens()
 	show_create_screen()
+
+func _on_index_button_pressed():
+	hide_screens()
+	show_index_screen()
 
 func _on_back_button_pressed():
 	hide_screens()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=44 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
@@ -17,7 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://cqm6y8qcofxy8" path="res://Assets/palette/red.png" id="11_pfsb0"]
 [ext_resource type="Texture2D" uid="uid://c11wxo0rkp4a6" path="res://Assets/palette/yellow.png" id="12_50soc"]
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="16_50soc"]
+[ext_resource type="Script" uid="uid://b5xh8f4ivs3f1" path="res://Scenes/index_screen.gd" id="17_1m7qd"]
 [ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/artlings/InkStarterCropped.png" id="17_wrq8o"]
+[ext_resource type="PackedScene" uid="uid://cvuq3or6r43sc" path="res://artling_index_pg.tscn" id="18_1ih2t"]
 [ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="18_m76uk"]
 [ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="19_x04ip"]
 [ext_resource type="Script" uid="uid://crmom254wawxw" path="res://Scenes/trainers.gd" id="21_50soc"]
@@ -48,6 +50,15 @@ unicode = 99
 
 [sub_resource type="Shortcut" id="Shortcut_m76uk"]
 events = [SubResource("InputEventKey_hpc6h")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ih2t"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_57tv7"]
+line_spacing = 10.0
+font_size = 18
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_420ye"]
 bg_color = Color(1, 1, 1, 1)
@@ -169,6 +180,7 @@ offset_bottom = 574.0
 text = "Train"
 
 [node name="PartyScreen" type="Panel" parent="Player/Bg"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -479,6 +491,195 @@ offset_right = 100.0
 offset_bottom = 70.0
 text = "Back
 "
+
+[node name="IndexScreen" type="Panel" parent="Player/Bg"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -274.0
+offset_right = 500.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("4_7fipc")
+script = ExtResource("17_1m7qd")
+
+[node name="ToCTitle" type="Label" parent="Player/Bg/IndexScreen"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 6.0
+offset_right = 742.0
+offset_bottom = 40.0
+scale = Vector2(1, 0.935475)
+text = "TABLE OF CONTENTS"
+label_settings = SubResource("LabelSettings_1ih2t")
+
+[node name="ToCNames" type="Label" parent="Player/Bg/IndexScreen"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 46.0
+offset_right = 745.0
+offset_bottom = 540.0
+scale = Vector2(1, 0.935475)
+text = "Artling
+Artling
+Artling
+Artling
+Artling
+Artling
+Artling
+Artling
+Artling
+Artling
+Artling
+Artling
+Artling
+Artling"
+label_settings = SubResource("LabelSettings_57tv7")
+
+[node name="ToCPages" type="Label" parent="Player/Bg/IndexScreen"]
+layout_mode = 0
+offset_left = 684.0
+offset_top = 46.0
+offset_right = 926.0
+offset_bottom = 540.0
+scale = Vector2(1, 0.935475)
+text = "1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14"
+label_settings = SubResource("LabelSettings_57tv7")
+horizontal_alignment = 2
+
+[node name="IndexTableButtons" type="VBoxContainer" parent="Player/Bg/IndexScreen"]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 0
+offset_left = 491.0
+offset_top = 41.0
+offset_right = 941.0
+offset_bottom = 513.0
+
+[node name="Button" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button2" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button3" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button4" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button5" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button6" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button7" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button8" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button9" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button10" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button11" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button12" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button13" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button14" type="Button" parent="Player/Bg/IndexScreen/IndexTableButtons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ArtlingIndexPg" parent="Player/Bg/IndexScreen" instance=ExtResource("18_1ih2t")]
+visible = false
+offset_left = -76.0
+offset_top = -50.0
+offset_right = -36.0
+offset_bottom = -10.0
+
+[node name="BackButton" type="Button" parent="Player/Bg/IndexScreen"]
+z_index = 3
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 62.0
+text = "Back
+"
+
+[node name="NextButton" type="Button" parent="Player/Bg/IndexScreen"]
+z_index = 3
+layout_mode = 0
+offset_left = 956.0
+offset_top = 498.0
+offset_right = 988.0
+offset_bottom = 538.0
+text = ">
+"
+
+[node name="PrevButton" type="Button" parent="Player/Bg/IndexScreen"]
+z_index = 3
+layout_mode = 0
+offset_left = 12.0
+offset_top = 502.0
+offset_right = 44.0
+offset_bottom = 538.0
+text = "<"
 
 [node name="Artlings" type="Node" parent="Player"]
 script = ExtResource("3_hy7hh")
@@ -824,6 +1025,7 @@ bus_name = "sfx"
 
 [connection signal="pressed" from="Player/Bg/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateButton" to="Player" method="_on_create_button_pressed"]
+[connection signal="pressed" from="Player/Bg/IndexButton" to="Player" method="_on_index_button_pressed"]
 [connection signal="pressed" from="Player/Bg/NextBattleButton" to="." method="_on_next_battle_button_pressed"]
 [connection signal="pressed" from="Player/Bg/TrainButton" to="." method="_on_train_button_pressed"]
 [connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling1" to="Player" method="_on_artling_1_pressed"]
@@ -842,6 +1044,9 @@ bus_name = "sfx"
 [connection signal="pressed" from="Player/Bg/CreateScreen/PaintRedButton" to="Player/Bg/CreateScreen" method="_on_paint_red_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/PaintYellowButton" to="Player/Bg/CreateScreen" method="_on_paint_yellow_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/BackButton" to="Player" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Player/Bg/IndexScreen/IndexTableButtons/Button" to="Player/Bg/IndexScreen" method="_on_button_pressed"]
+[connection signal="pressed" from="Player/Bg/IndexScreen/BackButton" to="Player" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Player/Bg/IndexScreen/BackButton" to="Player/Bg/IndexScreen" method="_on_back_button_pressed"]
 [connection signal="child_exiting_tree" from="Environment" to="." method="_on_environment_child_exiting_tree"]
 [connection signal="pressed" from="ChooseStarter/ChoosingScreen/InkitButton" to="." method="_on_inkit_button_pressed"]
 [connection signal="pressed" from="ChooseStarter/ChoosingScreen/WurmButton" to="." method="_on_wurm_button_pressed"]

@@ -88,3 +88,6 @@ func _on_train_button_pressed():
 	current_battlefield = battlefields.pick_random().instantiate()
 	environment_node.add_child(current_battlefield)
 	current_battlefield.start_battle(player, wild_battles.get_random())
+
+func _on_encylo_back_button_pressed():
+	player.hide_screens()

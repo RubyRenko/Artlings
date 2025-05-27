@@ -30,7 +30,7 @@ func calculate_artling():
 	if r == 1 && b == 1 && y == 1:
 		return "Inkit"
 	elif r == 6:
-		return "bacon pig"
+		return "Bapig"
 	elif b >= 2 && g >= 1:
 		return "Dewphin"
 	elif r >= 3:
