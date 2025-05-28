@@ -7,11 +7,11 @@ extends Panel
 @onready var next_pg_button = $NextButton
 @onready var prev_pg_button = $PrevButton
 
-var artling_tuples = [ ["Inkit", "Dewphin"], ["Wurm", "Bapig"] ]
-var artling_order = [ "Inkit", "Dewphin", "Wurm", "Bapig" ]
-var artlings_discovered = []
+var artling_tuples = [ ["Inkit", "Dewphin"], ["Wurm", "Bapig"], ["Hatguy", "Blank"] ]
+var artling_order = [ "Inkit", "Dewphin", "Wurm", "Bapig", "Hatguy"]
+var artlings_discovered = ["Blank"]
 var current_page = -1
-var max_page = 1
+var max_page = 2
 
 func _ready():
 	for i in index_buttons.get_child_count():
@@ -31,16 +31,20 @@ func setup_index():
 func update_table_text():
 	var updated_name_str = ""
 	var updated_pg_str = ""
-	for i in len(artling_order):
-		var artling = artling_order[i]
-		if artling in artlings_discovered:
-			updated_name_str += artling + "\n"
-			updated_pg_str += str(i) + "\n"
+	for i in index_buttons.get_child_count():
+		if i < len(artling_order):
+			var artling = artling_order[i]
+			if artling in artlings_discovered:
+				updated_name_str += artling + "\n"
+				updated_pg_str += str(i) + "\n"
+			else:
+				updated_name_str += "???"+ "\n"
+				updated_pg_str += str(i) + "\n"
 		else:
-			updated_name_str += "???"+ "\n"
-			updated_pg_str += str(i) + "\n"
+			index_buttons.get_child(i).visible = false
 	table_contents_name.text = updated_name_str
 	table_contents_pg.text = updated_pg_str
+
 
 func show_page(index):
 	index_pgs.visible = true
@@ -64,7 +68,7 @@ func _on_button_pressed(index):
 	if current_page == max_page:
 		next_pg_button.disabled = true
 		prev_pg_button.disabled = false
-	elif current_page == 0:
+	else:
 		prev_pg_button.disabled = false
 
 func _on_back_button_pressed():

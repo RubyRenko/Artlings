@@ -18,7 +18,6 @@ func _ready():
 	add_artling("Inkit")
 	add_artling("Dewphin")
 	add_artling("Wurm")
-	index_screen.artlings_discovered = []
 	hide_screens()
 
 func load_team():

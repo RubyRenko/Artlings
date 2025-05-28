@@ -31,6 +31,8 @@ func calculate_artling():
 		return "Inkit"
 	elif r == 6:
 		return "Bapig"
+	elif v == 6:
+		return "Hatguy"
 	elif b >= 2 && g >= 1:
 		return "Dewphin"
 	elif r >= 3:
