@@ -85,10 +85,13 @@ func remove_artling(artling):
 		team_node.remove_artling(artling)
 
 func add_artling(artling_name, nickname = artling_name):
+	
 	if !(artling_name in index_screen.artlings_discovered):
+		print("added artling ", artling_name)
 		index_screen.artlings_discovered.append(artling_name)
 	team_node.add_teammate(artling_name, nickname)
 	load_team()
+	print(index_screen.artlings_discovered)
 
 func _on_party_button_pressed():
 	hide_screens()

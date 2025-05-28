@@ -45,7 +45,6 @@ func update_table_text():
 	table_contents_name.text = updated_name_str
 	table_contents_pg.text = updated_pg_str
 
-
 func show_page(index):
 	index_pgs.visible = true
 	var artling1 = artling_tuples[index]

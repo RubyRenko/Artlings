@@ -161,6 +161,7 @@ texture_over = ExtResource("5_r7iys")
 texture_progress = ExtResource("6_1vl11")
 
 [node name="ExpBar" type="TextureProgressBar" parent="Panel"]
+layout_mode = 0
 offset_left = 323.0
 offset_top = 155.0
 offset_right = 915.0

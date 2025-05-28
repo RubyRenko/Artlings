@@ -388,6 +388,7 @@ label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
 [node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling1"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 250.136
 offset_right = 240.0
@@ -399,6 +400,7 @@ texture_over = ExtResource("13_1x78f")
 texture_progress = ExtResource("14_vucsn")
 
 [node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling1"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 276.136
 offset_right = 240.0
@@ -430,6 +432,7 @@ label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
 [node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling2"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 250.136
 offset_right = 240.0
@@ -441,6 +444,7 @@ texture_over = ExtResource("13_1x78f")
 texture_progress = ExtResource("14_vucsn")
 
 [node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling2"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 276.136
 offset_right = 240.0
@@ -472,6 +476,7 @@ label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
 [node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling3"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 250.136
 offset_right = 240.0
@@ -483,6 +488,7 @@ texture_over = ExtResource("13_1x78f")
 texture_progress = ExtResource("14_vucsn")
 
 [node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling3"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 276.136
 offset_right = 240.0
@@ -514,6 +520,7 @@ label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
 [node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling4"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 250.136
 offset_right = 240.0
@@ -525,6 +532,7 @@ texture_over = ExtResource("13_1x78f")
 texture_progress = ExtResource("14_vucsn")
 
 [node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling4"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 276.136
 offset_right = 240.0
@@ -556,6 +564,7 @@ label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
 [node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling5"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 250.136
 offset_right = 240.0
@@ -567,6 +576,7 @@ texture_over = ExtResource("13_1x78f")
 texture_progress = ExtResource("14_vucsn")
 
 [node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling5"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 276.136
 offset_right = 240.0
@@ -598,6 +608,7 @@ label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
 [node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling6"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 250.136
 offset_right = 240.0
@@ -609,6 +620,7 @@ texture_over = ExtResource("13_1x78f")
 texture_progress = ExtResource("14_vucsn")
 
 [node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling6"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 276.136
 offset_right = 240.0

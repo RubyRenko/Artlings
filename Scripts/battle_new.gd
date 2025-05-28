@@ -370,12 +370,12 @@ func continue_battle(prog):
 			#print("Player level: " + str(player_mon.level))
 		# resets the enemy and player mon health and makes them invisible
 		for mon in enemy_team:
-			print(mon)
+			#print(mon)
 			mon.visible = false
 			mon.health = mon.max_hp
 			mon.fainted = false
 			if mon.is_in_group("2d"):
-				mon.anim.flip_h = !enemy_mon.anim.flip_h
+				mon.anim.flip_h = !mon.anim.flip_h
 		for mon in player_team:
 			mon.visible = false
 			mon.health = mon.max_hp

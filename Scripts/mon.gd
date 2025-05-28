@@ -176,7 +176,7 @@ func attack(target, move):
 				return battle_text
 			
 			elif atk.dmg_type == "self":
-				battle_text += atk.battle_text % [nickname, target.nickname]
+				battle_text += atk.battle_text % [nickname]
 				var damage = randi_range(atk.damage[0], atk.damage[1])
 				var final_dmg = calculate_mnd_damage(damage)
 				if atk.effect[1] == "Cure":
@@ -331,7 +331,7 @@ func add_experience(amount):
 			load_move(master_move_list.get_move(to_learn))
 			#print(current_moves)
 			#print(moves_list)
-			level_text += "Learned " + to_learn.capitalize() + ".\n"
+			level_text += "Learned " + to_learn.capitalize() + ". "
 		exp -= 100
 	return level_text
 
