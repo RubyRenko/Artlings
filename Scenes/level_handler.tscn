@@ -32,7 +32,6 @@
 [ext_resource type="Texture2D" uid="uid://m65yl67qpddy" path="res://Assets/artlings/wormCropped.png" id="24_m76uk"]
 [ext_resource type="PackedScene" uid="uid://c4ferlba1j7g2" path="res://ArtlingScenes/hatguy.tscn" id="24_wr2fb"]
 [ext_resource type="Script" uid="uid://b8yh41nerx1t0" path="res://Scenes/trainer.gd" id="25_57tv7"]
-[ext_resource type="Texture2D" uid="uid://bx2mnewpud5xq" path="res://Menus/menu_images/settings_texture.png" id="25_x04ip"]
 [ext_resource type="PackedScene" uid="uid://djqrw1tk1ekon" path="res://Battlefields/water_battlefield.tscn" id="26_q6ldt"]
 [ext_resource type="PackedScene" uid="uid://dccvmqkyrtfkm" path="res://Battlefields/battlefield_1.tscn" id="26_uloti"]
 
@@ -80,8 +79,11 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6ldt"]
+load_path = "res://.godot/imported/settings_texture.png-45d956df31bfafdfaa005fa422a47433.ctex"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kj370"]
-texture = ExtResource("25_x04ip")
+texture = SubResource("CompressedTexture2D_q6ldt")
 region_rect = Rect2(164, 166, 578, 1117)
 
 [node name="LevelHandler" type="Node3D"]

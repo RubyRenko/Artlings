@@ -1,13 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bestmstem11hp"]
+[gd_scene load_steps=10 format=3 uid="uid://bestmstem11hp"]
 
 [ext_resource type="Script" uid="uid://bjblmts7mw8nb" path="res://Battlefields/battlefield_2.gd" id="1_2yffw"]
 [ext_resource type="PackedScene" uid="uid://bti8uonwlyrg4" path="res://Assets/environment/starter_area_v3/starter_area.tscn" id="1_r2tj7"]
 [ext_resource type="Texture2D" uid="uid://mjnkni73s0v5" path="res://Assets/environment/skybox/Sky_Day_BlueSky_Equirect.png" id="2_2yffw"]
 [ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="3_sfyjp"]
 [ext_resource type="AudioStream" uid="uid://cikkwu1ckkftr" path="res://Audio/sample6.mp3" id="5_sfyjp"]
-[ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="6_gllop"]
-[ext_resource type="Texture2D" uid="uid://bx2mnewpud5xq" path="res://Menus/menu_images/settings_texture.png" id="6_n58kg"]
-[ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="7_n58kg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1y4y"]
 albedo_color = Color(0.192157, 0.517647, 0.290196, 1)
@@ -27,10 +24,6 @@ ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 2.0
 volumetric_fog_length = 85.56
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j4h1h"]
-texture = ExtResource("6_n58kg")
-region_rect = Rect2(164, 166, 578, 1117)
 
 [node name="Battlefield2" type="Node3D" groups=["battle"]]
 script = ExtResource("1_2yffw")
@@ -71,137 +64,5 @@ stream = ExtResource("5_sfyjp")
 autoplay = true
 bus = &"music"
 
-[node name="inGame_settings_menu" type="Panel" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 474.0
-offset_top = 55.0
-offset_right = -471.0
-offset_bottom = -156.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_j4h1h")
-script = ExtResource("6_gllop")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="inGame_settings_menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -174.0
-offset_right = 69.0
-offset_bottom = 174.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="MarginContainer" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="return_button" type="Button" parent="inGame_settings_menu/VBoxContainer/MarginContainer"]
-layout_mode = 2
-text = "< Back"
-
-[node name="MarginContainer8" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="title_button" type="Button" parent="inGame_settings_menu/VBoxContainer/MarginContainer8"]
-layout_mode = 2
-text = "< Return to Title"
-
-[node name="MarginContainer2" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Master" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-text = "Master Volume"
-
-[node name="MarginContainer3" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider2" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer3"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("7_n58kg")
-bus_name = "Master"
-
-[node name="MarginContainer4" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Music" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer4"]
-layout_mode = 2
-text = "Music"
-
-[node name="MarginContainer5" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer5"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("7_n58kg")
-bus_name = "music"
-
-[node name="MarginContainer7" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="SFX" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer7"]
-layout_mode = 2
-text = "SFX"
-
-[node name="MarginContainer6" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider" type="HSlider" parent="inGame_settings_menu/VBoxContainer/MarginContainer6"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("7_n58kg")
-bus_name = "sfx"
-
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="BattleNew" to="." method="_on_battle_new_child_exiting_tree"]
-[connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="inGame_settings_menu" method="_on_return_button_pressed"]
-[connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="inGame_settings_menu" method="_on_title_button_pressed"]
