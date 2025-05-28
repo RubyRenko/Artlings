@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://by1pq4t3qhpc7"]
+[gd_scene load_steps=12 format=3 uid="uid://by1pq4t3qhpc7"]
 
 [ext_resource type="Script" uid="uid://b0c38cxhs71c0" path="res://stat_screen.gd" id="1_ayflt"]
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="2_uggsd"]
 [ext_resource type="Script" uid="uid://bcgulvb8di1hr" path="res://moves_container.gd" id="3_uggsd"]
+[ext_resource type="Texture2D" uid="uid://cjjk1q2xnngqk" path="res://Assets/UI/HpBarPlayer2.png" id="4_yrw7y"]
+[ext_resource type="Texture2D" uid="uid://dvfbm4ygb8gi1" path="res://Assets/UI/HpBarPlayerOver.png" id="5_r7iys"]
+[ext_resource type="Texture2D" uid="uid://dw0uoegiev5w4" path="res://Assets/UI/HpBarPlayerFill.png" id="6_1vl11"]
+[ext_resource type="Texture2D" uid="uid://bg32jrmjqy2uc" path="res://Assets/UI/ExpBar1.png" id="7_yvo2d"]
+[ext_resource type="Texture2D" uid="uid://bgje3lt2qylpt" path="res://Assets/UI/ExpBarOver.png" id="8_jnpv2"]
+[ext_resource type="Texture2D" uid="uid://c5fttrskt1ryd" path="res://Assets/UI/ExpBarFill.png" id="9_gfnn3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bkc8p"]
 font_size = 30
@@ -36,15 +42,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = ExtResource("2_uggsd")
-
-[node name="LeaderButton" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 319.0
-offset_top = 121.0
-offset_right = 482.0
-offset_bottom = 166.0
-text = "Set as leader
-"
 
 [node name="Picture" type="TextureRect" parent="Panel"]
 layout_mode = 0
@@ -150,6 +147,29 @@ offset_top = 22.0
 offset_right = 962.0
 offset_bottom = 53.0
 text = "x"
+
+[node name="HpBar" type="TextureProgressBar" parent="Panel"]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 111.0
+offset_right = 915.0
+offset_bottom = 159.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_yrw7y")
+texture_over = ExtResource("5_r7iys")
+texture_progress = ExtResource("6_1vl11")
+
+[node name="ExpBar" type="TextureProgressBar" parent="Panel"]
+offset_left = 323.0
+offset_top = 155.0
+offset_right = 915.0
+offset_bottom = 192.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_yvo2d")
+texture_over = ExtResource("8_jnpv2")
+texture_progress = ExtResource("9_gfnn3")
 
 [connection signal="item_selected" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_item_selected"]
 [connection signal="pressed" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_pressed"]

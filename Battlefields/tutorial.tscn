@@ -52,17 +52,10 @@ transform = Transform3D(1, 0, 0, 0, 0.960177, 0.279393, 0, -0.279393, 0.960177, 
 [node name="BattleNew" parent="." instance=ExtResource("2_isuhv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28108, -0.241742)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.22952, 0)
-light_energy = 5.0
-spot_range = 10.0
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866075, -0.107449, 0.488231, -0.144097, 0.881522, 0.449618, -0.478697, -0.459755, 0.74798, 0, 11.3656, 0)
-
 [node name="Tutorial" type="CanvasLayer" parent="."]
 
 [node name="BattleInfo" type="Control" parent="Tutorial"]
+z_index = -1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -73,13 +66,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 444.0
-offset_top = 49.0
-offset_right = 668.0
-offset_bottom = 124.0
+offset_left = 431.0
+offset_top = 40.0
+offset_right = 681.0
+offset_bottom = 115.0
 grow_horizontal = 2
-text = "Press T to toggle tutorial text
-Esc to toggle settings
+text = "Cog button or Esc for settings
+Press T to toggle tutorial text
 K to skip tutorial battle"
 horizontal_alignment = 1
 
@@ -104,13 +97,13 @@ horizontal_alignment = 2
 
 [node name="Label3" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 486.0
-offset_top = 352.0
-offset_right = 800.0
-offset_bottom = 427.0
+offset_left = 454.0
+offset_top = 353.0
+offset_right = 710.0
+offset_bottom = 428.0
 text = "This is the description box.
-It gives information about the current
-turn and what's going on in battle."
+It gives information about what's
+going on in battle."
 
 [node name="Label4" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
@@ -143,18 +136,18 @@ horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 216.0
+offset_left = 193.0
 offset_top = 413.0
-offset_right = 446.0
+offset_right = 423.0
 offset_bottom = 462.0
 text = "Click one of these 4 buttons
 to use a move and attack"
 
 [node name="Label8" type="Label" parent="Tutorial/BattleInfo"]
 layout_mode = 0
-offset_left = 304.0
+offset_left = 281.0
 offset_top = 471.0
-offset_right = 320.0
+offset_right = 297.0
 offset_bottom = 494.0
 text = "V"
 horizontal_alignment = 1
@@ -198,6 +191,8 @@ horizontal_alignment = 1
 
 [node name="PartyInfo" type="Control" parent="Tutorial"]
 visible = false
+z_index = 1
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -223,6 +218,14 @@ text = "These bars are:
 current hp
 experience"
 horizontal_alignment = 2
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.22952, 0)
+light_energy = 5.0
+spot_range = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866075, -0.107449, 0.488231, -0.144097, 0.881522, 0.449618, -0.478697, -0.459755, 0.74798, 0, 11.3656, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_mxvau")

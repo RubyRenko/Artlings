@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b7kmqfstuuhfl"]
+[gd_scene load_steps=46 format=3 uid="uid://b7kmqfstuuhfl"]
 
 [ext_resource type="Script" uid="uid://cc1dov4n6rtdk" path="res://Scripts/battle_new.gd" id="1_odwnt"]
 [ext_resource type="Texture2D" uid="uid://dw5kqor3uaiun" path="res://Assets/UI/PartyButton.png" id="2_1x78f"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://dvfbm4ygb8gi1" path="res://Assets/UI/HpBarPlayerOver.png" id="13_1x78f"]
 [ext_resource type="Texture2D" uid="uid://cjjk1q2xnngqk" path="res://Assets/UI/HpBarPlayer2.png" id="13_vxvj7"]
 [ext_resource type="Texture2D" uid="uid://dw0uoegiev5w4" path="res://Assets/UI/HpBarPlayerFill.png" id="14_vucsn"]
+[ext_resource type="Texture2D" uid="uid://bg32jrmjqy2uc" path="res://Assets/UI/ExpBar1.png" id="28_xvw88"]
+[ext_resource type="Texture2D" uid="uid://bgje3lt2qylpt" path="res://Assets/UI/ExpBarOver.png" id="29_477pb"]
+[ext_resource type="Texture2D" uid="uid://c5fttrskt1ryd" path="res://Assets/UI/ExpBarFill.png" id="30_8g40r"]
 
 [sub_resource type="Theme" id="Theme_rf2ug"]
 
@@ -72,20 +75,6 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muy5e"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efi8x"]
-bg_color = Color(0.854624, 0.253347, 0.291867, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbnnx"]
-bg_color = Color(0.278658, 0.498325, 0.784576, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mqn5v"]
 load_path = "res://.godot/imported/settings_texture.png-45d956df31bfafdfaa005fa422a47433.ctex"
@@ -398,25 +387,27 @@ text = "NAME - LEVEL"
 label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
-[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling1"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 256.0
-offset_right = 232.0
-offset_bottom = 280.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+[node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling1"]
+offset_left = 14.0
+offset_top = 250.136
+offset_right = 240.0
+offset_bottom = 287.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("13_vxvj7")
+texture_over = ExtResource("13_1x78f")
+texture_progress = ExtResource("14_vucsn")
 
-[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling1"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 280.0
-offset_right = 232.0
-offset_bottom = 296.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling1"]
+offset_left = 14.0
+offset_top = 276.136
+offset_right = 240.0
+offset_bottom = 299.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("28_xvw88")
+texture_over = ExtResource("29_477pb")
+texture_progress = ExtResource("30_8g40r")
 
 [node name="Artling2" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
 layout_mode = 0
@@ -438,25 +429,27 @@ text = "NAME - LEVEL"
 label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
-[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling2"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 256.0
-offset_right = 232.0
-offset_bottom = 280.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+[node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling2"]
+offset_left = 14.0
+offset_top = 250.136
+offset_right = 240.0
+offset_bottom = 287.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("13_vxvj7")
+texture_over = ExtResource("13_1x78f")
+texture_progress = ExtResource("14_vucsn")
 
-[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling2"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 280.0
-offset_right = 232.0
-offset_bottom = 296.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling2"]
+offset_left = 14.0
+offset_top = 276.136
+offset_right = 240.0
+offset_bottom = 299.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("28_xvw88")
+texture_over = ExtResource("29_477pb")
+texture_progress = ExtResource("30_8g40r")
 
 [node name="Artling3" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
 layout_mode = 0
@@ -478,25 +471,27 @@ text = "NAME - LEVEL"
 label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
-[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling3"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 256.0
-offset_right = 232.0
-offset_bottom = 280.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+[node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling3"]
+offset_left = 14.0
+offset_top = 250.136
+offset_right = 240.0
+offset_bottom = 287.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("13_vxvj7")
+texture_over = ExtResource("13_1x78f")
+texture_progress = ExtResource("14_vucsn")
 
-[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling3"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 280.0
-offset_right = 232.0
-offset_bottom = 296.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling3"]
+offset_left = 14.0
+offset_top = 276.136
+offset_right = 240.0
+offset_bottom = 299.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("28_xvw88")
+texture_over = ExtResource("29_477pb")
+texture_progress = ExtResource("30_8g40r")
 
 [node name="Artling4" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
 layout_mode = 0
@@ -518,25 +513,27 @@ text = "NAME - LEVEL"
 label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
-[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling4"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 256.0
-offset_right = 232.0
-offset_bottom = 280.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+[node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling4"]
+offset_left = 14.0
+offset_top = 250.136
+offset_right = 240.0
+offset_bottom = 287.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("13_vxvj7")
+texture_over = ExtResource("13_1x78f")
+texture_progress = ExtResource("14_vucsn")
 
-[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling4"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 280.0
-offset_right = 232.0
-offset_bottom = 296.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling4"]
+offset_left = 14.0
+offset_top = 276.136
+offset_right = 240.0
+offset_bottom = 299.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("28_xvw88")
+texture_over = ExtResource("29_477pb")
+texture_progress = ExtResource("30_8g40r")
 
 [node name="Artling5" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
 layout_mode = 0
@@ -558,25 +555,27 @@ text = "NAME - LEVEL"
 label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
-[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling5"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 256.0
-offset_right = 232.0
-offset_bottom = 280.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+[node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling5"]
+offset_left = 14.0
+offset_top = 250.136
+offset_right = 240.0
+offset_bottom = 287.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("13_vxvj7")
+texture_over = ExtResource("13_1x78f")
+texture_progress = ExtResource("14_vucsn")
 
-[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling5"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 280.0
-offset_right = 232.0
-offset_bottom = 296.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling5"]
+offset_left = 14.0
+offset_top = 276.136
+offset_right = 240.0
+offset_bottom = 299.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("28_xvw88")
+texture_over = ExtResource("29_477pb")
+texture_progress = ExtResource("30_8g40r")
 
 [node name="Artling6" type="TextureButton" parent="CanvasLayer/Party/Artlings"]
 layout_mode = 0
@@ -598,25 +597,27 @@ text = "NAME - LEVEL"
 label_settings = ExtResource("5_efi8x")
 horizontal_alignment = 1
 
-[node name="HpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling6"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 256.0
-offset_right = 232.0
-offset_bottom = 280.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_efi8x")
+[node name="HpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling6"]
+offset_left = 14.0
+offset_top = 250.136
+offset_right = 240.0
+offset_bottom = 287.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("13_vxvj7")
+texture_over = ExtResource("13_1x78f")
+texture_progress = ExtResource("14_vucsn")
 
-[node name="ExpBar" type="ProgressBar" parent="CanvasLayer/Party/Artlings/Artling6"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 280.0
-offset_right = 232.0
-offset_bottom = 296.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_kbnnx")
+[node name="ExpBar" type="TextureProgressBar" parent="CanvasLayer/Party/Artlings/Artling6"]
+offset_left = 14.0
+offset_top = 276.136
+offset_right = 240.0
+offset_bottom = 299.136
 value = 50.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("28_xvw88")
+texture_over = ExtResource("29_477pb")
+texture_progress = ExtResource("30_8g40r")
 
 [node name="inGame_settings_menu" type="Panel" parent="CanvasLayer"]
 visible = false

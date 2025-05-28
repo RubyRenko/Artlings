@@ -14,11 +14,22 @@ var inspo = 0
 @onready var index_button = $Bg/IndexButton
 @onready var next_button = $Bg/NextBattleButton
 
+var swapping = []
+
 func _ready():
 	add_artling("Inkit")
 	add_artling("Dewphin")
 	add_artling("Wurm")
 	hide_screens()
+	
+	for i in 6:
+		var artling_button = party_screen.party_list.get_child(i)
+		var artling_callable = Callable(self, "_on_artling_pressed").bind(i)
+		artling_button.connect("pressed", artling_callable)
+		
+		var swap_button = party_screen.toggle_list.get_child(i)
+		var swap_callable = Callable(self, "_on_swap_pressed").bind(i)
+		swap_button.connect("pressed", swap_callable)
 
 func load_team():
 	# updates team based off the children in teamnode and updates party_tab
@@ -94,7 +105,18 @@ func _on_index_button_pressed():
 func _on_back_button_pressed():
 	hide_screens()
 
-func _on_artling_1_pressed():
+func _on_artling_pressed(index):
+	show_artling(index)
+
+func _on_swap_pressed(index):
+	swapping.append(index)
+	#print(swapping)
+	if len(swapping) == 2:
+		swap_team(swapping[0], swapping[1])
+		party_screen.toggle_party_buttons(team)
+		swapping = []
+
+"func _on_artling_1_pressed():
 	show_artling(0)
 
 func _on_artling_2_pressed():
@@ -110,4 +132,4 @@ func _on_artling_5_pressed():
 	show_artling(4)
 
 func _on_artling_6_pressed():
-	show_artling(5)
+	show_artling(5)"

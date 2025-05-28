@@ -341,7 +341,6 @@ func setup_stat_screen():
 	stat_screen.set_level_text(level)
 	stat_screen.set_stat_text(health, max_hp, strength, defense, intelligence, mind, speed)
 	stat_screen.set_img(img)
-	stat_screen.leader_button.pressed.connect(_leader_button_pressed)
 	stat_screen.close_button.pressed.connect(_stat_exit_pressed)
 
 func update_stat_screen():
@@ -353,16 +352,6 @@ func update_stat_screen():
 
 func update_from_stat_screen():
 	current_moves = stat_screen.chosen_moves
-
-func _leader_button_pressed():
-	print("leader button pressed!")
-	var player = get_parent().get_parent()
-	var ind = player.team.find(self)
-	player.swap_team(0, ind)
-	#print(current_moves, stat_screen.chosen_moves)
-	update_from_stat_screen()
-	player.hide_screens()
-	player.show_party_screen()
 
 func _stat_exit_pressed():
 	var player = get_parent().get_parent()

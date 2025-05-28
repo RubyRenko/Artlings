@@ -1,9 +1,12 @@
 extends Node3D
 
+@onready var master_move_list = preload("res://move_list.tscn").instantiate()
+
 @onready var player_spawn = $PlayerMonSpawn
 @onready var player_hp_bar = $CanvasLayer/PlayerHpBar
 @onready var player_hp_nums = $CanvasLayer/PlayerHpBar/HpNums
 @onready var player_name_label = $CanvasLayer/PlayerHpBar/Name
+
 @onready var enemy_spawn = $EnemyMonSpawn
 @onready var enemy_hp_bar = $CanvasLayer/EnemyHpBar
 @onready var enemy_hp_nums = $CanvasLayer/EnemyHpBar/HpNums
@@ -12,15 +15,17 @@ extends Node3D
 @onready var move_opt = $CanvasLayer/MoveOptions
 @onready var battle_desc = $CanvasLayer/BattleDesc
 @onready var battle_desc_box = $CanvasLayer/BattleDescBox
-@onready var change_button = $CanvasLayer/ChangeArtling
 @onready var autoplay_button = $CanvasLayer/AutoplayButton
-@onready var party_screen = $CanvasLayer/Party
-@onready var master_move_list = preload("res://move_list.tscn").instantiate()
 
 @onready var turn_timer = $TurnTimer
 @onready var click_icon = $CanvasLayer/ProgLabel
 var can_click = true
 static var auto = false
+
+@onready var change_button = $CanvasLayer/ChangeArtling
+@onready var party_screen = $CanvasLayer/Party
+
+@onready var option_screen = $CanvasLayer/inGame_settings_menu
 
 var player
 var player_team : Array
