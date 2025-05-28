@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=48 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://d173d7idrhjqq" path="res://Assets/artlings/water_starter_paper.jpg" id="23_0p6fr"]
 [ext_resource type="PackedScene" uid="uid://b4jnep6mq1yae" path="res://ArtlingScenes/bacon_pig.tscn" id="23_1m7qd"]
 [ext_resource type="Texture2D" uid="uid://m65yl67qpddy" path="res://Assets/artlings/wormCropped.png" id="24_m76uk"]
+[ext_resource type="PackedScene" uid="uid://c4ferlba1j7g2" path="res://ArtlingScenes/hatguy.tscn" id="24_wr2fb"]
 [ext_resource type="Script" uid="uid://b8yh41nerx1t0" path="res://Scenes/trainer.gd" id="25_57tv7"]
 [ext_resource type="Texture2D" uid="uid://bx2mnewpud5xq" path="res://Menus/menu_images/settings_texture.png" id="25_x04ip"]
 [ext_resource type="PackedScene" uid="uid://djqrw1tk1ekon" path="res://Battlefields/water_battlefield.tscn" id="26_q6ldt"]
@@ -719,19 +720,20 @@ visible = false
 [node name="Wurm" parent="WildBattles/Test4" instance=ExtResource("6_hpbh2")]
 visible = false
 
+[node name="Test5" type="Node3D" parent="WildBattles"]
+visible = false
+
+[node name="Hatguy" parent="WildBattles/Test5" instance=ExtResource("24_wr2fb")]
+visible = false
+
+[node name="Test6" type="Node3D" parent="WildBattles"]
+visible = false
+
+[node name="BaconPig" parent="WildBattles/Test6" instance=ExtResource("23_1m7qd")]
+visible = false
+
 [node name="Trainers" type="Node3D" parent="." groups=["trainer"]]
 script = ExtResource("22_uv5sc")
-
-[node name="Dewphin" type="Node3D" parent="Trainers" groups=["trainer"]]
-visible = false
-script = ExtResource("25_57tv7")
-level = 3
-artling_movesets = [["Spout", "Rejuvinate", "Bubble"]]
-battlefield = ExtResource("26_q6ldt")
-metadata/_custom_type_script = "uid://b8yh41nerx1t0"
-
-[node name="Dewphin" parent="Trainers/Dewphin" instance=ExtResource("22_50soc")]
-visible = false
 
 [node name="Bapig" type="Node3D" parent="Trainers" groups=["trainer"]]
 script = ExtResource("25_57tv7")
@@ -743,15 +745,15 @@ metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 [node name="BaconPig" parent="Trainers/Bapig" instance=ExtResource("23_1m7qd")]
 visible = false
 
-[node name="Dewphin2" type="Node3D" parent="Trainers" groups=["trainer"]]
+[node name="Dewphin" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
 script = ExtResource("25_57tv7")
-level = 5
-artling_movesets = [["Spout", "Sap", "Wash", "Rejuvinate"]]
+level = 3
+artling_movesets = [["Spout", "Rejuvinate", "Bubble"]]
 battlefield = ExtResource("26_q6ldt")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
-[node name="Dewphin" parent="Trainers/Dewphin2" instance=ExtResource("22_50soc")]
+[node name="Dewphin" parent="Trainers/Dewphin" instance=ExtResource("22_50soc")]
 visible = false
 
 [node name="InkWurm" type="Node3D" parent="Trainers" groups=["trainer"]]
@@ -766,6 +768,17 @@ metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 visible = false
 
 [node name="Wurm" parent="Trainers/InkWurm" instance=ExtResource("6_hpbh2")]
+visible = false
+
+[node name="Dewphin2" type="Node3D" parent="Trainers" groups=["trainer"]]
+visible = false
+script = ExtResource("25_57tv7")
+level = 5
+artling_movesets = [["Spout", "Sap", "Wash", "Rejuvinate"]]
+battlefield = ExtResource("26_q6ldt")
+metadata/_custom_type_script = "uid://b8yh41nerx1t0"
+
+[node name="Dewphin" parent="Trainers/Dewphin2" instance=ExtResource("22_50soc")]
 visible = false
 
 [node name="ChooseStarter" type="Panel" parent="."]

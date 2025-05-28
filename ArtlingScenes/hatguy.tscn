@@ -36,16 +36,17 @@ animations = [{
 [node name="Hatguy" type="Node3D" groups=["2d", "mon"]]
 script = ExtResource("1_dlx52")
 max_hp = 60
-strength = 5
+strength = 10
 defense = 10
-intelligence = 20
+intelligence = 15
 mind = 10
 speed = 10
 img = ExtResource("2_gt3gl")
 
 [node name="AnimSprite" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -2.14577e-06, 0.125342, 0.000684023)
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -2.14577e-06, 0.125342, 0.000684023)
 cast_shadow = 2
+flip_h = true
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_q48m0")
 animation = &"brace"

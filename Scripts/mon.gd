@@ -44,6 +44,7 @@ func attack(target, move):
 		#print("Commencing attack")
 		# chooses attack and handles move accuracy
 		# for different statuses that affect attack, this is where it goes
+		var battle_text = ""
 		var atk = moves_list[move]
 		var acc = atk.accuracy
 		var damage_range = atk.damage
@@ -51,19 +52,22 @@ func attack(target, move):
 			acc -= 20
 			#print("affected by blind, accuracy: " + str(acc))
 		elif status == "Focus":
-			acc += 20
+			acc = 100
 		elif status == "Soapy" && len(damage_range) == 2:
 			damage_range = [atk.damage[0], atk.damage[0]]
 		elif status == "Soapy" && len(damage_range) == 4:
 			damage_range = [atk.damage[0], atk.damage[0], atk.damage[2], atk.damage[2]]
+		elif status == "Confused":
+			var new_atk = current_moves.pick_random()
+			battle_text += "%s is confused, used %s instead.\n" % [target.nickname, new_atk]
+			atk = moves_list[new_atk]
 		
 		# generates a random int form 0-100
 		if randi_range(0, 100) <= acc:
 			# if it's lower than accuracy, it hits
-			
 			if atk.dmg_type == "str":
 				# calculates damage depending on the str stat
-				var battle_text = atk.battle_text % [nickname, target.nickname]
+				battle_text += atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_phys_damage(damage)
 				if atk.effect[1] == "Cure":
@@ -79,7 +83,7 @@ func attack(target, move):
 			
 			elif atk.dmg_type == "int":
 				# calculates damage depending on the int stat
-				var battle_text = atk.battle_text % [nickname, target.nickname]
+				battle_text += atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_mnd_damage(damage)
 				if atk.effect[1] == "Cure":
@@ -96,7 +100,7 @@ func attack(target, move):
 			elif atk.dmg_type == "str/mnd":
 				# calculates damage depending on the str stat
 				# with defense being mnd stat
-				var battle_text = atk.battle_text % [nickname, target.nickname]
+				battle_text += atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_phys_damage(damage)
 				if atk.effect[1] == "Cure":
@@ -104,16 +108,16 @@ func attack(target, move):
 					target.status_counter = 0
 				elif atk.effect[0] != 0:
 					if apply_effect(target, atk.effect):
-						battle_text = battle_text + "\nApplied " + atk.effect[1] + "to" + target.nickname + "."
+						battle_text += "\nApplied " + atk.effect[1] + "to" + target.nickname + "."
 					else:
-						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+						battle_text += "\n" + target.nickname + " is already " + target.status + "."
 				target.take_mnd_damage(final_dmg)
 				return battle_text
 			
 			elif atk.dmg_type == "int/def":
 				# calculates damage depending on the int stat
 				# with defense being def stat
-				var battle_text = atk.battle_text % [nickname, target.nickname]
+				battle_text += atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_mnd_damage(damage)
 				if atk.effect[1] == "Cure":
@@ -121,14 +125,14 @@ func attack(target, move):
 					target.status_counter = 0
 				elif atk.effect[0] != 0:
 					if apply_effect(target, atk.effect):
-						battle_text = battle_text + "\nApplied " + atk.effect[1] + " to " + target.nickname + "."
+						battle_text += "\nApplied " + atk.effect[1] + " to " + target.nickname + "."
 					else:
-						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+						battle_text += "\n" + target.nickname + " is already " + target.status + "."
 				target.take_phys_damage(final_dmg)
 				return battle_text
 			
 			elif atk.dmg_type == "int/self":
-				var battle_text = atk.battle_text % [nickname, target.nickname]
+				battle_text += atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_mnd_damage(damage)
 				if atk.effect[1] == "Cure":
@@ -136,9 +140,9 @@ func attack(target, move):
 					target.status_counter = 0
 				elif atk.effect[0] != 0:
 					if apply_effect(target, atk.effect):
-						battle_text = battle_text + "\nApplied " + atk.effect[1]  + " to " + target.nickname + "."
+						battle_text += "\nApplied " + atk.effect[1]  + " to " + target.nickname + "."
 					else:
-						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+						battle_text += "\n" + target.nickname + " is already " + target.status + "."
 					if apply_effect(self, atk.effect):
 						battle_text = battle_text + "\nApplied " + atk.effect[1]  + " to " + nickname + "."
 					else:
@@ -150,7 +154,7 @@ func attack(target, move):
 				return battle_text
 			
 			elif atk.dmg_type == "str/self":
-				var battle_text = atk.battle_text % [nickname, target.nickname]
+				battle_text += atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(damage_range[0], damage_range[1])
 				var final_dmg = calculate_phys_damage(damage)
 				if atk.effect[1] == "Cure":
@@ -158,13 +162,13 @@ func attack(target, move):
 					target.status_counter = 0
 				elif atk.effect[0] != 0:
 					if apply_effect(target, atk.effect):
-						battle_text = battle_text + "\nApplied " + atk.effect[1] + " to " + target.nickname + "."
+						battle_text += "\nApplied " + atk.effect[1] + " to " + target.nickname + "."
 					else:
-						battle_text = battle_text + "\n" + target.nickname + " is already " + target.status + "."
+						battle_text += "\n" + target.nickname + " is already " + target.status + "."
 					if apply_effect(self, atk.effect):
-						battle_text = battle_text + "\nApplied " + atk.effect[1] + " to " + nickname + "."
+						battle_text += "\nApplied " + atk.effect[1] + " to " + nickname + "."
 					else:
-						battle_text = battle_text + "\n" + nickname + " is already " + status + "."
+						battle_text += "\n" + nickname + " is already " + status + "."
 				var self_dmg = randi_range(damage_range[2], damage_range[3])
 				var final_self_dmg = calculate_phys_damage(self_dmg)
 				target.take_phys_damage(final_dmg)
@@ -172,7 +176,7 @@ func attack(target, move):
 				return battle_text
 			
 			elif atk.dmg_type == "self":
-				var battle_text = atk.battle_text % nickname
+				battle_text += atk.battle_text % [nickname, target.nickname]
 				var damage = randi_range(atk.damage[0], atk.damage[1])
 				var final_dmg = calculate_mnd_damage(damage)
 				if atk.effect[1] == "Cure":
@@ -180,9 +184,9 @@ func attack(target, move):
 					target.status_counter = 0
 				elif atk.effect[0] != 0:
 					if apply_effect(self, atk.effect):
-						battle_text = battle_text + "\nApplied " + atk.effect[1] + " to " + nickname + "."
+						battle_text += "\nApplied " + atk.effect[1] + " to " + nickname + "."
 					else:
-						battle_text = battle_text + "\n" + nickname + " is already " + status + "."
+						battle_text += "\n" + nickname + " is already " + status + "."
 				take_mnd_damage(final_dmg)
 				return battle_text
 		else:
@@ -279,6 +283,10 @@ func take_status():
 		return nickname + " heals a little."
 	elif status == "Focusing":
 		return nickname + " is focusing."
+	elif status == "Confused":
+		return nickname + " is confused."
+	else:
+		return "placeholder status"
 
 # sets all the main stats
 func set_stats(hp, str, def, intel, mnd, spd):

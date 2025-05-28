@@ -15,6 +15,7 @@ var inspo = 0
 @onready var next_button = $Bg/NextBattleButton
 
 func _ready():
+	add_artling("Hatguy")
 	add_artling("Inkit")
 	add_artling("Dewphin")
 	add_artling("Wurm")

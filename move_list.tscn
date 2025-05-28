@@ -41,7 +41,7 @@ script = ExtResource("2_uqtxr")
 accuracy = 100
 type = "Geometric"
 dmg_type = "self"
-effect = [3, "Focusing"]
+effect = [2, "Focusing"]
 desc = "Makes the user focus and more accurate"
 battle_text = "%s focuses."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
@@ -220,4 +220,23 @@ type = "Geometric"
 dmg_type = "str/self"
 desc = "A reckless slap that deals high damage and recoil"
 battle_text = "%s slaps %s with bacon!"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="KarateKick" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [30, 35]
+accuracy = 90
+dmg_type = "str"
+desc = "A martial kick."
+battle_text = "%s kicks %s."
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="HatTip" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [20, 20]
+accuracy = 100
+dmg_type = "int"
+effect = [3, "Confused"]
+desc = "Tips it's hat to deal a bit of damage and confuse."
+battle_text = "%s tips it's hat at %s."
 metadata/_custom_type_script = "uid://je6io23ym5wg"

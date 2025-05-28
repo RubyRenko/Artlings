@@ -287,6 +287,7 @@ Line 2
 Line 3
 Line 4"
 label_settings = SubResource("LabelSettings_ksy4f")
+autowrap_mode = 3
 
 [node name="ProgLabel" type="Label" parent="CanvasLayer"]
 visible = false

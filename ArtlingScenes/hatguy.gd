@@ -4,9 +4,9 @@ extends Mon
 @onready var leader_button = stat_screen.leader_button
 
 func _ready():
-	learnable_moves = ["Brush", "Smoke", "Dollop", "InkSlash", "Stipple", "InkBlot"]
-	load_move(master_move_list.get_move("Brush"))
-	load_move(master_move_list.get_move("Smoke"))
+	learnable_moves = ["Thud", "HatTip", "KarateKick"]
+	load_move(master_move_list.get_move("Thud"))
+	load_move(master_move_list.get_move("HatTip"))
 	health = max_hp
 	setup_stat_screen()
 
