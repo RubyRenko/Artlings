@@ -22,11 +22,6 @@ img = ExtResource("2_ymmcu")
 [node name="AnimModel" parent="." instance=ExtResource("2_lujuq")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
-[node name="HpBar" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.980193, 0)
-visible = false
-text = "HP:"
-
 [node name="ArtlingStats" parent="." instance=ExtResource("3_lujuq")]
 visible = false
 

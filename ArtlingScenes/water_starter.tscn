@@ -53,11 +53,6 @@ billboard = 1
 sprite_frames = SubResource("SpriteFrames_xqau8")
 animation = &"attack"
 
-[node name="HpBar" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07199, 0)
-visible = false
-text = "HP: "
-
 [node name="ArtlingStats" parent="." instance=ExtResource("3_3jtcs")]
 visible = false
 

@@ -43,10 +43,10 @@ script = ExtResource("3_ooeoe")
 
 [node name="Picture" type="TextureRect" parent="IndexPg1"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 58.0
-offset_right = 326.0
-offset_bottom = 358.0
+offset_left = 30.0
+offset_top = 72.0
+offset_right = 310.0
+offset_bottom = 352.0
 texture = ExtResource("3_xpc04")
 expand_mode = 3
 
@@ -136,9 +136,9 @@ script = ExtResource("3_ooeoe")
 [node name="Picture" type="TextureRect" parent="IndexPg2"]
 layout_mode = 0
 offset_left = 175.0
-offset_top = 62.0
-offset_right = 475.0
-offset_bottom = 362.0
+offset_top = 72.0
+offset_right = 455.0
+offset_bottom = 352.0
 texture = ExtResource("3_xpc04")
 expand_mode = 3
 

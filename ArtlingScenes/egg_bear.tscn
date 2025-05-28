@@ -16,11 +16,6 @@ speed = 5
 [node name="Food_2" parent="." instance=ExtResource("1_obaaf")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.403591, 0)
 
-[node name="HpBar" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13268, 0)
-visible = false
-text = "HP:"
-
 [node name="ArtlingStats" parent="." instance=ExtResource("2_hg8v8")]
 visible = false
 

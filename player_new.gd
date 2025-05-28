@@ -18,6 +18,7 @@ func _ready():
 	add_artling("Inkit")
 	add_artling("Dewphin")
 	add_artling("Wurm")
+	index_screen.artlings_discovered = []
 	hide_screens()
 
 func load_team():
@@ -50,7 +51,7 @@ func show_create_screen():
 
 func show_index_screen():
 	index_screen.visible = true
-	index_screen.update_table_text()
+	index_screen.setup_index()
 
 func _on_create_artling_pressed():
 	if inspo >= create_screen.inspo_cost:
@@ -74,6 +75,8 @@ func remove_artling(artling):
 		team_node.remove_artling(artling)
 
 func add_artling(artling_name, nickname = artling_name):
+	if !(artling_name in index_screen.artlings_discovered):
+		index_screen.artlings_discovered.append(artling_name)
 	team_node.add_teammate(artling_name, nickname)
 	load_team()
 

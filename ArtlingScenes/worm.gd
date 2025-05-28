@@ -14,9 +14,6 @@ func _ready():
 	anim.play_anim("idle")
 	setup_stat_screen()
 
-func _process(_delta):
-	hp_bar.text = str(health) + " / " + str(max_hp)
-
 func play_anim(animation):
 	anim.play_anim(animation)
 
