@@ -21,3 +21,7 @@ visible = false
 
 [node name="atk_sfx" type="AudioStreamPlayer" parent="."]
 bus = &"sfx"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583872, 0.746182, 0.0183832)
+visible = false

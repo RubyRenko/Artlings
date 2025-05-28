@@ -46,7 +46,7 @@ func show_party_screen():
 
 func show_create_screen():
 	create_screen.visible = true
-	create_screen.clear_colors()
+	create_screen.setup_screen()
 
 func show_index_screen():
 	index_screen.visible = true

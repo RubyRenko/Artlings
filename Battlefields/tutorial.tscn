@@ -11,13 +11,13 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxvau"]
 panorama = ExtResource("1_4tefe")
 
-[sub_resource type="Sky" id="Sky_npm1x"]
+[sub_resource type="Sky" id="Sky_sjmby"]
 sky_material = SubResource("PanoramaSkyMaterial_mxvau")
 
 [sub_resource type="Environment" id="Environment_ftct7"]
 background_mode = 2
 background_color = Color(0.788765, 0.999632, 1, 1)
-sky = SubResource("Sky_npm1x")
+sky = SubResource("Sky_sjmby")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_enabled = true

@@ -4,7 +4,7 @@ extends Mon
 @onready var leader_button = stat_screen.leader_button
 
 func _ready():
-	learnable_moves = ["Brush", "Smoke", "Dollop", "InkSlash", "Stipple", "InkBlot"]
+	learnable_moves = ["Brush", "Smoke", "Dollop", "InkSlash", "Stipple", "Inkblot"]
 	load_move(master_move_list.get_move("Brush"))
 	load_move(master_move_list.get_move("Smoke"))
 	"""load_move(moves.get_move("Dollop"))

@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://djqrw1tk1ekon"]
+
+[ext_resource type="Script" uid="uid://coe5aw4u0j8vr" path="res://Battlefields/battlefield_1.gd" id="1_mmuvq"]
+[ext_resource type="PackedScene" uid="uid://b7pfmvsopbjhj" path="res://Assets/environment/water_area/water_environment.tscn" id="1_wkkdd"]
+[ext_resource type="Texture2D" uid="uid://dy1h7ycrfjcgq" path="res://Assets/environment/Epic_BlueSunset_EquiRect_flat.png" id="2_mmuvq"]
+[ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="3_s7hom"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_p7t7q"]
+panorama = ExtResource("2_mmuvq")
+
+[sub_resource type="Sky" id="Sky_npm1x"]
+sky_material = SubResource("PanoramaSkyMaterial_p7t7q")
+
+[sub_resource type="Environment" id="Environment_8pbg3"]
+background_mode = 2
+background_color = Color(0.788765, 0.999632, 1, 1)
+sky = SubResource("Sky_npm1x")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 2.0
+volumetric_fog_length = 85.56
+
+[node name="WaterBattlefield" type="Node3D"]
+script = ExtResource("1_mmuvq")
+
+[node name="WaterEnvironment" parent="." instance=ExtResource("1_wkkdd")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8pbg3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 1.38311e-08, 0.987406, 0.15821, -8.63217e-08, 0.15821, -0.987406, 0, 2.27695, -7.62937)
+
+[node name="BattleNew" parent="." groups=["battle"] instance=ExtResource("3_s7hom")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0124197, 1.69255, -4.792)
+
+[node name="PlayerMarker" type="Marker3D" parent="BattleNew"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4, 0.1, 0)
+
+[node name="EnemyMarker" type="Marker3D" parent="BattleNew"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4, 0.1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.895193, -0.364585, 0.256334, -0.288391, 0.912373, 0.290526, -0.339794, 0.186153, -0.921893, 0, 5.09272, -7.15173)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05303, 0, 1.23484)
+omni_range = 15.0
+omni_attenuation = 0.3

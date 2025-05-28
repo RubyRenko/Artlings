@@ -26,6 +26,8 @@ var player
 var player_team : Array
 var mons_for_exp : Array
 var exp_gain = 100
+
+var enemy
 var enemy_team : Array
 var player_mon : Node3D
 var enemy_mon : Node3D
@@ -74,7 +76,8 @@ func load_mons(player_inp, enemy_inp):
 	#print(player_mon.level)
 	
 	# sets the enemy mon to the input and puts it where it's supposed to be
-	enemy_team = enemy_inp
+	enemy = enemy_inp
+	enemy_team = enemy_inp.get_children()
 	update_enemy_sprite()
 	
 	party_screen.update_battle_party(player_team)
@@ -346,6 +349,8 @@ func continue_battle(prog):
 		# shows text based on if battle was won or lost
 		# adds exprience to player
 		if battle_won:
+			if enemy.is_in_group("trainer"):
+				enemy.defeated = true
 			var win_text = "Battle won!"
 			#print(mons_for_exp)
 			for mon in mons_for_exp:
@@ -360,6 +365,7 @@ func continue_battle(prog):
 			#print("Player level: " + str(player_mon.level))
 		# resets the enemy and player mon health and makes them invisible
 		for mon in enemy_team:
+			print(mon)
 			mon.visible = false
 			mon.health = mon.max_hp
 			mon.fainted = false

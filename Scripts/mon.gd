@@ -300,17 +300,18 @@ func add_stats(hp, str, def, intel, mnd, spd):
 
 # load moves from the master list and adds it to the move_list
 func load_move(move):
-	moves_list[move.name] = move
+	#print(move)
 	learnable_moves.pop_at(learnable_moves.find(move.name))
+	moves_list[move.name] = move
 	if len(current_moves) < 4:
 		current_moves.append(move.name)
 
 # adds experience and levels up 
 func add_experience(amount):
 	exp += amount
+	var level_text = nickname + " leveled up! "
 	#level up
-	if exp >= 100:
-		var level_text = nickname + " leveled up! "
+	while exp >= 100:
 		level += 1
 		#right now, stats are random, but in the future might be able to be customized by a growth variable
 		add_stats(randi_range(1,stat_growth[0]), randi_range(0, stat_growth[1]), randi_range(0, stat_growth[2]),\
@@ -322,9 +323,9 @@ func add_experience(amount):
 			load_move(master_move_list.get_move(to_learn))
 			#print(current_moves)
 			#print(moves_list)
-			level_text += "Learned " + to_learn.capitalize() + "."
+			level_text += "Learned " + to_learn.capitalize() + ".\n"
 		exp -= 100
-		return level_text
+	return level_text
 
 func setup_stat_screen():
 	stat_screen.load_moves(current_moves, moves_list.keys())

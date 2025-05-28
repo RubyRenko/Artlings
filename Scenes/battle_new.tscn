@@ -574,9 +574,13 @@ show_percentage = false
 [node name="TurnTimer" type="Timer" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/ChangeArtling" to="." method="_on_change_artling_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/AutoplayButton" to="." method="_on_autoplay_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/BackButton" to="." method="_on_back_button_pressed"]
