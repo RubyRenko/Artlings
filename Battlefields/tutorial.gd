@@ -18,9 +18,7 @@ func _process(_delta):
 		$Tutorial/PartyInfo.visible = false
 	
 	if battle_node.option_screen.visible && $Tutorial.visible:
-		$Tutorial/BattleInfo.visible = false
-	elif $Tutorial.visible:
-		$Tutorial/BattleInfo.visible = true
+		$Tutorial.visible = false
 	
 	if Input.is_action_just_pressed("tutorial"):
 		$Tutorial.visible = !$Tutorial.visible
