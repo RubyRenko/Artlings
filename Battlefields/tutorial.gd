@@ -1,10 +1,16 @@
 extends Node3D
 
 @onready var battle_node = $BattleNew
+@onready var player_marker = $BattleNew/PlayerMarker
+@onready var enemy_marker = $BattleNew/EnemyMarker
 var tutorial_on = true
 
-func start_battle(player_mons, enemy_mons):
-	battle_node.load_mons(player_mons, enemy_mons)
+func start_battle(player, enemy):
+	if player_marker != null:
+		battle_node.player_spawn = player_marker
+	if enemy_marker != null:
+		battle_node.enemy_spawn = enemy_marker
+	battle_node.load_mons(player, enemy)
 
 func _on_child_exiting_tree(node):
 	if node == battle_node:
@@ -28,4 +34,4 @@ func _process(_delta):
 		if !tutorial_on:
 			$Tutorial.visible = false
 	if Input.is_action_just_pressed("skip tutorial"):
-		$BattleNew.queue_free()
+		$BattleNew.continue_battle(-2)

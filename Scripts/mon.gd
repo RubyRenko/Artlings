@@ -59,7 +59,7 @@ func attack(target, move):
 			damage_range = [atk.damage[0], atk.damage[0], atk.damage[2], atk.damage[2]]
 		elif status == "Confused":
 			var new_atk = current_moves.pick_random()
-			battle_text += "%s is confused, used %s instead.\n" % [target.nickname, new_atk]
+			battle_text += "%s is confused, used %s instead.\n" % [nickname, new_atk]
 			atk = moves_list[new_atk]
 		
 		# generates a random int form 0-100
@@ -192,7 +192,7 @@ func attack(target, move):
 		else:
 			# if it's higher then it misses
 			#print("Missed!")
-			return "Missed!"
+			return battle_text + " Missed!"
 
 func calculate_phys_damage(amount):
 	# calculates physical damage based on mon strength
@@ -317,9 +317,10 @@ func load_move(move):
 # adds experience and levels up 
 func add_experience(amount):
 	exp += amount
-	var level_text = nickname + " leveled up! "
+	var level_text = "" 
 	#level up
 	while exp >= 100:
+		level_text += nickname + " leveled up! "
 		level += 1
 		#right now, stats are random, but in the future might be able to be customized by a growth variable
 		add_stats(randi_range(1,stat_growth[0]), randi_range(0, stat_growth[1]), randi_range(0, stat_growth[2]),\

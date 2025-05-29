@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://djqrw1tk1ekon"]
 
-[ext_resource type="Script" uid="uid://coe5aw4u0j8vr" path="res://Battlefields/battlefield_1.gd" id="1_mmuvq"]
+[ext_resource type="Script" uid="uid://uigblhvd3vg8" path="res://Battlefields/battlefield.gd" id="1_mmuvq"]
 [ext_resource type="PackedScene" uid="uid://b7pfmvsopbjhj" path="res://Assets/environment/water_area/water_environment.tscn" id="1_wkkdd"]
 [ext_resource type="Texture2D" uid="uid://dy1h7ycrfjcgq" path="res://Assets/environment/Epic_BlueSunset_EquiRect_flat.png" id="2_mmuvq"]
 [ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="3_s7hom"]

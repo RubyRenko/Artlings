@@ -2,7 +2,7 @@ extends Mon
 @onready var anim = $AnimSprite
 
 func _ready():
-	learnable_moves = ["Spout", "Bubble", "Rejuvinate", "Sap", "Wash", "Cure", "BubbleBurst"]
+	learnable_moves = ["Spout", "Bubble", "Rejuvenate", "Sap", "Wash", "Cure", "BubbleBurst"]
 	load_move(master_move_list.get_move("Spout"))
 	load_move(master_move_list.get_move("Bubble"))
 	health = max_hp

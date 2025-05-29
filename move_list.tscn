@@ -159,7 +159,7 @@ desc = "Surrounds the user in a healing bubble"
 battle_text = "%s is surrounded by a bubble."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
-[node name="Rejuvinate" type="Node" parent="." groups=["move"]]
+[node name="Rejuvenate" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
 damage = [-30, -30]
 accuracy = 100

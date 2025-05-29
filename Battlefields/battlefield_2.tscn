@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bestmstem11hp"]
 
-[ext_resource type="Script" uid="uid://bjblmts7mw8nb" path="res://Battlefields/battlefield_2.gd" id="1_2yffw"]
 [ext_resource type="PackedScene" uid="uid://bti8uonwlyrg4" path="res://Assets/environment/starter_area_v3/starter_area.tscn" id="1_r2tj7"]
+[ext_resource type="Script" uid="uid://uigblhvd3vg8" path="res://Battlefields/battlefield.gd" id="1_sfyjp"]
 [ext_resource type="Texture2D" uid="uid://mjnkni73s0v5" path="res://Assets/environment/skybox/Sky_Day_BlueSky_Equirect.png" id="2_2yffw"]
 [ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="3_sfyjp"]
 [ext_resource type="AudioStream" uid="uid://cikkwu1ckkftr" path="res://Audio/sample6.mp3" id="5_sfyjp"]
@@ -26,7 +26,7 @@ volumetric_fog_density = 2.0
 volumetric_fog_length = 85.56
 
 [node name="Battlefield2" type="Node3D" groups=["battle"]]
-script = ExtResource("1_2yffw")
+script = ExtResource("1_sfyjp")
 
 [node name="StarterArea" parent="." groups=["battle"] instance=ExtResource("1_r2tj7")]
 

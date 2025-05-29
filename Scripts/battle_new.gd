@@ -179,7 +179,12 @@ func choose_move(move_ind):
 		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind].capitalize() + "!", "attack"])
 		commands.append(["player", player_mon.current_moves[move_ind] ])
 		# picks a random move for the enemy and puts it in the commands list
-		var enemy_move = enemy_mon.current_moves.pick_random()
+		var enemy_move
+		if enemy.is_in_group("trainer"):
+			enemy_move = enemy.choose_move(player_mon, enemy_mon)
+		else:
+			print("Not a trainer, choosing random")
+			enemy_move = enemy_mon.current_moves.pick_random()
 		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
 		commands.append(["enemy", enemy_move])
 		commands.append(["status"])
@@ -189,7 +194,12 @@ func choose_move(move_ind):
 	# otherwise appends enemy commands first
 	else:
 		# picks a random move for the enemy and puts it in the commands list
-		var enemy_move = enemy_mon.current_moves.pick_random()
+		var enemy_move
+		if enemy.is_in_group("trainer"):
+			enemy_move = enemy.choose_move(player_mon, enemy_mon)
+		else:
+			print("Not a trainer, choosing random")
+			enemy_move = enemy_mon.current_moves.pick_random()
 		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
 		commands.append(["enemy", enemy_move])
 		# puts the move used by the player in the commands list
@@ -305,6 +315,7 @@ func _on_change_artling_pressed():
 func choose_artling(artling_ind):
 	party_screen.visible = false
 	player_mon.visible = false
+	player_mon.status = "None"
 	player.swap_team(0, artling_ind)
 	update_player_sprite()
 	if !(player_mon in mons_for_exp):
@@ -374,10 +385,12 @@ func continue_battle(prog):
 			mon.visible = false
 			mon.health = mon.max_hp
 			mon.fainted = false
+			mon.status = "None"
 		for mon in player_team:
 			mon.visible = false
 			mon.health = mon.max_hp
 			mon.fainted = false
+			mon.status = "None"
 		player.inspo += 2
 		# sets battle prog to -3 so the battle queues free and ends
 		can_click = false

@@ -31,12 +31,12 @@
 [ext_resource type="PackedScene" uid="uid://b4jnep6mq1yae" path="res://ArtlingScenes/bacon_pig.tscn" id="23_1m7qd"]
 [ext_resource type="Texture2D" uid="uid://m65yl67qpddy" path="res://Assets/artlings/wormCropped.png" id="24_m76uk"]
 [ext_resource type="PackedScene" uid="uid://c4ferlba1j7g2" path="res://ArtlingScenes/hatguy.tscn" id="24_wr2fb"]
+[ext_resource type="Script" uid="uid://b8yh41nerx1t0" path="res://Scenes/trainer.gd" id="25_57tv7"]
 [ext_resource type="PackedScene" uid="uid://djqrw1tk1ekon" path="res://Battlefields/water_battlefield.tscn" id="26_q6ldt"]
 [ext_resource type="PackedScene" uid="uid://dccvmqkyrtfkm" path="res://Battlefields/battlefield_1.tscn" id="26_uloti"]
 [ext_resource type="Script" uid="uid://16nfqaasj8vl" path="res://Scripts/trainerai/bapigtrainerai.gd" id="27_r27tj"]
 [ext_resource type="Script" uid="uid://cfditj2scu1aq" path="res://Scripts/trainerai/wurmtrainerai.gd" id="28_a8wuu"]
 [ext_resource type="Script" uid="uid://baf7g022jd032" path="res://Scenes/dewphin_tr.gd" id="30_a8wuu"]
-[ext_resource type="Script" uid="uid://b6cxujus1iwix" path="res://Scenes/ink_wurm_tr.gd" id="32_a8wuu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fipc"]
 bg_color = Color(1, 1, 1, 1)
@@ -860,9 +860,10 @@ visible = false
 
 [node name="InkWurmTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
-script = ExtResource("32_a8wuu")
-level = 6
-artling_movesets = [["Stipple", "Dollop", "Smoke", "Inkblot"], ["Teeth", "Blender", "Focus", "Charge"]]
+script = ExtResource("25_57tv7")
+level = 5
+artling_movesets = [["Stipple", "Dollop", "Smoke"], ["Teeth", "Blender", "Charge"]]
+battlefield = ExtResource("26_uloti")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
 [node name="Inkit" parent="Trainers/InkWurmTr" instance=ExtResource("21_pfsb0")]
