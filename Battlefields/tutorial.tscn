@@ -1,9 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvl3kywk6lxte"]
+[gd_scene load_steps=17 format=3 uid="uid://dvl3kywk6lxte"]
 
 [ext_resource type="Texture2D" uid="uid://dy1h7ycrfjcgq" path="res://Assets/environment/Epic_BlueSunset_EquiRect_flat.png" id="1_4tefe"]
 [ext_resource type="Script" uid="uid://b4xampnfeflny" path="res://Battlefields/tutorial.gd" id="1_isuhv"]
 [ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="2_isuhv"]
+[ext_resource type="Script" uid="uid://b6ajhkvrcnc01" path="res://Battlefields/battle_info_step.gd" id="4_d6atl"]
 [ext_resource type="AudioStream" uid="uid://cyhau27c5qqjv" path="res://Audio/sample1.wav" id="4_mxvau"]
+[ext_resource type="Texture2D" uid="uid://bqfpsg5xoaypo" path="res://Assets/UI/Memos/MemoRect4.png" id="5_fekit"]
+[ext_resource type="Texture2D" uid="uid://c3mpuhip4jqr3" path="res://Assets/UI/Memos/MemoRect.png" id="6_rdyq2"]
+[ext_resource type="Texture2D" uid="uid://de0rhs2er4jdq" path="res://Assets/UI/Memos/MemoRect2.png" id="7_72xn0"]
+[ext_resource type="Texture2D" uid="uid://b5m0ehmch6b5b" path="res://Assets/UI/arrows/arrow1.png" id="8_0as0j"]
+[ext_resource type="Texture2D" uid="uid://cm2ec3xtx3loq" path="res://Assets/UI/Memos/MemoRect3.png" id="9_mireq"]
+[ext_resource type="Texture2D" uid="uid://u76cqes7y78n" path="res://Assets/UI/arrows/arrow5.png" id="10_72xn0"]
+[ext_resource type="Texture2D" uid="uid://cnh7hut33kmlh" path="res://Assets/UI/Memos/MemoRect5.png" id="11_0as0j"]
+[ext_resource type="Texture2D" uid="uid://bxdmhouo8n57t" path="res://Assets/UI/arrows/arrow4.png" id="12_mireq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxvau"]
 panorama = ExtResource("1_4tefe")
@@ -20,9 +29,6 @@ ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 2.0
 volumetric_fog_length = 85.56
-
-[sub_resource type="LabelSettings" id="LabelSettings_isuhv"]
-font_size = 20
 
 [node name="Tutorial" type="Node3D" groups=["tutorial"]]
 script = ExtResource("1_isuhv")
@@ -54,141 +60,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28108, -0.241742)
 
 [node name="Tutorial" type="CanvasLayer" parent="."]
 
-[node name="BattleInfo" type="Control" parent="Tutorial"]
-z_index = -1
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ToggleText" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 431.0
-offset_top = 40.0
-offset_right = 681.0
-offset_bottom = 115.0
-grow_horizontal = 2
-text = "Cog button or Esc for settings
-Press T to toggle tutorial text
-K to skip tutorial battle"
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 119.0
-offset_right = 303.0
-offset_bottom = 168.0
-text = "This is your Artling's health!
-Let it fall to 0 and you lose."
-
-[node name="Label2" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 848.0
-offset_top = 119.0
-offset_right = 1109.0
-offset_bottom = 168.0
-text = "This is the enemy Artling's health!
-Reduce it to 0 and you win."
-horizontal_alignment = 2
-
-[node name="Label3" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 454.0
-offset_top = 353.0
-offset_right = 710.0
-offset_bottom = 428.0
-text = "This is the description box.
-It gives information about what's
-going on in battle."
-
-[node name="Label4" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 95.0
-offset_right = 64.0
-offset_bottom = 123.0
-text = "^"
-label_settings = SubResource("LabelSettings_isuhv")
-horizontal_alignment = 1
-
-[node name="Label5" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 1088.0
-offset_top = 93.0
-offset_right = 1104.0
-offset_bottom = 121.0
-text = "^"
-label_settings = SubResource("LabelSettings_isuhv")
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 498.0
-offset_top = 433.0
-offset_right = 514.0
-offset_bottom = 456.0
-text = "V"
-horizontal_alignment = 1
-
-[node name="Label7" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 193.0
-offset_top = 413.0
-offset_right = 423.0
-offset_bottom = 462.0
-text = "Click one of these 4 buttons
-to use a move and attack"
-
-[node name="Label8" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 281.0
-offset_top = 471.0
-offset_right = 297.0
-offset_bottom = 494.0
-text = "V"
-horizontal_alignment = 1
-
-[node name="Label9" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 337.0
-offset_right = 426.0
-offset_bottom = 386.0
-text = "Check and swap to different Artlings with this button.
-Be careful as swapping will take up 1 turn!"
-
-[node name="Label10" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 387.0
-offset_right = 42.0
-offset_bottom = 410.0
-text = "V"
-horizontal_alignment = 1
-
-[node name="Label12" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 862.0
-offset_top = 378.0
-offset_right = 1131.0
-offset_bottom = 427.0
-text = "This button will make the battle
-description automatically progress"
-horizontal_alignment = 2
-
-[node name="Label13" type="Label" parent="Tutorial/BattleInfo"]
-layout_mode = 0
-offset_left = 1096.0
-offset_top = 429.0
-offset_right = 1112.0
-offset_bottom = 452.0
-text = "V"
-horizontal_alignment = 1
-
 [node name="PartyInfo" type="Control" parent="Tutorial"]
 visible = false
 z_index = 1
@@ -198,26 +69,292 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Tutorial/PartyInfo"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 84.0
-offset_right = 167.0
-offset_bottom = 159.0
-text = "Click on an Artling's 
-portrait to swap 
-them in!"
+[node name="1" type="Control" parent="Tutorial/PartyInfo"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 586.0
+offset_top = 399.0
+offset_right = 626.0
+offset_bottom = 439.0
 
-[node name="Label2" type="Label" parent="Tutorial/PartyInfo"]
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/PartyInfo/1"]
+position = Vector2(0, 17.125)
+scale = Vector2(1, 0.833861)
+texture = ExtResource("5_fekit")
+
+[node name="Arrow1" type="Sprite2D" parent="Tutorial/PartyInfo/1"]
+position = Vector2(-127, -62)
+texture = ExtResource("8_0as0j")
+
+[node name="Label" type="Label" parent="Tutorial/PartyInfo/1"]
 layout_mode = 0
-offset_left = -22.0
-offset_top = 230.0
-offset_right = 131.0
-offset_bottom = 305.0
-text = "These bars are:
-current hp
-experience"
+offset_left = -117.0
+offset_top = -37.0
+offset_right = 114.0
+offset_bottom = 76.0
+text = "Click on an artling to swap
+them in!
+These bars show their
+current hp and exp"
+horizontal_alignment = 1
+
+[node name="BattleInfoStep" type="Control" parent="Tutorial"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_d6atl")
+
+[node name="1" type="Control" parent="Tutorial/BattleInfoStep"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 579.0
+offset_top = 93.0
+offset_right = 619.0
+offset_bottom = 133.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/1"]
+position = Vector2(0, 30.25)
+texture = ExtResource("5_fekit")
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/1"]
+layout_mode = 0
+offset_left = -116.0
+offset_top = -33.0
+offset_right = 115.0
+offset_bottom = 94.0
+text = "Welcome to the tutorial!
+Press the arrow keys to
+go forward or back
+Press T to hide the tutorial
+or K to completely skip"
+horizontal_alignment = 1
+
+[node name="2" type="Control" parent="Tutorial/BattleInfoStep"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 579.0
+offset_top = 86.0
+offset_right = 619.0
+offset_bottom = 126.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/2"]
+position = Vector2(0.499987, 15.875)
+scale = Vector2(1.18905, 1.40493)
+texture = ExtResource("6_rdyq2")
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/2"]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -24.0
+offset_right = 106.0
+offset_bottom = 25.0
+text = "Press ESC or click
+the cog button to bring up
+the options menu"
+horizontal_alignment = 1
+
+[node name="3" type="Control" parent="Tutorial/BattleInfoStep"]
+visible = false
+anchors_preset = 0
+offset_left = 158.0
+offset_top = 156.0
+offset_right = 198.0
+offset_bottom = 196.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/3"]
+position = Vector2(15.875, 12.25)
+scale = Vector2(1.32463, 1.34507)
+texture = ExtResource("7_72xn0")
+
+[node name="Arrow1" type="Sprite2D" parent="Tutorial/BattleInfoStep/3"]
+position = Vector2(-122, -51)
+texture = ExtResource("8_0as0j")
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/3"]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -24.0
+offset_right = 106.0
+offset_bottom = 25.0
+text = "This is your artling's health!
+If it is reduced to 0, your artling
+will no longer be able to fight."
+
+[node name="4" type="Control" parent="Tutorial/BattleInfoStep"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 971.0
+offset_top = 157.0
+offset_right = 1011.0
+offset_bottom = 197.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/4"]
+position = Vector2(-0.500029, 12.25)
+scale = Vector2(1.43781, 1.34507)
+texture = ExtResource("9_mireq")
+
+[node name="Arrow1" type="Sprite2D" parent="Tutorial/BattleInfoStep/4"]
+position = Vector2(130, -51)
+texture = ExtResource("8_0as0j")
+flip_h = true
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/4"]
+layout_mode = 0
+offset_left = -133.0
+offset_top = -24.0
+offset_right = 134.0
+offset_bottom = 25.0
+text = "This is the enemy artlings's health.
+Reduce all the enemy's health to 0
+in order to win the battle."
 horizontal_alignment = 2
+
+[node name="5" type="Control" parent="Tutorial/BattleInfoStep"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 283.0
+offset_top = 364.0
+offset_right = 323.0
+offset_bottom = 404.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/5"]
+position = Vector2(5, 32.25)
+scale = Vector2(1.21967, 0.610759)
+texture = ExtResource("5_fekit")
+
+[node name="Arrow2" type="Sprite2D" parent="Tutorial/BattleInfoStep/5"]
+position = Vector2(110, 97)
+rotation = 0.194478
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("10_72xn0")
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/5"]
+layout_mode = 0
+offset_left = -133.0
+offset_top = -8.0
+offset_right = 141.0
+offset_bottom = 77.0
+text = "These are your moves!
+Hover over them for a description.
+Click to choose a move and attack"
+horizontal_alignment = 2
+
+[node name="6" type="Control" parent="Tutorial/BattleInfoStep"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 602.0
+offset_top = 348.0
+offset_right = 642.0
+offset_bottom = 388.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/6"]
+position = Vector2(17.125, 23.625)
+scale = Vector2(1.41169, 1.42606)
+texture = ExtResource("6_rdyq2")
+
+[node name="Arrow4" type="Sprite2D" parent="Tutorial/BattleInfoStep/6"]
+position = Vector2(-128, 89)
+texture = ExtResource("10_72xn0")
+flip_h = true
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/6"]
+layout_mode = 0
+offset_left = -113.0
+offset_top = -17.0
+offset_right = 148.0
+offset_bottom = 62.0
+text = "This is the description box.
+Click to progress the turn after
+choosing a move."
+
+[node name="7" type="Control" parent="Tutorial/BattleInfoStep"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1036.0
+offset_top = 334.0
+offset_right = 1076.0
+offset_bottom = 374.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/7"]
+position = Vector2(-19.375, 23.625)
+scale = Vector2(1.04851, 1.42606)
+texture = ExtResource("7_72xn0")
+
+[node name="Arrow4" type="Sprite2D" parent="Tutorial/BattleInfoStep/7"]
+position = Vector2(70, 89)
+texture = ExtResource("10_72xn0")
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/7"]
+layout_mode = 0
+offset_left = -113.0
+offset_top = -17.0
+offset_right = 87.0
+offset_bottom = 62.0
+text = "Click this button
+to make the description
+automatically play!"
+
+[node name="8" type="Control" parent="Tutorial/BattleInfoStep"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_top = 317.0
+offset_right = 216.0
+offset_bottom = 357.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/8"]
+position = Vector2(41.625, 9.25)
+scale = Vector2(1.52615, 0.629747)
+texture = ExtResource("11_0as0j")
+
+[node name="Arrow2" type="Sprite2D" parent="Tutorial/BattleInfoStep/8"]
+position = Vector2(-123, 76)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("12_mireq")
+flip_h = true
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/8"]
+layout_mode = 0
+offset_left = -131.0
+offset_top = -30.0
+offset_right = 214.0
+offset_bottom = 52.0
+text = "This is the party button. 
+Click it to view your party and swap artlings! 
+Be careful as swapping will take up a turn."
+
+[node name="9" type="Control" parent="Tutorial/BattleInfoStep"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 579.0
+offset_top = 93.0
+offset_right = 619.0
+offset_bottom = 133.0
+
+[node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/9"]
+position = Vector2(0, 30.25)
+texture = ExtResource("11_0as0j")
+
+[node name="Label" type="Label" parent="Tutorial/BattleInfoStep/9"]
+layout_mode = 0
+offset_left = -116.0
+offset_top = -33.0
+offset_right = 115.0
+offset_bottom = 94.0
+text = "If you win, your artlings get
+experience to level up.
+You'll always get inspiration
+to make new artlings
+whether you win or lose."
+horizontal_alignment = 1
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.22952, 0)

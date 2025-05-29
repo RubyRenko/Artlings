@@ -1,6 +1,5 @@
 extends Mon
 @onready var anim = $AnimSprite
-@onready var leader_button = stat_screen.leader_button
 
 func _ready():
 	learnable_moves = ["Spout", "Bubble", "Rejuvinate", "Sap", "Wash", "Cure", "BubbleBurst"]

@@ -48,3 +48,5 @@ transform = Transform3D(-0.895193, -0.364585, 0.256334, -0.288391, 0.912373, 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05303, 0, 1.23484)
 omni_range = 15.0
 omni_attenuation = 0.3
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

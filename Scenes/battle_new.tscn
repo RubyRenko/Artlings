@@ -15,7 +15,6 @@
 [ext_resource type="LabelSettings" uid="uid://dvs314swtpp3o" path="res://Assets/battle_new_title.tres" id="5_efi8x"]
 [ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="5_ewvdd"]
 [ext_resource type="Texture2D" uid="uid://b2kx86wlltube" path="res://Assets/UI/MoveButton2.png" id="5_q3wcu"]
-[ext_resource type="Script" uid="uid://c0d7ljjcgv4fo" path="res://Scenes/prog_label.gd" id="6_kbnnx"]
 [ext_resource type="Texture2D" uid="uid://bsudeagcmgbhq" path="res://Assets/UI/MoveButton3.png" id="6_n2lc0"]
 [ext_resource type="Texture2D" uid="uid://dxglhopotfbre" path="res://Assets/UI/MoveButton4.png" id="7_11hy7"]
 [ext_resource type="Texture2D" uid="uid://b6l7fbb5po7c5" path="res://Assets/UI/BattleDescPlay.png" id="8_4uhy2"]
@@ -29,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://dvfbm4ygb8gi1" path="res://Assets/UI/HpBarPlayerOver.png" id="13_1x78f"]
 [ext_resource type="Texture2D" uid="uid://cjjk1q2xnngqk" path="res://Assets/UI/HpBarPlayer2.png" id="13_vxvj7"]
 [ext_resource type="Texture2D" uid="uid://dw0uoegiev5w4" path="res://Assets/UI/HpBarPlayerFill.png" id="14_vucsn"]
+[ext_resource type="Texture2D" uid="uid://dw74wvkfqwui1" path="res://Assets/UI/ContinueArrow.png" id="22_8g40r"]
+[ext_resource type="Script" uid="uid://cei1bh46k24l4" path="res://Scenes/continue_arrow.gd" id="23_ff0yi"]
 [ext_resource type="Texture2D" uid="uid://bg32jrmjqy2uc" path="res://Assets/UI/ExpBar1.png" id="28_xvw88"]
 [ext_resource type="Texture2D" uid="uid://bgje3lt2qylpt" path="res://Assets/UI/ExpBarOver.png" id="29_477pb"]
 [ext_resource type="Texture2D" uid="uid://c5fttrskt1ryd" path="res://Assets/UI/ExpBarFill.png" id="30_8g40r"]
@@ -68,11 +69,6 @@ outline_color = Color(0.156863, 0.32549, 0.14902, 1)
 line_spacing = 4.0
 font_size = 20
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_efi8x"]
-font_size = 20
-font_color = Color(0, 0, 0, 1)
-outline_size = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muy5e"]
 
@@ -317,22 +313,15 @@ offset_right = 485.0
 offset_bottom = 309.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Line 1
-Line 2
-Line 3
-Line 4"
 label_settings = SubResource("LabelSettings_ksy4f")
 autowrap_mode = 3
 
-[node name="ProgLabel" type="Label" parent="CanvasLayer"]
+[node name="ContinueArrow" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-offset_left = 1076.0
-offset_top = 585.0
-offset_right = 1100.0
-offset_bottom = 613.0
-text = "v"
-label_settings = SubResource("LabelSettings_efi8x")
-script = ExtResource("6_kbnnx")
+position = Vector2(1100, 615)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("22_8g40r")
+script = ExtResource("23_ff0yi")
 
 [node name="AutoplayButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 1070.0

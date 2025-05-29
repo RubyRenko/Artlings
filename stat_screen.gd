@@ -8,24 +8,30 @@ extends Control
 @onready var move2 = $Panel/MovesContainer/Move2
 @onready var move3 = $Panel/MovesContainer/Move3
 @onready var move4 = $Panel/MovesContainer/Move4
+@onready var hp_bar = $Panel/HpBar
+@onready var exp_bar = $Panel/ExpBar
 @onready var move_desc = $Panel/MoveDesc
 @onready var artling_img = $Panel/Picture
-@onready var leader_button = $Panel/LeaderButton
 @onready var close_button = $Panel/Close
 var chosen_moves : Array
 
 func set_img(img):
 	artling_img.texture = img
 
-func set_stat_text(hp, max_hp, str, def, intel, mind, spd):
-	stat_text.set_text("Health: %s/%s\nStrength: %s\nDefense: %s\nIntelligence: %s\nMind: %s\nSpeed: %s" %
-	 [hp, max_hp, str, def, intel, mind, spd])
+func set_stat_text(max_hp, str, def, intel, mind, spd):
+	stat_text.set_text("Health: %s\nStrength: %s\nDefense: %s\nIntelligence: %s\nMind: %s\nSpeed: %s" %
+	 [max_hp, str, def, intel, mind, spd])
 
 func set_name_text(artling_name):
 	name_text.set_text(artling_name)
 
 func set_level_text(level):
 	level_text.set_text("Level %s" % level)
+
+func set_bars(hp, max_hp, exp):
+	hp_bar.value = hp
+	hp_bar.max_value = max_hp
+	exp_bar.value = exp
 
 func load_moves(current_moves, all_moves):
 	moves_container.load_possible_moves(current_moves, all_moves)

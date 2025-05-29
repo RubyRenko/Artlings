@@ -1,7 +1,6 @@
 extends Mon
 
 @onready var anim = $Food_2
-@onready var leader_button = stat_screen.leader_button
 
 func _ready():
 	learnable_moves = ["Thud", "Charge", "Teeth", "Blender", "Lick"]

@@ -18,7 +18,7 @@ extends Node3D
 @onready var autoplay_button = $CanvasLayer/AutoplayButton
 
 @onready var turn_timer = $TurnTimer
-@onready var click_icon = $CanvasLayer/ProgLabel
+@onready var click_icon = $CanvasLayer/ContinueArrow
 var can_click = true
 static var auto = false
 
@@ -66,7 +66,7 @@ func update_enemy_sprite():
 	enemy_mon.rotation = enemy_spawn.rotation
 	enemy_mon.visible = true
 	if enemy_mon.is_in_group("2d"):
-		enemy_mon.anim.flip_h = !enemy_mon.anim.flip_h
+		enemy_mon.anim.flip_h = true
 	enemy_name_label.set_text(enemy_mon.nickname)
 	enemy_hp_bar.max_value = enemy_mon.max_hp
 	enemy_hp_bar.value = enemy_mon.health
@@ -374,8 +374,6 @@ func continue_battle(prog):
 			mon.visible = false
 			mon.health = mon.max_hp
 			mon.fainted = false
-			if mon.is_in_group("2d"):
-				mon.anim.flip_h = !mon.anim.flip_h
 		for mon in player_team:
 			mon.visible = false
 			mon.health = mon.max_hp

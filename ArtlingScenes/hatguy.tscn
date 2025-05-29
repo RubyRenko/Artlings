@@ -47,10 +47,9 @@ img = ExtResource("2_gt3gl")
 [node name="AnimSprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -2.14577e-06, 0.125342, 0.000684023)
 cast_shadow = 2
-flip_h = true
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_q48m0")
-animation = &"brace"
+animation = &"attack"
 
 [node name="ArtlingStats" parent="." instance=ExtResource("4_yfrnj")]
 visible = false

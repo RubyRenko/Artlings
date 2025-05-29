@@ -276,7 +276,7 @@ func take_status():
 	elif status == "Soapy":
 		return nickname + " is soapy."
 	elif status == "Bubbled":
-		var heal = ceili(health/15)
+		var heal = ceili(health/12)
 		health += heal
 		if health > max_hp:
 			health = max_hp
@@ -339,16 +339,18 @@ func setup_stat_screen():
 	stat_screen.load_moves(current_moves, moves_list.keys())
 	stat_screen.set_name_text(nickname)
 	stat_screen.set_level_text(level)
-	stat_screen.set_stat_text(health, max_hp, strength, defense, intelligence, mind, speed)
+	stat_screen.set_stat_text(max_hp, strength, defense, intelligence, mind, speed)
 	stat_screen.set_img(img)
+	stat_screen.set_bars(health, max_hp, exp)
 	stat_screen.close_button.pressed.connect(_stat_exit_pressed)
 
 func update_stat_screen():
 	stat_screen.load_moves(current_moves, moves_list.keys())
 	stat_screen.set_name_text(nickname)
 	stat_screen.set_level_text(level)
-	stat_screen.set_stat_text(health, max_hp, strength, defense, intelligence, mind, speed)
+	stat_screen.set_stat_text(max_hp, strength, defense, intelligence, mind, speed)
 	stat_screen.set_img(img)
+	stat_screen.set_bars(health, max_hp, exp)
 
 func update_from_stat_screen():
 	current_moves = stat_screen.chosen_moves
