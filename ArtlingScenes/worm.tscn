@@ -19,8 +19,8 @@ nickname = "Wurm"
 stat_growth = [5, 15, 3, 3, 3, 5]
 img = ExtResource("2_ymmcu")
 
-[node name="AnimModel" parent="." instance=ExtResource("2_lujuq")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.00165078, 0, -0.232963)
+[node name="AnimModel" parent="." groups=["3d", "mon"] instance=ExtResource("2_lujuq")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.00165078, -0.134145, -0.232963)
 
 [node name="ArtlingStats" parent="." instance=ExtResource("3_lujuq")]
 visible = false

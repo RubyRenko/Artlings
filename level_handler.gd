@@ -49,6 +49,9 @@ func _on_environment_child_exiting_tree(node):
 func _on_next_battle_button_pressed():
 	player.hide_screens(true)
 	var opponent = enemies.get_next_trainer()
+	for mon in opponent.team:
+		if !(mon.species in player.index_screen.artlings_discovered):
+			player.index_screen.artlings_discovered.append(mon.species)
 	opponent.visible = true
 	current_battlefield = opponent.battlefield.instantiate()
 	environment_node.add_child(current_battlefield)
@@ -60,6 +63,9 @@ func _on_train_button_pressed():
 	environment_node.add_child(current_battlefield)
 	var wild_battle = wild_battles.get_random()
 	wild_battle.visible = true
+	for mon in wild_battle.get_children():
+		if !(mon.species in player.index_screen.artlings_discovered):
+			player.index_screen.artlings_discovered.append(mon.species)
 	current_battlefield.start_battle(player, wild_battle)
 
 func _on_inkit_button_pressed():

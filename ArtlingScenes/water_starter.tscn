@@ -44,6 +44,7 @@ intelligence = 10
 mind = 15
 speed = 5
 nickname = "Dewphin"
+species = "Dewphin"
 stat_growth = [10, 3, 10, 7, 10, 5]
 img = ExtResource("2_5d10r")
 

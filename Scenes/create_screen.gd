@@ -38,7 +38,10 @@ func calculate_artling():
 	elif r >= 3:
 		return "Wurm"
 	else:
-		return ArtlingsMasterlist.new().get_random_artling_name()
+		var random = ArtlingsMasterlist.new().get_random_artling_name()
+		while random == "Wurm Beast":
+			random = ArtlingsMasterlist.new().get_random_artling_name()
+		return random
 
 func clear_colors():
 	r = 0

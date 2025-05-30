@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=62 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
@@ -14,13 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://wglb4k5xsglt" path="res://Assets/palette/green.png" id="8_get3n"]
 [ext_resource type="Texture2D" uid="uid://cf6lrjsgtg7ww" path="res://Assets/palette/purple.png" id="9_pln8l"]
 [ext_resource type="Texture2D" uid="uid://b042gfcrraepi" path="res://Assets/palette/orange.png" id="10_420ye"]
+[ext_resource type="Texture2D" uid="uid://ck3enefvg87pi" path="res://Assets/UI/SwapButton.png" id="10_jwsr1"]
 [ext_resource type="Texture2D" uid="uid://cmawayb8ak4qv" path="res://Assets/UI/PaletteBoard.png" id="11_fv261"]
+[ext_resource type="Texture2D" uid="uid://c7sds666wes10" path="res://Assets/UI/SwapButtonPress.png" id="11_jwsr1"]
 [ext_resource type="Texture2D" uid="uid://cqm6y8qcofxy8" path="res://Assets/palette/red.png" id="11_pfsb0"]
 [ext_resource type="Texture2D" uid="uid://c11wxo0rkp4a6" path="res://Assets/palette/yellow.png" id="12_50soc"]
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="16_50soc"]
 [ext_resource type="Script" uid="uid://b5xh8f4ivs3f1" path="res://Scenes/index_screen.gd" id="17_1m7qd"]
 [ext_resource type="Script" uid="uid://dnh2hyx47y6q8" path="res://Scenes/name_screen.gd" id="17_vb606"]
-[ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/artlings/InkStarterCropped.png" id="17_wrq8o"]
 [ext_resource type="PackedScene" uid="uid://cvuq3or6r43sc" path="res://artling_index_pg.tscn" id="18_1ih2t"]
 [ext_resource type="Script" uid="uid://djrd6lwgbmhwh" path="res://Menus/in_game_settings_menu.gd" id="18_m76uk"]
 [ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="19_x04ip"]
@@ -43,6 +44,8 @@
 [ext_resource type="Script" uid="uid://b6cxujus1iwix" path="res://Scenes/ink_wurm_tr.gd" id="32_a8wuu"]
 [ext_resource type="Texture2D" uid="uid://buccixpkummy3" path="res://Assets/artlings/Inkit_Party_Screen.png" id="35_vb606"]
 [ext_resource type="Texture2D" uid="uid://goc0d6jfb6r3" path="res://Assets/artlings/Dewphy_Party_Screen_Export.png" id="36_atga2"]
+[ext_resource type="Script" uid="uid://b8yh41nerx1t0" path="res://Scenes/trainer.gd" id="42_osflv"]
+[ext_resource type="PackedScene" uid="uid://svoh4nsbiwla" path="res://ArtlingScenes/wurm_beast.tscn" id="43_w4csa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fipc"]
 bg_color = Color(1, 1, 1, 1)
@@ -66,8 +69,7 @@ events = [SubResource("InputEventKey_hpc6h")]
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb606"]
 bg_color = Color(0.917647, 0.917647, 0.917647, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8wuu"]
-bg_color = Color(0.92549, 0.92549, 0.92549, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv261"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pfsb0"]
 font_size = 30
@@ -181,7 +183,7 @@ offset_left = 12.0
 offset_top = 152.0
 offset_right = 197.0
 offset_bottom = 180.0
-text = "Encyclopedia (WIP)"
+text = "Encyclopedia"
 label_settings = ExtResource("6_gi4eu")
 
 [node name="NextBattleButton" type="Button" parent="Player/Bg"]
@@ -201,7 +203,6 @@ offset_bottom = 574.0
 text = "Train"
 
 [node name="PartyScreen" type="Panel" parent="Player/Bg"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -219,21 +220,22 @@ theme_override_styles/panel = ExtResource("4_7fipc")
 script = ExtResource("16_50soc")
 
 [node name="Artlings" type="Control" parent="Player/Bg/PartyScreen"]
+layout_mode = 3
 anchors_preset = 0
-offset_left = 28.0
-offset_right = 68.0
-offset_bottom = 40.0
+offset_left = 16.0
+offset_top = -4.0
+offset_right = 56.0
+offset_bottom = 36.0
 
-[node name="Artling1" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+[node name="Artling1" type="TextureButton" parent="Player/Bg/PartyScreen/Artlings"]
 layout_mode = 0
-offset_left = 124.0
+offset_left = 123.0
 offset_top = 50.0
 offset_right = 332.0
 offset_bottom = 266.0
-icon = ExtResource("17_wrq8o")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+texture_normal = ExtResource("36_atga2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling1"]
 layout_mode = 1
@@ -248,16 +250,15 @@ text = "Name / Level"
 label_settings = ExtResource("6_gi4eu")
 horizontal_alignment = 1
 
-[node name="Artling2" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+[node name="Artling2" type="TextureButton" parent="Player/Bg/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 380.0
 offset_top = 50.0
-offset_right = 588.0
+offset_right = 589.0
 offset_bottom = 266.0
-icon = ExtResource("17_wrq8o")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+texture_normal = ExtResource("36_atga2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling2"]
 layout_mode = 1
@@ -272,16 +273,15 @@ text = "Name / Level"
 label_settings = ExtResource("6_gi4eu")
 horizontal_alignment = 1
 
-[node name="Artling3" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+[node name="Artling3" type="TextureButton" parent="Player/Bg/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 636.0
 offset_top = 50.0
-offset_right = 844.0
+offset_right = 845.0
 offset_bottom = 266.0
-icon = ExtResource("17_wrq8o")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+texture_normal = ExtResource("36_atga2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling3"]
 layout_mode = 1
@@ -296,16 +296,15 @@ text = "Name / Level"
 label_settings = ExtResource("6_gi4eu")
 horizontal_alignment = 1
 
-[node name="Artling4" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+[node name="Artling4" type="TextureButton" parent="Player/Bg/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 124.0
 offset_top = 282.0
-offset_right = 332.0
+offset_right = 333.0
 offset_bottom = 498.0
-icon = ExtResource("17_wrq8o")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+texture_normal = ExtResource("36_atga2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling4"]
 layout_mode = 1
@@ -320,16 +319,15 @@ text = "Name / Level"
 label_settings = ExtResource("6_gi4eu")
 horizontal_alignment = 1
 
-[node name="Artling5" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+[node name="Artling5" type="TextureButton" parent="Player/Bg/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 380.0
 offset_top = 282.0
-offset_right = 588.0
+offset_right = 589.0
 offset_bottom = 498.0
-icon = ExtResource("17_wrq8o")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+texture_normal = ExtResource("36_atga2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling5"]
 layout_mode = 1
@@ -344,16 +342,15 @@ text = "Name / Level"
 label_settings = ExtResource("6_gi4eu")
 horizontal_alignment = 1
 
-[node name="Artling6" type="Button" parent="Player/Bg/PartyScreen/Artlings"]
+[node name="Artling6" type="TextureButton" parent="Player/Bg/PartyScreen/Artlings"]
 layout_mode = 0
 offset_left = 636.0
 offset_top = 282.0
-offset_right = 844.0
+offset_right = 845.0
 offset_bottom = 498.0
-icon = ExtResource("17_wrq8o")
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+texture_normal = ExtResource("36_atga2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Name" type="Label" parent="Player/Bg/PartyScreen/Artlings/Artling6"]
 layout_mode = 1
@@ -368,25 +365,8 @@ text = "Name / Level"
 label_settings = ExtResource("6_gi4eu")
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="Player/Bg/PartyScreen"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 22.0
-offset_right = 100.0
-offset_bottom = 70.0
-text = "Back
-"
-
-[node name="SwapButton" type="Button" parent="Player/Bg/PartyScreen"]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 112.0
-offset_right = 86.0
-offset_bottom = 143.0
-toggle_mode = true
-text = "Swap"
-
 [node name="RemoveArtling" type="Button" parent="Player/Bg/PartyScreen"]
+visible = false
 layout_mode = 0
 offset_left = 28.0
 offset_top = 169.0
@@ -398,12 +378,12 @@ Artling"
 [node name="SwapButtons" type="Control" parent="Player/Bg/PartyScreen"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 28.0
-offset_right = 68.0
-offset_bottom = 40.0
+offset_left = 16.0
+offset_top = -4.0
+offset_right = 56.0
+offset_bottom = 36.0
 
 [node name="Swap1" type="Button" parent="Player/Bg/PartyScreen/SwapButtons"]
-visible = false
 layout_mode = 0
 offset_left = 124.0
 offset_top = 50.0
@@ -475,6 +455,7 @@ vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="EraseButtons" type="Control" parent="Player/Bg/PartyScreen"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 28.0
@@ -553,6 +534,28 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="SwapButton" type="TextureButton" parent="Player/Bg/PartyScreen"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 89.0
+offset_right = 81.0
+offset_bottom = 140.0
+toggle_mode = true
+texture_normal = ExtResource("10_jwsr1")
+texture_pressed = ExtResource("11_jwsr1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BackButton" type="TextureButton" parent="Player/Bg/PartyScreen"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 19.0
+offset_right = 82.0
+offset_bottom = 69.0
+texture_normal = ExtResource("25_3xdrn")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="StatScreenBg" type="Panel" parent="Player/Bg/PartyScreen"]
 visible = false
 layout_mode = 1
@@ -563,14 +566,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vb606")
 
-[node name="ExitStatScreen" type="Button" parent="Player/Bg/PartyScreen/StatScreenBg"]
-z_index = 1
-layout_mode = 0
-offset_left = 955.0
-offset_top = 14.0
-offset_right = 985.0
-offset_bottom = 45.0
-text = "X"
+[node name="ExitStatScreen" type="TextureButton" parent="Player/Bg/PartyScreen/StatScreenBg"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 50.0
+grow_horizontal = 0
+texture_normal = ExtResource("25_3xdrn")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="CreateScreen" type="Panel" parent="Player/Bg"]
 visible = false
@@ -640,82 +648,86 @@ expand_icon = true
 
 [node name="PaintBlueButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 167.0
-offset_right = 276.0
-offset_bottom = 291.0
+offset_left = 113.0
+offset_top = 171.0
+offset_right = 241.0
+offset_bottom = 295.0
 texture_normal = ExtResource("7_5dhrb")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintGreenButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
 layout_mode = 0
-offset_left = 310.0
-offset_top = 254.0
-offset_right = 438.0
-offset_bottom = 378.0
+offset_left = 275.0
+offset_top = 258.0
+offset_right = 403.0
+offset_bottom = 382.0
 texture_normal = ExtResource("8_get3n")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintPurpleButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
 layout_mode = 0
-offset_left = 321.0
-offset_top = 70.0
-offset_right = 449.0
-offset_bottom = 194.0
+offset_left = 286.0
+offset_top = 74.0
+offset_right = 414.0
+offset_bottom = 198.0
 texture_normal = ExtResource("9_pln8l")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintOrangeButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
 layout_mode = 0
-offset_left = 664.0
-offset_top = 149.0
-offset_right = 792.0
-offset_bottom = 273.0
+offset_left = 690.0
+offset_top = 158.0
+offset_right = 818.0
+offset_bottom = 282.0
 texture_normal = ExtResource("10_420ye")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintRedButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
 layout_mode = 0
-offset_left = 522.0
-offset_top = 60.0
-offset_right = 650.0
-offset_bottom = 184.0
+offset_left = 521.0
+offset_top = 37.0
+offset_right = 649.0
+offset_bottom = 161.0
 texture_normal = ExtResource("11_pfsb0")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PaintYellowButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 268.0
-offset_right = 656.0
-offset_bottom = 392.0
+offset_left = 527.0
+offset_top = 245.0
+offset_right = 655.0
+offset_bottom = 369.0
 texture_normal = ExtResource("12_50soc")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="BackButton" type="Button" parent="Player/Bg/CreateScreen"]
+[node name="BackButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 22.0
-offset_right = 100.0
-offset_bottom = 70.0
-text = "Back
-"
+offset_left = 459.0
+offset_top = 441.0
+offset_right = 515.0
+offset_bottom = 493.0
+texture_normal = ExtResource("25_3xdrn")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="NameScreen" type="Panel" parent="Player/Bg/CreateScreen"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -19.0
+offset_right = -12.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_a8wuu")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fv261")
 script = ExtResource("17_vb606")
 
 [node name="ConfirmText" type="Label" parent="Player/Bg/CreateScreen/NameScreen"]
@@ -994,6 +1006,7 @@ visible = false
 script = ExtResource("27_r27tj")
 level = 3
 artling_movesets = [["BaconSlap", "Thud", "Lick"]]
+artling_stats = [[20, 30, 5, 30, 5, 5]]
 battlefield = ExtResource("26_uloti")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1005,6 +1018,7 @@ visible = false
 script = ExtResource("28_a8wuu")
 level = 3
 artling_movesets = [["Teeth", "Focus", "Charge"]]
+artling_stats = [[70, 25, 20, 8, 8, 15]]
 battlefield = ExtResource("26_uloti")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1016,6 +1030,7 @@ visible = false
 script = ExtResource("30_a8wuu")
 level = 5
 artling_movesets = [["Sap", "Rejuvenate", "Bubble", "Wash"]]
+artling_stats = [[90, 10, 30, 20, 35, 10]]
 battlefield = ExtResource("26_q6ldt")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1027,6 +1042,7 @@ visible = false
 script = ExtResource("32_a8wuu")
 level = 6
 artling_movesets = [["Stipple", "Dollop", "Smoke", "Inkblot"], ["Teeth", "Blender", "Focus", "Charge"]]
+artling_stats = [[60, 5, 5, 5, 5, 5], [80, 30, 25, 10, 10, 20]]
 battlefield = ExtResource("26_uloti")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1035,6 +1051,20 @@ visible = false
 
 [node name="Wurm" parent="Trainers/InkWurmTr" instance=ExtResource("6_hpbh2")]
 visible = false
+
+[node name="WurmBoss" type="Node3D" parent="Trainers" groups=["trainer"]]
+visible = false
+script = ExtResource("42_osflv")
+level = 2
+artling_movesets = [["Lick", "Teeth", "Blender", "TeethShot"]]
+artling_stats = [[120, 30, 25, 10, 10, 25]]
+battlefield = ExtResource("26_q6ldt")
+metadata/_custom_type_script = "uid://b8yh41nerx1t0"
+
+[node name="WurmBeast" parent="Trainers/WurmBoss" groups=["trainer"] instance=ExtResource("43_w4csa")]
+visible = false
+element = "Geometric"
+nickname = "Boss Wurm Beast"
 
 [node name="ChooseStarter" type="Panel" parent="."]
 visible = false
@@ -1344,14 +1374,8 @@ bus_name = "sfx"
 [connection signal="pressed" from="Player/Bg/IndexButton" to="Player" method="_on_index_button_pressed"]
 [connection signal="pressed" from="Player/Bg/NextBattleButton" to="." method="_on_next_battle_button_pressed"]
 [connection signal="pressed" from="Player/Bg/TrainButton" to="." method="_on_train_button_pressed"]
-[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling1" to="Player" method="_on_artling_1_pressed"]
-[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling2" to="Player" method="_on_artling_2_pressed"]
-[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling3" to="Player" method="_on_artling_3_pressed"]
-[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling4" to="Player" method="_on_artling_4_pressed"]
-[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling5" to="Player" method="_on_artling_5_pressed"]
-[connection signal="pressed" from="Player/Bg/PartyScreen/Artlings/Artling6" to="Player" method="_on_artling_6_pressed"]
-[connection signal="pressed" from="Player/Bg/PartyScreen/BackButton" to="Player" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Player/Bg/PartyScreen/SwapButton" to="Player/Bg/PartyScreen" method="_on_swap_button_pressed"]
+[connection signal="pressed" from="Player/Bg/PartyScreen/BackButton" to="Player" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Player/Bg/PartyScreen/StatScreenBg/ExitStatScreen" to="Player" method="_on_exit_stat_screen_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreateArtling" to="Player" method="_on_create_artling_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/ColorClear" to="Player/Bg/CreateScreen" method="_on_color_clear_pressed"]

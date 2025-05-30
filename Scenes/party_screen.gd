@@ -2,6 +2,7 @@ extends Panel
 @onready var party_list = $Artlings
 @onready var swap_list = $SwapButtons
 @onready var erase_list = $EraseButtons
+@onready var swap_button = $SwapButton
 
 func toggle_party_buttons(team_list):
 	# for each button in the possible team list
@@ -15,11 +16,12 @@ func toggle_party_buttons(team_list):
 		# makes the button text show the corresponding team member
 		else:
 			button.visible = true
-			button.set_button_icon(team_list[i].img)
+			button.texture_normal = team_list[i].img
 			button_label.set_text(team_list[i].nickname + " | Level " + str(team_list[i].level) )
 	disable_swapping_buttons()
 
 func disable_swapping_buttons():
+	swap_button.button_pressed = false
 	for button in swap_list.get_children():
 		button.visible = false
 

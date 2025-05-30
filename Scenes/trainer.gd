@@ -3,6 +3,7 @@ class_name Trainer
 
 @export var level : int
 @export var artling_movesets = [ ["Move1", "Move2", "Move3", "Move4"] ]
+@export var artling_stats = [ [5, 5, 5, 5, 5, 5] ]
 @export var battlefield : PackedScene
 @onready var team = get_children()
 var defeated = false
@@ -10,8 +11,11 @@ var defeated = false
 func setup_artlings():
 	for i in get_child_count():
 		var artling = get_child(i)
-		artling.add_experience(100*level-1)
+		for move in artling_movesets[i]:
+			artling.load_move(artling.master_move_list.get_move(move))
 		artling.current_moves = artling_movesets[i]
+		var stats = artling_stats[0]
+		artling.set_stats(stats[0], stats[1], stats[2], stats[3], stats[4], stats[5])
 		#print(artling.level)
 
 func choose_move(player_mon, current_mon):

@@ -212,6 +212,8 @@ func choose_move(move_ind):
 
 func handle_turn(current_command):
 	# if the command is from the player
+	#print(current_command)
+	print(enemy_mon.current_moves)
 	if current_command[0] == "player":
 		# player mon attacks and sets the battle description to the result of attack
 		var battle_lines = player_mon.attack(enemy_mon, current_command[1])

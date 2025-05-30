@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4jnep6mq1yae"]
+[gd_scene load_steps=6 format=3 uid="uid://b4jnep6mq1yae"]
 
 [ext_resource type="PackedScene" uid="uid://c17joox5l3m86" path="res://3d artlings/pig_artling.tscn" id="1_masuq"]
 [ext_resource type="Script" uid="uid://dgwfjq4jx1klb" path="res://ArtlingScenes/bacon_pig.gd" id="1_pklxf"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="2_pklxf"]
+[ext_resource type="Texture2D" uid="uid://bj2c8ha4x2f44" path="res://Assets/artlings/Pig_artingCropped.png" id="2_wd6jf"]
 [ext_resource type="AudioStream" uid="uid://c6beqlegxliet" path="res://Audio/sfx/snort.mp3" id="4_5dmgj"]
 
 [node name="BaconPig" type="Node3D" groups=["3d", "mon"]]
@@ -14,6 +15,8 @@ intelligence = 20
 mind = 1
 speed = 10
 nickname = "Bapig"
+species = "Bapig"
+img = ExtResource("2_wd6jf")
 
 [node name="Pig artling" parent="." instance=ExtResource("1_masuq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.54257, 0)

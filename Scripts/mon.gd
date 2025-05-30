@@ -11,6 +11,7 @@ var health : int = max_hp
 @export var speed : int
 @export var element : String
 @export var nickname : String
+@export var species : String
 @export var stat_growth = [5, 5, 5, 5, 5, 5]
 # move master list
 @onready var master_move_list = load("res://move_list.tscn").instantiate()
@@ -61,7 +62,7 @@ func attack(target, move):
 			var new_atk = current_moves.pick_random()
 			battle_text += "%s is confused, used %s instead.\n" % [nickname, new_atk]
 			atk = moves_list[new_atk]
-		
+		#print(atk)
 		# generates a random int form 0-100
 		if randi_range(0, 100) <= acc:
 			# if it's lower than accuracy, it hits
@@ -291,6 +292,7 @@ func take_status():
 # sets all the main stats
 func set_stats(hp, str, def, intel, mnd, spd):
 	max_hp = hp
+	health = hp
 	strength = str
 	defense = def
 	intelligence = intel
@@ -306,7 +308,7 @@ func add_stats(hp, str, def, intel, mnd, spd):
 	mind += mnd
 	speed += spd
 
-# load moves from the master list and adds it to the move_list
+# takes a move class and adds it to the move_list
 func load_move(move):
 	#print(move)
 	learnable_moves.pop_at(learnable_moves.find(move.name))

@@ -13,12 +13,15 @@ var artling_info = {
 	"Wurm": ["Wurm", preload("res://Assets/artlings/wormCropped.png"),\
 	"A sturdy teethy worm creature", "Artist: Aubrey Rhodes-Gorman", "Recipe: 3+ red",\
 	["Thud", "Charge", "Teeth", "Focus", "Blender", "Lick", "TeethShot"] ],
-	"Bapig": ["Pabig", preload("res://Assets/artlings/Pig_arting.png"),\
+	"Bapig": ["Pabig", preload("res://Assets/artlings/Pig_artingCropped.png"),\
 	"A strong bug fragile pig made of bacon", "Artist: Shiyu Li", "Recipe: 6 red",\
 	["Thud", "Charge", "BaconSlap", "Lick"] ],
 	"Hatguy": ["Hatguy", preload("res://Assets/artlings/HatguyCropped.png"),\
 	"Legs with a hat", "Artist: Lyssa (mzbljack)", "Recipe: 6 violet",\
-	["Thud", "HatTip", "KarateKick"] ]
+	["Thud", "HatTip", "KarateKick"] ],
+	"Wurm Beast": ["Wurm Beast", preload("res://Assets/artlings/WurmEvo.png"),\
+	"A ferocious worm monster", "Artist: Aubrey Rhodes-Gorman", "Recipe: ???",\
+	["Teeth", "Blender", "TeethShot", "Lick"] ]
 	}
 @onready var page1 = $IndexPg1
 @onready var page2 = $IndexPg2
