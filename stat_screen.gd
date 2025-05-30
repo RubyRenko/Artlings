@@ -1,18 +1,17 @@
 extends Control
 
-@onready var stat_text = $Panel/Stats
-@onready var name_text = $Panel/Name
-@onready var level_text = $Panel/Level
-@onready var moves_container = $Panel/MovesContainer
-@onready var move1 = $Panel/MovesContainer/Move1
-@onready var move2 = $Panel/MovesContainer/Move2
-@onready var move3 = $Panel/MovesContainer/Move3
-@onready var move4 = $Panel/MovesContainer/Move4
-@onready var hp_bar = $Panel/HpBar
-@onready var exp_bar = $Panel/ExpBar
-@onready var move_desc = $Panel/MoveDesc
-@onready var artling_img = $Panel/Picture
-@onready var close_button = $Panel/Close
+@onready var stat_text = $Stats
+@onready var name_text = $Name
+@onready var level_text = $Level
+@onready var moves_container = $MovesContainer
+@onready var move1 = $MovesContainer/Move1
+@onready var move2 = $MovesContainer/Move2
+@onready var move3 = $MovesContainer/Move3
+@onready var move4 = $MovesContainer/Move4
+@onready var hp_bar = $HpBar
+@onready var exp_bar = $ExpBar
+@onready var move_desc = $MoveDesc
+@onready var artling_img = $Picture
 var chosen_moves : Array
 
 func set_img(img):

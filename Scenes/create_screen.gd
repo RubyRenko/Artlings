@@ -3,7 +3,7 @@ extends Panel
 @onready var inspiration_text = $InspoLabel
 @onready var color_text = $ColorLabel
 @onready var create_button = $CreateArtling
-@onready var name_edit = $NameEdit
+@onready var name_edit = $NameScreen/NameEdit
 @onready var player = get_parent().get_parent()
 var new_artling_name : String
 var r = 0

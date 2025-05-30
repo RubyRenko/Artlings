@@ -6,7 +6,9 @@ var inspo = 0
 
 @onready var interlude_bg = $Bg
 @onready var party_screen = $Bg/PartyScreen
+@onready var stat_screen_bg = $Bg/PartyScreen/StatScreenBg
 @onready var create_screen = $Bg/CreateScreen
+@onready var naming_screen = $Bg/CreateScreen/NameScreen
 @onready var index_screen = $Bg/IndexScreen
 
 @onready var party_button = $Bg/PartyButton
@@ -15,6 +17,7 @@ var inspo = 0
 @onready var next_button = $Bg/NextBattleButton
 
 var swapping = []
+var artling_shown : int
 
 func _ready():
 	add_artling("Inkit")
@@ -53,10 +56,12 @@ func hide_screens(true_hide = false):
 
 func show_party_screen():
 	party_screen.visible = true
+	stat_screen_bg.visible = false
 	party_screen.toggle_party_buttons(team)
 
 func show_create_screen():
 	create_screen.visible = true
+	naming_screen.visible = false
 	create_screen.setup_screen()
 
 func show_index_screen():
@@ -66,13 +71,14 @@ func show_index_screen():
 func _on_create_artling_pressed():
 	if inspo >= create_screen.inspo_cost:
 		var new_artling = create_screen.calculate_artling()
-		if create_screen.new_artling_name != "":
-			team_node.add_teammate(new_artling, create_screen.new_artling_name)
-		elif create_screen.new_artling_name == "":
-			team_node.add_teammate(new_artling)
-		load_team()
+		add_artling(new_artling)
+		naming_screen.visible = true
+		naming_screen.setup_confirm(team[-1])
 		inspo -= create_screen.inspo_cost
-		hide_screens()
+
+func _on_confirm_name_pressed():
+	team[-1].nickname = naming_screen.nickname.text
+	hide_screens()
 
 func show_artling(ind):
 	team[ind].update_stat_screen()
@@ -85,13 +91,11 @@ func remove_artling(artling):
 		team_node.remove_artling(artling)
 
 func add_artling(artling_name, nickname = artling_name):
-	
 	if !(artling_name in index_screen.artlings_discovered):
 		print("added artling ", artling_name)
 		index_screen.artlings_discovered.append(artling_name)
 	team_node.add_teammate(artling_name, nickname)
 	load_team()
-	print(index_screen.artlings_discovered)
 
 func _on_party_button_pressed():
 	hide_screens()
@@ -108,8 +112,15 @@ func _on_index_button_pressed():
 func _on_back_button_pressed():
 	hide_screens()
 
+func _on_exit_stat_screen_pressed():
+	team[artling_shown].update_from_stat_screen()
+	team[artling_shown].stat_screen.visible = false
+	stat_screen_bg.visible = false
+
 func _on_artling_pressed(index):
+	stat_screen_bg.visible = true
 	show_artling(index)
+	artling_shown = index
 
 func _on_swap_pressed(index):
 	swapping.append(index)

@@ -343,7 +343,6 @@ func setup_stat_screen():
 	stat_screen.set_stat_text(max_hp, strength, defense, intelligence, mind, speed)
 	stat_screen.set_img(img)
 	stat_screen.set_bars(health, max_hp, exp)
-	stat_screen.close_button.pressed.connect(_stat_exit_pressed)
 
 func update_stat_screen():
 	stat_screen.load_moves(current_moves, moves_list.keys())
@@ -356,9 +355,9 @@ func update_stat_screen():
 func update_from_stat_screen():
 	current_moves = stat_screen.chosen_moves
 
-func _stat_exit_pressed():
+"func _stat_exit_pressed():
 	var player = get_parent().get_parent()
 	#print(current_moves, stat_screen.chosen_moves)
 	update_from_stat_screen()
 	player.hide_screens()
-	player.show_party_screen()
+	player.show_party_screen()"

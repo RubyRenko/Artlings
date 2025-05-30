@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://by1pq4t3qhpc7"]
+[gd_scene load_steps=11 format=3 uid="uid://by1pq4t3qhpc7"]
 
 [ext_resource type="Script" uid="uid://b0c38cxhs71c0" path="res://stat_screen.gd" id="1_ayflt"]
-[ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="2_uggsd"]
 [ext_resource type="Script" uid="uid://bcgulvb8di1hr" path="res://moves_container.gd" id="3_uggsd"]
 [ext_resource type="Texture2D" uid="uid://cjjk1q2xnngqk" path="res://Assets/UI/HpBarPlayer2.png" id="4_yrw7y"]
 [ext_resource type="Texture2D" uid="uid://dvfbm4ygb8gi1" path="res://Assets/UI/HpBarPlayerOver.png" id="5_r7iys"]
@@ -25,66 +24,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ayflt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -272.0
-offset_right = 500.0
-offset_bottom = 272.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = ExtResource("2_uggsd")
-
-[node name="Picture" type="TextureRect" parent="Panel"]
+[node name="Picture" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 31.0
-offset_right = 288.0
-offset_bottom = 272.0
+offset_left = 119.0
+offset_top = 83.0
+offset_right = 364.0
+offset_bottom = 324.0
 expand_mode = 3
 
-[node name="Name" type="Label" parent="Panel"]
+[node name="Name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 318.0
-offset_top = 58.0
-offset_right = 513.0
-offset_bottom = 100.0
+offset_left = 394.0
+offset_top = 110.0
+offset_right = 589.0
+offset_bottom = 152.0
 text = "Name"
 label_settings = SubResource("LabelSettings_bkc8p")
 
-[node name="Level" type="Label" parent="Panel"]
+[node name="Level" type="Label" parent="."]
 layout_mode = 0
-offset_left = 778.0
-offset_top = 58.0
-offset_right = 918.0
-offset_bottom = 100.0
+offset_left = 854.0
+offset_top = 110.0
+offset_right = 994.0
+offset_bottom = 152.0
 text = "Level /"
 label_settings = SubResource("LabelSettings_bkc8p")
 horizontal_alignment = 2
 
-[node name="StatTitle" type="Label" parent="Panel"]
+[node name="StatTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 282.0
-offset_right = 141.0
-offset_bottom = 324.0
+offset_left = 140.0
+offset_top = 334.0
+offset_right = 217.0
+offset_bottom = 376.0
 text = "Stats"
 label_settings = SubResource("LabelSettings_bkc8p")
 
-[node name="Stats" type="Label" parent="Panel"]
+[node name="Stats" type="Label" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 324.0
-offset_right = 266.0
-offset_bottom = 507.0
+offset_left = 140.0
+offset_top = 376.0
+offset_right = 342.0
+offset_bottom = 559.0
 text = "Health:
 Strength:
 Defense:
@@ -93,90 +78,82 @@ Mind:
 Speed:"
 label_settings = SubResource("LabelSettings_hgcnw")
 
-[node name="MoveTitle" type="Label" parent="Panel"]
+[node name="MoveTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 294.0
-offset_top = 228.0
-offset_right = 388.0
-offset_bottom = 270.0
+offset_left = 370.0
+offset_top = 280.0
+offset_right = 464.0
+offset_bottom = 322.0
 text = "Moves"
 label_settings = SubResource("LabelSettings_bkc8p")
 
-[node name="MovesContainer" type="GridContainer" parent="Panel"]
+[node name="MovesContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 294.0
-offset_top = 281.5
-offset_right = 919.0
-offset_bottom = 399.5
+offset_left = 370.0
+offset_top = 333.5
+offset_right = 995.0
+offset_bottom = 451.5
 columns = 2
 script = ExtResource("3_uggsd")
 
-[node name="Move1" type="OptionButton" parent="Panel/MovesContainer"]
+[node name="Move1" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Move2" type="OptionButton" parent="Panel/MovesContainer"]
+[node name="Move2" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Move3" type="OptionButton" parent="Panel/MovesContainer"]
+[node name="Move3" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Move4" type="OptionButton" parent="Panel/MovesContainer"]
+[node name="Move4" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MoveDesc" type="Label" parent="Panel"]
+[node name="MoveDesc" type="Label" parent="."]
 layout_mode = 0
-offset_left = 266.0
-offset_top = 419.0
-offset_right = 943.0
-offset_bottom = 504.0
+offset_left = 342.0
+offset_top = 471.0
+offset_right = 1019.0
+offset_bottom = 556.0
 text = "Move Description"
 label_settings = SubResource("LabelSettings_hgcnw")
 
-[node name="Close" type="Button" parent="Panel"]
+[node name="HpBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 929.0
-offset_top = 22.0
-offset_right = 962.0
-offset_bottom = 53.0
-text = "x"
-
-[node name="HpBar" type="TextureProgressBar" parent="Panel"]
-layout_mode = 0
-offset_left = 323.0
-offset_top = 111.0
-offset_right = 915.0
-offset_bottom = 159.0
+offset_left = 399.0
+offset_top = 163.0
+offset_right = 991.0
+offset_bottom = 211.0
 value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("4_yrw7y")
 texture_over = ExtResource("5_r7iys")
 texture_progress = ExtResource("6_1vl11")
 
-[node name="ExpBar" type="TextureProgressBar" parent="Panel"]
+[node name="ExpBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 323.0
-offset_top = 155.0
-offset_right = 915.0
-offset_bottom = 192.0
+offset_left = 399.0
+offset_top = 207.0
+offset_right = 991.0
+offset_bottom = 244.0
 value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("7_yvo2d")
 texture_over = ExtResource("8_jnpv2")
 texture_progress = ExtResource("9_gfnn3")
 
-[connection signal="item_selected" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_item_selected"]
-[connection signal="pressed" from="Panel/MovesContainer/Move1" to="." method="_on_move_1_pressed"]
-[connection signal="item_selected" from="Panel/MovesContainer/Move2" to="." method="_on_move_2_item_selected"]
-[connection signal="pressed" from="Panel/MovesContainer/Move2" to="." method="_on_move_2_pressed"]
-[connection signal="item_selected" from="Panel/MovesContainer/Move3" to="." method="_on_move_3_item_selected"]
-[connection signal="pressed" from="Panel/MovesContainer/Move3" to="." method="_on_move_3_pressed"]
-[connection signal="item_selected" from="Panel/MovesContainer/Move4" to="." method="_on_move_4_item_selected"]
-[connection signal="pressed" from="Panel/MovesContainer/Move4" to="." method="_on_move_4_pressed"]
+[connection signal="item_selected" from="MovesContainer/Move1" to="." method="_on_move_1_item_selected"]
+[connection signal="pressed" from="MovesContainer/Move1" to="." method="_on_move_1_pressed"]
+[connection signal="item_selected" from="MovesContainer/Move2" to="." method="_on_move_2_item_selected"]
+[connection signal="pressed" from="MovesContainer/Move2" to="." method="_on_move_2_pressed"]
+[connection signal="item_selected" from="MovesContainer/Move3" to="." method="_on_move_3_item_selected"]
+[connection signal="pressed" from="MovesContainer/Move3" to="." method="_on_move_3_pressed"]
+[connection signal="item_selected" from="MovesContainer/Move4" to="." method="_on_move_4_item_selected"]
+[connection signal="pressed" from="MovesContainer/Move4" to="." method="_on_move_4_pressed"]

@@ -19,8 +19,8 @@ extends Node3D
 @onready var starter_img = $ChooseStarter/ConfirmScreen/StarterImg
 var starter : String
 var starter_imgs = {
-	"Inkit": preload("res://Assets/artlings/Inkit_IdlePose_Static.png"),
-	"Dewphin": preload("res://Assets/artlings/water_starter_paper.jpg"),
+	"Inkit": preload("res://Assets/artlings/Inkit_Party_Screen.png"),
+	"Dewphin": preload("res://Assets/artlings/Dewphy_Party_Screen_Export.png"),
 	"Wurm": preload("res://Assets/artlings/wormCropped.png")
 }
 @onready var master_move_list = load("res://move_list.tscn").instantiate()
