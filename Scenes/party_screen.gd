@@ -1,6 +1,7 @@
 extends Panel
 @onready var party_list = $Artlings
-@onready var toggle_list = $Artlings2
+@onready var swap_list = $SwapButtons
+@onready var erase_list = $EraseButtons
 
 func toggle_party_buttons(team_list):
 	# for each button in the possible team list
@@ -19,17 +20,30 @@ func toggle_party_buttons(team_list):
 	disable_swapping_buttons()
 
 func disable_swapping_buttons():
-	for button in toggle_list.get_children():
+	for button in swap_list.get_children():
+		button.visible = false
+
+func disable_erasing_buttons():
+	for button in erase_list.get_children():
 		button.visible = false
 
 func toggle_swapping_buttons():
 	for i in 6:
 		var button = party_list.get_child(i)
-		var swap_button = toggle_list.get_child(i)
+		var swap_button = swap_list.get_child(i)
 		if button.disabled:
 			swap_button.visible = !swap_button.visible
 		else:
 			swap_button.visible = !swap_button.visible
+
+func toggle_erasing_buttons():
+	for i in 6:
+		var button = party_list.get_child(i)
+		var erase_button = erase_list.get_child(i)
+		if button.disabled:
+			erase_button.visible = !erase_button.visible
+		else:
+			erase_button.visible = !erase_button.visible
 
 func _on_swap_button_pressed():
 	toggle_swapping_buttons()

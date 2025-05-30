@@ -18,7 +18,7 @@ var artling_info = {
 	["Thud", "Charge", "BaconSlap", "Lick"] ],
 	"Hatguy": ["Hatguy", preload("res://Assets/artlings/HatguyCropped.png"),\
 	"Legs with a hat", "Artist: Lyssa (mzbljack)", "Recipe: 6 violet",\
-	[] ]
+	["Thud", "HatTip", "KarateKick"] ]
 	}
 @onready var page1 = $IndexPg1
 @onready var page2 = $IndexPg2

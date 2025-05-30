@@ -1,8 +1,9 @@
 extends Panel
 
-@onready var table_contents_name = $ToCNames
-@onready var table_contents_pg = $ToCPages
-@onready var index_buttons = $IndexTableButtons
+@onready var contents_pg = $TableContents
+@onready var table_contents_name = $TableContents/ToCNames
+@onready var table_contents_pg = $TableContents/ToCPages
+@onready var index_buttons = $TableContents/IndexTableButtons
 @onready var index_pgs = $ArtlingIndexPg
 @onready var next_pg_button = $NextButton
 @onready var prev_pg_button = $PrevButton
@@ -26,6 +27,7 @@ func setup_index():
 	current_page = -1
 	prev_pg_button.disabled = true
 	next_pg_button.disabled = false
+	table_contents_pg.visible = true
 	update_table_text()
 
 func update_table_text():
@@ -46,6 +48,7 @@ func update_table_text():
 	table_contents_pg.text = updated_pg_str
 
 func show_page(index):
+	contents_pg.visible = false
 	index_pgs.visible = true
 	var artling1 = artling_tuples[index]
 	artling1 = artling1[0]
@@ -87,6 +90,7 @@ func _on_prev_button_pressed():
 	if current_page == -1:
 		index_pgs.visible = false
 		prev_pg_button.disabled = true
+		contents_pg.visible = true
 	else:
 		show_page(current_page)
 	

@@ -30,7 +30,7 @@ volumetric_fog_length = 85.56
 [node name="Battlefield1" type="Node3D" groups=["battle"]]
 script = ExtResource("1_m33m3")
 
-[node name="StarterArea" parent="." instance=ExtResource("1_1q1kw")]
+[node name="StarterArea" parent="." groups=["battle"] instance=ExtResource("1_1q1kw")]
 visible = false
 
 [node name="StarterArea2" parent="." instance=ExtResource("1_1q1kw")]

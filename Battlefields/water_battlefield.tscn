@@ -21,7 +21,7 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 2.0
 volumetric_fog_length = 85.56
 
-[node name="WaterBattlefield" type="Node3D"]
+[node name="WaterBattlefield" type="Node3D" groups=["battle"]]
 script = ExtResource("1_mmuvq")
 
 [node name="WaterEnvironment" parent="." instance=ExtResource("1_wkkdd")]

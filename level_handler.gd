@@ -30,7 +30,7 @@ func _ready():
 	player.hide_screens(true)
 	current_battlefield = tutorial.instantiate()
 	environment_node.add_child(current_battlefield)
-	var tutorial_trainer = wild_battles.get_trainer("Test4")
+	var tutorial_trainer = wild_battles.get_trainer("Tutorial")
 	tutorial_trainer.visible = true
 	current_battlefield.start_battle(player, tutorial_trainer)
 	#master_move_list.print_all_moves()

@@ -30,7 +30,7 @@ func _ready():
 		var artling_callable = Callable(self, "_on_artling_pressed").bind(i)
 		artling_button.connect("pressed", artling_callable)
 		
-		var swap_button = party_screen.toggle_list.get_child(i)
+		var swap_button = party_screen.swap_list.get_child(i)
 		var swap_callable = Callable(self, "_on_swap_pressed").bind(i)
 		swap_button.connect("pressed", swap_callable)
 

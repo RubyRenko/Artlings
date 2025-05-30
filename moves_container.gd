@@ -2,6 +2,7 @@ extends GridContainer
 
 func load_possible_moves(current_moves, all_moves):
 	if len(all_moves) > 4:
+		print(current_moves)
 		for i in get_child_count():
 			var move_opt = get_child(i)
 			move_opt.clear()
@@ -9,6 +10,7 @@ func load_possible_moves(current_moves, all_moves):
 				move_opt.add_item(move)
 			move_opt.select(all_moves.find(current_moves[i]))
 	else:
+		print(current_moves)
 		for i in get_child_count():
 			var move_opt = get_child(i)
 			move_opt.clear()
