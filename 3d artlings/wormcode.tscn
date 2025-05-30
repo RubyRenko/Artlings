@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b22mw3dkbju56"]
 
 [ext_resource type="PackedScene" uid="uid://q8quiyvsglut" path="res://3d artlings/worm.glb" id="1_kynl0"]
-[ext_resource type="Script" uid="uid://cfenpyoayi1a8" path="res://wormmodel.gd" id="2_ta4uu"]
+[ext_resource type="Script" uid="uid://cfenpyoayi1a8" path="res://3d artlings/wormmodel (2).gd" id="2_ta4uu"]
 
 [node name="worm" instance=ExtResource("1_kynl0")]
 script = ExtResource("2_ta4uu")
