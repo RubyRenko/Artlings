@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://djqrw1tk1ekon"]
+[gd_scene load_steps=9 format=3 uid="uid://djqrw1tk1ekon"]
 
 [ext_resource type="Script" uid="uid://uigblhvd3vg8" path="res://Battlefields/battlefield.gd" id="1_mmuvq"]
 [ext_resource type="PackedScene" uid="uid://b7pfmvsopbjhj" path="res://Assets/environment/water_area/water_environment.tscn" id="1_wkkdd"]
 [ext_resource type="Texture2D" uid="uid://dy1h7ycrfjcgq" path="res://Assets/environment/Epic_BlueSunset_EquiRect_flat.png" id="2_mmuvq"]
 [ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="3_s7hom"]
+[ext_resource type="AudioStream" uid="uid://c30yg1krj71fl" path="res://Audio/circussy.mp3" id="5_s7hom"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_p7t7q"]
 panorama = ExtResource("2_mmuvq")
@@ -48,5 +49,11 @@ transform = Transform3D(-0.895193, -0.364585, 0.256334, -0.288391, 0.912373, 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05303, 0, 1.23484)
 omni_range = 15.0
 omni_attenuation = 0.3
+
+[node name="battle3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_s7hom")
+volume_db = -9.0
+autoplay = true
+bus = &"music"
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
