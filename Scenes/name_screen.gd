@@ -7,4 +7,3 @@ extends Panel
 func setup_confirm(artling):
 	image_dis.texture = artling.img
 	text.text = "You made %s!" % artling.nickname
-	nickname.text

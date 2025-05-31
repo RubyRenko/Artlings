@@ -68,12 +68,33 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="TeethShot" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [60, 80, 10, 15]
+damage = [60, 80, 20, 20]
 accuracy = 80
 type = "Geometric"
 dmg_type = "str/self"
 desc = "Shoots teeth that deals high damage and recoil"
 battle_text = "%s shoots at %s!"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Screech" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [40, 60]
+accuracy = 100
+type = "Geometric"
+dmg_type = "str/mnd"
+desc = "High pitched screech that targets the opponent's mind"
+battle_text = "%s lets out a terrible screech at %s."
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Grapple" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [30, 40]
+accuracy = 100
+type = "Geometric"
+dmg_type = "str"
+effect = [2, "Trapped"]
+desc = "Grapples the target and traps them"
+battle_text = "%s grapples %s!"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Brush" type="Node" parent="." groups=["move"]]
@@ -126,6 +147,16 @@ dmg_type = "int"
 effect = [1, "Blind"]
 desc = "Stipples the target with dots and blinds for a little bit."
 battle_text = "%s flecks dots on %s!"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Hide" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+accuracy = 100
+type = "Ink"
+dmg_type = "self"
+effect = [3, "Hidden"]
+desc = "Hide the user in an obscuring ink"
+battle_text = "%s hides in ink."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Inkblot" type="Node" parent="." groups=["move"]]
@@ -192,7 +223,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Cure" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [-40, -50]
+damage = [-50, -60]
 accuracy = 100
 type = "Water"
 dmg_type = "self"
@@ -239,4 +270,35 @@ dmg_type = "int"
 effect = [3, "Confused"]
 desc = "Tips it's hat to deal a bit of damage and confuse."
 battle_text = "%s tips it's hat at %s."
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Nibble" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [20, 30, -10, -15]
+accuracy = 100
+dmg_type = "str/self"
+desc = "Nibbles and eats a bit of the opponent to recover health"
+battle_text = "%s nibbles %s."
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Roll" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [30, 40]
+accuracy = 90
+type = "Geometric"
+dmg_type = "str"
+effect = [2, "Flattened"]
+desc = "Rolls over and flattens the target so they take more damage.."
+battle_text = "%s barrels over %s."
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="PancakeSlam" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [30, 40]
+accuracy = 80
+type = "Geometric"
+dmg_type = "str"
+effect = [2, "Flattened"]
+desc = "Slams down onto the target and flattens them."
+battle_text = "%s slams down onto %s."
 metadata/_custom_type_script = "uid://je6io23ym5wg"

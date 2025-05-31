@@ -73,12 +73,14 @@ func _on_create_artling_pressed():
 	if inspo >= create_screen.inspo_cost:
 		var new_artling = create_screen.calculate_artling()
 		add_artling(new_artling)
+		create_screen.hide_palette()
 		naming_screen.visible = true
 		naming_screen.setup_confirm(team[-1])
 		inspo -= create_screen.inspo_cost
 
 func _on_confirm_name_pressed():
-	team[-1].nickname = naming_screen.nickname.text
+	if naming_screen.nickname.text != "":
+		team[-1].nickname = naming_screen.nickname.text
 	hide_screens()
 
 func show_artling(ind):

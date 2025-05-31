@@ -1,9 +1,10 @@
 extends Panel
 
-@onready var inspiration_text = $InspoLabel
-@onready var color_text = $ColorLabel
-@onready var create_button = $CreateArtling
+@onready var inspiration_text = $CreatePalette/InspoLabel
+@onready var color_text = $CreatePalette/ColorLabel
+@onready var create_button = $CreatePalette/CreateArtling
 @onready var name_edit = $NameScreen/NameEdit
+@onready var create_palette = $CreatePalette
 @onready var player = get_parent().get_parent()
 var new_artling_name : String
 var r = 0
@@ -21,10 +22,14 @@ func _process(_delta):
 	new_artling_name = name_edit.text
 
 func setup_screen():
+	create_palette.visible = true
 	name_edit.text = ""
 	create_button.text = "Create Artling"
 	inspo_cost = len(player.team) * 2
 	clear_colors()
+
+func hide_palette():
+	create_palette.visible = false
 
 func calculate_artling():
 	if r == 1 && b == 1 && y == 1:

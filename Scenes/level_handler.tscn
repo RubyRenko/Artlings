@@ -47,8 +47,8 @@
 [ext_resource type="Script" uid="uid://cps3xom0csrih" path="res://Scenes/food_tr.gd" id="35_vgr1s"]
 [ext_resource type="Texture2D" uid="uid://goc0d6jfb6r3" path="res://Assets/artlings/Dewphy_Party_Screen_Export.png" id="36_atga2"]
 [ext_resource type="PackedScene" uid="uid://cslpj3ykmrpug" path="res://ArtlingScenes/egg_bear.tscn" id="38_w4csa"]
-[ext_resource type="Script" uid="uid://b8yh41nerx1t0" path="res://Scenes/trainer.gd" id="42_osflv"]
 [ext_resource type="PackedScene" uid="uid://svoh4nsbiwla" path="res://ArtlingScenes/wurm_beast.tscn" id="43_w4csa"]
+[ext_resource type="Script" uid="uid://b5m3kb2qisblu" path="res://Scenes/wurm_boss.gd" id="45_l5lre"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fipc"]
 bg_color = Color(1, 1, 1, 1)
@@ -584,7 +584,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="CreateScreen" type="Panel" parent="Player/Bg"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -607,7 +606,12 @@ rotation = 0.0507461
 scale = Vector2(1, 1.01543)
 texture = ExtResource("11_fv261")
 
-[node name="InspoLabel" type="Label" parent="Player/Bg/CreateScreen"]
+[node name="CreatePalette" type="Control" parent="Player/Bg/CreateScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InspoLabel" type="Label" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 641.0
 offset_top = 376.0
@@ -617,7 +621,7 @@ text = "Current Inspiration:
 Inspiration needed: "
 label_settings = ExtResource("6_gi4eu")
 
-[node name="CreateArtling" type="Button" parent="Player/Bg/CreateScreen"]
+[node name="CreateArtling" type="Button" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 643.0
 offset_top = 443.0
@@ -628,7 +632,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="ColorLabel" type="Label" parent="Player/Bg/CreateScreen"]
+[node name="ColorLabel" type="Label" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 84.0
 offset_top = 378.0
@@ -638,7 +642,7 @@ text = "Current colors
 R:  0 O: 0 Y: 0 G: 0 B: 0 V: 0 "
 label_settings = ExtResource("6_gi4eu")
 
-[node name="ColorClear" type="Button" parent="Player/Bg/CreateScreen"]
+[node name="ColorClear" type="Button" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 86.0
 offset_top = 441.0
@@ -649,7 +653,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="PaintBlueButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+[node name="PaintBlueButton" type="TextureButton" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 113.0
 offset_top = 171.0
@@ -659,7 +663,7 @@ texture_normal = ExtResource("7_5dhrb")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="PaintGreenButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+[node name="PaintGreenButton" type="TextureButton" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 275.0
 offset_top = 258.0
@@ -669,7 +673,7 @@ texture_normal = ExtResource("8_get3n")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="PaintPurpleButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+[node name="PaintPurpleButton" type="TextureButton" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 286.0
 offset_top = 74.0
@@ -679,7 +683,7 @@ texture_normal = ExtResource("9_pln8l")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="PaintOrangeButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+[node name="PaintOrangeButton" type="TextureButton" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 690.0
 offset_top = 158.0
@@ -689,7 +693,7 @@ texture_normal = ExtResource("10_420ye")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="PaintRedButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+[node name="PaintRedButton" type="TextureButton" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 521.0
 offset_top = 37.0
@@ -699,7 +703,7 @@ texture_normal = ExtResource("11_pfsb0")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="PaintYellowButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+[node name="PaintYellowButton" type="TextureButton" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 527.0
 offset_top = 245.0
@@ -709,7 +713,7 @@ texture_normal = ExtResource("12_50soc")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="BackButton" type="TextureButton" parent="Player/Bg/CreateScreen"]
+[node name="BackButton" type="TextureButton" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = 459.0
 offset_top = 441.0
@@ -765,13 +769,15 @@ offset_bottom = 386.0
 texture = ExtResource("24_m76uk")
 expand_mode = 2
 
-[node name="ConfirmName" type="Button" parent="Player/Bg/CreateScreen/NameScreen"]
+[node name="ConfirmName" type="TextureButton" parent="Player/Bg/CreateScreen/NameScreen"]
 layout_mode = 0
-offset_left = 452.0
-offset_top = 475.0
-offset_right = 548.0
-offset_bottom = 515.0
-text = "Confirm"
+offset_left = 471.0
+offset_top = 460.0
+offset_right = 527.0
+offset_bottom = 512.0
+texture_normal = ExtResource("25_3xdrn")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="IndexScreen" type="Panel" parent="Player/Bg"]
 visible = false
@@ -1016,6 +1022,20 @@ visible = false
 [node name="Trainers" type="Node3D" parent="." groups=["trainer"]]
 script = ExtResource("22_uv5sc")
 
+[node name="WurmBoss" type="Node3D" parent="Trainers" groups=["trainer"]]
+visible = false
+script = ExtResource("45_l5lre")
+level = 4
+artling_movesets = [["Blender", "TeethShot", "Screech", "Grapple"]]
+artling_stats = [[120, 30, 25, 10, 10, 25]]
+battlefield = ExtResource("26_q6ldt")
+metadata/_custom_type_script = "uid://b8yh41nerx1t0"
+
+[node name="WurmBeast" parent="Trainers/WurmBoss" groups=["trainer"] instance=ExtResource("43_w4csa")]
+visible = false
+element = "Geometric"
+nickname = "Boss Wurm Beast"
+
 [node name="FoodTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
 script = ExtResource("35_vgr1s")
@@ -1081,20 +1101,6 @@ visible = false
 
 [node name="Wurm" parent="Trainers/InkWurmTr" instance=ExtResource("6_hpbh2")]
 visible = false
-
-[node name="WurmBoss" type="Node3D" parent="Trainers" groups=["trainer"]]
-visible = false
-script = ExtResource("42_osflv")
-level = 2
-artling_movesets = [["Lick", "Teeth", "Blender", "TeethShot"]]
-artling_stats = [[120, 30, 25, 10, 10, 25]]
-battlefield = ExtResource("26_q6ldt")
-metadata/_custom_type_script = "uid://b8yh41nerx1t0"
-
-[node name="WurmBeast" parent="Trainers/WurmBoss" groups=["trainer"] instance=ExtResource("43_w4csa")]
-visible = false
-element = "Geometric"
-nickname = "Boss Wurm Beast"
 
 [node name="ChooseStarter" type="Panel" parent="."]
 visible = false
@@ -1407,15 +1413,15 @@ bus_name = "sfx"
 [connection signal="pressed" from="Player/Bg/PartyScreen/SwapButton" to="Player/Bg/PartyScreen" method="_on_swap_button_pressed"]
 [connection signal="pressed" from="Player/Bg/PartyScreen/BackButton" to="Player" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Player/Bg/PartyScreen/StatScreenBg/ExitStatScreen" to="Player" method="_on_exit_stat_screen_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/CreateArtling" to="Player" method="_on_create_artling_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/ColorClear" to="Player/Bg/CreateScreen" method="_on_color_clear_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/PaintBlueButton" to="Player/Bg/CreateScreen" method="_on_paint_blue_button_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/PaintGreenButton" to="Player/Bg/CreateScreen" method="_on_paint_green_button_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/PaintPurpleButton" to="Player/Bg/CreateScreen" method="_on_paint_purple_button_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/PaintOrangeButton" to="Player/Bg/CreateScreen" method="_on_paint_orange_button_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/PaintRedButton" to="Player/Bg/CreateScreen" method="_on_paint_red_button_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/PaintYellowButton" to="Player/Bg/CreateScreen" method="_on_paint_yellow_button_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/BackButton" to="Player" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/CreateArtling" to="Player" method="_on_create_artling_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/ColorClear" to="Player/Bg/CreateScreen" method="_on_color_clear_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintBlueButton" to="Player/Bg/CreateScreen" method="_on_paint_blue_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintGreenButton" to="Player/Bg/CreateScreen" method="_on_paint_green_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintPurpleButton" to="Player/Bg/CreateScreen" method="_on_paint_purple_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintOrangeButton" to="Player/Bg/CreateScreen" method="_on_paint_orange_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintRedButton" to="Player/Bg/CreateScreen" method="_on_paint_red_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintYellowButton" to="Player/Bg/CreateScreen" method="_on_paint_yellow_button_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/BackButton" to="Player" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/NameScreen/ConfirmName" to="Player" method="_on_confirm_name_pressed"]
 [connection signal="pressed" from="Player/Bg/IndexScreen/PrevButton" to="Player/Bg/IndexScreen" method="_on_prev_button_pressed"]
 [connection signal="pressed" from="Player/Bg/IndexScreen/NextButton" to="Player/Bg/IndexScreen" method="_on_next_button_pressed"]

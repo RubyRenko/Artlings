@@ -62,6 +62,11 @@ func attack(target, move):
 			var new_atk = current_moves.pick_random()
 			battle_text += "%s is confused, used %s instead.\n" % [nickname, new_atk]
 			atk = moves_list[new_atk]
+		
+		if target.status == "Hidden":
+			acc -= 30
+		elif target.status == "Flattened":
+			damage_range = [atk.damage[1], atk.damage[1]+(atk.damage[1]/5)]
 		#print(atk)
 		# generates a random int form 0-100
 		if randi_range(0, 100) <= acc:
@@ -272,6 +277,10 @@ func take_status():
 			status_counter -= 1
 		health -= damage
 		return nickname + " takes poison damage."
+	elif status == "Trapped":
+		var damage = ceili(health/16.0)
+		health -= damage
+		return nickname + " gets hurt from the grapple."
 	elif status == "Blind":
 		return nickname + " is blinded."
 	elif status == "Soapy":
@@ -286,6 +295,10 @@ func take_status():
 		return nickname + " is focusing."
 	elif status == "Confused":
 		return nickname + " is confused."
+	elif status == "Hidden":
+		return nickname + " is hidden."
+	elif status == "Flattened":
+		return nickname + " is flattened."
 	else:
 		return "placeholder status"
 

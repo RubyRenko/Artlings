@@ -119,6 +119,7 @@ func _process(_delta):
 		var team_wiped = true
 		changing_mons = true
 		player_mon.fainted = true
+		player_mon.status = "None"
 		for mon in player_team:
 			if mon.fainted == false:
 				team_wiped = false
@@ -315,23 +316,27 @@ func _on_change_artling_pressed():
 	party_screen.visible = true
 
 func choose_artling(artling_ind):
-	party_screen.visible = false
-	player_mon.visible = false
-	player_mon.status = "None"
-	player.swap_team(0, artling_ind)
-	update_player_sprite()
-	if !(player_mon in mons_for_exp):
-		mons_for_exp.append(player_team[0])
-	commands.append(["desc", "Swapped to " + player_mon.nickname + ".", "brace"])
-	# picks a random move for the enemy and puts it in the commands list
-	if !faint_switch:
-		var enemy_move = enemy_mon.current_moves.pick_random()
-		commands.append(["desc", "Enemy used " + enemy_move + "!", "brace"])
-		commands.append(["enemy", enemy_move])
-		battle_prog = 0
-		faint_switch = false
-	changing_mons = false
-	handle_turn(commands[0])
+	if player_mon.status == "Trapped":
+		party_screen.visible = false
+		battle_desc.set_text("%s is trapped! Can't switch." % player_mon.nickname)
+	else:
+		party_screen.visible = false
+		player_mon.visible = false
+		player_mon.status = "None"
+		player.swap_team(0, artling_ind)
+		update_player_sprite()
+		if !(player_mon in mons_for_exp):
+			mons_for_exp.append(player_team[0])
+		commands.append(["desc", "Swapped to " + player_mon.nickname + ".", "brace"])
+		# picks a random move for the enemy and puts it in the commands list
+		if !faint_switch:
+			var enemy_move = enemy_mon.current_moves.pick_random()
+			commands.append(["desc", "Enemy used " + enemy_move + "!", "brace"])
+			commands.append(["enemy", enemy_move])
+			battle_prog = 0
+			faint_switch = false
+		changing_mons = false
+		handle_turn(commands[0])
 
 func _on_artling_1_pressed():
 	choose_artling(0)

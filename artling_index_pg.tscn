@@ -154,6 +154,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ooeoe")
 script = ExtResource("3_ooeoe")
 
 [node name="Frame" type="TextureRect" parent="IndexPg2"]
+layout_mode = 0
 offset_left = 183.0
 offset_top = 74.0
 offset_right = 462.0
@@ -162,6 +163,7 @@ texture = ExtResource("4_1cia4")
 expand_mode = 2
 
 [node name="Picture" type="TextureRect" parent="IndexPg2"]
+layout_mode = 0
 offset_left = 194.0
 offset_top = 84.0
 offset_right = 452.0

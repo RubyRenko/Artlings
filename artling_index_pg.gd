@@ -24,7 +24,7 @@ var artling_info = {
 	#Yolkcub
 	"Yolkcub": ["Yolkcub", preload("res://Assets/artlings/EggbearCroppd.png"),\
 	"An shy bear cub with sturdy egg protection", "Artist: Shiyu Li", "Recipe: 4+ yellow",\
-	["Thud", "Charge", "BaconSlap", "Lick"] ],
+	["Nibble", "Roll", "Focus", "Charge"] ],
 	#Hatguy
 	"Hatguy": ["Hatguy", preload("res://Assets/artlings/HatguyCropped.png"),\
 	"Legs with a hat", "Artist: Lyssa (mzbljack)", "Recipe: 6 violet",\
@@ -36,7 +36,7 @@ var artling_info = {
 	#Boss Wurm
 	"Wurm Beast": ["Wurm Beast", preload("res://Assets/artlings/WurmEvo.png"),\
 	"Now that it has hands with digits it has become too powerful", "Artist: Aubrey Rhodes-Gorman", "Recipe: ???",\
-	["Teeth", "Blender", "TeethShot", "Lick"] ]
+	["Teeth", "Blender", "TeethShot", "Screech", "Grapple"] ]
 	}
 @onready var page1 = $IndexPg1
 @onready var page2 = $IndexPg2

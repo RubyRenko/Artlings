@@ -3,7 +3,7 @@ extends Mon
 @onready var anim = $AnimSprite
 
 func _ready():
-	learnable_moves = ["Brush", "Smoke", "Dollop", "InkSlash", "Stipple", "Inkblot"]
+	learnable_moves = ["Brush", "Smoke", "Dollop", "InkSlash", "Stipple", "Hide", "Inkblot"]
 	load_move(master_move_list.get_move("Brush"))
 	load_move(master_move_list.get_move("Smoke"))
 	"""load_move(moves.get_move("Dollop"))

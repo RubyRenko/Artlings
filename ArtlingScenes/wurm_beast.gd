@@ -3,7 +3,8 @@ extends Mon
 @onready var anim = $AnimModel
 
 func _ready():
-	learnable_moves = ["Teeth", "Blender", "TeethShot", "Lick"]
+	learnable_moves = ["Teeth", "Blender", "TeethShot", "Screech", "Grapple"]
+	load_move(master_move_list.get_move("Teeth"))
 	load_move(master_move_list.get_move("Blender"))
 	load_move(master_move_list.get_move("TeethShot"))
 	#load_move(moves.get_move("Teeth"))

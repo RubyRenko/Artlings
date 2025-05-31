@@ -3,9 +3,9 @@ extends Mon
 @onready var anim = $egg
 
 func _ready():
-	learnable_moves = ["Thud", "Charge", "Teeth", "Blender", "Lick"]
-	load_move(master_move_list.get_move("Thud"))
-	load_move(master_move_list.get_move("Charge"))
+	learnable_moves = ["Nibble", "Roll", "Focus", "Charge", "PancakeSlam"]
+	load_move(master_move_list.get_move("Nibble"))
+	load_move(master_move_list.get_move("Roll"))
 	#load_move(moves.get_move("Teeth"))
 	#load_move(moves.get_move("Blender"))
 	#load_move(moves.get_move("Lick"))
