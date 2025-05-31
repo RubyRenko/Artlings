@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4dfmbtiwmud2"]
+
+[ext_resource type="PackedScene" uid="uid://c1jjinhkceefo" path="res://3d artlings/egg.glb" id="1_rp2q7"]
+
+[node name="egg" instance=ExtResource("1_rp2q7")]
+
+[node name="Lights" parent="." index="5"]
+visible = false
+
+[node name="Light" parent="Lights" index="0"]
+visible = false
+
+[node name="Light 1" parent="Lights" index="1"]
+visible = false

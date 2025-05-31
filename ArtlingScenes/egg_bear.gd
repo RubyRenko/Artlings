@@ -1,6 +1,6 @@
 extends Mon
 
-@onready var anim = $Food_2
+@onready var anim = $egg
 
 func _ready():
 	learnable_moves = ["Thud", "Charge", "Teeth", "Blender", "Lick"]

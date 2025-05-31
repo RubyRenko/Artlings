@@ -61,7 +61,7 @@ func _on_train_button_pressed():
 	player.hide_screens(true)
 	current_battlefield = battlefields.pick_random().instantiate()
 	environment_node.add_child(current_battlefield)
-	var wild_battle = wild_battles.get_random()
+	var wild_battle = wild_battles.get_trainer("Test5")
 	wild_battle.visible = true
 	for mon in wild_battle.get_children():
 		if !(mon.species in player.index_screen.artlings_discovered):

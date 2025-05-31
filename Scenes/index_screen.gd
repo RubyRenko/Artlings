@@ -8,11 +8,11 @@ extends Panel
 @onready var next_pg_button = $NextButton
 @onready var prev_pg_button = $PrevButton
 
-var artling_tuples = [ ["Inkit", "Dewphin"], ["Wurm", "Bapig"], ["Hatguy", "Blank"] ]
-var artling_order = [ "Inkit", "Dewphin", "Wurm", "Bapig", "Hatguy"]
+var artling_tuples = [ ["Inkit", "Dewphin"], ["Wurm", "Bapig"], ["Hatguy", "Yolkcub"], ["Slicer", "Wurm Beast"] ]
+@onready var artling_order = ["Inkit", "Dewphin", "Wurm", "Bapig", "Yolkcub", "Hatguy", "Slicer", "Wurm Beast"]
 var artlings_discovered = ["Blank"]
 var current_page = -1
-var max_page = 2
+var max_page = 3
 
 func _ready():
 	for i in index_buttons.get_child_count():

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cslpj3ykmrpug"]
 
 [ext_resource type="Script" uid="uid://cqbffwwnf8bkx" path="res://ArtlingScenes/egg_bear.gd" id="1_hg8v8"]
-[ext_resource type="PackedScene" uid="uid://s3bbv8ojgucn" path="res://3d artlings/food_bear.tscn" id="1_obaaf"]
 [ext_resource type="Texture2D" uid="uid://dqhdw8qg8c2u6" path="res://Assets/artlings/EggbearCroppd.png" id="2_5376r"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="2_hg8v8"]
+[ext_resource type="PackedScene" uid="uid://d4dfmbtiwmud2" path="res://3d artlings/egg2.tscn" id="3_5376r"]
 
 [node name="EggBear" type="Node3D" groups=["3d", "mon"]]
 script = ExtResource("1_hg8v8")
@@ -13,17 +13,15 @@ defense = 20
 intelligence = 5
 mind = 20
 speed = 5
+nickname = "Yolkcub"
+species = "Yolkcub"
 img = ExtResource("2_5376r")
 
-[node name="Food_2" parent="." instance=ExtResource("1_obaaf")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.403591, 0)
+[node name="egg" parent="." groups=["3d", "mon"] instance=ExtResource("3_5376r")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.528567, 0)
 
 [node name="ArtlingStats" parent="." instance=ExtResource("2_hg8v8")]
 visible = false
 
 [node name="atk_sfx" type="AudioStreamPlayer" parent="."]
 bus = &"sfx"
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583872, 0.746182, 0.0183832)
-visible = false

@@ -24,6 +24,7 @@ func _ready():
 	add_artling("Dewphin")
 	add_artling("Wurm")
 	hide_screens()
+	index_screen.artlings_discovered = ["Blank", "Inkit", "Dewphin", "Wurm", "Bapig", "Yolkcub", "Hatguy", "Slicer", "Wurm Beast"]
 	
 	for i in 6:
 		var artling_button = party_screen.party_list.get_child(i)

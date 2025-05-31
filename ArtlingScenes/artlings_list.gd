@@ -5,10 +5,11 @@ var artlings_masterlist = {
 	"Inkit": preload("res://ArtlingScenes/ink_starter.tscn"),
 	"Dewphin": preload("res://ArtlingScenes/water_starter.tscn"),
 	"Wurm": preload("res://ArtlingScenes/worm.tscn"),
-	#"egg bear": preload("res://ArtlingScenes/egg_bear.tscn"),
+	"Yolkcub": preload("res://ArtlingScenes/egg_bear.tscn"),
 	"Bapig": preload("res://ArtlingScenes/bacon_pig.tscn"),
 	"Hatguy": preload("res://ArtlingScenes/hatguy.tscn"),
-	"Wurm Beast": preload("res://ArtlingScenes/wurm_beast.tscn")
+	"Wurm Beast": preload("res://ArtlingScenes/wurm_beast.tscn"),
+	"Slicer": preload("res://ArtlingScenes/slicer.tscn")
 	}
 
 func get_artling(artling):

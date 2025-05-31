@@ -1,26 +1,41 @@
 extends Control
 
 var artling_info = {
+	#Unknown Artling
 	"?" : ["???", preload("res://Assets/UI/QuestionMark.png"),\
 	"Unknown artling", "Artist: ???", "Recipe: ???",\
 	["???"] ],
-	"Inkit": ["Inkit", preload("res://Assets/artlings/InkStarterCropped.png"),\
-	"A fox with an ink brush for a tail, specializes in applying blind", "Artist: Kevin Hong", "Recipe: 1 red, 1 blue, 1 yellow",\
+	#Inkit
+	"Inkit": ["Inkit", preload("res://Assets/artlings/Inkit_Party_Screen.png"),\
+	"Tricksy and blinds anyone it doesn't like with it's precise brush strokes", "Artist: Kevin Hong", "Recipe: 1 red, 1 blue, 1 yellow",\
 	["Brush", "Smoke", "Dollop", "InkSlash", "Stipple", "InkBlot"] ],
-	"Dewphin": ["Dewphin", preload("res://Assets/artlings/water_starter_paper.jpg"),\
-	"A timid watercolor cetation who creates colorful healing bubbles", "Artist: Kevin Hong", "Recipe: 2+ blue, 1+ green",\
+	#Dewphin
+	"Dewphin": ["Dewphin", preload("res://Assets/artlings/Dewphy_Party_Screen_Export.png"),\
+	"Timid and shy, spends it's time making colorful healing bubbles", "Artist: Kevin Hong", "Recipe: 2+ blue, 1+ green",\
 	["Spout", "Bubble", "Rejuvinate", "Sap", "Wash", "Cure", "BubbleBurst"] ],
+	#Wurm
 	"Wurm": ["Wurm", preload("res://Assets/artlings/wormCropped.png"),\
-	"A sturdy teethy worm creature", "Artist: Aubrey Rhodes-Gorman", "Recipe: 3+ red",\
+	"While it has stubby little hands, it prefers to bite things", "Artist: Aubrey Rhodes-Gorman", "Recipe: 3+ red",\
 	["Thud", "Charge", "Teeth", "Focus", "Blender", "Lick", "TeethShot"] ],
-	"Bapig": ["Pabig", preload("res://Assets/artlings/Pig_artingCropped.png"),\
-	"A strong bug fragile pig made of bacon", "Artist: Shiyu Li", "Recipe: 6 red",\
+	#Bapig
+	"Bapig": ["Bapig", preload("res://Assets/artlings/Pig_artingCropped.png"),\
+	"Delivers devastating slaps of bacon for others and itself", "Artist: Shiyu Li", "Recipe: 6 red",\
 	["Thud", "Charge", "BaconSlap", "Lick"] ],
+	#Yolkcub
+	"Yolkcub": ["Yolkcub", preload("res://Assets/artlings/EggbearCroppd.png"),\
+	"An shy bear cub with sturdy egg protection", "Artist: Shiyu Li", "Recipe: 4+ yellow",\
+	["Thud", "Charge", "BaconSlap", "Lick"] ],
+	#Hatguy
 	"Hatguy": ["Hatguy", preload("res://Assets/artlings/HatguyCropped.png"),\
 	"Legs with a hat", "Artist: Lyssa (mzbljack)", "Recipe: 6 violet",\
 	["Thud", "HatTip", "KarateKick"] ],
+	#Laura's scissors
+	"Slicer": ["Slicer", preload("res://Assets/artlings/tempsliceycropped.png"),\
+	"Fragile and pinchy but great with crafts", "Artist: Laura Zhou", "Recipe: 2+ red, 2+ violet",\
+	["Thud", "HatTip", "KarateKick"] ],
+	#Boss Wurm
 	"Wurm Beast": ["Wurm Beast", preload("res://Assets/artlings/WurmEvo.png"),\
-	"A ferocious worm monster", "Artist: Aubrey Rhodes-Gorman", "Recipe: ???",\
+	"Now that it has hands with digits it has become too powerful", "Artist: Aubrey Rhodes-Gorman", "Recipe: ???",\
 	["Teeth", "Blender", "TeethShot", "Lick"] ]
 	}
 @onready var page1 = $IndexPg1

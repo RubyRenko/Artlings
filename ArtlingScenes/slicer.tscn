@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1105rs7v338o"]
+
+[ext_resource type="Script" uid="uid://dgmajgu5k2iq4" path="res://ArtlingScenes/slicer.gd" id="1_xr6j5"]
+[ext_resource type="Texture2D" uid="uid://dsyxlay28mwc5" path="res://Assets/artlings/tempsliceyflip.png" id="2_ih5yw"]
+[ext_resource type="Texture2D" uid="uid://bw4oru0u1qxrl" path="res://Assets/artlings/tempsliceycropped.png" id="2_p3uc6"]
+[ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_edpa3"]
+[ext_resource type="AudioStream" uid="uid://bu04j80c0fgre" path="res://Audio/sfx/sfx2.mp3" id="4_p3uc6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_edpa3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ih5yw")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ih5yw")
+}],
+"loop": true,
+"name": &"brace",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ih5yw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Slicer" type="Node3D" groups=["2d", "mon"]]
+script = ExtResource("1_xr6j5")
+max_hp = 40
+strength = 20
+defense = 10
+intelligence = 10
+mind = 10
+speed = 30
+nickname = "Slicer"
+species = "Slicer"
+img = ExtResource("2_p3uc6")
+metadata/_custom_type_script = "uid://dhlyoxibtyxxc"
+
+[node name="AnimSprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -0.284294, 0.221368, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_edpa3")
+animation = &"idle"
+
+[node name="ArtlingStats" parent="." instance=ExtResource("3_edpa3")]
+visible = false
+
+[node name="atk_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p3uc6")
+bus = &"sfx"

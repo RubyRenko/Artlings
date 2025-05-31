@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvuq3or6r43sc"]
+[gd_scene load_steps=11 format=3 uid="uid://cvuq3or6r43sc"]
 
 [ext_resource type="Script" uid="uid://cpbidijuhk457" path="res://artling_index_pg.gd" id="1_xpc04"]
 [ext_resource type="Texture2D" uid="uid://3jgjm03wa18v" path="res://Assets/UI/IndexBook.png" id="2_ooeoe"]
 [ext_resource type="Script" uid="uid://bljupwchc2f5r" path="res://index_pg.gd" id="3_ooeoe"]
-[ext_resource type="Texture2D" uid="uid://5shuswpjqnvm" path="res://Assets/artlings/InkStarterCropped.png" id="3_xpc04"]
+[ext_resource type="Texture2D" uid="uid://0601nhlmunc6" path="res://Assets/UI/ArtlingFrame5.png" id="4_1cia4"]
+[ext_resource type="Texture2D" uid="uid://goc0d6jfb6r3" path="res://Assets/artlings/Dewphy_Party_Screen_Export.png" id="5_1cia4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xpc04"]
 
@@ -29,7 +30,6 @@ offset_bottom = 40.0
 script = ExtResource("1_xpc04")
 
 [node name="IndexBook" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(577, 324)
 texture = ExtResource("2_ooeoe")
 
@@ -51,13 +51,22 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_xpc04")
 script = ExtResource("3_ooeoe")
 
+[node name="Frame" type="TextureRect" parent="IndexPg1"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 74.0
+offset_right = 314.0
+offset_bottom = 352.0
+texture = ExtResource("4_1cia4")
+expand_mode = 2
+
 [node name="Picture" type="TextureRect" parent="IndexPg1"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 72.0
-offset_right = 310.0
-offset_bottom = 352.0
-texture = ExtResource("3_xpc04")
+offset_left = 46.0
+offset_top = 84.0
+offset_right = 304.0
+offset_bottom = 343.0
+texture = ExtResource("5_1cia4")
 expand_mode = 3
 
 [node name="Name" type="Label" parent="IndexPg1"]
@@ -75,18 +84,18 @@ label_settings = SubResource("LabelSettings_ooeoe")
 
 [node name="MovesetTitle" type="Label" parent="IndexPg1"]
 layout_mode = 0
-offset_left = 329.0
+offset_left = 331.0
 offset_top = 84.0
-offset_right = 457.0
+offset_right = 459.0
 offset_bottom = 112.0
 text = "Moveset"
 label_settings = SubResource("LabelSettings_ykx6n")
 
 [node name="Moveset" type="Label" parent="IndexPg1"]
 layout_mode = 0
-offset_left = 329.0
+offset_left = 331.0
 offset_top = 115.0
-offset_right = 457.0
+offset_right = 459.0
 offset_bottom = 320.0
 text = "Move1
 Move2
@@ -114,7 +123,7 @@ offset_left = 43.0
 offset_top = 360.0
 offset_right = 467.0
 offset_bottom = 389.0
-text = "Drawn by:"
+text = "Artist:"
 label_settings = SubResource("LabelSettings_1cia4")
 
 [node name="CraftRecipe" type="Label" parent="IndexPg1"]
@@ -144,13 +153,20 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ooeoe")
 script = ExtResource("3_ooeoe")
 
-[node name="Picture" type="TextureRect" parent="IndexPg2"]
-layout_mode = 0
-offset_left = 175.0
-offset_top = 72.0
-offset_right = 455.0
+[node name="Frame" type="TextureRect" parent="IndexPg2"]
+offset_left = 183.0
+offset_top = 74.0
+offset_right = 462.0
 offset_bottom = 352.0
-texture = ExtResource("3_xpc04")
+texture = ExtResource("4_1cia4")
+expand_mode = 2
+
+[node name="Picture" type="TextureRect" parent="IndexPg2"]
+offset_left = 194.0
+offset_top = 84.0
+offset_right = 452.0
+offset_bottom = 342.0
+texture = ExtResource("5_1cia4")
 expand_mode = 3
 
 [node name="Name" type="Label" parent="IndexPg2"]
@@ -207,7 +223,7 @@ offset_left = 43.0
 offset_top = 360.0
 offset_right = 467.0
 offset_bottom = 389.0
-text = "Drawn by:"
+text = "Artist:"
 label_settings = SubResource("LabelSettings_1cia4")
 
 [node name="CraftRecipe" type="Label" parent="IndexPg2"]
