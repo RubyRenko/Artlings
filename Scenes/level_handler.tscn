@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=74 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c7sds666wes10" path="res://Assets/UI/SwapButtonPress.png" id="11_jwsr1"]
 [ext_resource type="Texture2D" uid="uid://cqm6y8qcofxy8" path="res://Assets/palette/red.png" id="11_pfsb0"]
 [ext_resource type="Texture2D" uid="uid://c11wxo0rkp4a6" path="res://Assets/palette/yellow.png" id="12_50soc"]
+[ext_resource type="Texture2D" uid="uid://b5omhsqywesvy" path="res://Menus/menu_images/palette_buttons.png" id="15_lou55"]
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="16_50soc"]
 [ext_resource type="Script" uid="uid://b5xh8f4ivs3f1" path="res://Scenes/index_screen.gd" id="17_1m7qd"]
 [ext_resource type="Script" uid="uid://dnh2hyx47y6q8" path="res://Scenes/name_screen.gd" id="17_vb606"]
@@ -71,6 +72,38 @@ events = [SubResource("InputEventKey_hpc6h")]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb606"]
 bg_color = Color(0.917647, 0.917647, 0.917647, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lou55"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvsy3"]
+texture = ExtResource("15_lou55")
+region_rect = Rect2(1053, 946, 1103, 549)
+modulate_color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lou55"]
+texture = ExtResource("15_lou55")
+region_rect = Rect2(1053, 946, 1103, 549)
+modulate_color = Color(0.77084, 0.770839, 0.770839, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_byaey"]
+texture = ExtResource("15_lou55")
+region_rect = Rect2(1053, 946, 1103, 549)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p68xn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lsxt8"]
+texture = ExtResource("15_lou55")
+region_rect = Rect2(215, 779, 727, 782)
+modulate_color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aja7p"]
+texture = ExtResource("15_lou55")
+region_rect = Rect2(215, 779, 727, 782)
+modulate_color = Color(0.77084, 0.770839, 0.770839, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nv7tp"]
+texture = ExtResource("15_lou55")
+region_rect = Rect2(215, 779, 727, 782)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv261"]
 
@@ -613,42 +646,55 @@ offset_bottom = 40.0
 
 [node name="InspoLabel" type="Label" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
-offset_left = 641.0
-offset_top = 376.0
-offset_right = 883.0
-offset_bottom = 435.0
+offset_left = 528.0
+offset_top = 379.0
+offset_right = 770.0
+offset_bottom = 438.0
 text = "Current Inspiration: 
 Inspiration needed: "
 label_settings = ExtResource("6_gi4eu")
 
 [node name="CreateArtling" type="Button" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
-offset_left = 643.0
-offset_top = 443.0
-offset_right = 883.0
-offset_bottom = 497.0
-text = "Create Artling"
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
+offset_left = 578.0
+offset_top = 323.0
+offset_right = 1001.0
+offset_bottom = 553.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lou55")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_uvsy3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_uvsy3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_lou55")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lou55")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_uvsy3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uvsy3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_byaey")
+theme_override_styles/normal = SubResource("StyleBoxTexture_byaey")
 
 [node name="ColorLabel" type="Label" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 378.0
-offset_right = 334.0
-offset_bottom = 437.0
+offset_left = 231.0
+offset_top = 380.0
+offset_right = 481.0
+offset_bottom = 439.0
 text = "Current colors
 R:  0 O: 0 Y: 0 G: 0 B: 0 V: 0 "
 label_settings = ExtResource("6_gi4eu")
 
 [node name="ColorClear" type="Button" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 441.0
-offset_right = 326.0
-offset_bottom = 495.0
-text = "Clear Colors"
+offset_left = -68.0
+offset_top = 320.0
+offset_right = 222.0
+offset_bottom = 592.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p68xn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_lsxt8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_lsxt8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_aja7p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_aja7p")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_lsxt8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lsxt8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_nv7tp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nv7tp")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -724,6 +770,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="NameScreen" type="Panel" parent="Player/Bg/CreateScreen"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

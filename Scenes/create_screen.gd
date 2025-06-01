@@ -24,7 +24,7 @@ func _process(_delta):
 func setup_screen():
 	create_palette.visible = true
 	name_edit.text = ""
-	create_button.text = "Create Artling"
+	#create_button.text = "Create Artling"
 	inspo_cost = len(player.team) * 2
 	clear_colors()
 
