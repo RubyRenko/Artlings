@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cslpj3ykmrpug"]
+[gd_scene load_steps=6 format=3 uid="uid://cslpj3ykmrpug"]
 
 [ext_resource type="Script" uid="uid://cqbffwwnf8bkx" path="res://ArtlingScenes/egg_bear.gd" id="1_hg8v8"]
 [ext_resource type="Texture2D" uid="uid://dqhdw8qg8c2u6" path="res://Assets/artlings/EggbearCroppd.png" id="2_5376r"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="2_hg8v8"]
 [ext_resource type="PackedScene" uid="uid://d4dfmbtiwmud2" path="res://3d artlings/egg2.tscn" id="3_5376r"]
+[ext_resource type="AudioStream" uid="uid://bacw47dw7q777" path="res://Audio/sfx/eggbearsfx.mp3" id="5_b2q75"]
 
 [node name="EggBear" type="Node3D" groups=["3d", "mon"]]
 script = ExtResource("1_hg8v8")
@@ -25,4 +26,5 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.528567, 0)
 visible = false
 
 [node name="atk_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b2q75")
 bus = &"sfx"
