@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cq4tvos4i67ew"]
+
+[ext_resource type="FontFile" uid="uid://md6tu51nfwfn" path="res://Assets/fonts/melon-camp-font/MelonCamp-ovOeq.otf" id="1_amk8p"]
+
+[resource]
+font = ExtResource("1_amk8p")
+font_size = 17

@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://diwp6ejfs6q8"]
+[gd_scene load_steps=16 format=3 uid="uid://diwp6ejfs6q8"]
 
 [ext_resource type="Script" uid="uid://ceripbwthd83h" path="res://Menus/title_screen.gd" id="1_b0rdp"]
 [ext_resource type="Texture2D" uid="uid://cijclv6mgqp1e" path="res://Menus/menu_images/option3.png" id="2_53cj8"]
+[ext_resource type="FontFile" uid="uid://ct6msihjda3rp" path="res://Assets/fonts/melon-camp-font/MelonCamp-4nMxY.ttf" id="2_at5ib"]
 [ext_resource type="Texture2D" uid="uid://bmvsqegxf4irn" path="res://Menus/menu_images/titlescreenPLACEHOLDER.png" id="2_d8fdh"]
 [ext_resource type="Texture2D" uid="uid://bikirppmftycq" path="res://Menus/menu_images/option1.png" id="3_gj0uk"]
+[ext_resource type="FontFile" uid="uid://md6tu51nfwfn" path="res://Assets/fonts/melon-camp-font/MelonCamp-ovOeq.otf" id="4_86lmc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53cj8"]
 
@@ -62,6 +64,7 @@ theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.52027, 5.71553e-07, 2.88785e-07, 1)
+theme_override_fonts/font = ExtResource("2_at5ib")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_53cj8")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gj0uk")
@@ -86,8 +89,9 @@ size_flags_vertical = 4
 texture = ExtResource("2_53cj8")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -102,6 +106,7 @@ theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.52027, 5.71553e-07, 2.88785e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_86lmc")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_86lmc")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_eat0d")
@@ -128,6 +133,7 @@ expand_mode = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -142,6 +148,7 @@ theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.52027, 5.71553e-07, 2.88785e-07, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_86lmc")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7rexm")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_45dg7")

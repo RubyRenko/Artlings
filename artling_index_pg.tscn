@@ -1,23 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvuq3or6r43sc"]
+[gd_scene load_steps=13 format=3 uid="uid://cvuq3or6r43sc"]
 
 [ext_resource type="Script" uid="uid://cpbidijuhk457" path="res://artling_index_pg.gd" id="1_xpc04"]
 [ext_resource type="Texture2D" uid="uid://3jgjm03wa18v" path="res://Assets/UI/IndexBook.png" id="2_ooeoe"]
 [ext_resource type="Script" uid="uid://bljupwchc2f5r" path="res://index_pg.gd" id="3_ooeoe"]
 [ext_resource type="Texture2D" uid="uid://0601nhlmunc6" path="res://Assets/UI/ArtlingFrame5.png" id="4_1cia4"]
 [ext_resource type="Texture2D" uid="uid://goc0d6jfb6r3" path="res://Assets/artlings/Dewphy_Party_Screen_Export.png" id="5_1cia4"]
+[ext_resource type="FontFile" uid="uid://bnw0gj6ea63ar" path="res://Assets/fonts/super-bakery-font/SuperBakery-3lXyp.ttf" id="6_26std"]
+[ext_resource type="FontFile" uid="uid://ct6msihjda3rp" path="res://Assets/fonts/melon-camp-font/MelonCamp-4nMxY.ttf" id="7_0encs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xpc04"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ooeoe"]
+font = ExtResource("6_26std")
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ykx6n"]
+font = ExtResource("7_0encs")
 font_size = 18
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1cia4"]
+font = ExtResource("7_0encs")
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ooeoe"]
@@ -30,7 +35,6 @@ offset_bottom = 40.0
 script = ExtResource("1_xpc04")
 
 [node name="IndexBook" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(577, 324)
 texture = ExtResource("2_ooeoe")
 
@@ -82,6 +86,7 @@ offset_bottom = 62.0
 grow_horizontal = 2
 text = "Artling Name"
 label_settings = SubResource("LabelSettings_ooeoe")
+horizontal_alignment = 1
 
 [node name="MovesetTitle" type="Label" parent="IndexPg1"]
 layout_mode = 0
@@ -184,6 +189,7 @@ offset_bottom = 62.0
 grow_horizontal = 2
 text = "Artling Name"
 label_settings = SubResource("LabelSettings_ooeoe")
+horizontal_alignment = 1
 
 [node name="MovesetTitle" type="Label" parent="IndexPg2"]
 layout_mode = 0

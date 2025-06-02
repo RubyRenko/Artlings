@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=89 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
@@ -11,14 +11,22 @@
 [ext_resource type="PackedScene" uid="uid://cjf1qhi1130lb" path="res://ArtlingScenes/worm.tscn" id="6_hpbh2"]
 [ext_resource type="Texture2D" uid="uid://b01lav8a1ghi1" path="res://Assets/UI/SketchBook2.png" id="6_pfsb0"]
 [ext_resource type="Texture2D" uid="uid://6acay5yomnsm" path="res://Assets/palette/blue.png" id="7_5dhrb"]
+[ext_resource type="Texture2D" uid="uid://c4thy1c21vqvk" path="res://Assets/UI/CreatePalette1.png" id="7_aja7p"]
+[ext_resource type="Texture2D" uid="uid://bnksymnkibbkp" path="res://Assets/UI/CreatePalette2.png" id="8_011nr"]
 [ext_resource type="Texture2D" uid="uid://wglb4k5xsglt" path="res://Assets/palette/green.png" id="8_get3n"]
+[ext_resource type="Texture2D" uid="uid://bnwm2fuj7tfvp" path="res://Assets/UI/CreatePalette3.png" id="9_i5t2d"]
 [ext_resource type="Texture2D" uid="uid://cf6lrjsgtg7ww" path="res://Assets/palette/purple.png" id="9_pln8l"]
 [ext_resource type="Texture2D" uid="uid://b042gfcrraepi" path="res://Assets/palette/orange.png" id="10_420ye"]
+[ext_resource type="Texture2D" uid="uid://6vdcku7igxy6" path="res://Assets/UI/IndexBookIcon1.png" id="10_753ol"]
 [ext_resource type="Texture2D" uid="uid://ck3enefvg87pi" path="res://Assets/UI/SwapButton.png" id="10_jwsr1"]
+[ext_resource type="Texture2D" uid="uid://clyjibftyp7p5" path="res://Assets/UI/IndexBookIcon2.png" id="11_8bqci"]
 [ext_resource type="Texture2D" uid="uid://cmawayb8ak4qv" path="res://Assets/UI/PaletteBoard.png" id="11_fv261"]
 [ext_resource type="Texture2D" uid="uid://c7sds666wes10" path="res://Assets/UI/SwapButtonPress.png" id="11_jwsr1"]
 [ext_resource type="Texture2D" uid="uid://cqm6y8qcofxy8" path="res://Assets/palette/red.png" id="11_pfsb0"]
 [ext_resource type="Texture2D" uid="uid://c11wxo0rkp4a6" path="res://Assets/palette/yellow.png" id="12_50soc"]
+[ext_resource type="StyleBox" uid="uid://d1js15rgyr1bg" path="res://PaperButton3.tres" id="12_r0crn"]
+[ext_resource type="FontFile" uid="uid://bnw0gj6ea63ar" path="res://Assets/fonts/super-bakery-font/SuperBakery-3lXyp.ttf" id="13_753ol"]
+[ext_resource type="StyleBox" uid="uid://dweatvv6dghwo" path="res://PaperButton4.tres" id="13_y54wi"]
 [ext_resource type="Texture2D" uid="uid://b5omhsqywesvy" path="res://Menus/menu_images/palette_buttons.png" id="15_lou55"]
 [ext_resource type="Script" uid="uid://d2e27ap2b7eyv" path="res://Scenes/party_screen.gd" id="16_50soc"]
 [ext_resource type="Script" uid="uid://b5xh8f4ivs3f1" path="res://Scenes/index_screen.gd" id="17_1m7qd"]
@@ -41,7 +49,9 @@
 [ext_resource type="PackedScene" uid="uid://dccvmqkyrtfkm" path="res://Battlefields/battlefield_1.tscn" id="26_uloti"]
 [ext_resource type="Script" uid="uid://16nfqaasj8vl" path="res://Scripts/trainerai/bapigtrainerai.gd" id="27_r27tj"]
 [ext_resource type="Script" uid="uid://baf7g022jd032" path="res://Scenes/dewphin_tr.gd" id="30_a8wuu"]
+[ext_resource type="FontFile" uid="uid://c5e48vdwo4624" path="res://Assets/fonts/cleanow-font/Cleanow-j9v60.ttf" id="31_gto5g"]
 [ext_resource type="Script" uid="uid://b6cxujus1iwix" path="res://Scenes/ink_wurm_tr.gd" id="32_a8wuu"]
+[ext_resource type="FontFile" uid="uid://md6tu51nfwfn" path="res://Assets/fonts/melon-camp-font/MelonCamp-ovOeq.otf" id="34_8bqci"]
 [ext_resource type="PackedScene" uid="uid://d1105rs7v338o" path="res://ArtlingScenes/slicer.tscn" id="35_l5lre"]
 [ext_resource type="Texture2D" uid="uid://buccixpkummy3" path="res://Assets/artlings/Inkit_Party_Screen.png" id="35_vb606"]
 [ext_resource type="Script" uid="uid://cps3xom0csrih" path="res://Scenes/food_tr.gd" id="35_vgr1s"]
@@ -51,6 +61,8 @@
 [ext_resource type="Script" uid="uid://layakymebdwq" path="res://Scripts/trainerai/inkit_tr.gd" id="40_lou55"]
 [ext_resource type="PackedScene" uid="uid://svoh4nsbiwla" path="res://ArtlingScenes/wurm_beast.tscn" id="43_w4csa"]
 [ext_resource type="Script" uid="uid://b5m3kb2qisblu" path="res://Scenes/wurm_boss.gd" id="45_l5lre"]
+[ext_resource type="StyleBox" uid="uid://bbu5oqpb3knbp" path="res://PaperButton2.tres" id="60_r0crn"]
+[ext_resource type="StyleBox" uid="uid://s4fe08lmhyj8" path="res://PaperButton1.tres" id="61_y54wi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fipc"]
 bg_color = Color(1, 1, 1, 1)
@@ -70,6 +82,11 @@ unicode = 99
 
 [sub_resource type="Shortcut" id="Shortcut_m76uk"]
 events = [SubResource("InputEventKey_hpc6h")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5t2d"]
+font = ExtResource("13_753ol")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb606"]
 bg_color = Color(0.917647, 0.917647, 0.917647, 1)
@@ -109,35 +126,41 @@ region_rect = Rect2(215, 779, 727, 782)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv261"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pfsb0"]
+font = ExtResource("31_gto5g")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ih2t"]
-font_size = 24
+font = ExtResource("13_753ol")
+font_size = 35
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_57tv7"]
 line_spacing = 10.0
-font_size = 18
+font = ExtResource("34_8bqci")
+font_size = 22
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_420ye"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_x04ip"]
+font = ExtResource("34_8bqci")
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kj370"]
-font_size = 22
-font_color = Color(0, 0, 0, 1)
-outline_size = 1
+font = ExtResource("13_753ol")
+font_size = 25
+outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6ldt"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y54wi"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gto5g"]
 load_path = "res://.godot/imported/settings_texture.png-45d956df31bfafdfaa005fa422a47433.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kj370"]
-texture = SubResource("CompressedTexture2D_q6ldt")
+texture = SubResource("CompressedTexture2D_gto5g")
 region_rect = Rect2(164, 166, 578, 1117)
 
 [node name="LevelHandler" type="Node3D"]
@@ -156,10 +179,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7fipc")
 
 [node name="PartyButton" type="TextureButton" parent="Player/Bg"]
 layout_mode = 0
-offset_left = 119.0
-offset_top = 211.0
-offset_right = 311.0
-offset_bottom = 363.0
+offset_left = 132.0
+offset_top = 205.0
+offset_right = 312.0
+offset_bottom = 354.0
 focus_mode = 0
 shortcut = SubResource("Shortcut_0p6fr")
 texture_normal = ExtResource("4_pln8l")
@@ -169,77 +192,133 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Player/Bg/PartyButton"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 152.0
-offset_right = 197.0
-offset_bottom = 180.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Artling Party"
 label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
 
 [node name="CreateButton" type="TextureButton" parent="Player/Bg"]
 layout_mode = 0
-offset_left = 475.0
-offset_top = 211.0
-offset_right = 667.0
-offset_bottom = 363.0
+offset_left = 454.0
+offset_top = 202.0
+offset_right = 671.0
+offset_bottom = 354.0
 focus_mode = 0
 shortcut = SubResource("Shortcut_m76uk")
-texture_normal = ExtResource("4_pln8l")
-texture_pressed = ExtResource("5_420ye")
-texture_hover = ExtResource("6_pfsb0")
+texture_normal = ExtResource("7_aja7p")
+texture_pressed = ExtResource("8_011nr")
+texture_hover = ExtResource("9_i5t2d")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Player/Bg/CreateButton"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 152.0
-offset_right = 197.0
-offset_bottom = 180.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Paint"
 label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
 
 [node name="IndexButton" type="TextureButton" parent="Player/Bg"]
 layout_mode = 0
-offset_left = 827.0
-offset_top = 208.0
-offset_right = 1019.0
-offset_bottom = 360.0
+offset_left = 820.0
+offset_top = 193.0
+offset_right = 965.0
+offset_bottom = 371.0
 focus_mode = 0
 shortcut = SubResource("Shortcut_m76uk")
-texture_normal = ExtResource("4_pln8l")
-texture_pressed = ExtResource("5_420ye")
-texture_hover = ExtResource("6_pfsb0")
+texture_normal = ExtResource("10_753ol")
+texture_hover = ExtResource("11_8bqci")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Player/Bg/IndexButton"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 152.0
-offset_right = 197.0
-offset_bottom = 180.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Encyclopedia"
 label_settings = ExtResource("6_gi4eu")
+horizontal_alignment = 1
 
 [node name="NextBattleButton" type="Button" parent="Player/Bg"]
 layout_mode = 0
-offset_left = 744.0
-offset_top = 488.0
-offset_right = 1032.0
-offset_bottom = 568.0
-text = "Next battle >>"
+offset_left = 572.0
+offset_top = 483.0
+offset_right = 844.0
+offset_bottom = 572.0
+theme_override_styles/hover_pressed_mirrored = ExtResource("12_r0crn")
+theme_override_styles/hover_pressed = ExtResource("12_r0crn")
+theme_override_styles/hover = ExtResource("12_r0crn")
+theme_override_styles/pressed = ExtResource("13_y54wi")
+theme_override_styles/normal_mirrored = ExtResource("13_y54wi")
+theme_override_styles/normal = ExtResource("13_y54wi")
+
+[node name="Label" type="Label" parent="Player/Bg/NextBattleButton"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -15.0
+offset_right = -4.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next Battle"
+label_settings = SubResource("LabelSettings_i5t2d")
+horizontal_alignment = 1
 
 [node name="TrainButton" type="Button" parent="Player/Bg"]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 494.0
-offset_right = 368.0
-offset_bottom = 574.0
+offset_left = 288.0
+offset_top = 489.0
+offset_right = 545.0
+offset_bottom = 576.0
+theme_override_styles/hover_pressed_mirrored = ExtResource("12_r0crn")
+theme_override_styles/hover_pressed = ExtResource("13_y54wi")
+theme_override_styles/hover = ExtResource("13_y54wi")
+theme_override_styles/pressed = ExtResource("12_r0crn")
+theme_override_styles/normal = ExtResource("12_r0crn")
+
+[node name="Label" type="Label" parent="Player/Bg/TrainButton"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -21.5
+offset_right = -10.0
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Train"
+label_settings = SubResource("LabelSettings_i5t2d")
+horizontal_alignment = 1
 
 [node name="PartyScreen" type="Panel" parent="Player/Bg"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -805,6 +884,7 @@ offset_left = 428.0
 offset_top = 410.0
 offset_right = 564.0
 offset_bottom = 454.0
+theme_override_fonts/font = ExtResource("34_8bqci")
 placeholder_text = "Nickname"
 alignment = 1
 
@@ -867,9 +947,9 @@ label_settings = SubResource("LabelSettings_1ih2t")
 [node name="ToCNames" type="Label" parent="Player/Bg/IndexScreen/TableContents"]
 layout_mode = 0
 offset_left = 532.0
-offset_top = 44.0
+offset_top = 54.0
 offset_right = 774.0
-offset_bottom = 502.0
+offset_bottom = 512.0
 scale = Vector2(1, 0.935475)
 text = "Artling
 Artling
@@ -889,9 +969,9 @@ label_settings = SubResource("LabelSettings_57tv7")
 [node name="ToCPages" type="Label" parent="Player/Bg/IndexScreen/TableContents"]
 layout_mode = 0
 offset_left = 713.0
-offset_top = 44.0
+offset_top = 54.0
 offset_right = 955.0
-offset_bottom = 502.0
+offset_bottom = 512.0
 scale = Vector2(1, 0.935475)
 text = "1
 2
@@ -913,74 +993,87 @@ horizontal_alignment = 2
 custom_minimum_size = Vector2(450, 450)
 layout_mode = 0
 offset_left = 521.0
-offset_top = 39.0
+offset_top = 49.0
 offset_right = 971.0
-offset_bottom = 489.0
+offset_bottom = 499.0
 
 [node name="Pg1" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg2" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg3" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg4" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg5" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg6" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg7" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg8" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg9" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg10" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg11" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg12" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="Pg13" type="Button" parent="Player/Bg/IndexScreen/TableContents/IndexTableButtons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 0
+flat = true
 
 [node name="ArtlingIndexPg" parent="Player/Bg/IndexScreen" instance=ExtResource("18_1ih2t")]
 visible = false
@@ -1280,9 +1373,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 408.0
-offset_top = 110.0
+offset_top = 111.0
 offset_right = 704.0
-offset_bottom = 152.0
+offset_bottom = 153.0
 grow_horizontal = 2
 text = "Choosing blank?"
 label_settings = SubResource("LabelSettings_pfsb0")
@@ -1294,6 +1387,7 @@ offset_left = 504.0
 offset_top = 480.0
 offset_right = 640.0
 offset_bottom = 524.0
+theme_override_fonts/font = ExtResource("34_8bqci")
 placeholder_text = "Nickname"
 alignment = 1
 
@@ -1312,6 +1406,23 @@ offset_left = 584.0
 offset_top = 544.0
 offset_right = 680.0
 offset_bottom = 584.0
+theme_override_colors/font_disabled_color = Color(0.694118, 0.694118, 0.694118, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_8bqci")
+theme_override_styles/focus = ExtResource("61_y54wi")
+theme_override_styles/disabled_mirrored = ExtResource("60_r0crn")
+theme_override_styles/disabled = ExtResource("60_r0crn")
+theme_override_styles/hover_pressed_mirrored = ExtResource("60_r0crn")
+theme_override_styles/hover_pressed = ExtResource("60_r0crn")
+theme_override_styles/hover_mirrored = ExtResource("60_r0crn")
+theme_override_styles/hover = ExtResource("60_r0crn")
+theme_override_styles/pressed_mirrored = ExtResource("60_r0crn")
+theme_override_styles/pressed = ExtResource("60_r0crn")
+theme_override_styles/normal_mirrored = ExtResource("60_r0crn")
+theme_override_styles/normal = ExtResource("60_r0crn")
 text = "Yes"
 
 [node name="BackButton" type="Button" parent="ChooseStarter/ConfirmScreen"]
@@ -1320,6 +1431,22 @@ offset_left = 456.0
 offset_top = 545.0
 offset_right = 552.0
 offset_bottom = 585.0
+theme_override_colors/font_disabled_color = Color(0.705882, 0.705882, 0.705882, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_8bqci")
+theme_override_styles/focus = ExtResource("61_y54wi")
+theme_override_styles/disabled_mirrored = ExtResource("61_y54wi")
+theme_override_styles/disabled = ExtResource("61_y54wi")
+theme_override_styles/hover_pressed_mirrored = ExtResource("61_y54wi")
+theme_override_styles/hover_pressed = ExtResource("61_y54wi")
+theme_override_styles/hover_mirrored = ExtResource("61_y54wi")
+theme_override_styles/hover = ExtResource("61_y54wi")
+theme_override_styles/pressed_mirrored = ExtResource("61_y54wi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y54wi")
+theme_override_styles/normal_mirrored = ExtResource("61_y54wi")
+theme_override_styles/normal = ExtResource("61_y54wi")
 text = "No
 "
 
@@ -1362,6 +1489,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="return_button" type="Button" parent="inGame_settings_menu/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_8bqci")
 text = "< Back"
 
 [node name="MarginContainer8" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
@@ -1373,6 +1501,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="title_button" type="Button" parent="inGame_settings_menu/VBoxContainer/MarginContainer8"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_8bqci")
 text = "< Return to Title"
 
 [node name="MarginContainer2" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
@@ -1384,6 +1513,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Master" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_8bqci")
 text = "Master Volume"
 
 [node name="MarginContainer3" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
@@ -1410,6 +1540,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Music" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer4"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_8bqci")
 text = "Music"
 
 [node name="MarginContainer5" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
@@ -1436,6 +1567,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="SFX" type="Label" parent="inGame_settings_menu/VBoxContainer/MarginContainer7"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_8bqci")
 text = "SFX"
 
 [node name="MarginContainer6" type="MarginContainer" parent="inGame_settings_menu/VBoxContainer"]
@@ -1462,7 +1594,6 @@ bus_name = "sfx"
 [connection signal="pressed" from="Player/Bg/PartyScreen/BackButton" to="Player" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Player/Bg/PartyScreen/StatScreenBg/ExitStatScreen" to="Player" method="_on_exit_stat_screen_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/CreateArtling" to="Player" method="_on_create_artling_pressed"]
-[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/CreateArtling" to="Player/Bg/CreateScreen" method="_on_create_artling_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/ColorClear" to="Player/Bg/CreateScreen" method="_on_color_clear_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintBlueButton" to="Player/Bg/CreateScreen" method="_on_paint_blue_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintGreenButton" to="Player/Bg/CreateScreen" method="_on_paint_green_button_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw3ht4u2goene"
-path="res://.godot/imported/ArtlingFrame1.png-2aeee02ced8ca1050707665572021cbc.ctex"
+uid="uid://c4thy1c21vqvk"
+path="res://.godot/imported/CreatePalette1.png-cc9de4b1c8b7d8f4e739fe3c54c2c8df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/ArtlingFrame1.png"
-dest_files=["res://.godot/imported/ArtlingFrame1.png-2aeee02ced8ca1050707665572021cbc.ctex"]
+source_file="res://Assets/UI/CreatePalette1.png"
+dest_files=["res://.godot/imported/CreatePalette1.png-cc9de4b1c8b7d8f4e739fe3c54c2c8df.ctex"]
 
 [params]
 

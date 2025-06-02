@@ -40,6 +40,7 @@ var enemy_mon : Node3D
 var battle_prog = -1
 var commands = []
 var battle_won = false
+var battle_skipped = false
 var faint_switch = false
 var changing_mons = false
 
@@ -179,7 +180,7 @@ func choose_move(move_ind):
 	# if the player is faster, appends player commands first
 	if player_mon.speed >= enemy_mon.speed:
 		# puts the move used by the player in the commands list
-		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind].capitalize() + "!", "attack"])
+		commands.append(["desc", player_mon.nickname + " used " + player_mon.current_moves[move_ind].capitalize() + "!", "attack"])
 		commands.append(["player", player_mon.current_moves[move_ind] ])
 		# picks a random move for the enemy and puts it in the commands list
 		var enemy_move
@@ -206,7 +207,7 @@ func choose_move(move_ind):
 		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
 		commands.append(["enemy", enemy_move])
 		# puts the move used by the player in the commands list
-		commands.append(["desc", "Player " + player_mon.nickname + " used " + player_mon.current_moves[move_ind].capitalize() + "!", "attack"])
+		commands.append(["desc", player_mon.nickname + " used " + player_mon.current_moves[move_ind].capitalize() + "!", "attack"])
 		commands.append(["player", player_mon.current_moves[move_ind] ])
 		commands.append(["status"])
 		# sets battle_prog to 0 so it starts the turn
@@ -384,6 +385,8 @@ func continue_battle(prog):
 				win_text += "\n" + mon.add_experience(exp)
 			battle_desc.set_text(win_text)
 			#print("Player level: " + str(player_mon.level))
+		elif battle_skipped:
+			battle_desc.set_text("Battle skipped...")
 		else:
 			battle_desc.set_text("Battle lost...")
 			#player_mon.add_experience(100)

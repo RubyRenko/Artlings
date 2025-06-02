@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvl3kywk6lxte"]
+[gd_scene load_steps=18 format=3 uid="uid://dvl3kywk6lxte"]
 
 [ext_resource type="Texture2D" uid="uid://dy1h7ycrfjcgq" path="res://Assets/environment/Epic_BlueSunset_EquiRect_flat.png" id="1_4tefe"]
 [ext_resource type="Script" uid="uid://b4xampnfeflny" path="res://Battlefields/tutorial.gd" id="1_isuhv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b6ajhkvrcnc01" path="res://Battlefields/battle_info_step.gd" id="4_d6atl"]
 [ext_resource type="AudioStream" uid="uid://cyhau27c5qqjv" path="res://Audio/sample1.wav" id="4_mxvau"]
 [ext_resource type="Texture2D" uid="uid://bqfpsg5xoaypo" path="res://Assets/UI/Memos/MemoRect4.png" id="5_fekit"]
+[ext_resource type="LabelSettings" uid="uid://cq4tvos4i67ew" path="res://TutorialMemoFont.tres" id="6_0as0j"]
 [ext_resource type="Texture2D" uid="uid://c3mpuhip4jqr3" path="res://Assets/UI/Memos/MemoRect.png" id="6_rdyq2"]
 [ext_resource type="Texture2D" uid="uid://de0rhs2er4jdq" path="res://Assets/UI/Memos/MemoRect2.png" id="7_72xn0"]
 [ext_resource type="Texture2D" uid="uid://b5m0ehmch6b5b" path="res://Assets/UI/arrows/arrow1.png" id="8_0as0j"]
@@ -61,6 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28108, -0.241742)
 [node name="Tutorial" type="CanvasLayer" parent="."]
 
 [node name="PartyInfo" type="Control" parent="Tutorial"]
+visible = false
 z_index = 1
 z_as_relative = false
 layout_mode = 3
@@ -84,8 +86,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/PartyInfo/1"]
-position = Vector2(0, 17.125)
-scale = Vector2(1, 0.833861)
+position = Vector2(0, 9.62498)
+scale = Vector2(1, 0.738924)
 texture = ExtResource("5_fekit")
 
 [node name="Arrow1" type="Sprite2D" parent="Tutorial/PartyInfo/1"]
@@ -102,6 +104,7 @@ text = "Click on an artling to swap
 them in!
 These bars show their
 current hp and exp"
+label_settings = ExtResource("6_0as0j")
 horizontal_alignment = 1
 
 [node name="BattleInfoStep" type="Control" parent="Tutorial"]
@@ -120,10 +123,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 579.0
-offset_top = 93.0
+offset_top = 108.0
 offset_right = 619.0
-offset_bottom = 133.0
-metadata/_edit_use_anchors_ = true
+offset_bottom = 148.0
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/1"]
 position = Vector2(0, 30.25)
@@ -140,31 +142,33 @@ Press the arrow keys to
 go forward or back
 Press T to hide the tutorial
 or K to completely skip"
+label_settings = ExtResource("6_0as0j")
 horizontal_alignment = 1
 
 [node name="2" type="Control" parent="Tutorial/BattleInfoStep"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 579.0
-offset_top = 86.0
-offset_right = 619.0
-offset_bottom = 126.0
+offset_left = 578.0
+offset_top = 91.0
+offset_right = 618.0
+offset_bottom = 131.0
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/2"]
-position = Vector2(0.499987, 15.875)
-scale = Vector2(1.18905, 1.40493)
+position = Vector2(1.00022, 15.875)
+scale = Vector2(1.19403, 1.40493)
 texture = ExtResource("6_rdyq2")
 
 [node name="Label" type="Label" parent="Tutorial/BattleInfoStep/2"]
 layout_mode = 0
-offset_left = -106.0
-offset_top = -24.0
-offset_right = 106.0
-offset_bottom = 25.0
+offset_left = -109.0
+offset_top = -17.0
+offset_right = 111.0
+offset_bottom = 49.0
 text = "Press ESC or click
 the cog button to bring up
 the options menu"
+label_settings = ExtResource("6_0as0j")
 horizontal_alignment = 1
 
 [node name="3" type="Control" parent="Tutorial/BattleInfoStep"]
@@ -176,8 +180,8 @@ offset_right = 198.0
 offset_bottom = 196.0
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/3"]
-position = Vector2(15.875, 12.25)
-scale = Vector2(1.32463, 1.34507)
+position = Vector2(27.8748, 12.25)
+scale = Vector2(1.44403, 1.34507)
 texture = ExtResource("7_72xn0")
 
 [node name="Arrow1" type="Sprite2D" parent="Tutorial/BattleInfoStep/3"]
@@ -186,13 +190,14 @@ texture = ExtResource("8_0as0j")
 
 [node name="Label" type="Label" parent="Tutorial/BattleInfoStep/3"]
 layout_mode = 0
-offset_left = -106.0
-offset_top = -24.0
-offset_right = 106.0
-offset_bottom = 25.0
+offset_left = -105.0
+offset_top = -21.0
+offset_right = 161.0
+offset_bottom = 45.0
 text = "This is your artling's health!
 If it is reduced to 0, your artling
 will no longer be able to fight."
+label_settings = ExtResource("6_0as0j")
 
 [node name="4" type="Control" parent="Tutorial/BattleInfoStep"]
 visible = false
@@ -204,8 +209,8 @@ offset_right = 1011.0
 offset_bottom = 197.0
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/4"]
-position = Vector2(-0.500029, 12.25)
-scale = Vector2(1.43781, 1.34507)
+position = Vector2(-5.00007, 12.25)
+scale = Vector2(1.48259, 1.34507)
 texture = ExtResource("9_mireq")
 
 [node name="Arrow1" type="Sprite2D" parent="Tutorial/BattleInfoStep/4"]
@@ -215,13 +220,14 @@ flip_h = true
 
 [node name="Label" type="Label" parent="Tutorial/BattleInfoStep/4"]
 layout_mode = 0
-offset_left = -133.0
-offset_top = -24.0
-offset_right = 134.0
-offset_bottom = 25.0
+offset_left = -146.0
+offset_top = -22.0
+offset_right = 136.0
+offset_bottom = 44.0
 text = "This is the enemy artlings's health.
 Reduce all the enemy's health to 0
 in order to win the battle."
+label_settings = ExtResource("6_0as0j")
 horizontal_alignment = 2
 
 [node name="5" type="Control" parent="Tutorial/BattleInfoStep"]
@@ -234,8 +240,8 @@ offset_right = 323.0
 offset_bottom = 404.0
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/5"]
-position = Vector2(5, 32.25)
-scale = Vector2(1.21967, 0.610759)
+position = Vector2(1.87528, 28.5)
+scale = Vector2(1.24582, 0.563291)
 texture = ExtResource("5_fekit")
 
 [node name="Arrow2" type="Sprite2D" parent="Tutorial/BattleInfoStep/5"]
@@ -246,13 +252,14 @@ texture = ExtResource("10_72xn0")
 
 [node name="Label" type="Label" parent="Tutorial/BattleInfoStep/5"]
 layout_mode = 0
-offset_left = -133.0
+offset_left = -140.0
 offset_top = -8.0
-offset_right = 141.0
-offset_bottom = 77.0
+offset_right = 143.0
+offset_bottom = 70.0
 text = "These are your moves!
 Hover over them for a description.
 Click to choose a move and attack"
+label_settings = ExtResource("6_0as0j")
 horizontal_alignment = 2
 
 [node name="6" type="Control" parent="Tutorial/BattleInfoStep"]
@@ -283,34 +290,36 @@ offset_bottom = 62.0
 text = "This is the description box.
 Click to progress the turn after
 choosing a move."
+label_settings = ExtResource("6_0as0j")
 
 [node name="7" type="Control" parent="Tutorial/BattleInfoStep"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1036.0
-offset_top = 334.0
+offset_top = 341.0
 offset_right = 1076.0
-offset_bottom = 374.0
+offset_bottom = 381.0
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/7"]
-position = Vector2(-19.375, 23.625)
-scale = Vector2(1.04851, 1.42606)
+position = Vector2(-19.375, 17.9999)
+scale = Vector2(1.04851, 1.26761)
 texture = ExtResource("7_72xn0")
 
 [node name="Arrow4" type="Sprite2D" parent="Tutorial/BattleInfoStep/7"]
-position = Vector2(70, 89)
+position = Vector2(70, 82)
 texture = ExtResource("10_72xn0")
 
 [node name="Label" type="Label" parent="Tutorial/BattleInfoStep/7"]
 layout_mode = 0
-offset_left = -113.0
-offset_top = -17.0
-offset_right = 87.0
-offset_bottom = 62.0
+offset_left = -117.0
+offset_top = -14.0
+offset_right = 83.0
+offset_bottom = 65.0
 text = "Click this button
 to make the description
 automatically play!"
+label_settings = ExtResource("6_0as0j")
 
 [node name="8" type="Control" parent="Tutorial/BattleInfoStep"]
 visible = false
@@ -322,8 +331,8 @@ offset_right = 216.0
 offset_bottom = 357.0
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/8"]
-position = Vector2(41.625, 9.25)
-scale = Vector2(1.52615, 0.629747)
+position = Vector2(51.125, 12.5)
+scale = Vector2(1.60565, 0.588608)
 texture = ExtResource("11_0as0j")
 
 [node name="Arrow2" type="Sprite2D" parent="Tutorial/BattleInfoStep/8"]
@@ -334,22 +343,23 @@ flip_h = true
 
 [node name="Label" type="Label" parent="Tutorial/BattleInfoStep/8"]
 layout_mode = 0
-offset_left = -131.0
-offset_top = -30.0
-offset_right = 214.0
-offset_bottom = 52.0
+offset_left = -134.0
+offset_top = -23.0
+offset_right = 241.0
+offset_bottom = 59.0
 text = "This is the party button. 
 Click it to view your party and swap artlings! 
 Be careful as swapping will take up a turn."
+label_settings = ExtResource("6_0as0j")
 
 [node name="9" type="Control" parent="Tutorial/BattleInfoStep"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 579.0
-offset_top = 93.0
+offset_top = 108.0
 offset_right = 619.0
-offset_bottom = 133.0
+offset_bottom = 148.0
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/9"]
 position = Vector2(0, 30.25)
@@ -366,6 +376,7 @@ experience to level up.
 You'll always get inspiration
 to make new artlings
 whether you win or lose."
+label_settings = ExtResource("6_0as0j")
 horizontal_alignment = 1
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]

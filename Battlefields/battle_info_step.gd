@@ -4,7 +4,8 @@ extends Control
 var node_index = 0
 
 func _process(_delta):
-	if Input.is_action_just_pressed("next"):
+	if Input.is_action_just_pressed("next") && get_parent().visible:
+		print(visible)
 		tutorial_nodes[node_index].visible = false
 		node_index += 1
 		if node_index < len(tutorial_nodes):
@@ -13,7 +14,7 @@ func _process(_delta):
 			node_index = 0
 			tutorial_nodes[node_index].visible = true
 	
-	if Input.is_action_just_pressed("back"):
+	if Input.is_action_just_pressed("back") && get_parent().visible:
 		tutorial_nodes[node_index].visible = false
 		node_index -= 1
 		if node_index >= 0:

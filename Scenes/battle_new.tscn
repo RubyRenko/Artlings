@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b7kmqfstuuhfl"]
+[gd_scene load_steps=48 format=3 uid="uid://b7kmqfstuuhfl"]
 
 [ext_resource type="Script" uid="uid://cc1dov4n6rtdk" path="res://Scripts/battle_new.gd" id="1_odwnt"]
 [ext_resource type="Texture2D" uid="uid://dw5kqor3uaiun" path="res://Assets/UI/PartyButton.png" id="2_1x78f"]
@@ -22,17 +22,26 @@
 [ext_resource type="Texture2D" uid="uid://q8e7t11xdng6" path="res://Assets/UI/BattleDescPause.png" id="9_4uhy2"]
 [ext_resource type="Texture2D" uid="uid://bw2u7y321ko0q" path="res://Assets/UI/HPBoxEnemy.png" id="9_11hy7"]
 [ext_resource type="Texture2D" uid="uid://bidppj4f1s8g3" path="res://Assets/UI/BattleDescBox2.png" id="10_b3lj8"]
+[ext_resource type="FontFile" uid="uid://md6tu51nfwfn" path="res://Assets/fonts/melon-camp-font/MelonCamp-ovOeq.otf" id="10_ff0yi"]
 [ext_resource type="Texture2D" uid="uid://dm0o2bngvugii" path="res://Assets/UI/HpBarEnemy2.png" id="10_vxvj7"]
 [ext_resource type="Texture2D" uid="uid://c143phv0hrc1a" path="res://Assets/UI/HpBarEnemyOver.png" id="11_vxvj7"]
 [ext_resource type="Texture2D" uid="uid://q7a77baljeo8" path="res://Assets/UI/HpBarEnemyFill.png" id="12_bnmnk"]
 [ext_resource type="Texture2D" uid="uid://dvfbm4ygb8gi1" path="res://Assets/UI/HpBarPlayerOver.png" id="13_1x78f"]
 [ext_resource type="Texture2D" uid="uid://cjjk1q2xnngqk" path="res://Assets/UI/HpBarPlayer2.png" id="13_vxvj7"]
 [ext_resource type="Texture2D" uid="uid://dw0uoegiev5w4" path="res://Assets/UI/HpBarPlayerFill.png" id="14_vucsn"]
+[ext_resource type="FontFile" uid="uid://c5e48vdwo4624" path="res://Assets/fonts/cleanow-font/Cleanow-j9v60.ttf" id="18_bpuaf"]
 [ext_resource type="Texture2D" uid="uid://dw74wvkfqwui1" path="res://Assets/UI/ContinueArrow.png" id="22_8g40r"]
 [ext_resource type="Script" uid="uid://cei1bh46k24l4" path="res://Scenes/continue_arrow.gd" id="23_ff0yi"]
 [ext_resource type="Texture2D" uid="uid://bg32jrmjqy2uc" path="res://Assets/UI/ExpBar1.png" id="28_xvw88"]
 [ext_resource type="Texture2D" uid="uid://bgje3lt2qylpt" path="res://Assets/UI/ExpBarOver.png" id="29_477pb"]
 [ext_resource type="Texture2D" uid="uid://c5fttrskt1ryd" path="res://Assets/UI/ExpBarFill.png" id="30_8g40r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6ldt"]
+load_path = "res://.godot/imported/settings_texture.png-45d956df31bfafdfaa005fa422a47433.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ff0yi"]
+texture = SubResource("CompressedTexture2D_q6ldt")
+region_rect = Rect2(164, 166, 578, 1117)
 
 [sub_resource type="Theme" id="Theme_rf2ug"]
 
@@ -47,37 +56,37 @@ texture = ExtResource("2_2hyyw")
 region_rect = Rect2(799, 168, 111, 66)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b3lj8"]
+font = ExtResource("10_ff0yi")
 font_size = 20
-shadow_size = 2
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.678431)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i45mi"]
-font_size = 18
+font = ExtResource("18_bpuaf")
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ot4af"]
-font_size = 20
+font = ExtResource("18_bpuaf")
+font_size = 18
 outline_size = 10
 outline_color = Color(0.54902, 0.192157, 0.207843, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2hyyw"]
-font_size = 20
+font = ExtResource("18_bpuaf")
+font_size = 18
 outline_size = 10
 outline_color = Color(0.156863, 0.32549, 0.14902, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ksy4f"]
 line_spacing = 4.0
-font_size = 20
+font = ExtResource("10_ff0yi")
+font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muy5e"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mqn5v"]
-load_path = "res://.godot/imported/settings_texture.png-45d956df31bfafdfaa005fa422a47433.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rf2ug"]
-texture = SubResource("CompressedTexture2D_mqn5v")
-region_rect = Rect2(164, 166, 578, 1117)
 
 [node name="BattleNew" type="Node3D"]
 script = ExtResource("1_odwnt")
@@ -89,6 +98,142 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inGame_settings_menu" type="Panel" parent="CanvasLayer"]
+visible = false
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 474.0
+offset_top = 55.0
+offset_right = -471.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ff0yi")
+script = ExtResource("4_rf2ug")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/inGame_settings_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -174.0
+offset_right = 69.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="return_button" type="Button" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_ff0yi")
+text = "< Back"
+
+[node name="MarginContainer8" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="title_button" type="Button" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_ff0yi")
+text = "< Return to Title"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Master" type="Label" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_ff0yi")
+text = "Master Volume"
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider2" type="HSlider" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("5_ewvdd")
+bus_name = "Master"
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Music" type="Label" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_ff0yi")
+text = "Music"
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("5_ewvdd")
+bus_name = "music"
+
+[node name="MarginContainer7" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SFX" type="Label" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_ff0yi")
+text = "SFX"
+
+[node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="volume_slider" type="HSlider" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("5_ewvdd")
+bus_name = "sfx"
 
 [node name="settings_button" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
@@ -163,8 +308,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -14.0
-offset_bottom = 14.0
+offset_top = -11.7034
+offset_bottom = 16.2966
 grow_horizontal = 2
 grow_vertical = 2
 text = "None"
@@ -181,8 +326,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -14.0
-offset_bottom = 14.0
+offset_top = -11.7034
+offset_bottom = 16.2966
 grow_horizontal = 2
 grow_vertical = 2
 text = "None"
@@ -199,8 +344,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -14.0
-offset_bottom = 14.0
+offset_top = -11.7034
+offset_bottom = 16.2966
 grow_horizontal = 2
 grow_vertical = 2
 text = "None"
@@ -217,8 +362,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -14.0
-offset_bottom = 14.0
+offset_top = -11.7034
+offset_bottom = 16.2966
 grow_horizontal = 2
 grow_vertical = 2
 text = "None"
@@ -269,8 +414,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 12.0
+offset_top = -12.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0 / 0"
@@ -316,8 +461,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 12.0
+offset_top = -12.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0 / 0"
@@ -662,138 +807,10 @@ texture_under = ExtResource("28_xvw88")
 texture_over = ExtResource("29_477pb")
 texture_progress = ExtResource("30_8g40r")
 
-[node name="inGame_settings_menu" type="Panel" parent="CanvasLayer"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 474.0
-offset_top = 55.0
-offset_right = -471.0
-offset_bottom = -156.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_rf2ug")
-script = ExtResource("4_rf2ug")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/inGame_settings_menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -174.0
-offset_right = 69.0
-offset_bottom = 174.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="return_button" type="Button" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer"]
-layout_mode = 2
-text = "< Back"
-
-[node name="MarginContainer8" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="title_button" type="Button" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer8"]
-layout_mode = 2
-text = "< Return to Title"
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Master" type="Label" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-text = "Master Volume"
-
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider2" type="HSlider" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer3"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("5_ewvdd")
-bus_name = "Master"
-
-[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Music" type="Label" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer4"]
-layout_mode = 2
-text = "Music"
-
-[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider" type="HSlider" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer5"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("5_ewvdd")
-bus_name = "music"
-
-[node name="MarginContainer7" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="SFX" type="Label" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer7"]
-layout_mode = 2
-text = "SFX"
-
-[node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer/inGame_settings_menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="volume_slider" type="HSlider" parent="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer6"]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 1.0
-step = 0.001
-script = ExtResource("5_ewvdd")
-bus_name = "sfx"
-
 [node name="TurnTimer" type="Timer" parent="."]
 
+[connection signal="pressed" from="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="CanvasLayer/inGame_settings_menu" method="_on_return_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="CanvasLayer/inGame_settings_menu" method="_on_title_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/settings_button" to="CanvasLayer/settings_button" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/MoveBox/ChangeArtling" to="." method="_on_change_artling_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MoveBox/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
@@ -812,6 +829,4 @@ bus_name = "sfx"
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling4" to="." method="_on_artling_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling5" to="." method="_on_artling_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling6" to="." method="_on_artling_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="CanvasLayer/inGame_settings_menu" method="_on_return_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="CanvasLayer/inGame_settings_menu" method="_on_title_button_pressed"]
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]

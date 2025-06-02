@@ -1,6 +1,9 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://c1ihr5s1asvus"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c1ihr5s1asvus"]
+
+[ext_resource type="FontFile" uid="uid://md6tu51nfwfn" path="res://Assets/fonts/melon-camp-font/MelonCamp-ovOeq.otf" id="1_355dc"]
 
 [resource]
-font_size = 20
+font = ExtResource("1_355dc")
+font_size = 22
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)

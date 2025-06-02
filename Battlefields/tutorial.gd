@@ -34,5 +34,6 @@ func _process(_delta):
 		if !tutorial_on:
 			$Tutorial.visible = false
 	if Input.is_action_just_pressed("skip tutorial"):
+		$BattleNew.battle_skipped = true
 		$BattleNew.continue_battle(-2)
 		$BattleNew.can_click = true

@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://by1pq4t3qhpc7"]
+[gd_scene load_steps=13 format=3 uid="uid://by1pq4t3qhpc7"]
 
 [ext_resource type="Script" uid="uid://b0c38cxhs71c0" path="res://stat_screen.gd" id="1_ayflt"]
+[ext_resource type="FontFile" uid="uid://bnw0gj6ea63ar" path="res://Assets/fonts/super-bakery-font/SuperBakery-3lXyp.ttf" id="2_r7iys"]
+[ext_resource type="FontFile" uid="uid://md6tu51nfwfn" path="res://Assets/fonts/melon-camp-font/MelonCamp-ovOeq.otf" id="3_1vl11"]
 [ext_resource type="Script" uid="uid://bcgulvb8di1hr" path="res://moves_container.gd" id="3_uggsd"]
 [ext_resource type="Texture2D" uid="uid://cjjk1q2xnngqk" path="res://Assets/UI/HpBarPlayer2.png" id="4_yrw7y"]
 [ext_resource type="Texture2D" uid="uid://dvfbm4ygb8gi1" path="res://Assets/UI/HpBarPlayerOver.png" id="5_r7iys"]
@@ -10,10 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://c5fttrskt1ryd" path="res://Assets/UI/ExpBarFill.png" id="9_gfnn3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bkc8p"]
+font = ExtResource("2_r7iys")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hgcnw"]
+font = ExtResource("3_1vl11")
 font_size = 20
 font_color = Color(0, 0, 0, 1)
 
@@ -100,24 +104,28 @@ script = ExtResource("3_uggsd")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_1vl11")
 button_mask = 0
 
 [node name="Move2" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_1vl11")
 button_mask = 0
 
 [node name="Move3" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_1vl11")
 button_mask = 0
 
 [node name="Move4" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_1vl11")
 button_mask = 0
 
 [node name="MoveDesc" type="Label" parent="."]
