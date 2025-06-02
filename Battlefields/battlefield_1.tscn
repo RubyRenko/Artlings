@@ -52,11 +52,11 @@ sky_mode = 1
 environment = SubResource("Environment_0faq4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 1.75788e-08, -8.56372e-08, 0, 0.979575, 0.201078, 8.74228e-08, 0.201078, -0.979575, 13.0709, 1.96898, -0.799025)
+transform = Transform3D(-1, 3.03619e-08, -1.47912e-07, 0, 0.979575, 0.201078, 1.50996e-07, 0.201078, -0.979575, 13.0709, 1.96898, -0.799025)
 fov = 68.2095
 
 [node name="BattleNew" parent="." groups=["battle"] instance=ExtResource("3_wskkc")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.1071, 0.938155, 2.77809)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.1071, 1.09807, 2.77809)
 
 [node name="PlayerMarker" type="Marker3D" parent="BattleNew"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0.1, 0)

@@ -41,7 +41,9 @@ func _to_string():
 func format_dmg(damage_array):
 	if len(damage_array) == 4:
 		var return_str : String
-		if damage_array[0] < 0:
+		if (damage_array[1] - damage_array[0]) >= 30:
+			return_str = "Damage: %s - %s" % [damage_array[0], damage_array[1]]
+		elif damage_array[0] < 0:
 			return_str = "Healing: " + str( int( abs( (damage[0] + damage[1]) / 2) ) )
 		else:
 			return_str = "Damage: " + str( int( (damage[0] + damage[1]) / 2 ) )
@@ -52,7 +54,9 @@ func format_dmg(damage_array):
 		else:
 			return return_str + "   Recoil: " + str( int( (damage[2] + damage[3]) / 2) )
 	else:
-		if damage_array[0] < 0:
+		if (damage_array[1] - damage_array[0]) >= 30:
+			return "Damage: %s - %s" % [damage_array[0], damage_array[1]]
+		elif damage_array[0] < 0:
 			return "Healing: " + str( int( abs( (damage[0] + damage[1]) / 2) ) )
 		else:
 			return "Damage: " + str( int( (damage[0] + damage[1]) / 2 ) )

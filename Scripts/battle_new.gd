@@ -78,12 +78,14 @@ func load_mons(player_inp, enemy_inp):
 	player_team = player_inp.team
 	mons_for_exp.append(player_team[0])
 	update_player_sprite()
+	player_mon.play_idle_anim()
 	#print(player_mon.level)
 	
 	# sets the enemy mon to the input and puts it where it's supposed to be
 	enemy = enemy_inp
 	enemy_team = enemy_inp.get_children()
 	update_enemy_sprite()
+	enemy_mon.play_idle_anim()
 	
 	party_screen.update_battle_party(player_team)
 	party_screen.visible = false

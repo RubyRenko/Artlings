@@ -40,7 +40,6 @@
 [ext_resource type="PackedScene" uid="uid://djqrw1tk1ekon" path="res://Battlefields/water_battlefield.tscn" id="26_q6ldt"]
 [ext_resource type="PackedScene" uid="uid://dccvmqkyrtfkm" path="res://Battlefields/battlefield_1.tscn" id="26_uloti"]
 [ext_resource type="Script" uid="uid://16nfqaasj8vl" path="res://Scripts/trainerai/bapigtrainerai.gd" id="27_r27tj"]
-[ext_resource type="Script" uid="uid://cfditj2scu1aq" path="res://Scripts/trainerai/wurmtrainerai.gd" id="28_a8wuu"]
 [ext_resource type="Script" uid="uid://baf7g022jd032" path="res://Scenes/dewphin_tr.gd" id="30_a8wuu"]
 [ext_resource type="Script" uid="uid://b6cxujus1iwix" path="res://Scenes/ink_wurm_tr.gd" id="32_a8wuu"]
 [ext_resource type="PackedScene" uid="uid://d1105rs7v338o" path="res://ArtlingScenes/slicer.tscn" id="35_l5lre"]
@@ -49,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://goc0d6jfb6r3" path="res://Assets/artlings/Dewphy_Party_Screen_Export.png" id="36_atga2"]
 [ext_resource type="PackedScene" uid="uid://cslpj3ykmrpug" path="res://ArtlingScenes/egg_bear.tscn" id="38_w4csa"]
 [ext_resource type="PackedScene" uid="uid://d1t636vnax2ff" path="res://Battlefields/paper_battlefield.tscn" id="39_p68xn"]
+[ext_resource type="Script" uid="uid://layakymebdwq" path="res://Scripts/trainerai/inkit_tr.gd" id="40_lou55"]
 [ext_resource type="PackedScene" uid="uid://svoh4nsbiwla" path="res://ArtlingScenes/wurm_beast.tscn" id="43_w4csa"]
 [ext_resource type="Script" uid="uid://b5m3kb2qisblu" path="res://Scenes/wurm_boss.gd" id="45_l5lre"]
 
@@ -1028,15 +1028,6 @@ script = ExtResource("3_hy7hh")
 [node name="WildBattles" type="Node3D" parent="."]
 script = ExtResource("21_50soc")
 
-[node name="Tutorial" type="Node3D" parent="WildBattles"]
-visible = false
-
-[node name="Inkit" parent="WildBattles/Tutorial" instance=ExtResource("21_pfsb0")]
-visible = false
-
-[node name="Wurm" parent="WildBattles/Tutorial" instance=ExtResource("6_hpbh2")]
-visible = false
-
 [node name="Test1" type="Node3D" parent="WildBattles"]
 visible = false
 
@@ -1067,6 +1058,15 @@ visible = false
 [node name="Slicer" parent="WildBattles/Test5" instance=ExtResource("35_l5lre")]
 visible = false
 
+[node name="Tutorial" type="Node3D" parent="WildBattles"]
+visible = false
+
+[node name="Inkit" parent="WildBattles/Tutorial" instance=ExtResource("21_pfsb0")]
+visible = false
+
+[node name="Wurm" parent="WildBattles/Tutorial" instance=ExtResource("6_hpbh2")]
+visible = false
+
 [node name="Trainers" type="Node3D" parent="." groups=["trainer"]]
 script = ExtResource("22_uv5sc")
 
@@ -1075,11 +1075,23 @@ visible = false
 script = ExtResource("27_r27tj")
 level = 3
 artling_movesets = [["BaconSlap", "Thud", "Lick"]]
-artling_stats = [[20, 30, 5, 30, 5, 5]]
-battlefield = ExtResource("39_p68xn")
+artling_stats = [[25, 30, 5, 30, 5, 5]]
+battlefield = ExtResource("26_uloti")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
 [node name="BaconPig" parent="Trainers/BapigTr" instance=ExtResource("23_1m7qd")]
+visible = false
+
+[node name="InkitTr" type="Node3D" parent="Trainers" groups=["trainer"]]
+visible = false
+script = ExtResource("40_lou55")
+level = 3
+artling_movesets = [["Smoke", "Dollop", "InkSlash", "Stipple"]]
+artling_stats = [[60, 15, 10, 22, 10, 20]]
+battlefield = ExtResource("39_p68xn")
+metadata/_custom_type_script = "uid://b8yh41nerx1t0"
+
+[node name="Inkit" parent="Trainers/InkitTr" instance=ExtResource("21_pfsb0")]
 visible = false
 
 [node name="FoodTr" type="Node3D" parent="Trainers" groups=["trainer"]]
@@ -1097,24 +1109,12 @@ visible = false
 [node name="BaconPig" parent="Trainers/FoodTr" instance=ExtResource("23_1m7qd")]
 visible = false
 
-[node name="WurmTr" type="Node3D" parent="Trainers" groups=["trainer"]]
-visible = false
-script = ExtResource("28_a8wuu")
-level = 3
-artling_movesets = [["Teeth", "Focus", "Charge"]]
-artling_stats = [[70, 25, 20, 8, 8, 15]]
-battlefield = ExtResource("26_uloti")
-metadata/_custom_type_script = "uid://b8yh41nerx1t0"
-
-[node name="Wurm" parent="Trainers/WurmTr" instance=ExtResource("6_hpbh2")]
-visible = false
-
 [node name="DewphinTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
 script = ExtResource("30_a8wuu")
 level = 5
 artling_movesets = [["Sap", "Rejuvenate", "Bubble", "Wash"]]
-artling_stats = [[90, 10, 30, 20, 35, 10]]
+artling_stats = [[100, 10, 45, 25, 45, 12]]
 battlefield = ExtResource("26_q6ldt")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1126,7 +1126,7 @@ visible = false
 script = ExtResource("32_a8wuu")
 level = 6
 artling_movesets = [["Stipple", "Dollop", "Smoke", "Inkblot"], ["Teeth", "Blender", "Focus", "Charge"]]
-artling_stats = [[60, 5, 5, 5, 5, 5], [80, 30, 25, 10, 10, 20]]
+artling_stats = [[70, 20, 18, 35, 18, 30], [80, 35, 25, 10, 13, 20]]
 battlefield = ExtResource("26_uloti")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1141,7 +1141,7 @@ visible = false
 script = ExtResource("45_l5lre")
 level = 4
 artling_movesets = [["Blender", "TeethShot", "Screech", "Grapple"]]
-artling_stats = [[120, 30, 25, 10, 10, 25]]
+artling_stats = [[150, 40, 28, 10, 18, 30]]
 battlefield = ExtResource("26_q6ldt")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 

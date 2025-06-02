@@ -100,21 +100,25 @@ script = ExtResource("3_uggsd")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button_mask = 0
 
 [node name="Move2" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button_mask = 0
 
 [node name="Move3" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button_mask = 0
 
 [node name="Move4" type="OptionButton" parent="MovesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+button_mask = 0
 
 [node name="MoveDesc" type="Label" parent="."]
 layout_mode = 0
@@ -150,10 +154,10 @@ texture_over = ExtResource("8_jnpv2")
 texture_progress = ExtResource("9_gfnn3")
 
 [connection signal="item_selected" from="MovesContainer/Move1" to="." method="_on_move_1_item_selected"]
-[connection signal="pressed" from="MovesContainer/Move1" to="." method="_on_move_1_pressed"]
+[connection signal="mouse_entered" from="MovesContainer/Move1" to="." method="_on_move_1_mouse_entered"]
 [connection signal="item_selected" from="MovesContainer/Move2" to="." method="_on_move_2_item_selected"]
-[connection signal="pressed" from="MovesContainer/Move2" to="." method="_on_move_2_pressed"]
+[connection signal="mouse_entered" from="MovesContainer/Move2" to="." method="_on_move_2_mouse_entered"]
 [connection signal="item_selected" from="MovesContainer/Move3" to="." method="_on_move_3_item_selected"]
-[connection signal="pressed" from="MovesContainer/Move3" to="." method="_on_move_3_pressed"]
+[connection signal="mouse_entered" from="MovesContainer/Move3" to="." method="_on_move_3_mouse_entered"]
 [connection signal="item_selected" from="MovesContainer/Move4" to="." method="_on_move_4_item_selected"]
-[connection signal="pressed" from="MovesContainer/Move4" to="." method="_on_move_4_pressed"]
+[connection signal="mouse_entered" from="MovesContainer/Move4" to="." method="_on_move_4_mouse_entered"]

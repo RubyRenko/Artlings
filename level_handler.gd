@@ -3,7 +3,8 @@ extends Node3D
 @onready var tutorial = preload("res://Battlefields/tutorial.tscn")
 @onready var battlefields = [
 	preload("res://Battlefields/battlefield_1.tscn"), 
-	preload("res://Battlefields/battlefield_2.tscn")]
+	preload("res://Battlefields/battlefield_2.tscn"),
+	preload("res://Battlefields/paper_battlefield.tscn")]
 @onready var current_battlefield
 @onready var player = $Player
 @onready var enemies = $Trainers
@@ -61,7 +62,11 @@ func _on_train_button_pressed():
 	player.hide_screens(true)
 	current_battlefield = battlefields.pick_random().instantiate()
 	environment_node.add_child(current_battlefield)
-	var wild_battle = wild_battles.get_trainer("Test5")
+	var wild_battle
+	if player.team[0].level <= 4:
+		wild_battle = wild_battles.get_random(2)
+	else:
+		wild_battle = wild_battles.get_random()
 	wild_battle.visible = true
 	for mon in wild_battle.get_children():
 		if !(mon.species in player.index_screen.artlings_discovered):

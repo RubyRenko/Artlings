@@ -10,6 +10,6 @@ func get_trainer(name):
 		if trainer.name == name:
 			return trainer
 
-func get_random():
-	var rand = randi_range(0, get_child_count()-1)
+func get_random(range = (get_child_count()-1) ):
+	var rand = randi_range(0, range)
 	return get_child(rand)

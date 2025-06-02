@@ -21,7 +21,7 @@ SettingsMenuSwitchScene="*res://Menus/settings_menu_switchScene.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [input]

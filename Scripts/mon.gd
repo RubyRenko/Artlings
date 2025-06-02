@@ -55,9 +55,7 @@ func attack(target, move):
 		elif status == "Focus":
 			acc = 100
 		elif status == "Soapy" && len(damage_range) == 2:
-			damage_range = [atk.damage[0], atk.damage[0]]
-		elif status == "Soapy" && len(damage_range) == 4:
-			damage_range = [atk.damage[0], atk.damage[0], atk.damage[2], atk.damage[2]]
+			damage_range[1] = atk.damage[0]
 		elif status == "Confused":
 			var new_atk = current_moves.pick_random()
 			battle_text += "%s is confused, used %s instead.\n" % [nickname, new_atk]
@@ -66,7 +64,8 @@ func attack(target, move):
 		if target.status == "Hidden":
 			acc -= 30
 		elif target.status == "Flattened":
-			damage_range = [atk.damage[1], atk.damage[1]+(atk.damage[1]/5)]
+			damage_range[0] = atk.damage[1]
+			damage_range[1] = atk.damage[1]+(atk.damage[1]/5)
 		#print(atk)
 		# generates a random int form 0-100
 		if randi_range(0, 100) <= acc:

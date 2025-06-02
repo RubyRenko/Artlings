@@ -53,9 +53,6 @@ func _on_move_4_item_selected(index):
 	chosen_moves[3] = move4.get_item_text(index)
 	move_desc.text = str(get_parent().moves_list[chosen_moves[3]])
 
-func _on_move_1_pressed():
-	move_desc.text = str(get_parent().moves_list[chosen_moves[0]])
-
 func _on_move_2_pressed():
 	move_desc.text = str(get_parent().moves_list[chosen_moves[1]])
 
@@ -64,3 +61,22 @@ func _on_move_3_pressed():
 
 func _on_move_4_pressed():
 	move_desc.text = str(get_parent().moves_list[chosen_moves[3]])
+
+
+func _on_move_1_mouse_entered():
+	if !move1.disabled:
+		move_desc.text = str(get_parent().moves_list[chosen_moves[0]])
+
+func _on_move_2_mouse_entered():
+	if !move2.disabled:
+		move_desc.text = str(get_parent().moves_list[chosen_moves[1]])
+
+
+func _on_move_3_mouse_entered():
+	if !move3.disabled:
+		move_desc.text = str(get_parent().moves_list[chosen_moves[2]])
+
+
+func _on_move_4_mouse_entered():
+	if !move4.disabled:
+		move_desc.text = str(get_parent().moves_list[chosen_moves[3]])

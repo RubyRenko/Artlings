@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://c6beqlegxliet" path="res://Audio/sfx/snort.mp3" id="4_5dmgj"]
 
 [node name="BaconPig" type="Node3D" groups=["3d", "mon"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0940699, 0)
 script = ExtResource("1_pklxf")
 max_hp = 10
 strength = 20
@@ -20,7 +19,7 @@ species = "Bapig"
 img = ExtResource("2_wd6jf")
 
 [node name="Pig artling" parent="." instance=ExtResource("1_masuq")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.253029, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.208427, 0)
 
 [node name="ArtlingStats" parent="." instance=ExtResource("2_pklxf")]
 visible = false

@@ -28,8 +28,8 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Blender" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [20, 60]
-accuracy = 100
+damage = [10, 60]
+accuracy = 90
 type = "Geometric"
 dmg_type = "str"
 desc = "Blends up target and deals varied damage"
@@ -69,7 +69,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 [node name="TeethShot" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
 damage = [60, 80, 20, 20]
-accuracy = 80
+accuracy = 90
 type = "Geometric"
 dmg_type = "str/self"
 desc = "Shoots teeth that deals high damage and recoil"
@@ -288,7 +288,7 @@ accuracy = 90
 type = "Geometric"
 dmg_type = "str"
 effect = [2, "Flattened"]
-desc = "Rolls over and flattens the target so they take more damage.."
+desc = "Rolls over and flattens the target so they take more damage"
 battle_text = "%s barrels over %s."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 

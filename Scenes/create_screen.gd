@@ -93,5 +93,6 @@ func _on_paint_yellow_button_pressed():
 		total_color += 1
 
 func _on_create_artling_pressed():
-	create_palette.visible = false
-	name_screen.visible = true
+	if player.inspo >= inspo_cost:
+		create_palette.visible = false
+		name_screen.visible = true
