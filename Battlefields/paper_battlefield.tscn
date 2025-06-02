@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1t636vnax2ff"]
+[gd_scene load_steps=10 format=3 uid="uid://d1t636vnax2ff"]
 
 [ext_resource type="Script" uid="uid://7hlskddar45" path="res://battlefield.gd" id="1_5t7nv"]
 [ext_resource type="Texture2D" uid="uid://dxrestawux87e" path="res://Assets/environment/Paper_area/PaperBg2.PNG" id="2_fmbqc"]
 [ext_resource type="PackedScene" uid="uid://b7kmqfstuuhfl" path="res://Scenes/battle_new.tscn" id="3_bbdce"]
 [ext_resource type="Texture2D" uid="uid://mjnkni73s0v5" path="res://Assets/environment/skybox/Sky_Day_BlueSky_Equirect.png" id="4_fmbqc"]
+[ext_resource type="AudioStream" uid="uid://cikkwu1ckkftr" path="res://Audio/sample6.mp3" id="6_l3u4o"]
 [ext_resource type="Texture2D" uid="uid://tsrh3wi3o5t6" path="res://Assets/environment/Paper_area/PaperTree3.PNG" id="6_wbej6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bbdce"]
@@ -46,5 +47,10 @@ transform = Transform3D(0.490035, -0.43338, 0.756338, 0.319452, 0.896576, 0.3067
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31362, 1.96736, -8.47598)
 no_depth_test = true
 texture = ExtResource("6_wbej6")
+
+[node name="battle2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l3u4o")
+autoplay = true
+bus = &"music"
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

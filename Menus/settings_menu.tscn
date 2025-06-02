@@ -1,8 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8ljpq6mia83w"]
+[gd_scene load_steps=18 format=3 uid="uid://c8ljpq6mia83w"]
 
 [ext_resource type="Script" uid="uid://d1fhbmbh74ko1" path="res://Menus/settings_menu.gd" id="1_vekjg"]
 [ext_resource type="Script" uid="uid://4emjgmdhy3er" path="res://Menus/volume_slider.gd" id="2_hks8w"]
 [ext_resource type="AudioStream" uid="uid://d1y3hpbmd2ib2" path="res://Audio/overworld.mp3" id="2_xggop"]
+[ext_resource type="Texture2D" uid="uid://b3y51vp43ukgr" path="res://Menus/menu_images/titlescreenSETTING.png" id="3_kpbbf"]
+[ext_resource type="Texture2D" uid="uid://dfus631j8veor" path="res://Menus/menu_images/titlescreenMENU.png" id="5_4tigv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_macso"]
+texture = ExtResource("3_kpbbf")
+region_rect = Rect2(396, 156, 2982, 1806)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04tbk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_macso"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8v10"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwihb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kgxsf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oglko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5tkgj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpbbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tigv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxumq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dsyu"]
 
 [node name="settings_menu" type="Control"]
 layout_mode = 3
@@ -21,13 +49,15 @@ bus = &"music"
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.244792
-anchor_top = 0.169753
-anchor_right = 0.755208
-anchor_bottom = 0.804012
+anchor_left = 0.174479
+anchor_top = 0.087963
+anchor_right = 0.780382
+anchor_bottom = 0.848765
+offset_left = 18.0
+offset_right = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+theme_override_styles/panel = SubResource("StyleBoxTexture_macso")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -54,6 +84,23 @@ theme_override_constants/margin_bottom = 10
 [node name="return_button" type="Button" parent="Panel/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_disabled_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.882353, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.521569, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_04tbk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_macso")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_e8v10")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uwihb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kgxsf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_oglko")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5tkgj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kpbbf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4tigv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_uxumq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7dsyu")
 text = "< Return"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
@@ -65,6 +112,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Master" type="Label" parent="Panel/VBoxContainer/MarginContainer2"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Master Volume"
 
 [node name="MarginContainer3" type="MarginContainer" parent="Panel/VBoxContainer"]
@@ -91,6 +139,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Music" type="Label" parent="Panel/VBoxContainer/MarginContainer4"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Music"
 
 [node name="MarginContainer5" type="MarginContainer" parent="Panel/VBoxContainer"]
@@ -117,6 +166,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="SFX" type="Label" parent="Panel/VBoxContainer/MarginContainer7"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "SFX"
 
 [node name="MarginContainer6" type="MarginContainer" parent="Panel/VBoxContainer"]
@@ -133,5 +183,18 @@ max_value = 1.0
 step = 0.001
 script = ExtResource("2_hks8w")
 bus_name = "sfx"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("5_4tigv")
+expand_mode = 3
 
 [connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/return_button" to="." method="_on_return_button_pressed"]

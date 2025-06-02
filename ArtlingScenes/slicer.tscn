@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dsyxlay28mwc5" path="res://Assets/artlings/tempsliceyflip.png" id="2_ih5yw"]
 [ext_resource type="Texture2D" uid="uid://bw4oru0u1qxrl" path="res://Assets/artlings/tempsliceycropped.png" id="2_p3uc6"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_edpa3"]
-[ext_resource type="AudioStream" uid="uid://bu04j80c0fgre" path="res://Audio/sfx/sfx2.mp3" id="4_p3uc6"]
+[ext_resource type="AudioStream" uid="uid://dd62a7i08qagi" path="res://Audio/sfx/slicersfx.mp3" id="5_p3uc6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_edpa3"]
 animations = [{
@@ -56,5 +56,5 @@ animation = &"idle"
 visible = false
 
 [node name="atk_sfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_p3uc6")
+stream = ExtResource("5_p3uc6")
 bus = &"sfx"
