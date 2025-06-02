@@ -36,11 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://bgje3lt2qylpt" path="res://Assets/UI/ExpBarOver.png" id="29_477pb"]
 [ext_resource type="Texture2D" uid="uid://c5fttrskt1ryd" path="res://Assets/UI/ExpBarFill.png" id="30_8g40r"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6ldt"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ff0yi"]
 load_path = "res://.godot/imported/settings_texture.png-45d956df31bfafdfaa005fa422a47433.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ff0yi"]
-texture = SubResource("CompressedTexture2D_q6ldt")
+texture = SubResource("CompressedTexture2D_ff0yi")
 region_rect = Rect2(164, 166, 578, 1117)
 
 [sub_resource type="Theme" id="Theme_rf2ug"]

@@ -3,8 +3,7 @@ extends Node3D
 @onready var tutorial = preload("res://Battlefields/tutorial.tscn")
 @onready var battlefields = [
 	preload("res://Battlefields/battlefield_1.tscn"), 
-	preload("res://Battlefields/battlefield_2.tscn"),
-	preload("res://Battlefields/paper_battlefield.tscn")]
+	preload("res://Battlefields/battlefield_2.tscn")]
 @onready var current_battlefield
 @onready var player = $Player
 @onready var enemies = $Trainers

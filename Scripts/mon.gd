@@ -41,7 +41,7 @@ var fainted = false
 # target should be a mon and move should be usable move in the list
 func attack(target, move):
 	# checks that the target and move used is valid, otherwise does nothing
-	if target.is_in_group("mon") && move in moves_list:
+	if target.is_in_group("mon"):
 		#print("Commencing attack")
 		# chooses attack and handles move accuracy
 		# for different statuses that affect attack, this is where it goes

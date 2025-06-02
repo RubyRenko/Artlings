@@ -158,11 +158,11 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y54wi"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gto5g"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6ldt"]
 load_path = "res://.godot/imported/settings_texture.png-45d956df31bfafdfaa005fa422a47433.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kj370"]
-texture = SubResource("CompressedTexture2D_gto5g")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cas54"]
+texture = SubResource("CompressedTexture2D_q6ldt")
 region_rect = Rect2(164, 166, 578, 1117)
 
 [node name="LevelHandler" type="Node3D"]
@@ -605,7 +605,6 @@ label_settings = ExtResource("6_gi4eu")
 horizontal_alignment = 1
 
 [node name="SwapButtons" type="Control" parent="Player/Bg/PartyScreen"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 100.0
@@ -1317,7 +1316,7 @@ visible = false
 visible = false
 script = ExtResource("35_vgr1s")
 level = 3
-artling_movesets = [["Thud", "Charge", "Blender", "Teeth"], ["BaconSlap", "Thud", "Lick"]]
+artling_movesets = [["Nibble", "Roll", "Focus", "Charge"], ["BaconSlap", "Thud", "Lick"]]
 artling_stats = [[80, 8, 30, 8, 30, 10], [20, 30, 5, 30, 5, 5]]
 battlefield = ExtResource("26_uloti")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
@@ -1332,7 +1331,7 @@ visible = false
 visible = false
 script = ExtResource("30_a8wuu")
 level = 5
-artling_movesets = [["Sap", "Rejuvenate", "Bubble", "Wash"]]
+artling_movesets = [["Sap", "BubbleBurst", "Cure", "Wash"]]
 artling_stats = [[100, 10, 45, 25, 45, 12]]
 battlefield = ExtResource("26_q6ldt")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
@@ -1346,7 +1345,7 @@ script = ExtResource("32_a8wuu")
 level = 6
 artling_movesets = [["Stipple", "Dollop", "Smoke", "Inkblot"], ["Teeth", "Blender", "Focus", "Charge"]]
 artling_stats = [[70, 20, 18, 35, 18, 30], [80, 35, 25, 10, 13, 20]]
-battlefield = ExtResource("26_uloti")
+battlefield = ExtResource("39_p68xn")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
 [node name="Inkit" parent="Trainers/InkWurmTr" instance=ExtResource("21_pfsb0")]
@@ -1578,17 +1577,18 @@ text = "No
 
 [node name="inGame_settings_menu" type="Panel" parent="."]
 visible = false
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 474.0
 offset_top = 55.0
-offset_right = 434.0
-offset_bottom = 15.0
+offset_right = -471.0
+offset_bottom = -156.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_kj370")
+theme_override_styles/panel = SubResource("StyleBoxTexture_cas54")
 script = ExtResource("18_m76uk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="inGame_settings_menu"]
