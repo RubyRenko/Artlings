@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c6beqlegxliet" path="res://Audio/sfx/snort.mp3" id="4_5dmgj"]
 
 [node name="BaconPig" type="Node3D" groups=["3d", "mon"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0940699, 0)
 script = ExtResource("1_pklxf")
 max_hp = 10
 strength = 20

@@ -30,6 +30,7 @@ offset_bottom = 40.0
 script = ExtResource("1_xpc04")
 
 [node name="IndexBook" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(577, 324)
 texture = ExtResource("2_ooeoe")
 

@@ -13,4 +13,5 @@ func start_battle(player, enemy):
 
 func _on_child_exiting_tree(node):
 	if node == battle_node:
+		
 		queue_free()

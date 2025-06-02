@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=75 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
@@ -48,6 +48,7 @@
 [ext_resource type="Script" uid="uid://cps3xom0csrih" path="res://Scenes/food_tr.gd" id="35_vgr1s"]
 [ext_resource type="Texture2D" uid="uid://goc0d6jfb6r3" path="res://Assets/artlings/Dewphy_Party_Screen_Export.png" id="36_atga2"]
 [ext_resource type="PackedScene" uid="uid://cslpj3ykmrpug" path="res://ArtlingScenes/egg_bear.tscn" id="38_w4csa"]
+[ext_resource type="PackedScene" uid="uid://d1t636vnax2ff" path="res://Battlefields/paper_battlefield.tscn" id="39_p68xn"]
 [ext_resource type="PackedScene" uid="uid://svoh4nsbiwla" path="res://ArtlingScenes/wurm_beast.tscn" id="43_w4csa"]
 [ext_resource type="Script" uid="uid://b5m3kb2qisblu" path="res://Scenes/wurm_boss.gd" id="45_l5lre"]
 
@@ -656,10 +657,10 @@ label_settings = ExtResource("6_gi4eu")
 
 [node name="CreateArtling" type="Button" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
-offset_left = 578.0
-offset_top = 323.0
-offset_right = 1001.0
-offset_bottom = 553.0
+offset_left = 595.0
+offset_top = 301.0
+offset_right = 1018.0
+offset_bottom = 531.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lou55")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_uvsy3")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_uvsy3")
@@ -672,10 +673,10 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_byaey")
 
 [node name="ColorLabel" type="Label" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
-offset_left = 231.0
-offset_top = 380.0
-offset_right = 481.0
-offset_bottom = 439.0
+offset_left = 223.0
+offset_top = 375.0
+offset_right = 473.0
+offset_bottom = 434.0
 text = "Current colors
 R:  0 O: 0 Y: 0 G: 0 B: 0 V: 0 "
 label_settings = ExtResource("6_gi4eu")
@@ -683,9 +684,9 @@ label_settings = ExtResource("6_gi4eu")
 [node name="ColorClear" type="Button" parent="Player/Bg/CreateScreen/CreatePalette"]
 layout_mode = 0
 offset_left = -68.0
-offset_top = 320.0
+offset_top = 321.0
 offset_right = 222.0
-offset_bottom = 592.0
+offset_bottom = 593.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p68xn")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_lsxt8")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_lsxt8")
@@ -1069,19 +1070,17 @@ visible = false
 [node name="Trainers" type="Node3D" parent="." groups=["trainer"]]
 script = ExtResource("22_uv5sc")
 
-[node name="WurmBoss" type="Node3D" parent="Trainers" groups=["trainer"]]
+[node name="BapigTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
-script = ExtResource("45_l5lre")
-level = 4
-artling_movesets = [["Blender", "TeethShot", "Screech", "Grapple"]]
-artling_stats = [[120, 30, 25, 10, 10, 25]]
-battlefield = ExtResource("26_q6ldt")
+script = ExtResource("27_r27tj")
+level = 3
+artling_movesets = [["BaconSlap", "Thud", "Lick"]]
+artling_stats = [[20, 30, 5, 30, 5, 5]]
+battlefield = ExtResource("39_p68xn")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
-[node name="WurmBeast" parent="Trainers/WurmBoss" groups=["trainer"] instance=ExtResource("43_w4csa")]
+[node name="BaconPig" parent="Trainers/BapigTr" instance=ExtResource("23_1m7qd")]
 visible = false
-element = "Geometric"
-nickname = "Boss Wurm Beast"
 
 [node name="FoodTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
@@ -1096,18 +1095,6 @@ metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 visible = false
 
 [node name="BaconPig" parent="Trainers/FoodTr" instance=ExtResource("23_1m7qd")]
-visible = false
-
-[node name="BapigTr" type="Node3D" parent="Trainers" groups=["trainer"]]
-visible = false
-script = ExtResource("27_r27tj")
-level = 3
-artling_movesets = [["BaconSlap", "Thud", "Lick"]]
-artling_stats = [[20, 30, 5, 30, 5, 5]]
-battlefield = ExtResource("26_uloti")
-metadata/_custom_type_script = "uid://b8yh41nerx1t0"
-
-[node name="BaconPig" parent="Trainers/BapigTr" instance=ExtResource("23_1m7qd")]
 visible = false
 
 [node name="WurmTr" type="Node3D" parent="Trainers" groups=["trainer"]]
@@ -1148,6 +1135,20 @@ visible = false
 
 [node name="Wurm" parent="Trainers/InkWurmTr" instance=ExtResource("6_hpbh2")]
 visible = false
+
+[node name="WurmBoss" type="Node3D" parent="Trainers" groups=["trainer"]]
+visible = false
+script = ExtResource("45_l5lre")
+level = 4
+artling_movesets = [["Blender", "TeethShot", "Screech", "Grapple"]]
+artling_stats = [[120, 30, 25, 10, 10, 25]]
+battlefield = ExtResource("26_q6ldt")
+metadata/_custom_type_script = "uid://b8yh41nerx1t0"
+
+[node name="WurmBeast" parent="Trainers/WurmBoss" groups=["trainer"] instance=ExtResource("43_w4csa")]
+visible = false
+element = "Geometric"
+nickname = "Boss Wurm Beast"
 
 [node name="ChooseStarter" type="Panel" parent="."]
 visible = false
@@ -1461,6 +1462,7 @@ bus_name = "sfx"
 [connection signal="pressed" from="Player/Bg/PartyScreen/BackButton" to="Player" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Player/Bg/PartyScreen/StatScreenBg/ExitStatScreen" to="Player" method="_on_exit_stat_screen_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/CreateArtling" to="Player" method="_on_create_artling_pressed"]
+[connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/CreateArtling" to="Player/Bg/CreateScreen" method="_on_create_artling_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/ColorClear" to="Player/Bg/CreateScreen" method="_on_color_clear_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintBlueButton" to="Player/Bg/CreateScreen" method="_on_paint_blue_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateScreen/CreatePalette/PaintGreenButton" to="Player/Bg/CreateScreen" method="_on_paint_green_button_pressed"]

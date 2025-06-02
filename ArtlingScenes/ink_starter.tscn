@@ -36,6 +36,7 @@ animations = [{
 }]
 
 [node name="Inkit" type="Node3D" groups=["2d", "mon"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119557, 0, 0)
 script = ExtResource("1_5cboi")
 max_hp = 50
 strength = 5

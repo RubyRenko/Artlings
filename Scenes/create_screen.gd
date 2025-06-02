@@ -5,6 +5,7 @@ extends Panel
 @onready var create_button = $CreatePalette/CreateArtling
 @onready var name_edit = $NameScreen/NameEdit
 @onready var create_palette = $CreatePalette
+@onready var name_screen = $NameScreen
 @onready var player = get_parent().get_parent()
 var new_artling_name : String
 var r = 0
@@ -27,9 +28,6 @@ func setup_screen():
 	#create_button.text = "Create Artling"
 	inspo_cost = len(player.team) * 2
 	clear_colors()
-
-func hide_palette():
-	create_palette.visible = false
 
 func calculate_artling():
 	if r == 1 && b == 1 && y == 1:
@@ -93,3 +91,7 @@ func _on_paint_yellow_button_pressed():
 	if total_color < 5:
 		y += 1
 		total_color += 1
+
+func _on_create_artling_pressed():
+	create_palette.visible = false
+	name_screen.visible = true

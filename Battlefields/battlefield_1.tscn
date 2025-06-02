@@ -14,13 +14,13 @@ albedo_color = Color(0.192157, 0.517647, 0.290196, 1)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wskkc"]
 panorama = ExtResource("3_ni6xu")
 
-[sub_resource type="Sky" id="Sky_wskkc"]
+[sub_resource type="Sky" id="Sky_m33m3"]
 sky_material = SubResource("PanoramaSkyMaterial_wskkc")
 
 [sub_resource type="Environment" id="Environment_0faq4"]
 background_mode = 2
 background_color = Color(0.788765, 0.999632, 1, 1)
-sky = SubResource("Sky_wskkc")
+sky = SubResource("Sky_m33m3")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_enabled = true

@@ -27,7 +27,7 @@ func setup_index():
 	current_page = -1
 	prev_pg_button.disabled = true
 	next_pg_button.disabled = false
-	table_contents_pg.visible = true
+	contents_pg.visible = true
 	update_table_text()
 
 func update_table_text():

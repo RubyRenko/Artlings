@@ -49,3 +49,7 @@ func toggle_erasing_buttons():
 
 func _on_swap_button_pressed():
 	toggle_swapping_buttons()
+
+
+func _on_create_artling_pressed():
+	pass # Replace with function body.
