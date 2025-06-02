@@ -8,7 +8,7 @@ func toggle_party_buttons(team_list):
 	# for each button in the possible team list
 	for i in 6:
 		var button = party_list.get_child(i)
-		var button_label = button.get_child(0)
+		var button_label = button.get_child(1)
 		# if going off the end of the team list, sets the button to not visible
 		if i >= len(team_list):
 			button.visible = false
