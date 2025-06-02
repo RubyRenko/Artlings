@@ -3,26 +3,26 @@ extends Node3D
 @onready var master_move_list = preload("res://move_list.tscn").instantiate()
 
 @onready var player_spawn = $PlayerMonSpawn
-@onready var player_hp_bar = $CanvasLayer/PlayerHpBar
-@onready var player_hp_nums = $CanvasLayer/PlayerHpBar/HpNums
-@onready var player_name_label = $CanvasLayer/PlayerHpBar/Name
+@onready var player_hp_bar = $CanvasLayer/PlayerHUD/PlayerHpBar
+@onready var player_hp_nums = $CanvasLayer/PlayerHUD/PlayerHpBar/HpNums
+@onready var player_name_label = $CanvasLayer/PlayerHUD/PlayerHpBar/Name
 
 @onready var enemy_spawn = $EnemyMonSpawn
-@onready var enemy_hp_bar = $CanvasLayer/EnemyHpBar
-@onready var enemy_hp_nums = $CanvasLayer/EnemyHpBar/HpNums
-@onready var enemy_name_label = $CanvasLayer/EnemyHpBar/Name
+@onready var enemy_hp_bar = $CanvasLayer/EnemyHUD/EnemyHpBar
+@onready var enemy_hp_nums = $CanvasLayer/EnemyHUD/EnemyHpBar/HpNums
+@onready var enemy_name_label = $CanvasLayer/EnemyHUD/EnemyHpBar/Name
 
-@onready var move_opt = $CanvasLayer/MoveOptions
-@onready var battle_desc = $CanvasLayer/BattleDesc
-@onready var battle_desc_box = $CanvasLayer/BattleDescBox
-@onready var autoplay_button = $CanvasLayer/AutoplayButton
+@onready var move_opt = $CanvasLayer/MoveBox/MoveOptions
+@onready var battle_desc = $CanvasLayer/Description/BattleDesc
+@onready var battle_desc_box = $CanvasLayer/Description/BattleDescBox
+@onready var autoplay_button = $CanvasLayer/Description/AutoplayButton
 
 @onready var turn_timer = $TurnTimer
-@onready var click_icon = $CanvasLayer/ContinueArrow
+@onready var click_icon = $CanvasLayer/Description/ContinueArrow
 var can_click = true
 static var auto = false
 
-@onready var change_button = $CanvasLayer/ChangeArtling
+@onready var change_button = $CanvasLayer/MoveBox/ChangeArtling
 @onready var party_screen = $CanvasLayer/Party
 
 @onready var option_screen = $CanvasLayer/inGame_settings_menu

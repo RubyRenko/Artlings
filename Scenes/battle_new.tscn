@@ -92,14 +92,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0,
 
 [node name="settings_button" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.374
-anchor_right = 0.649
-anchor_bottom = 1.0
-offset_left = 110.152
-offset_right = -136.648
-offset_bottom = -617.0
+anchor_left = 0.46
+anchor_right = 0.54
+anchor_bottom = 0.08
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_rf2ug")
@@ -111,25 +107,40 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_mqn5v")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mqn5v")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_mqn5v")
 theme_override_styles/normal = SubResource("StyleBoxTexture_mqn5v")
+icon_alignment = 1
 script = ExtResource("3_2ryre")
 
-[node name="ChangeArtling" type="TextureButton" parent="CanvasLayer"]
-offset_left = -3.0
-offset_top = 395.0
-offset_right = 152.0
-offset_bottom = 526.0
+[node name="MoveBox" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="ChangeArtling" type="TextureButton" parent="CanvasLayer/MoveBox"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -249.0
+offset_right = 155.0
+offset_bottom = -118.0
+grow_vertical = 0
 texture_normal = ExtResource("2_1x78f")
 texture_hover = ExtResource("3_vucsn")
 texture_disabled = ExtResource("4_vucsn")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="BattleMovesBox1" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(233, 576)
+[node name="BattleMovesBox1" type="Sprite2D" parent="CanvasLayer/MoveBox"]
+position = Vector2(233, -31)
 scale = Vector2(1.00214, 1.04286)
 texture = ExtResource("2_q3wcu")
 
-[node name="MoveOptions" type="HBoxContainer" parent="CanvasLayer"]
+[node name="MoveOptions" type="HBoxContainer" parent="CanvasLayer/MoveBox"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -142,11 +153,11 @@ scale = Vector2(0.895613, 0.870834)
 alignment = 1
 script = ExtResource("2_muy5e")
 
-[node name="Move1" type="TextureButton" parent="CanvasLayer/MoveOptions"]
+[node name="Move1" type="TextureButton" parent="CanvasLayer/MoveBox/MoveOptions"]
 layout_mode = 2
 texture_normal = ExtResource("4_vop86")
 
-[node name="Label" type="Label" parent="CanvasLayer/MoveOptions/Move1"]
+[node name="Label" type="Label" parent="CanvasLayer/MoveBox/MoveOptions/Move1"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -160,11 +171,11 @@ text = "None"
 label_settings = SubResource("LabelSettings_b3lj8")
 horizontal_alignment = 1
 
-[node name="Move2" type="TextureButton" parent="CanvasLayer/MoveOptions"]
+[node name="Move2" type="TextureButton" parent="CanvasLayer/MoveBox/MoveOptions"]
 layout_mode = 2
 texture_normal = ExtResource("5_q3wcu")
 
-[node name="Label" type="Label" parent="CanvasLayer/MoveOptions/Move2"]
+[node name="Label" type="Label" parent="CanvasLayer/MoveBox/MoveOptions/Move2"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -178,11 +189,11 @@ text = "None"
 label_settings = SubResource("LabelSettings_b3lj8")
 horizontal_alignment = 1
 
-[node name="Move3" type="TextureButton" parent="CanvasLayer/MoveOptions"]
+[node name="Move3" type="TextureButton" parent="CanvasLayer/MoveBox/MoveOptions"]
 layout_mode = 2
 texture_normal = ExtResource("6_n2lc0")
 
-[node name="Label" type="Label" parent="CanvasLayer/MoveOptions/Move3"]
+[node name="Label" type="Label" parent="CanvasLayer/MoveBox/MoveOptions/Move3"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -196,11 +207,11 @@ text = "None"
 label_settings = SubResource("LabelSettings_b3lj8")
 horizontal_alignment = 1
 
-[node name="Move4" type="TextureButton" parent="CanvasLayer/MoveOptions"]
+[node name="Move4" type="TextureButton" parent="CanvasLayer/MoveBox/MoveOptions"]
 layout_mode = 2
 texture_normal = ExtResource("7_11hy7")
 
-[node name="Label" type="Label" parent="CanvasLayer/MoveOptions/Move4"]
+[node name="Label" type="Label" parent="CanvasLayer/MoveBox/MoveOptions/Move4"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -214,19 +225,25 @@ text = "None"
 label_settings = SubResource("LabelSettings_b3lj8")
 horizontal_alignment = 1
 
-[node name="HpBox" type="Sprite2D" parent="CanvasLayer"]
-texture = ExtResource("8_n2lc0")
-centered = false
+[node name="EnemyHUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
 
-[node name="HpBoxEnemy" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(722, 0)
+[node name="HpBoxEnemy" type="Sprite2D" parent="CanvasLayer/EnemyHUD"]
+position = Vector2(-390, 0)
 texture = ExtResource("9_11hy7")
 centered = false
 
-[node name="EnemyHpBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 809.0
+[node name="EnemyHpBar" type="TextureProgressBar" parent="CanvasLayer/EnemyHUD"]
+layout_mode = 0
+offset_left = -303.0
 offset_top = 40.0
-offset_right = 1139.0
+offset_right = 27.0
 offset_bottom = 80.0
 value = 80.0
 fill_mode = 1
@@ -236,7 +253,7 @@ texture_over = ExtResource("11_vxvj7")
 texture_progress = ExtResource("12_bnmnk")
 texture_progress_offset = Vector2(2, 0)
 
-[node name="Name" type="Label" parent="CanvasLayer/EnemyHpBar"]
+[node name="Name" type="Label" parent="CanvasLayer/EnemyHUD/EnemyHpBar"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = -24.0
@@ -246,7 +263,7 @@ text = "Player Artling"
 label_settings = SubResource("LabelSettings_i45mi")
 horizontal_alignment = 2
 
-[node name="HpNums" type="Label" parent="CanvasLayer/EnemyHpBar"]
+[node name="HpNums" type="Label" parent="CanvasLayer/EnemyHUD/EnemyHpBar"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -260,7 +277,18 @@ text = "0 / 0"
 label_settings = SubResource("LabelSettings_ot4af")
 horizontal_alignment = 1
 
-[node name="PlayerHpBar" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="PlayerHUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HpBox" type="Sprite2D" parent="CanvasLayer/PlayerHUD"]
+texture = ExtResource("8_n2lc0")
+centered = false
+
+[node name="PlayerHpBar" type="TextureProgressBar" parent="CanvasLayer/PlayerHUD"]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 40.0
 offset_right = 351.0
@@ -273,7 +301,7 @@ texture_over = ExtResource("13_1x78f")
 texture_progress = ExtResource("14_vucsn")
 texture_progress_offset = Vector2(2, 0)
 
-[node name="Name" type="Label" parent="CanvasLayer/PlayerHpBar"]
+[node name="Name" type="Label" parent="CanvasLayer/PlayerHUD/PlayerHpBar"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = -24.0
@@ -282,7 +310,7 @@ offset_bottom = 2.0
 text = "Player Artling"
 label_settings = SubResource("LabelSettings_i45mi")
 
-[node name="HpNums" type="Label" parent="CanvasLayer/PlayerHpBar"]
+[node name="HpNums" type="Label" parent="CanvasLayer/PlayerHUD/PlayerHpBar"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -296,44 +324,59 @@ text = "0 / 0"
 label_settings = SubResource("LabelSettings_2hyyw")
 horizontal_alignment = 1
 
-[node name="BattleDescBox" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(804, 562)
+[node name="Description" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="BattleDescBox" type="Sprite2D" parent="CanvasLayer/Description"]
+position = Vector2(-307, -44)
 scale = Vector2(0.917876, 0.854064)
 texture = ExtResource("10_b3lj8")
 
-[node name="BattleDesc" type="Label" parent="CanvasLayer"]
+[node name="BattleDesc" type="Label" parent="CanvasLayer/Description"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.0
-offset_top = 180.0
-offset_right = 485.0
-offset_bottom = 309.0
+offset_left = -629.0
+offset_top = -124.0
+offset_right = -71.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_ksy4f")
 autowrap_mode = 3
 
-[node name="ContinueArrow" type="Sprite2D" parent="CanvasLayer"]
+[node name="ContinueArrow" type="Sprite2D" parent="CanvasLayer/Description"]
 visible = false
-position = Vector2(1100, 615)
+position = Vector2(-12, 7)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("22_8g40r")
 script = ExtResource("23_ff0yi")
 
-[node name="AutoplayButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 1070.0
-offset_top = 459.0
-offset_right = 1140.0
-offset_bottom = 542.0
+[node name="AutoplayButton" type="TextureButton" parent="CanvasLayer/Description"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -149.0
+offset_right = 28.0
+offset_bottom = -66.0
 toggle_mode = true
 texture_normal = ExtResource("8_4uhy2")
 texture_pressed = ExtResource("9_4uhy2")
 stretch_mode = 0
 
 [node name="Party" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -752,16 +795,16 @@ bus_name = "sfx"
 [node name="TurnTimer" type="Timer" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/settings_button" to="CanvasLayer/settings_button" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/ChangeArtling" to="." method="_on_change_artling_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
-[connection signal="pressed" from="CanvasLayer/AutoplayButton" to="." method="_on_autoplay_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MoveBox/ChangeArtling" to="." method="_on_change_artling_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveBox/MoveOptions/Move1" to="." method="_on_move_1_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveBox/MoveOptions/Move1" to="." method="_on_move_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveBox/MoveOptions/Move2" to="." method="_on_move_2_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveBox/MoveOptions/Move2" to="." method="_on_move_2_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveBox/MoveOptions/Move3" to="." method="_on_move_3_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveBox/MoveOptions/Move3" to="." method="_on_move_3_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MoveBox/MoveOptions/Move4" to="." method="_on_move_4_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MoveBox/MoveOptions/Move4" to="." method="_on_move_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Description/AutoplayButton" to="." method="_on_autoplay_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling1" to="." method="_on_artling_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Party/Artlings/Artling2" to="." method="_on_artling_2_pressed"]

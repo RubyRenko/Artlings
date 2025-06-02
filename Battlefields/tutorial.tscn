@@ -61,21 +61,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28108, -0.241742)
 [node name="Tutorial" type="CanvasLayer" parent="."]
 
 [node name="PartyInfo" type="Control" parent="Tutorial"]
-visible = false
 z_index = 1
 z_as_relative = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="1" type="Control" parent="Tutorial/PartyInfo"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 586.0
-offset_top = 399.0
-offset_right = 626.0
-offset_bottom = 439.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 73.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/PartyInfo/1"]
 position = Vector2(0, 17.125)
@@ -100,10 +106,15 @@ horizontal_alignment = 1
 
 [node name="BattleInfoStep" type="Control" parent="Tutorial"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
 script = ExtResource("4_d6atl")
+metadata/_edit_use_anchors_ = true
 
 [node name="1" type="Control" parent="Tutorial/BattleInfoStep"]
 layout_mode = 3
@@ -112,6 +123,7 @@ offset_left = 579.0
 offset_top = 93.0
 offset_right = 619.0
 offset_bottom = 133.0
+metadata/_edit_use_anchors_ = true
 
 [node name="MemoRect" type="Sprite2D" parent="Tutorial/BattleInfoStep/1"]
 position = Vector2(0, 30.25)
