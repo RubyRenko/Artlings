@@ -11,20 +11,20 @@ func _ready():
 	#load_move(moves.get_move("Blender"))
 	#load_move(moves.get_move("Lick"))
 	health = max_hp
+	play_idle_anim()
 	setup_stat_screen()
 
 func play_anim(animation):
-	#anim.play_anim(animation)
-	pass
+	anim.play_anim(animation)
 
 func play_idle_anim():
-	#anim.play_anim("idle")
-	pass
+	anim.play_idle()
 
 func play_atk_anim():
 	#anim.play_anim("bite")
+	anim.play_attack()
 	$atk_sfx.play()
 
 func play_brace_anim():
 	#anim.play_anim("hide")
-	pass
+	anim.play_idle()

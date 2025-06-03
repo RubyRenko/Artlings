@@ -37,14 +37,20 @@ func _ready():
 
 func _on_environment_child_exiting_tree(node):
 	#print(node)
+	print(node.is_in_group("boss"))
 	if node.is_in_group("tutorial"):
 		choosing_starter.visible = true
 		player.remove_artling("all")
 		player.inspo = 0
 		wild_battles.hide_children()
+	elif node.is_in_group("boss") && enemies.get_child(enemies.get_child_count()-1).defeated:
+		player.interlude_bg.visible = true
+		#wild_battles.hide_children()
+		enemies.get_child(enemies.get_child_count()-1).defeated = false
+		player.next_button.get_child(0).set_text("Replay Boss?")
 	elif node.is_in_group("battle"):
 		player.interlude_bg.visible = true
-		wild_battles.hide_children()
+		#wild_battles.hide_children()
 
 func _on_next_battle_button_pressed():
 	player.hide_screens(true)
@@ -55,6 +61,8 @@ func _on_next_battle_button_pressed():
 	opponent.visible = true
 	current_battlefield = opponent.battlefield.instantiate()
 	environment_node.add_child(current_battlefield)
+	if opponent == enemies.get_trainer("WurmBoss"):
+		current_battlefield.add_to_group("boss")
 	current_battlefield.start_battle(player, opponent)
 
 func _on_train_button_pressed():

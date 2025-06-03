@@ -95,7 +95,7 @@ func load_mons(player_inp, enemy_inp):
 func load_moves():
 	#print(player_mon.current_moves)
 	move_opt.toggle_move_buttons(player_mon.current_moves)
-	print(player_mon.current_moves)
+	#print(player_mon.current_moves)
 
 func _process(_delta):
 	# if we're at the end of the commands
@@ -189,7 +189,7 @@ func choose_move(move_ind):
 		else:
 			print("Not a trainer, choosing random")
 			enemy_move = enemy_mon.current_moves.pick_random()
-		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
+		commands.append(["desc", enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
 		commands.append(["enemy", enemy_move])
 		commands.append(["status"])
 		# sets battle_prog to 0 so it starts the turn
@@ -204,7 +204,7 @@ func choose_move(move_ind):
 		else:
 			print("Not a trainer, choosing random")
 			enemy_move = enemy_mon.current_moves.pick_random()
-		commands.append(["desc", "Enemy " + enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
+		commands.append(["desc", enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
 		commands.append(["enemy", enemy_move])
 		# puts the move used by the player in the commands list
 		commands.append(["desc", player_mon.nickname + " used " + player_mon.current_moves[move_ind].capitalize() + "!", "attack"])
@@ -285,7 +285,7 @@ func handle_status():
 		#print(player_mon.status + str(player_mon.status_counter))
 	# if the status counter ticks down to 0, clears the status effect
 	if enemy_mon.status_counter <= 0 && enemy_mon.status != "None":
-		commands.append(["desc", "Enemy's " + enemy_mon.status + " wore off.", "idle"])
+		commands.append(["desc", enemy_mon.nickname + "'s " + enemy_mon.status + " wore off.", "idle"])
 		enemy_mon.status = "None"
 		#print(enemy_mon.status + str(enemy_mon.status_counter))
 	# if the enemy has a status, counts down the timer by 1
@@ -334,7 +334,7 @@ func choose_artling(artling_ind):
 		# picks a random move for the enemy and puts it in the commands list
 		if !faint_switch:
 			var enemy_move = enemy_mon.current_moves.pick_random()
-			commands.append(["desc", "Enemy used " + enemy_move + "!", "brace"])
+			commands.append(["desc", enemy_mon.nickname + " used " + enemy_move.capitalize() + "!", "brace"])
 			commands.append(["enemy", enemy_move])
 			battle_prog = 0
 			faint_switch = false

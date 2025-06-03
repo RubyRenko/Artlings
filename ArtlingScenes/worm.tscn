@@ -16,6 +16,7 @@ mind = 5
 speed = 5
 element = "Normal"
 nickname = "Wurm"
+species = "Wurm"
 stat_growth = [5, 15, 3, 3, 3, 5]
 img = ExtResource("2_ymmcu")
 

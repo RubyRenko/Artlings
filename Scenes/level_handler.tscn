@@ -320,6 +320,7 @@ label_settings = SubResource("LabelSettings_i5t2d")
 horizontal_alignment = 1
 
 [node name="PartyScreen" type="Panel" parent="Player/Bg"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -386,9 +387,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -47.0
-offset_top = -42.0
+offset_top = -43.294
 offset_right = 55.0
-offset_bottom = 53.0
+offset_bottom = 51.706
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_cas54")
@@ -463,9 +464,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -56.3241
-offset_top = -35.6624
+offset_top = -36.9564
 offset_right = 45.6759
-offset_bottom = 53.3376
+offset_bottom = 52.0436
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_cas54")
@@ -543,9 +544,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -56.3241
-offset_top = -35.6624
+offset_top = -36.9564
 offset_right = 45.6759
-offset_bottom = 53.3376
+offset_bottom = 52.0436
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_cas54")
@@ -1251,39 +1252,46 @@ visible = false
 
 [node name="Inkit" parent="WildBattles/Test1" instance=ExtResource("21_pfsb0")]
 visible = false
+nickname = "Wild Inkit"
 
 [node name="Test2" type="Node3D" parent="WildBattles"]
 visible = false
 
 [node name="Wurm" parent="WildBattles/Test2" instance=ExtResource("6_hpbh2")]
 visible = false
+nickname = "Wild Wurm"
 
 [node name="Test3" type="Node3D" parent="WildBattles"]
 visible = false
 
 [node name="BaconPig" parent="WildBattles/Test3" instance=ExtResource("23_1m7qd")]
 visible = false
+nickname = "Wild Bapig"
 
 [node name="Test4" type="Node3D" parent="WildBattles"]
 visible = false
 
 [node name="EggBear" parent="WildBattles/Test4" instance=ExtResource("38_w4csa")]
 visible = false
+nickname = "Wild Yolkcub"
 
 [node name="Test5" type="Node3D" parent="WildBattles"]
 visible = false
 
 [node name="Slicer" parent="WildBattles/Test5" instance=ExtResource("35_l5lre")]
 visible = false
+nickname = "Wild Slicer"
 
 [node name="Tutorial" type="Node3D" parent="WildBattles"]
 visible = false
 
 [node name="Inkit" parent="WildBattles/Tutorial" instance=ExtResource("21_pfsb0")]
 visible = false
+nickname = "Tutorial Inkit"
 
 [node name="Wurm" parent="WildBattles/Tutorial" instance=ExtResource("6_hpbh2")]
 visible = false
+nickname = "Tutorial Wurm"
 
 [node name="Trainers" type="Node3D" parent="." groups=["trainer"]]
 script = ExtResource("22_uv5sc")
@@ -1299,6 +1307,7 @@ metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
 [node name="BaconPig" parent="Trainers/BapigTr" instance=ExtResource("23_1m7qd")]
 visible = false
+nickname = "Lil Piggie"
 
 [node name="InkitTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
@@ -1311,6 +1320,7 @@ metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
 [node name="Inkit" parent="Trainers/InkitTr" instance=ExtResource("21_pfsb0")]
 visible = false
+nickname = "Brushmaster"
 
 [node name="FoodTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
@@ -1323,9 +1333,11 @@ metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
 [node name="EggBear" parent="Trainers/FoodTr" instance=ExtResource("38_w4csa")]
 visible = false
+nickname = "Brekkie"
 
 [node name="BaconPig" parent="Trainers/FoodTr" instance=ExtResource("23_1m7qd")]
 visible = false
+nickname = "Fastie"
 
 [node name="DewphinTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
@@ -1338,6 +1350,7 @@ metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
 [node name="Dewphin" parent="Trainers/DewphinTr" instance=ExtResource("22_50soc")]
 visible = false
+nickname = "Dewdrop"
 
 [node name="InkWurmTr" type="Node3D" parent="Trainers" groups=["trainer"]]
 visible = false
@@ -1350,11 +1363,13 @@ metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
 [node name="Inkit" parent="Trainers/InkWurmTr" instance=ExtResource("21_pfsb0")]
 visible = false
+nickname = "Inkie"
 
 [node name="Wurm" parent="Trainers/InkWurmTr" instance=ExtResource("6_hpbh2")]
 visible = false
+nickname = "Wurmie"
 
-[node name="WurmBoss" type="Node3D" parent="Trainers" groups=["trainer"]]
+[node name="WurmBoss" type="Node3D" parent="Trainers" groups=["boss", "trainer"]]
 visible = false
 script = ExtResource("45_l5lre")
 level = 4

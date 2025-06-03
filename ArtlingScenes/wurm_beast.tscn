@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://svoh4nsbiwla"]
+[gd_scene load_steps=7 format=3 uid="uid://svoh4nsbiwla"]
 
 [ext_resource type="Script" uid="uid://matugn2v2dsh" path="res://ArtlingScenes/wurm_beast.gd" id="1_p1gxr"]
 [ext_resource type="Texture2D" uid="uid://waluhhdqq2cw" path="res://Assets/artlings/WurmEvo.png" id="2_e3uk4"]
 [ext_resource type="PackedScene" uid="uid://5st5i1uddnjl" path="res://3d artlings/worm rigged+texture6.glb" id="2_w7fl1"]
 [ext_resource type="PackedScene" uid="uid://by1pq4t3qhpc7" path="res://stat_screen.tscn" id="3_e3uk4"]
+[ext_resource type="Script" uid="uid://d2k543473ui81" path="res://3d artlings/worm_evo_anims.gd" id="4_e3uk4"]
 [ext_resource type="AudioStream" uid="uid://cs2jyrnep2wdy" path="res://Audio/sfx/sfx1.mp3" id="4_lsqbw"]
 
 [node name="WurmBeast" type="Node3D" groups=["3d", "mon"]]
@@ -22,6 +23,7 @@ metadata/_custom_type_script = "uid://dhlyoxibtyxxc"
 
 [node name="AnimModel" parent="." instance=ExtResource("2_w7fl1")]
 transform = Transform3D(-0.12, 0, -1.81195e-08, 0, 0.12, 0, 1.81195e-08, 0, -0.12, -0.073, -0.611, 0)
+script = ExtResource("4_e3uk4")
 
 [node name="ArtlingStats" parent="." instance=ExtResource("3_e3uk4")]
 visible = false

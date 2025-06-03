@@ -4,6 +4,12 @@ func _ready():
 	for trainer in get_children():
 		trainer.setup_artlings()
 
+func check_defeat():
+	for trainer in get_children():
+		if !trainer.defeated:
+			return false
+	return true
+
 func get_next_trainer():
 	for trainer in get_children():
 		if !trainer.defeated:
