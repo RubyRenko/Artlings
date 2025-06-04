@@ -3,12 +3,9 @@ extends Mon
 @onready var anim = $AnimSprite
 
 func _ready():
-	learnable_moves = ["Brush", "Smoke", "Dollop", "InkSlash", "Stipple", "Inkblot"]
-	load_move(master_move_list.get_move("Brush"))
-	load_move(master_move_list.get_move("Smoke"))
-	"""load_move(moves.get_move("Dollop"))
-	load_move(moves.get_move("InkSlash"))
-	load_move(moves.get_move("InkPool"))"""
+	learnable_moves = ["Slice", "Dice", "Pinprick", "Screech", "YarnTangle"]
+	load_move(master_move_list.get_move("Slice"))
+	load_move(master_move_list.get_move("Dice"))
 	health = max_hp
 	setup_stat_screen()
 

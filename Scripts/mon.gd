@@ -276,8 +276,16 @@ func take_status():
 			status_counter -= 1
 		health -= damage
 		return nickname + " takes poison damage."
+	elif status == "Poked":
+		var damage = ceili(health/16.0)
+		if randi_range(0,50) <= defense:
+			damage -= 2
+		health -= damage
+		return nickname + " gets hurt from being poked."
 	elif status == "Trapped":
 		var damage = ceili(health/16.0)
+		if randi_range(0,50) <= strength:
+			damage -= 2
 		health -= damage
 		return nickname + " gets hurt from the grapple."
 	elif status == "Blind":

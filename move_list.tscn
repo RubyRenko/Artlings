@@ -302,3 +302,41 @@ effect = [2, "Flattened"]
 desc = "Slams down onto the target and flattens them."
 battle_text = "%s slams down onto %s."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Dice" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [0, 80]
+accuracy = 100
+dmg_type = "str"
+desc = "Cuts the target and deals a varying amount of damage."
+battle_text = "%s dices %s!"
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Slice" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [10, 40]
+accuracy = 100
+dmg_type = "str"
+desc = "Cuts the target."
+battle_text = "%s slices up %s."
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="Pinprick" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [10, 30]
+accuracy = 100
+dmg_type = "str"
+effect = [2, "Poked"]
+desc = "Pricks the target and pokes holes in them"
+battle_text = "%s pricked %s."
+metadata/_custom_type_script = "uid://je6io23ym5wg"
+
+[node name="YarnTangle" type="Node" parent="." groups=["move"]]
+script = ExtResource("2_uqtxr")
+damage = [10, 30]
+accuracy = 100
+dmg_type = "str"
+effect = [2, "Trapped"]
+desc = "Pricks the target and pokes holes in them"
+battle_text = "%s pricked %s."
+metadata/_custom_type_script = "uid://je6io23ym5wg"
