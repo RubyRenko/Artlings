@@ -16,7 +16,7 @@ mind = 20
 speed = 5
 nickname = "Yolkcub"
 species = "Yolkcub"
-stat_growth = [8, 5, 10, 3, 10, 5]
+stat_growth = [8, 5, 15, 3, 15, 5]
 img = ExtResource("2_5376r")
 
 [node name="egg" parent="." groups=["3d", "mon"] instance=ExtResource("3_5376r")]

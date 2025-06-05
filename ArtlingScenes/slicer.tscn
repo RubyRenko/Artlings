@@ -43,6 +43,7 @@ mind = 10
 speed = 30
 nickname = "Slicer"
 species = "Slicer"
+stat_growth = [10, 15, 5, 15, 5, 10]
 img = ExtResource("2_p3uc6")
 metadata/_custom_type_script = "uid://dhlyoxibtyxxc"
 

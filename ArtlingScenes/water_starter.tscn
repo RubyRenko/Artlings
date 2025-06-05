@@ -45,7 +45,7 @@ mind = 15
 speed = 5
 nickname = "Dewphin"
 species = "Dewphin"
-stat_growth = [10, 3, 10, 7, 10, 5]
+stat_growth = [20, 3, 20, 8, 15, 5]
 img = ExtResource("2_5d10r")
 
 [node name="AnimSprite" type="AnimatedSprite3D" parent="."]
