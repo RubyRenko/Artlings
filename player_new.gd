@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var team_node = $Artlings
-var team = []
+static var team = []
 var inspo = 0
 
 @onready var interlude_bg = $Bg
@@ -19,7 +19,7 @@ var inspo = 0
 var swapping = []
 var artling_shown : int
 
-func _ready():
+func setup_player():
 	add_artling("Inkit")
 	add_artling("Dewphin")
 	add_artling("Wurm")

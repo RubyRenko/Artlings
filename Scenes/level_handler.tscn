@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=97 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
@@ -173,6 +173,11 @@ load_path = "res://.godot/imported/settings_texture.png-45d956df31bfafdfaa005fa4
 texture = SubResource("CompressedTexture2D_q6ldt")
 region_rect = Rect2(164, 166, 578, 1117)
 
+[sub_resource type="LabelSettings" id="LabelSettings_08wur"]
+font = ExtResource("13_753ol")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
 [node name="LevelHandler" type="Node3D"]
 script = ExtResource("1_xxr4i")
 
@@ -337,7 +342,6 @@ label_settings = SubResource("LabelSettings_i5t2d")
 horizontal_alignment = 1
 
 [node name="PartyScreen" type="Panel" parent="Player/Bg"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1743,6 +1747,83 @@ step = 0.001
 script = ExtResource("19_x04ip")
 bus_name = "sfx"
 
+[node name="WinScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 355.0
+offset_top = 14.0
+offset_right = 757.0
+offset_bottom = 89.0
+grow_horizontal = 2
+text = "You Defeated the Boss Wurm!
+Final Team"
+label_settings = SubResource("LabelSettings_08wur")
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="WinScreen"]
+offset_left = 572.0
+offset_top = 542.0
+offset_right = 844.0
+offset_bottom = 631.0
+theme_override_styles/hover_pressed_mirrored = ExtResource("12_r0crn")
+theme_override_styles/hover_pressed = ExtResource("12_r0crn")
+theme_override_styles/hover = ExtResource("12_r0crn")
+theme_override_styles/pressed = ExtResource("13_y54wi")
+theme_override_styles/normal_mirrored = ExtResource("13_y54wi")
+theme_override_styles/normal = ExtResource("13_y54wi")
+
+[node name="Label" type="Label" parent="WinScreen/MainMenu"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -15.0
+offset_right = -4.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_i5t2d")
+horizontal_alignment = 1
+
+[node name="CreditsButton" type="Button" parent="WinScreen"]
+offset_left = 288.0
+offset_top = 548.0
+offset_right = 545.0
+offset_bottom = 635.0
+theme_override_styles/hover_pressed_mirrored = ExtResource("12_r0crn")
+theme_override_styles/hover_pressed = ExtResource("13_y54wi")
+theme_override_styles/hover = ExtResource("13_y54wi")
+theme_override_styles/pressed = ExtResource("12_r0crn")
+theme_override_styles/normal = ExtResource("12_r0crn")
+
+[node name="Label" type="Label" parent="WinScreen/CreditsButton"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -21.5
+offset_right = -10.0
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+label_settings = SubResource("LabelSettings_i5t2d")
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Player/Bg/PartyButton" to="Player" method="_on_party_button_pressed"]
 [connection signal="pressed" from="Player/Bg/CreateButton" to="Player" method="_on_create_button_pressed"]
 [connection signal="pressed" from="Player/Bg/IndexButton" to="Player" method="_on_index_button_pressed"]
@@ -1773,3 +1854,5 @@ bus_name = "sfx"
 [connection signal="pressed" from="ChooseStarter/ConfirmScreen/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer/return_button" to="inGame_settings_menu" method="_on_return_button_pressed"]
 [connection signal="pressed" from="inGame_settings_menu/VBoxContainer/MarginContainer8/title_button" to="inGame_settings_menu" method="_on_title_button_pressed"]
+[connection signal="pressed" from="WinScreen/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="WinScreen/CreditsButton" to="." method="_on_credits_button_pressed"]

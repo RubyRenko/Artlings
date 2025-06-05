@@ -17,6 +17,7 @@ extends Node3D
 @onready var confirm_text = $ChooseStarter/ConfirmScreen/ConfirmText
 @onready var starter_name = $ChooseStarter/ConfirmScreen/StarterName
 @onready var starter_img = $ChooseStarter/ConfirmScreen/StarterImg
+
 var starter : String
 var starter_imgs = {
 	"Inkit": preload("res://Assets/artlings/Inkit_Party_Screen.png"),
@@ -25,9 +26,13 @@ var starter_imgs = {
 }
 @onready var master_move_list = load("res://move_list.tscn").instantiate()
 
+var in_tutorial = true
+@onready var win_screen = $WinScreen
+
 func _ready():
 	choosing_starter.visible = false
 	player.hide_screens(true)
+	player.setup_player()
 	current_battlefield = tutorial.instantiate()
 	environment_node.add_child(current_battlefield)
 	var tutorial_trainer = wild_battles.get_trainer("Tutorial")
@@ -37,14 +42,19 @@ func _ready():
 
 func _on_environment_child_exiting_tree(node):
 	#print(node)
-	print(node.is_in_group("boss"))
+	#print(node.is_in_group("boss"))
 	if node.is_in_group("tutorial"):
 		choosing_starter.visible = true
 		player.remove_artling("all")
 		player.inspo = 0
 		wild_battles.hide_children()
+		in_tutorial = false
 	elif node.is_in_group("boss") && enemies.get_child(enemies.get_child_count()-1).defeated:
 		player.interlude_bg.visible = true
+		player.party_screen.visible = true
+		player.party_screen.toggle_party_buttons(player.team)
+		player.party_screen.disable_buttons()
+		win_screen.visible = true
 		#wild_battles.hide_children()
 		enemies.get_child(enemies.get_child_count()-1).defeated = false
 		player.next_button.get_child(0).set_text("Replay Boss?")
@@ -117,3 +127,10 @@ func _on_back_button_pressed():
 
 func _on_encylo_back_button_pressed():
 	player.hide_screens()
+
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://Menus/title_screen.tscn")
+
+func _on_credits_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/credits.tscn")

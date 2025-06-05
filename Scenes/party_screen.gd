@@ -50,6 +50,11 @@ func toggle_erasing_buttons():
 func _on_swap_button_pressed():
 	toggle_swapping_buttons()
 
+func disable_buttons():
+	for button in party_list.get_children():
+		button.disabled = true
+	swap_button.visible = false
+	$BackButton.visible = false
 
 func _on_create_artling_pressed():
 	pass # Replace with function body.
