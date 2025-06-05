@@ -54,13 +54,16 @@ func attack(target, move):
 			#print("affected by blind, accuracy: " + str(acc))
 		elif status == "Focusing":
 			acc = 100
-		elif status == "Soapy" && len(damage_range) == 2:
+		elif status == "Soapy":
 			damage_range[0] -= atk.damage[0]/5
 			damage_range[1] = atk.damage[0]
 		elif status == "Confused":
 			var new_atk = current_moves.pick_random()
 			battle_text += "%s is confused, used %s instead.\n" % [nickname, new_atk]
 			atk = moves_list[new_atk]
+		elif status == "Poked":
+			damage_range[0] -= damage_range[0]/10
+			damage_range[1] -= damage_range[0]/10
 		
 		if target.status == "Hidden":
 			acc -= 30
@@ -288,7 +291,7 @@ func take_status():
 		if randi_range(0,50) <= strength:
 			damage -= 2
 		health -= damage
-		return nickname + " gets hurt from the grapple."
+		return nickname + " gets hurt from being trapped."
 	elif status == "Blind":
 		return nickname + " is blinded."
 	elif status == "Soapy":

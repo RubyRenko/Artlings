@@ -68,7 +68,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="TeethShot" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [60, 80, 20, 20]
+damage = [60, 70, 20, 20]
 accuracy = 90
 type = "Geometric"
 dmg_type = "str/self"
@@ -202,7 +202,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Sap" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [20, 30, -10, -15]
+damage = [20, 30, -20, -20]
 accuracy = 100
 type = "Water"
 dmg_type = "int/self"
@@ -337,6 +337,6 @@ damage = [10, 30]
 accuracy = 100
 dmg_type = "str"
 effect = [2, "Trapped"]
-desc = "Pricks the target and pokes holes in them"
-battle_text = "%s pricked %s."
+desc = "Tangles up the target and traps them"
+battle_text = "%s tangles up %s."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
