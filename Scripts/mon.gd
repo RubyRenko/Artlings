@@ -52,9 +52,10 @@ func attack(target, move):
 		if status == "Blind":
 			acc -= 20
 			#print("affected by blind, accuracy: " + str(acc))
-		elif status == "Focus":
+		elif status == "Focusing":
 			acc = 100
 		elif status == "Soapy" && len(damage_range) == 2:
+			damage_range[0] -= atk.damage[0]/5
 			damage_range[1] = atk.damage[0]
 		elif status == "Confused":
 			var new_atk = current_moves.pick_random()

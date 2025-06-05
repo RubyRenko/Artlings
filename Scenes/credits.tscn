@@ -1,14 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn0a0af01sc2c"]
+[gd_scene load_steps=13 format=3 uid="uid://bn0a0af01sc2c"]
 
 [ext_resource type="Script" uid="uid://b07ouilb6gwo2" path="res://credits.gd" id="1_1bamb"]
+[ext_resource type="Texture2D" uid="uid://dfus631j8veor" path="res://Menus/menu_images/titlescreenMENU.png" id="2_7emq5"]
 [ext_resource type="StyleBox" uid="uid://d1js15rgyr1bg" path="res://PaperButton3.tres" id="2_xelri"]
+[ext_resource type="Texture2D" uid="uid://cmawayb8ak4qv" path="res://Assets/UI/PaletteBoard.png" id="3_803yc"]
 [ext_resource type="StyleBox" uid="uid://dweatvv6dghwo" path="res://PaperButton4.tres" id="3_uah1q"]
 [ext_resource type="FontFile" uid="uid://bnw0gj6ea63ar" path="res://Assets/fonts/super-bakery-font/SuperBakery-3lXyp.ttf" id="4_7emq5"]
+[ext_resource type="FontFile" uid="uid://ct6msihjda3rp" path="res://Assets/fonts/melon-camp-font/MelonCamp-4nMxY.ttf" id="7_1wbrc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j6nef"]
+texture = ExtResource("2_7emq5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdv4u"]
+bg_color = Color(0.87451, 0.87451, 0.87451, 0.380392)
 
 [sub_resource type="LabelSettings" id="LabelSettings_803yc"]
 font = ExtResource("4_7emq5")
 font_size = 25
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ae0tj"]
+font = ExtResource("4_7emq5")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_rlyo5"]
+font = ExtResource("7_1wbrc")
+font_size = 20
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -19,17 +36,36 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1bamb")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Credits here"
+[node name="Bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j6nef")
+
+[node name="Panel" type="Panel" parent="Bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdv4u")
+
+[node name="PaletteBoard" type="Sprite2D" parent="."]
+position = Vector2(583.927, 314.588)
+rotation = 0.177258
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_803yc")
 
 [node name="MainMenu" type="Button" parent="."]
-offset_left = 440.0
-offset_top = 547.0
-offset_right = 712.0
-offset_bottom = 636.0
+offset_left = 222.542
+offset_top = 544.0
+offset_right = 494.542
+offset_bottom = 633.0
+rotation = 0.0428459
 theme_override_styles/hover_pressed_mirrored = ExtResource("2_xelri")
 theme_override_styles/hover_pressed = ExtResource("2_xelri")
 theme_override_styles/hover = ExtResource("2_xelri")
@@ -52,5 +88,218 @@ grow_vertical = 2
 text = "Main Menu"
 label_settings = SubResource("LabelSettings_803yc")
 horizontal_alignment = 1
+
+[node name="Heading" type="Label" parent="."]
+offset_left = 681.542
+offset_top = 53.0
+offset_right = 823.542
+offset_bottom = 89.0
+rotation = 0.0428459
+text = "Game Lead"
+label_settings = SubResource("LabelSettings_ae0tj")
+
+[node name="Label" type="Label" parent="Heading"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.5
+offset_top = -3.0
+offset_right = 44.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Lina Chen"
+label_settings = SubResource("LabelSettings_rlyo5")
+
+[node name="Heading2" type="Label" parent="."]
+offset_left = 203.0
+offset_top = 41.0
+offset_right = 580.0
+offset_bottom = 77.0
+rotation = 0.0428459
+text = "Artling DesIgn"
+label_settings = SubResource("LabelSettings_ae0tj")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Heading2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 41.0
+offset_bottom = 281.0
+grow_horizontal = 2
+text = "Inkit - Kevin Hong
+Dewphin - Kevin Hong
+Wurm - Aubrey Rhodes-Gorman
+Wurm Beast - Aubrey Rhodes-Gorman 
+Yolkcub - Shiyu Li
+Bapig - Shiyu Li
+Slicer - Laura Zhou
+Hatguy - Lyssa (mzbljack)
+"
+label_settings = SubResource("LabelSettings_rlyo5")
+
+[node name="Heading3" type="Label" parent="."]
+offset_left = 149.0
+offset_top = 317.0
+offset_right = 555.0
+offset_bottom = 353.0
+rotation = 0.0428459
+text = "Artling Animation"
+label_settings = SubResource("LabelSettings_ae0tj")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Heading3"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -0.5
+offset_top = 38.0
+offset_right = 0.5
+offset_bottom = 143.0
+grow_horizontal = 2
+text = "Lead 3D animator - Aubrey Rhodes-Gorman
+Lead 2D animator - Kevin Hong
+
+"
+label_settings = SubResource("LabelSettings_rlyo5")
+
+[node name="Heading4" type="Label" parent="."]
+offset_left = 166.0
+offset_top = 436.0
+offset_right = 542.0
+offset_bottom = 472.0
+rotation = 0.0428459
+text = "Enivornmental Art"
+label_settings = SubResource("LabelSettings_ae0tj")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Heading4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 41.0
+offset_right = 234.0
+offset_bottom = 173.0
+grow_horizontal = 2
+text = "Lead Environmental Artist - Ela Golubkova
+Watercolor Pond Environment - Shiyu Li
+
+
+"
+label_settings = SubResource("LabelSettings_rlyo5")
+
+[node name="Heading5" type="Label" parent="."]
+offset_left = 717.626
+offset_top = 144.0
+offset_right = 913.626
+offset_bottom = 180.0
+rotation = 0.0428459
+text = "Sound Design"
+label_settings = SubResource("LabelSettings_ae0tj")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Heading5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.5
+offset_top = -3.0
+offset_right = 44.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Christine Ashley Role"
+label_settings = SubResource("LabelSettings_rlyo5")
+
+[node name="Heading6" type="Label" parent="."]
+offset_left = 661.084
+offset_top = 230.0
+offset_right = 970.084
+offset_bottom = 266.0
+rotation = 0.0428459
+text = "Programming"
+label_settings = SubResource("LabelSettings_ae0tj")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Heading6"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_top = 42.0
+offset_right = 177.5
+offset_bottom = 174.0
+grow_horizontal = 2
+text = "Lead Programmer - Lina Chen
+Settings - Christine Ashley Role
+
+
+"
+label_settings = SubResource("LabelSettings_rlyo5")
+
+[node name="Heading7" type="Label" parent="."]
+offset_left = 696.626
+offset_top = 340.0
+offset_right = 929.626
+offset_bottom = 376.0
+rotation = 0.0428459
+text = "UI/UX"
+label_settings = SubResource("LabelSettings_ae0tj")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Heading7"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.5
+offset_top = 46.0
+offset_right = 136.5
+offset_bottom = 178.0
+grow_horizontal = 2
+text = "Christine Ashley Role
+Kevin Hong
+Lina Chen
+
+"
+label_settings = SubResource("LabelSettings_rlyo5")
+
+[node name="Heading8" type="Label" parent="."]
+offset_left = 612.542
+offset_top = 473.0
+offset_right = 1001.54
+offset_bottom = 509.0
+rotation = 0.0428459
+text = "Fonts"
+label_settings = SubResource("LabelSettings_ae0tj")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Heading8"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.5
+offset_top = 46.0
+offset_right = 136.5
+offset_bottom = 178.0
+grow_horizontal = 2
+text = "Cleanow - Fontspace Khurasan
+Melon Camp - Fontspace Khurasan
+Super Bakery - Fontspace All Super Font
+
+
+"
+label_settings = SubResource("LabelSettings_rlyo5")
 
 [connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

@@ -80,7 +80,7 @@ func _on_train_button_pressed():
 	current_battlefield = battlefields.pick_random().instantiate()
 	environment_node.add_child(current_battlefield)
 	var wild_battle
-	if player.team[0].level <= 4:
+	if player.team[0].level <= 3:
 		wild_battle = wild_battles.get_random(2)
 	else:
 		wild_battle = wild_battles.get_random()

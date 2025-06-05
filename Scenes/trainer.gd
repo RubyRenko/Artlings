@@ -14,7 +14,7 @@ func setup_artlings():
 		for move in artling_movesets[i]:
 			artling.load_move(artling.master_move_list.get_move(move))
 		artling.current_moves = artling_movesets[i]
-		var stats = artling_stats[0]
+		var stats = artling_stats[i]
 		artling.set_stats(stats[0], stats[1], stats[2], stats[3], stats[4], stats[5])
 		#print(artling.level)
 

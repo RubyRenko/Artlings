@@ -192,7 +192,7 @@ metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Rejuvenate" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [-30, -30]
+damage = [-40, -40]
 accuracy = 100
 type = "Water"
 dmg_type = "self"
@@ -216,14 +216,14 @@ damage = [10, 20]
 accuracy = 90
 type = "Water"
 dmg_type = "int"
-effect = [3, "Soapy"]
+effect = [4, "Soapy"]
 desc = "A soapy wash that reduces target's damage"
 battle_text = "%s gives %s a soapy wash."
 metadata/_custom_type_script = "uid://je6io23ym5wg"
 
 [node name="Cure" type="Node" parent="." groups=["move"]]
 script = ExtResource("2_uqtxr")
-damage = [-50, -60]
+damage = [-60, -70]
 accuracy = 100
 type = "Water"
 dmg_type = "self"
@@ -238,7 +238,7 @@ damage = [20, 40]
 accuracy = 90
 type = "Water"
 dmg_type = "int"
-effect = [1, "Soapy"]
+effect = [2, "Soapy"]
 desc = "Soapy bubbles that reduces the target's damage for a little bit"
 battle_text = "%s uses bubbles to attack %s!"
 metadata/_custom_type_script = "uid://je6io23ym5wg"
@@ -287,7 +287,7 @@ damage = [30, 40]
 accuracy = 90
 type = "Geometric"
 dmg_type = "str"
-effect = [2, "Flattened"]
+effect = [3, "Flattened"]
 desc = "Rolls over and flattens the target so they take more damage"
 battle_text = "%s barrels over %s."
 metadata/_custom_type_script = "uid://je6io23ym5wg"

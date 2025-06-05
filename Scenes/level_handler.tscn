@@ -342,6 +342,7 @@ label_settings = SubResource("LabelSettings_i5t2d")
 horizontal_alignment = 1
 
 [node name="PartyScreen" type="Panel" parent="Player/Bg"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1348,7 +1349,7 @@ visible = false
 script = ExtResource("35_vgr1s")
 level = 3
 artling_movesets = [["Nibble", "Roll", "Focus", "Charge"], ["BaconSlap", "Thud", "Lick"]]
-artling_stats = [[80, 8, 30, 8, 30, 10], [20, 30, 5, 30, 5, 5]]
+artling_stats = [[80, 8, 60, 8, 60, 10], [20, 30, 5, 30, 5, 25]]
 battlefield = ExtResource("26_uloti")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1365,7 +1366,7 @@ visible = false
 script = ExtResource("30_a8wuu")
 level = 5
 artling_movesets = [["Sap", "BubbleBurst", "Cure", "Wash"]]
-artling_stats = [[100, 10, 45, 25, 45, 12]]
+artling_stats = [[100, 10, 80, 35, 80, 20]]
 battlefield = ExtResource("26_q6ldt")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1378,7 +1379,7 @@ visible = false
 script = ExtResource("32_a8wuu")
 level = 6
 artling_movesets = [["Stipple", "Dollop", "Smoke", "Inkblot"], ["Teeth", "Blender", "Focus", "Charge"]]
-artling_stats = [[70, 20, 18, 35, 18, 30], [80, 35, 25, 10, 13, 20]]
+artling_stats = [[70, 20, 18, 35, 40, 30], [80, 35, 40, 10, 30, 20]]
 battlefield = ExtResource("39_p68xn")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1395,7 +1396,7 @@ visible = false
 script = ExtResource("45_l5lre")
 level = 4
 artling_movesets = [["Blender", "TeethShot", "Screech", "Grapple"]]
-artling_stats = [[150, 40, 28, 10, 18, 30]]
+artling_stats = [[150, 80, 100, 10, 100, 50]]
 battlefield = ExtResource("26_q6ldt")
 metadata/_custom_type_script = "uid://b8yh41nerx1t0"
 
@@ -1770,6 +1771,7 @@ label_settings = SubResource("LabelSettings_08wur")
 horizontal_alignment = 1
 
 [node name="MainMenu" type="Button" parent="WinScreen"]
+layout_mode = 0
 offset_left = 572.0
 offset_top = 542.0
 offset_right = 844.0
@@ -1798,6 +1800,7 @@ label_settings = SubResource("LabelSettings_i5t2d")
 horizontal_alignment = 1
 
 [node name="CreditsButton" type="Button" parent="WinScreen"]
+layout_mode = 0
 offset_left = 288.0
 offset_top = 548.0
 offset_right = 545.0
