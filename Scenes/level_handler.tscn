@@ -1,7 +1,8 @@
-[gd_scene load_steps=92 format=3 uid="uid://c8xalf3l186ie"]
+[gd_scene load_steps=96 format=3 uid="uid://c8xalf3l186ie"]
 
 [ext_resource type="Script" uid="uid://8cy56aw8kpre" path="res://level_handler.gd" id="1_xxr4i"]
 [ext_resource type="Script" uid="uid://r0ti4t5vgter" path="res://player_new.gd" id="2_mq6nj"]
+[ext_resource type="Texture2D" uid="uid://dfig1ykrdk4d1" path="res://Assets/environment/Paper_area/PaperBg.PNG" id="3_08wur"]
 [ext_resource type="Script" uid="uid://dmnc643jg62hx" path="res://Scenes/artlings.gd" id="3_hy7hh"]
 [ext_resource type="StyleBox" uid="uid://b4osqp4vl6bpa" path="res://stat_screen.tres" id="4_7fipc"]
 [ext_resource type="Texture2D" uid="uid://dt3tyempvf42f" path="res://Assets/UI/SketchBook.png" id="4_pln8l"]
@@ -67,8 +68,11 @@
 [ext_resource type="StyleBox" uid="uid://bbu5oqpb3knbp" path="res://PaperButton2.tres" id="60_r0crn"]
 [ext_resource type="StyleBox" uid="uid://s4fe08lmhyj8" path="res://PaperButton1.tres" id="61_y54wi"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fipc"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4y5mc"]
+texture = ExtResource("3_08wur")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08wur"]
+bg_color = Color(0.87451, 0.87451, 0.87451, 0.380392)
 
 [sub_resource type="InputEventKey" id="InputEventKey_7k868"]
 device = -1
@@ -91,7 +95,11 @@ font = ExtResource("13_753ol")
 font_size = 25
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvl4v"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cas54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyend"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lou55"]
 
@@ -177,7 +185,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7fipc")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4y5mc")
+
+[node name="Panel" type="Panel" parent="Player/Bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_08wur")
 
 [node name="PartyButton" type="TextureButton" parent="Player/Bg"]
 layout_mode = 0
@@ -334,7 +351,7 @@ offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = ExtResource("4_7fipc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hvl4v")
 script = ExtResource("16_50soc")
 
 [node name="PartyBg" type="TextureRect" parent="Player/Bg/PartyScreen"]
@@ -836,7 +853,7 @@ offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = ExtResource("4_7fipc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oyend")
 script = ExtResource("5_xi342")
 
 [node name="PaletteBoard" type="Sprite2D" parent="Player/Bg/CreateScreen"]

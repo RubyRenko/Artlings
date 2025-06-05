@@ -6,5 +6,5 @@ func choose_move(player_mon, current_mon):
 	elif player_mon.defense <= player_mon.mind:
 		return "InkSlash"
 	else:
-		return ["Dollop", "Stippple"].pick_random()
+		return ["Dollop", "Stipple"].pick_random()
 	
