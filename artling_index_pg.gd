@@ -31,7 +31,7 @@ var artling_info = {
 	["Thud", "HatTip", "KarateKick"] ],
 	#Laura's scissors
 	"Slicer": ["Slicer", preload("res://Assets/artlings/tempsliceycropped.png"),\
-	"Fragile and pinchy but great with crafts", "Artist: Laura Zhou", "Recipe: 2+ red, 2+ violet",\
+	"Fragile and pinchy but great with crafts", "Artist: Zhou", "Recipe: 2+ red, 2+ violet",\
 	["Thud", "HatTip", "KarateKick"] ],
 	#Boss Wurm
 	"Wurm Beast": ["Wurm Beast", preload("res://Assets/artlings/WurmEvo.png"),\

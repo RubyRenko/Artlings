@@ -61,6 +61,7 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_803yc")
 
 [node name="MainMenu" type="Button" parent="."]
+layout_mode = 0
 offset_left = 222.542
 offset_top = 544.0
 offset_right = 494.542
@@ -90,6 +91,7 @@ label_settings = SubResource("LabelSettings_803yc")
 horizontal_alignment = 1
 
 [node name="Heading" type="Label" parent="."]
+layout_mode = 0
 offset_left = 681.542
 offset_top = 53.0
 offset_right = 823.542
@@ -115,6 +117,7 @@ text = "Lina Chen"
 label_settings = SubResource("LabelSettings_rlyo5")
 
 [node name="Heading2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 203.0
 offset_top = 41.0
 offset_right = 580.0
@@ -137,12 +140,13 @@ Wurm - Aubrey Rhodes-Gorman
 Wurm Beast - Aubrey Rhodes-Gorman 
 Yolkcub - Shiyu Li
 Bapig - Shiyu Li
-Slicer - Laura Zhou
+Slicer - Zhou
 Hatguy - Lyssa (mzbljack)
 "
 label_settings = SubResource("LabelSettings_rlyo5")
 
 [node name="Heading3" type="Label" parent="."]
+layout_mode = 0
 offset_left = 149.0
 offset_top = 317.0
 offset_right = 555.0
@@ -168,6 +172,7 @@ Lead 2D animator - Kevin Hong
 label_settings = SubResource("LabelSettings_rlyo5")
 
 [node name="Heading4" type="Label" parent="."]
+layout_mode = 0
 offset_left = 166.0
 offset_top = 436.0
 offset_right = 542.0
@@ -195,6 +200,7 @@ Watercolor Pond Environment - Shiyu Li
 label_settings = SubResource("LabelSettings_rlyo5")
 
 [node name="Heading5" type="Label" parent="."]
+layout_mode = 0
 offset_left = 717.626
 offset_top = 144.0
 offset_right = 913.626
@@ -221,6 +227,7 @@ text = "Christine Ashley Role"
 label_settings = SubResource("LabelSettings_rlyo5")
 
 [node name="Heading6" type="Label" parent="."]
+layout_mode = 0
 offset_left = 661.084
 offset_top = 230.0
 offset_right = 970.084
@@ -248,6 +255,7 @@ Settings - Christine Ashley Role
 label_settings = SubResource("LabelSettings_rlyo5")
 
 [node name="Heading7" type="Label" parent="."]
+layout_mode = 0
 offset_left = 696.626
 offset_top = 340.0
 offset_right = 929.626
@@ -275,6 +283,7 @@ Lina Chen
 label_settings = SubResource("LabelSettings_rlyo5")
 
 [node name="Heading8" type="Label" parent="."]
+layout_mode = 0
 offset_left = 612.542
 offset_top = 473.0
 offset_right = 1001.54
